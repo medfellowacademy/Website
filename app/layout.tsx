@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import CustomCursor from "@/components/effects/CustomCursor";
+import ScrollProgress from "@/components/effects/ScrollProgress";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -25,8 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-background text-text-primary`}>
+        <CustomCursor />
+        <ScrollProgress />
         {children}
         <WhatsAppWidget />
       </body>
