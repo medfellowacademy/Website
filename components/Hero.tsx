@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { TrendingUp, Award, Users, Target, ArrowRight, Play } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
-import Card3D from './3d/Card3D';
 import MagneticButton from './effects/MagneticButton';
 import { useParallax } from '@/hooks/useParallax';
 
@@ -178,91 +177,63 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* 3D Animated Stats with Card3D */}
+          {/* Animated Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
-            <Card3D 
-              className="w-full h-full"
-              tiltMaxAngleX={15}
-              tiltMaxAngleY={15}
-              scale={1.08}
+            <motion.div 
+              className="glass-card rounded-2xl p-6 text-center group h-full"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(244,162,97,0.4)" }}
             >
-              <motion.div 
-                className="glass-card rounded-2xl p-6 text-center group h-full"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                whileHover={{ boxShadow: "0 20px 60px rgba(244,162,97,0.4)" }}
-              >
-                <TrendingUp className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform animate-float-3d" />
-                <div className="text-5xl font-bold mb-2 text-accent">
-                  <AnimatedCounter end={156} suffix="%" />
-                </div>
-                <div className="text-sm font-medium opacity-90">Average Income Increase</div>
-              </motion.div>
-            </Card3D>
+              <TrendingUp className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <div className="text-5xl font-bold mb-2 text-accent">
+                <AnimatedCounter end={156} suffix="%" />
+              </div>
+              <div className="text-sm font-medium opacity-90">Average Income Increase</div>
+            </motion.div>
             
-            <Card3D 
-              className="w-full h-full"
-              tiltMaxAngleX={15}
-              tiltMaxAngleY={15}
-              scale={1.08}
+            <motion.div 
+              className="glass-card rounded-2xl p-6 text-center group h-full"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(244,162,97,0.4)" }}
             >
-              <motion.div 
-                className="glass-card rounded-2xl p-6 text-center group h-full"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.9 }}
-                whileHover={{ boxShadow: "0 20px 60px rgba(244,162,97,0.4)" }}
-              >
-                <Target className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform animate-float-3d" style={{ animationDelay: '0.5s' }} />
-                <div className="text-5xl font-bold mb-2 text-accent">
-                  <AnimatedCounter end={24} />
-                </div>
-                <div className="text-sm font-medium opacity-90">Months to Transform</div>
-              </motion.div>
-            </Card3D>
+              <Target className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <div className="text-5xl font-bold mb-2 text-accent">
+                <AnimatedCounter end={24} />
+              </div>
+              <div className="text-sm font-medium opacity-90">Months to Transform</div>
+            </motion.div>
             
-            <Card3D 
-              className="w-full h-full"
-              tiltMaxAngleX={15}
-              tiltMaxAngleY={15}
-              scale={1.08}
+            <motion.div 
+              className="glass-card rounded-2xl p-6 text-center group h-full"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.0 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(244,162,97,0.4)" }}
             >
-              <motion.div 
-                className="glass-card rounded-2xl p-6 text-center group h-full"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-                whileHover={{ boxShadow: "0 20px 60px rgba(244,162,97,0.4)" }}
-              >
-                <Users className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform animate-float-3d" style={{ animationDelay: '1s' }} />
-                <div className="text-5xl font-bold mb-2 text-accent">
-                  <AnimatedCounter end={500} suffix="+" />
-                </div>
-                <div className="text-sm font-medium opacity-90">Careers Transformed</div>
-              </motion.div>
-            </Card3D>
+              <Users className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <div className="text-5xl font-bold mb-2 text-accent">
+                <AnimatedCounter end={500} suffix="+" />
+              </div>
+              <div className="text-sm font-medium opacity-90">Careers Transformed</div>
+            </motion.div>
             
-            <Card3D 
-              className="w-full h-full"
-              tiltMaxAngleX={15}
-              tiltMaxAngleY={15}
-              scale={1.08}
+            <motion.div 
+              className="glass-card rounded-2xl p-6 text-center group h-full"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1.1 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(244,162,97,0.4)" }}
             >
-              <motion.div 
-                className="glass-card rounded-2xl p-6 text-center group h-full"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.1 }}
-                whileHover={{ boxShadow: "0 20px 60px rgba(244,162,97,0.4)" }}
-              >
-                <Award className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform animate-float-3d" style={{ animationDelay: '1.5s' }} />
-                <div className="text-5xl font-bold mb-2 text-accent">
-                  <AnimatedCounter end={17} />
-                </div>
-                <div className="text-sm font-medium opacity-90">High-Demand Specialties</div>
-              </motion.div>
-            </Card3D>
+              <Award className="w-8 h-8 text-accent mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <div className="text-5xl font-bold mb-2 text-accent">
+                <AnimatedCounter end={17} />
+              </div>
+              <div className="text-sm font-medium opacity-90">High-Demand Specialties</div>
+            </motion.div>
           </div>
 
           {/* Trust Logos with subtle animations */}
