@@ -67,7 +67,8 @@ export default function Blog() {
       category: "ROI Analysis",
       readTime: "10 min read",
       date: "3 Jan 2026",
-      views: "11.2K"
+      views: "11.2K",
+      image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80"
     },
     {
       slug: "ivf-fellowship-guide",
@@ -76,7 +77,8 @@ export default function Blog() {
       category: "Fellowship Guides",
       readTime: "12 min read",
       date: "1 Jan 2026",
-      views: "5.7K"
+      views: "5.7K",
+      image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=800&q=80"
     },
     {
       slug: "pain-management-opportunities",
@@ -85,7 +87,8 @@ export default function Blog() {
       category: "Career Opportunities",
       readTime: "6 min read",
       date: "29 Dec 2025",
-      views: "4.3K"
+      views: "4.3K",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
     }
   ];
 
