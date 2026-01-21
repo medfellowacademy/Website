@@ -1,4 +1,4 @@
-='use client';
+'use client';
 
 import { ReactNode, useRef } from 'react';
 import Tilt from 'react-parallax-tilt';
