@@ -1,19 +1,19 @@
 export default function WhyMedFellow() {
   const benefits = [
     {
-      icon: "🎓",
-      title: "Expert Faculty",
-      description: "Learn from renowned specialists with decades of clinical and teaching experience."
+      icon: "💰",
+      title: "3X Your Income Potential",
+      description: "Fellows report earning 2.5-4X more within 18 months of completion. Position yourself as a premium specialist commanding top consultation fees."
     },
     {
-      icon: "🏥",
-      title: "Hands-on Training",
-      description: "Gain practical experience through clinical rotations at premier healthcare institutions."
+      icon: "⚡",
+      title: "Fast-Track Career Acceleration",
+      description: "Skip 5-7 years of traditional career progression. Become a recognized expert in high-demand specialties in just 12-24 months."
     },
     {
-      icon: "📜",
-      title: "Accredited Certification",
-      description: "Receive globally recognized certifications that enhance your professional credentials."
+      icon: "🎯",
+      title: "Market Positioning Power",
+      description: "Stand out in a crowded medical marketplace. Attract premium patients, hospital partnerships, and corporate opportunities unavailable to generalists."
     }
   ];
 
@@ -22,10 +22,10 @@ export default function WhyMedFellow() {
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-heading font-bold text-primary mb-4">
-            Why Choose Med Fellow Academy?
+            What Makes This Different From Traditional Training?
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mx-auto">
-            We combine academic excellence with practical skills training to prepare you for real-world medical practice.
+            This isn't just education—it's a career transformation system designed to multiply your earning potential and professional status.
           </p>
         </div>
 

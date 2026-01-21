@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,8 +11,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-accent to-secondary rounded-lg flex items-center justify-center text-white font-heading text-xl">
-                MF
+              <div className="w-12 h-12 relative">
+                <Image
+                  src="/logo.png"
+                  alt="Med Fellow Academy Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
               <h3 className="text-2xl font-heading font-bold">
                 Med Fellow Academy

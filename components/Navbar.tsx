@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,8 +12,14 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:shadow-lg transition-all">
-              MF
+            <div className="w-12 h-12 relative">
+              <Image
+                src="/logo.png"
+                alt="Med Fellow Academy Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
             <div>
               <h1 className="text-xl font-heading font-bold text-primary">
@@ -23,18 +30,49 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             <Link href="/" className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">
               Home
             </Link>
             <Link href="/programs" className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">
               Programs
             </Link>
-            <Link href="/about" className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">
-              About Us
+            
+            {/* Features Dropdown */}
+            <div className="group relative">
+              <button className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium flex items-center gap-1">
+                Features
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <Link href="/learning-model" className="block px-4 py-3 text-text-secondary hover:bg-primary/5 hover:text-primary transition-colors">
+                  🎓 Hybrid Learning
+                </Link>
+                <Link href="/mentorship" className="block px-4 py-3 text-text-secondary hover:bg-primary/5 hover:text-primary transition-colors">
+                  🤝 Mentorship
+                </Link>
+                <Link href="/research" className="block px-4 py-3 text-text-secondary hover:bg-primary/5 hover:text-primary transition-colors">
+                  🔬 Research Integration
+                </Link>
+                <Link href="/dashboard" className="block px-4 py-3 text-text-secondary hover:bg-primary/5 hover:text-primary transition-colors">
+                  📊 Live Dashboard
+                </Link>
+                <Link href="/virtual-tours" className="block px-4 py-3 text-text-secondary hover:bg-primary/5 hover:text-primary transition-colors">
+                  🏥 Virtual Tours
+                </Link>
+              </div>
+            </div>
+
+            <Link href="/resources" className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">
+              Resources
             </Link>
-            <Link href="/faculty" className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">
-              Faculty
+            <Link href="/blog" className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">
+              Blog
+            </Link>
+            <Link href="/comparison" className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">
+              Compare
             </Link>
             <Link href="/contact" className="text-text-secondary hover:text-primary transition-colors duration-200 font-medium">
               Contact
@@ -73,11 +111,35 @@ export default function Navbar() {
               <Link href="/programs" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
                 Programs
               </Link>
-              <Link href="/about" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
-                About Us
+              <Link href="/learning-model" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                🎓 Hybrid Learning
               </Link>
-              <Link href="/faculty" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
-                Faculty
+              <Link href="/mentorship" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                🤝 Mentorship
+              </Link>
+              <Link href="/research" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                🔬 Research Integration
+              </Link>
+              <Link href="/resources" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                📚 Resources
+              </Link>
+              <Link href="/blog" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                📰 Blog
+              </Link>
+              <Link href="/comparison" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                ⚖️ Compare
+              </Link>
+              <Link href="/dashboard" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                📊 Live Dashboard
+              </Link>
+              <Link href="/virtual-tours" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                🏥 Virtual Tours
+              </Link>
+              <Link href="/fellowship-matcher" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                🎯 Fellowship Matcher
+              </Link>
+              <Link href="/financial-aid" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
+                💰 Financial Aid
               </Link>
               <Link href="/contact" className="text-text-secondary hover:text-primary transition-colors font-medium" onClick={() => setIsOpen(false)}>
                 Contact

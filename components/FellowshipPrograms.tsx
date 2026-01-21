@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function FellowshipPrograms() {
   const programs = [
@@ -8,7 +9,8 @@ export default function FellowshipPrograms() {
       eligibility: "MS Orthopedics/DNB",
       description: "Advanced training in arthroscopic procedures and joint replacement surgery.",
       highlights: ["Knee Arthroscopy", "Hip Replacement", "Shoulder Surgery"],
-      icon: "🦴"
+      icon: "🦴",
+      image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80"
     },
     {
       name: "Fellowship in Gastroenterology",
@@ -16,7 +18,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD Medicine/DNB",
       description: "Comprehensive training in diagnostic and therapeutic gastroenterology procedures.",
       highlights: ["Endoscopy", "Colonoscopy", "ERCP"],
-      icon: "🔬"
+      icon: "🔬",
+      image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80"
     },
     {
       name: "Fellowship in Reproductive Medicine",
@@ -24,7 +27,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD/MS Obs & Gyn",
       description: "Specialized training in infertility management and assisted reproductive techniques.",
       highlights: ["IVF", "ICSI", "Fertility Preservation"],
-      icon: "👶"
+      icon: "👶",
+      image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80"
     },
     {
       name: "Fellowship in Pain Management",
@@ -32,7 +36,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD/DNB Anesthesia",
       description: "Expert training in interventional pain management and chronic pain treatment.",
       highlights: ["Nerve Blocks", "Spinal Interventions", "Chronic Pain"],
-      icon: "💊"
+      icon: "💊",
+      image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&q=80"
     },
     {
       name: "Fellowship in Diabetology",
@@ -40,7 +45,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD Medicine/DNB",
       description: "Focused training in diabetes care, insulin management, and metabolic disorders.",
       highlights: ["Insulin Therapy", "Metabolic Disorders", "Diabetic Complications"],
-      icon: "🩺"
+      icon: "🩺",
+      image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80"
     },
     {
       name: "Fellowship in Endocrinology",
@@ -48,7 +54,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD Medicine/DNB",
       description: "Comprehensive training in hormone disorders and endocrine system management.",
       highlights: ["Thyroid Disorders", "Pituitary Disorders", "Bone Health"],
-      icon: "⚕️"
+      icon: "⚕️",
+      image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&q=80"
     },
     {
       name: "Fellowship in Rheumatology",
@@ -140,67 +147,95 @@ export default function FellowshipPrograms() {
     }
   ];
 
+  // Show only featured programs on homepage (first 6)
+  const featuredPrograms = programs.slice(0, 6);
+
   return (
     <section id="programs" className="section-padding bg-background">
       <div className="container-custom">
         <div className="text-center mb-16">
           <div className="inline-block px-4 py-2 bg-secondary/10 rounded-full mb-4">
-            <span className="text-sm font-semibold text-secondary">17 SPECIALIZATIONS</span>
+            <span className="text-sm font-semibold text-secondary">FEATURED PROGRAMS</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-heading font-bold text-primary mb-4">
-            Fellowship Programs
+            Popular Fellowship Programs
           </h2>
           <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Choose from our comprehensive range of specialized fellowship programs designed for medical excellence
+            Explore our most sought-after specializations with proven career outcomes
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {programs.map((program, index) => (
-            <div key={index} className="card p-6 lg:p-8 hover:border-secondary hover:shadow-xl group">
-              {/* Icon */}
-              <div className="w-14 h-14 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
-                {program.icon}
-              </div>
-
-              {/* Program Name */}
-              <h3 className="text-xl font-heading font-semibold text-primary mb-3 group-hover:text-secondary transition-colors">
-                {program.name}
-              </h3>
-
-              {/* Duration & Eligibility */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
-                  ⏱️ {program.duration}
-                </span>
-                <span className="px-3 py-1 bg-gray-100 text-text-secondary rounded-full text-sm">
-                  {program.eligibility}
-                </span>
-              </div>
-
-              {/* Description */}
-              <p className="text-text-secondary mb-4 leading-relaxed">
-                {program.description}
-              </p>
-
-              {/* Highlights */}
-              <div className="mb-6">
-                <p className="text-sm font-semibold text-primary mb-2">Key Focus Areas:</p>
-                <div className="flex flex-wrap gap-2">
-                  {program.highlights.map((highlight, idx) => (
-                    <span key={idx} className="text-xs px-2 py-1 bg-primary/5 text-primary rounded border border-primary/10">
-                      {highlight}
-                    </span>
-                  ))}
+          {featuredPrograms.map((program, index) => (
+            <div key={index} className="card overflow-hidden hover:border-secondary hover:shadow-xl group">
+              {/* Program Image */}
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={program.image}
+                  alt={program.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
+                {/* Icon Badge */}
+                <div className="absolute bottom-4 left-4 w-14 h-14 bg-white/95 rounded-xl flex items-center justify-center text-3xl shadow-lg">
+                  {program.icon}
                 </div>
               </div>
 
-              {/* CTA */}
-              <Link href={`/programs/${program.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="block w-full text-center px-6 py-3 border-2 border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-200">
-                View Details →
-              </Link>
+              <div className="p-6 lg:p-8">
+                {/* Program Name */}
+                <h3 className="text-xl font-heading font-semibold text-primary mb-3 group-hover:text-secondary transition-colors">
+                  {program.name}
+                </h3>
+
+                {/* Duration & Eligibility */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">
+                    ⏱️ {program.duration}
+                  </span>
+                  <span className="px-3 py-1 bg-gray-100 text-text-secondary rounded-full text-sm">
+                    {program.eligibility}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-text-secondary mb-4 leading-relaxed">
+                  {program.description}
+                </p>
+
+                {/* Highlights */}
+                <div className="mb-6">
+                  <p className="text-sm font-semibold text-primary mb-2">Key Focus Areas:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {program.highlights.map((highlight, idx) => (
+                      <span key={idx} className="text-xs px-2 py-1 bg-primary/5 text-primary rounded border border-primary/10">
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <Link href={`/programs/${program.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="block w-full text-center px-6 py-3 border-2 border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition-all duration-200">
+                  View Details →
+                </Link>
+              </div>
             </div>
           ))}
+        </div>
+
+        {/* View All Button */}
+        <div className="mt-12 text-center">
+          <Link href="/programs" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-accent transition-all text-lg shadow-lg hover:shadow-xl">
+            View All 17 Programs
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </Link>
+          <p className="text-sm text-text-secondary mt-3">
+            Including Critical Care, Emergency Medicine, Spine Surgery & more
+          </p>
         </div>
 
         {/* CTA Section */}

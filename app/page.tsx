@@ -1,10 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WhyMedFellow from "@/components/WhyMedFellow";
-import FellowshipPrograms from "@/components/FellowshipPrograms";
+import TrustProof from "@/components/TrustProof";
+import LiveBatchTracker from "@/components/LiveBatchTracker";
+import TrainingFacilities from "@/components/TrainingFacilities";
 import Faculty from "@/components/Faculty";
 import Certification from "@/components/Certification";
 import Testimonials from "@/components/Testimonials";
+import LeadMagnetBanner from "@/components/LeadMagnetBanner";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,10 +16,13 @@ export default function Home() {
       <Navbar />
       <Hero />
       <WhyMedFellow />
-      <FellowshipPrograms />
+      <TrustProof />
+      <TrainingFacilities />
       <Faculty />
-      <Certification />
+      <LiveBatchTracker />
       <Testimonials />
+      <Certification />
+      <LeadMagnetBanner />
       <Footer />
     </div>
   );

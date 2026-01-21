@@ -33,6 +33,10 @@ export default function ApplyPage() {
           <p className="text-xl max-w-3xl mx-auto opacity-90">
             Take the first step towards advancing your medical career
           </p>
+          <div className="mt-6 inline-flex items-center gap-4 text-sm">
+            <span className="px-4 py-2 bg-white/20 rounded-full">⏰ Next Batch: March 2026</span>
+            <span className="px-4 py-2 bg-white/20 rounded-full">📅 Application Deadline: Feb 28, 2026</span>
+          </div>
         </div>
       </section>
 
@@ -41,13 +45,14 @@ export default function ApplyPage() {
           {/* Application Steps */}
           <div className="mb-12">
             <h2 className="text-3xl font-heading font-bold text-primary mb-8 text-center">Application Process</h2>
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-4 gap-6 mb-8">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold">
                   1
                 </div>
                 <h3 className="font-semibold text-primary mb-2">Submit Application</h3>
                 <p className="text-sm text-text-secondary">Complete the online form</p>
+                <p className="text-xs text-accent mt-1 font-semibold">1-2 days</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center text-white text-2xl font-bold">
@@ -55,21 +60,27 @@ export default function ApplyPage() {
                 </div>
                 <h3 className="font-semibold text-primary mb-2">Document Review</h3>
                 <p className="text-sm text-text-secondary">We verify your credentials</p>
+                <p className="text-xs text-accent mt-1 font-semibold">3-5 days</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold">
                   3
                 </div>
                 <h3 className="font-semibold text-primary mb-2">Interview</h3>
-                <p className="text-sm text-text-secondary">Discussion with faculty</p>
+                <p className="text-sm text-text-secondary">Virtual/In-person with faculty</p>
+                <p className="text-xs text-accent mt-1 font-semibold">Within 7 days</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center text-white text-2xl font-bold">
                   4
                 </div>
                 <h3 className="font-semibold text-primary mb-2">Admission</h3>
-                <p className="text-sm text-text-secondary">Receive offer letter</p>
+                <p className="text-sm text-text-secondary">Receive offer letter & fee details</p>
+                <p className="text-xs text-accent mt-1 font-semibold">Within 3 days</p>
               </div>
+            </div>
+            <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 text-center">
+              <p className="text-sm text-primary"><strong>Total Timeline:</strong> Complete admission process in 14-20 days from application submission</p>
             </div>
           </div>
 

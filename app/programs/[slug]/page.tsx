@@ -27,6 +27,26 @@ const programsData: { [key: string]: any } = {
       "Private Practice with specialized skills"
     ],
     fees: "₹8,50,000",
+    feeBreakdown: {
+      tuition: "₹6,50,000",
+      materials: "₹1,00,000",
+      examFees: "₹50,000",
+      registration: "₹50,000"
+    },
+    hospitalRotations: [
+      { hospital: "Apollo Hospitals Delhi", duration: "3 months", focus: "Arthroscopy & Sports Medicine" },
+      { hospital: "Fortis Memorial Gurgaon", duration: "4 months", focus: "Joint Replacement Surgery" },
+      { hospital: "Max Super Specialty", duration: "3 months", focus: "Advanced Procedures" },
+      { hospital: "Medanta Gurugram", duration: "2 months", focus: "Complex Cases & Research" }
+    ],
+    examPattern: {
+      theory: "40%",
+      practical: "40%",
+      viva: "20%",
+      details: "Written exam (100 MCQs), Practical assessment (10 procedures), Viva voce with senior faculty"
+    },
+    procedureCount: "Minimum 150 arthroscopic procedures, 80 joint replacements",
+    facultyRatio: "1:3 (One faculty for every 3 fellows)",
     applicationDeadline: "Rolling Admissions"
   },
   "fellowship-in-gastroenterology": {
@@ -52,6 +72,26 @@ const programsData: { [key: string]: any } = {
       "Specialist in Super-specialty Hospitals"
     ],
     fees: "₹9,00,000",
+    feeBreakdown: {
+      tuition: "₹7,00,000",
+      materials: "₹1,00,000",
+      examFees: "₹50,000",
+      registration: "₹50,000"
+    },
+    hospitalRotations: [
+      { hospital: "AIIMS Delhi", duration: "3 months", focus: "Advanced Endoscopy & ERCP" },
+      { hospital: "Apollo Hospitals", duration: "3 months", focus: "Therapeutic Endoscopy" },
+      { hospital: "Fortis Escorts", duration: "3 months", focus: "Hepatology & Liver Clinic" },
+      { hospital: "Max Super Specialty", duration: "3 months", focus: "IBD & Complex GI Cases" }
+    ],
+    examPattern: {
+      theory: "40%",
+      practical: "40%",
+      viva: "20%",
+      details: "Written examination (100 MCQs), Practical demonstration (15 procedures), Viva with case discussions"
+    },
+    procedureCount: "Minimum 200 endoscopies, 150 colonoscopies, 30 ERCP procedures",
+    facultyRatio: "1:4 (One faculty for every 4 fellows)",
     applicationDeadline: "Rolling Admissions"
   },
   "fellowship-in-reproductive-medicine": {
@@ -427,6 +467,26 @@ const programsData: { [key: string]: any } = {
       "Multidisciplinary ICU Specialist"
     ],
     fees: "₹8,50,000",
+    feeBreakdown: {
+      tuition: "₹6,50,000",
+      materials: "₹1,00,000",
+      examFees: "₹50,000",
+      registration: "₹50,000"
+    },
+    hospitalRotations: [
+      { hospital: "AIIMS Delhi", duration: "4 months", focus: "Medical ICU & Ventilator Management" },
+      { hospital: "Medanta Gurugram", duration: "3 months", focus: "Surgical ICU & Trauma" },
+      { hospital: "Fortis Escorts", duration: "3 months", focus: "Cardiac ICU & ECMO" },
+      { hospital: "Apollo Hospitals", duration: "2 months", focus: "Neurocritical Care" }
+    ],
+    examPattern: {
+      theory: "35%",
+      practical: "45%",
+      viva: "20%",
+      details: "Written MCQs + Case scenarios, Practical skills (10 critical procedures), Viva with ICU case presentations"
+    },
+    procedureCount: "Minimum 100 central line insertions, 50 arterial lines, 200+ ventilator managements",
+    facultyRatio: "1:3 (One faculty for every 3 fellows)",
     applicationDeadline: "Rolling Admissions"
   }
 };
@@ -526,7 +586,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 
               {/* Curriculum */}
               <div>
-                <h2 className="text-3xl font-heading font-bold text-primary mb-6">Curriculum Structure</h2>
+                <h2 className="text-3xl font-heading font-bold text-primary mb-6">Month-by-Month Curriculum</h2>
                 <div className="space-y-4">
                   {program.curriculum.map((module: any, index: number) => (
                     <div key={index} className="card p-6 hover:shadow-lg transition-shadow">
@@ -548,7 +608,180 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     </div>
                   ))}
                 </div>
+                <div className="mt-6 text-center">
+                  <a href="/downloads/sample-timetable.pdf" download className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all">
+                    <span>📥</span>
+                    Download Sample Timetable
+                  </a>
+                </div>
               </div>
+
+              {/* Fee Breakdown */}
+              {program.feeBreakdown && (
+                <div>
+                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Complete Fee Breakdown</h2>
+                  <div className="card p-8">
+                    <div className="space-y-4 mb-6">
+                      <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                        <span className="text-lg text-text-secondary">Tuition Fee</span>
+                        <span className="text-xl font-bold text-primary">{program.feeBreakdown.tuition}</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                        <span className="text-lg text-text-secondary">Learning Materials & Books</span>
+                        <span className="text-xl font-bold text-primary">{program.feeBreakdown.materials}</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                        <span className="text-lg text-text-secondary">Examination Fees</span>
+                        <span className="text-xl font-bold text-primary">{program.feeBreakdown.examFees}</span>
+                      </div>
+                      <div className="flex justify-between items-center pb-3 border-b border-gray-200">
+                        <span className="text-lg text-text-secondary">Registration & Admin</span>
+                        <span className="text-xl font-bold text-primary">{program.feeBreakdown.registration}</span>
+                      </div>
+                      <div className="flex justify-between items-center pt-3">
+                        <span className="text-2xl font-heading font-bold text-primary">Total Program Fee</span>
+                        <span className="text-3xl font-bold text-accent">{program.fees}</span>
+                      </div>
+                    </div>
+                    <div className="bg-secondary/10 border border-secondary/30 rounded-lg p-4">
+                      <h4 className="font-bold text-primary mb-2">💳 Flexible Payment Options</h4>
+                      <ul className="space-y-2 text-sm text-text-secondary">
+                        <li className="flex items-center gap-2">
+                          <span className="text-secondary">✓</span>
+                          <span>Interest-free EMI for 6-12 months</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="text-secondary">✓</span>
+                          <span>Bank loan partnerships (80% financing)</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="text-secondary">✓</span>
+                          <span>Early bird discount: 10% off (if paid 2 months before)</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <span className="text-secondary">✓</span>
+                          <span>Full refund within 30 days if not satisfied</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Hospital Rotations */}
+              {program.hospitalRotations && (
+                <div>
+                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Hospital Rotation Schedule</h2>
+                  <p className="text-text-secondary mb-6">
+                    Our fellows train at India's premier hospitals, gaining real-world experience across multiple specialties and patient populations.
+                  </p>
+                  <div className="space-y-4">
+                    {program.hospitalRotations.map((rotation: any, index: number) => (
+                      <div key={index} className="card p-6 hover:shadow-lg transition-shadow">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 bg-linear-to-br from-secondary to-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                            {index + 1}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-start justify-between mb-2">
+                              <h3 className="text-xl font-heading font-bold text-primary">{rotation.hospital}</h3>
+                              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-semibold">
+                                {rotation.duration}
+                              </span>
+                            </div>
+                            <p className="text-text-secondary">
+                              <span className="font-semibold text-primary">Focus Area:</span> {rotation.focus}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Examination Pattern */}
+              {program.examPattern && (
+                <div>
+                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Examination & Assessment</h2>
+                  <div className="card p-8">
+                    <h3 className="text-xl font-heading font-bold text-primary mb-4">Evaluation Breakdown</h3>
+                    <div className="grid sm:grid-cols-3 gap-6 mb-6">
+                      <div className="text-center p-4 bg-background rounded-lg">
+                        <div className="text-4xl font-bold text-secondary mb-2">{program.examPattern.theory}</div>
+                        <div className="text-sm text-text-secondary">Theory</div>
+                      </div>
+                      <div className="text-center p-4 bg-background rounded-lg">
+                        <div className="text-4xl font-bold text-accent mb-2">{program.examPattern.practical}</div>
+                        <div className="text-sm text-text-secondary">Practical</div>
+                      </div>
+                      <div className="text-center p-4 bg-background rounded-lg">
+                        <div className="text-4xl font-bold text-primary mb-2">{program.examPattern.viva}</div>
+                        <div className="text-sm text-text-secondary">Viva Voce</div>
+                      </div>
+                    </div>
+                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-4">
+                      <p className="text-text-secondary">{program.examPattern.details}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Hands-on Training */}
+              {program.procedureCount && (
+                <div>
+                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Guaranteed Hands-On Experience</h2>
+                  <div className="card p-8 bg-linear-to-br from-accent/5 to-secondary/5">
+                    <div className="flex items-start gap-4">
+                      <div className="text-5xl">🔧</div>
+                      <div>
+                        <h3 className="text-2xl font-heading font-bold text-primary mb-3">
+                          Minimum Procedure Requirements
+                        </h3>
+                        <p className="text-lg text-text-primary font-semibold mb-2">{program.procedureCount}</p>
+                        <p className="text-text-secondary">
+                          Every fellow is guaranteed to perform this minimum number of procedures under expert supervision. 
+                          This ensures you graduate with real-world competency, not just theoretical knowledge.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Faculty Ratio */}
+              {program.facultyRatio && (
+                <div>
+                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Personalized Mentorship</h2>
+                  <div className="card p-8">
+                    <div className="flex items-center gap-6 mb-6">
+                      <div className="text-6xl">👥</div>
+                      <div>
+                        <h3 className="text-3xl font-bold text-accent mb-2">{program.facultyRatio}</h3>
+                        <p className="text-xl text-text-secondary">Faculty-to-Student Ratio</p>
+                      </div>
+                    </div>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div className="flex items-start gap-2">
+                        <span className="text-secondary text-xl">✓</span>
+                        <span className="text-text-secondary">Individual attention and personalized guidance</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-secondary text-xl">✓</span>
+                        <span className="text-text-secondary">Direct access to senior consultants</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-secondary text-xl">✓</span>
+                        <span className="text-text-secondary">Dedicated mentor for career counseling</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-secondary text-xl">✓</span>
+                        <span className="text-text-secondary">24/7 faculty support for clinical queries</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Career Opportunities */}
               <div>
@@ -572,23 +805,40 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             <div className="space-y-6">
               {/* Apply Card */}
               <div className="card p-6 sticky top-6">
-                <h3 className="text-2xl font-heading font-bold text-primary mb-4">Ready to Apply?</h3>
+                <div className="mb-4 bg-accent/10 border border-accent/30 rounded-lg p-3 text-center">
+                  <p className="text-xs text-primary font-semibold mb-1">Next Batch Starts</p>
+                  <p className="text-lg font-bold text-accent">March 2026</p>
+                </div>
+                <h3 className="text-2xl font-heading font-bold text-primary mb-4">Program Details</h3>
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center gap-3 text-text-secondary">
                     <span className="text-secondary">📅</span>
-                    <span>Duration: {program.duration}</span>
+                    <div>
+                      <p className="text-xs text-text-tertiary">Duration</p>
+                      <p className="font-semibold text-primary">{program.duration}</p>
+                    </div>
                   </div>
                   <div className="flex items-center gap-3 text-text-secondary">
                     <span className="text-secondary">💰</span>
-                    <span>Fees: {program.fees}</span>
+                    <div>
+                      <p className="text-xs text-text-tertiary">Program Fee</p>
+                      <p className="font-semibold text-primary">{program.fees}</p>
+                      <p className="text-xs text-accent">EMI options available</p>
+                    </div>
                   </div>
                   <div className="flex items-center gap-3 text-text-secondary">
                     <span className="text-secondary">📋</span>
-                    <span>Eligibility: {program.eligibility}</span>
+                    <div>
+                      <p className="text-xs text-text-tertiary">Eligibility</p>
+                      <p className="font-semibold text-primary">{program.eligibility}</p>
+                    </div>
                   </div>
                   <div className="flex items-center gap-3 text-text-secondary">
                     <span className="text-secondary">⏰</span>
-                    <span>{program.applicationDeadline}</span>
+                    <div>
+                      <p className="text-xs text-text-tertiary">Application Deadline</p>
+                      <p className="font-semibold text-primary">Feb 28, 2026</p>
+                    </div>
                   </div>
                 </div>
                 <Link href="/apply" className="btn-primary w-full text-center py-4 text-lg">
