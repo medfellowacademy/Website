@@ -63,7 +63,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD Medicine/DNB",
       description: "Advanced training in autoimmune diseases and musculoskeletal disorders.",
       highlights: ["Arthritis Management", "Autoimmune Diseases", "Biologics"],
-      icon: "🦾"
+      icon: "🦾",
+      image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80"
     },
     {
       name: "Fellowship in Neurology",
@@ -71,7 +72,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD Medicine/DNB",
       description: "Specialized training in neurological disorders and neurocritical care.",
       highlights: ["Stroke Management", "Epilepsy", "Neurodegenerative Disorders"],
-      icon: "🧠"
+      icon: "🧠",
+      image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?w=800&q=80"
     },
     {
       name: "Fellowship in Radiology",
@@ -79,7 +81,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD Radio-Diagnosis",
       description: "Advanced imaging techniques and interventional radiology procedures.",
       highlights: ["CT/MRI", "Interventional Radiology", "Cross-sectional Imaging"],
-      icon: "📡"
+      icon: "📡",
+      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=80"
     },
     {
       name: "Fellowship in Ultrasonography",
@@ -87,7 +90,8 @@ export default function FellowshipPrograms() {
       eligibility: "MBBS/MD",
       description: "Focused training in diagnostic ultrasound and point-of-care sonography.",
       highlights: ["Abdominal USG", "Obstetric USG", "Vascular Doppler"],
-      icon: "📊"
+      icon: "📊",
+      image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=800&q=80"
     },
     {
       name: "Fellowship in Interventional Cardiology",
@@ -95,7 +99,8 @@ export default function FellowshipPrograms() {
       eligibility: "DM/DNB Cardiology",
       description: "Specialized training in coronary interventions and structural heart procedures.",
       highlights: ["Angioplasty", "Device Implantation", "Structural Interventions"],
-      icon: "❤️"
+      icon: "❤️",
+      image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80"
     },
     {
       name: "Fellowship in Orthopedics",
@@ -103,7 +108,8 @@ export default function FellowshipPrograms() {
       eligibility: "MS Orthopedics/DNB",
       description: "Comprehensive training in orthopedic surgery and trauma management.",
       highlights: ["Trauma Surgery", "Sports Medicine", "Fracture Management"],
-      icon: "🦴"
+      icon: "🦴",
+      image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80"
     },
     {
       name: "Fellowship in Gynecology & Obstetrics",
@@ -111,7 +117,8 @@ export default function FellowshipPrograms() {
       eligibility: "MS/MD Obs & Gyn",
       description: "Advanced training in high-risk obstetrics and gynecological procedures.",
       highlights: ["High-Risk Pregnancy", "Laparoscopic Surgery", "Fetal Medicine"],
-      icon: "🤰"
+      icon: "🤰",
+      image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80"
     },
     {
       name: "Fellowship in General Surgery",
@@ -119,7 +126,8 @@ export default function FellowshipPrograms() {
       eligibility: "MS General Surgery",
       description: "Expert training in advanced general surgical techniques and procedures.",
       highlights: ["Laparoscopy", "GI Surgery", "Emergency Surgery"],
-      icon: "🏥"
+      icon: "🏥",
+      image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80"
     },
     {
       name: "Fellowship in Spine Surgery",
@@ -127,7 +135,8 @@ export default function FellowshipPrograms() {
       eligibility: "MS Orthopedics/Neurosurgery",
       description: "Specialized training in spinal disorders and minimally invasive spine surgery.",
       highlights: ["Spinal Decompression", "Spinal Fusion", "Minimally Invasive"],
-      icon: "🦴"
+      icon: "🦴",
+      image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80"
     },
     {
       name: "Fellowship in Emergency Medicine",
@@ -135,7 +144,8 @@ export default function FellowshipPrograms() {
       eligibility: "MBBS with 2+ years",
       description: "Advanced training in emergency care, trauma management, and critical decision-making.",
       highlights: ["ICU Rotations", "Trauma Management", "Toxicology"],
-      icon: "🚑"
+      icon: "🚑",
+      image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&q=80"
     },
     {
       name: "Fellowship in Critical Care Medicine",
@@ -143,7 +153,8 @@ export default function FellowshipPrograms() {
       eligibility: "MD/DNB Medicine/Anesthesia",
       description: "Comprehensive training in managing critically ill patients in ICU settings.",
       highlights: ["Ventilator Management", "Hemodynamics", "Point-of-Care Ultrasound"],
-      icon: "🏥"
+      icon: "🏥",
+      image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80"
     }
   ];
 
