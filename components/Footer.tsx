@@ -61,7 +61,7 @@ export default function Footer() {
             <ul className="space-y-3 text-gray-300">
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">📧</span>
-                <span>info@medfellowacademy.com</span>
+                <span>info@medfellow.in</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">📞</span>
