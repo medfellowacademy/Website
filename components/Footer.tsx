@@ -6,8 +6,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-linear-to-br from-primary via-primary-dark to-primary text-white">
-      <div className="container-custom py-16">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+      <div className="container-custom py-10 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
@@ -48,9 +48,8 @@ export default function Footer() {
             <h4 className="font-heading font-semibold mb-4 text-lg">Quick Links</h4>
             <ul className="space-y-3">
               <li><Link href="/" className="text-gray-300 hover:text-accent transition-colors">Home</Link></li>
+               <li><Link href="/about" className="text-gray-300 hover:text-accent transition-colors">About Us</Link></li>
               <li><Link href="/programs" className="text-gray-300 hover:text-accent transition-colors">Programs</Link></li>
-              <li><Link href="/about" className="text-gray-300 hover:text-accent transition-colors">About Us</Link></li>
-              <li><Link href="/faculty" className="text-gray-300 hover:text-accent transition-colors">Faculty</Link></li>
               <li><Link href="/contact" className="text-gray-300 hover:text-accent transition-colors">Contact</Link></li>
               <li><Link href="/apply" className="text-gray-300 hover:text-accent transition-colors">Apply Now</Link></li>
             </ul>

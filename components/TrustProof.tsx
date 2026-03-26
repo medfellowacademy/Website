@@ -43,11 +43,11 @@ export default function TrustProof() {
     <section className="section-padding bg-linear-to-br from-background to-white">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-heading font-bold text-primary mb-4">
+        <div className="text-center mb-10 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-heading font-bold text-primary mb-3 md:mb-4">
             Our Fellows&apos; Success Stories
           </h2>
-          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
             Our fellows secure top positions across the country&apos;s best healthcare organizations.
           </p>
         </div>
@@ -94,7 +94,7 @@ export default function TrustProof() {
 
         {/* Certifications & Recognition */}
         <div className="bg-white rounded-2xl p-8 border border-gray-100">
-          <h3 className="text-2xl font-heading font-bold text-primary mb-6 text-center">
+          <h3 className="text-xl md:text-2xl font-heading font-bold text-primary mb-3 md:mb-6 text-center">
             Accreditations & Government Recognition
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -116,25 +116,25 @@ export default function TrustProof() {
         </div>
 
         {/* Live Stats */}
-        <div className="mt-12 bg-linear-to-br from-primary to-primary-dark text-white rounded-2xl p-8">
-          <div className="grid md:grid-cols-4 gap-6 text-center">
+        <div className="mt-8 md:mt-12 bg-linear-to-br from-primary to-primary-dark text-white rounded-2xl p-5 md:p-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 text-center">
             <div>
-              <div className="text-4xl font-bold mb-2">98%</div>
+              <div className="text-3xl md:text-4xl font-bold mb-2">98%</div>
               <div className="text-sm opacity-90">Placement Rate</div>
               <div className="text-xs opacity-75 mt-1">Within 6 months</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">156%</div>
+              <div className="text-3xl md:text-4xl font-bold mb-2">156%</div>
               <div className="text-sm opacity-90">Avg Salary Increase</div>
               <div className="text-xs opacity-75 mt-1">Post-fellowship</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">₹42L</div>
+              <div className="text-3xl md:text-4xl font-bold mb-2">₹42L</div>
               <div className="text-sm opacity-90">Average CTC</div>
               <div className="text-xs opacity-75 mt-1">Alumni 2024-25</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
+              <div className="text-3xl md:text-4xl font-bold mb-2">500+</div>
               <div className="text-sm opacity-90">Fellows Placed</div>
               <div className="text-xs opacity-75 mt-1">Since 2015</div>
             </div>

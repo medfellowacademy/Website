@@ -48,11 +48,11 @@ export default function WhyMedFellow() {
             <Award className="w-4 h-4 text-accent" />
             <span className="text-sm font-semibold text-primary">THE MED FELLOW ADVANTAGE</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-6">
-            What Makes This Different From <br/>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-6">
+            What Makes This Different From <br className="hidden md:block"/>
             <span className="gradient-text">Traditional Training?</span>
           </h2>
-          <p className="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
             This isn't just education—it's a career transformation system designed to multiply your earning potential and professional status.
           </p>
         </div>

@@ -334,10 +334,10 @@ export default function FellowshipPrograms() {
             <Sparkles className="w-4 h-4 text-accent" />
             <span className="text-sm font-semibold text-primary">FEATURED PROGRAMS</span>
           </motion.div>
-          <h2 className="text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-6">
             Popular <span className="gradient-text">Fellowship Programs</span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-text-secondary max-w-3xl mx-auto">
             Explore our most sought-after specializations with proven career outcomes
           </p>
         </motion.div>

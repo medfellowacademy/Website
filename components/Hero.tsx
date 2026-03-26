@@ -61,12 +61,12 @@ export default function Hero() {
       <motion.div 
         ref={contentRef}
         style={{ y: contentY }}
-        className="container-custom py-16 lg:py-24 relative z-10"
+        className="container-custom py-12 lg:py-24 relative z-10"
       >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 md:mb-12">
             <motion.h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold mb-8 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-heading font-extrabold mb-6 md:mb-8 leading-tight"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -85,7 +85,7 @@ export default function Hero() {
             </motion.h1>
             
             <motion.p 
-              className="text-xl lg:text-2xl mb-8 leading-relaxed opacity-95 max-w-4xl mx-auto"
+              className="text-base sm:text-lg lg:text-2xl mb-6 md:mb-8 leading-relaxed opacity-95 max-w-4xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}

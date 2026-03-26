@@ -47,10 +47,10 @@ export default function ContactPage() {
       <Navbar />
       
       {/* Hero */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-20">
+      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-20">
         <div className="container-custom text-center">
-          <h1 className="text-5xl font-heading font-bold mb-6">Contact Us</h1>
-          <p className="text-xl max-w-3xl mx-auto opacity-90">
+          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">Contact Us</h1>
+          <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90">
             Have questions? We're here to help you start your fellowship journey
           </p>
         </div>

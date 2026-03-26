@@ -8,7 +8,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Emergency Medicine",
     icon: "🚑",
     duration: "12 Months",
-    eligibility: "MBBS with 2+ years",
+    eligibility: "MBBS",
     description: "Advanced training in emergency care, trauma management, and critical decision-making.",
     overview: "This fellowship provides comprehensive training in emergency medicine covering trauma care, medical emergencies, toxicology, and emergency procedures. Fellows work in high-volume emergency departments gaining hands-on experience in acute care.",
     highlights: ["ICU Rotations", "Trauma Management", "Toxicology", "Emergency Procedures"],
@@ -128,7 +128,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Dermatology",
     icon: "✨",
     duration: "12 Months",
-    eligibility: "MD/DNB Dermatology",
+    eligibility: "MBBS",
     description: "Advanced training in dermatological procedures and cosmetic dermatology.",
     overview: "This fellowship provides comprehensive training in medical and cosmetic dermatology, dermatosurgery, and aesthetic procedures.",
     highlights: ["Cosmetic Procedures", "Laser Therapy", "Skin Surgery", "Aesthetic Dermatology"],
@@ -158,7 +158,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Internal Medicine",
     icon: "⚕️",
     duration: "12 Months",
-    eligibility: "MD Medicine/DNB",
+    eligibility: "MBBS",
     description: "Comprehensive training in adult medicine and clinical decision-making.",
     overview: "This fellowship offers broad-based training in internal medicine covering all major medical subspecialties with emphasis on clinical reasoning and patient management.",
     highlights: ["Critical Care", "Clinical Diagnosis", "Patient Management", "Medical Procedures"],
@@ -189,7 +189,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Clinical Cardiology",
     icon: "❤️",
     duration: "12 Months",
-    eligibility: "MD Medicine/DNB",
+    eligibility: "MBBS/MD General Medicine",
     description: "Specialized training in cardiovascular disease management and diagnostics.",
     overview: "This fellowship provides comprehensive training in non-invasive cardiology including echocardiography, stress testing, and management of cardiovascular diseases.",
     highlights: ["ECG Interpretation", "Echo Cardiography", "Cardiac Emergencies", "Heart Failure Management"],
@@ -309,7 +309,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Orthopedics",
     icon: "🦴",
     duration: "12 Months",
-    eligibility: "MS Orthopedics/DNB",
+    eligibility: "MS/MD/DNB Orthopedics",
     description: "Comprehensive training in orthopedic surgery and trauma management.",
     overview: "This fellowship provides advanced training in orthopedic surgery including trauma, sports medicine, and joint reconstruction.",
     highlights: ["Trauma Surgery", "Sports Medicine", "Fracture Management", "Joint Surgery"],
@@ -339,7 +339,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Nephrology",
     icon: "🫘",
     duration: "12 Months",
-    eligibility: "MD Medicine/DNB",
+    eligibility: "MD/DNB General Medicine",
     description: "Specialized training in kidney diseases and dialysis management.",
     overview: "This fellowship provides comprehensive training in nephrology including acute and chronic kidney disease, dialysis, and kidney transplant medicine.",
     highlights: ["Dialysis", "Kidney Disorders", "Transplant Medicine", "Renal Procedures"],
@@ -369,7 +369,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Gastroenterology",
     icon: "🔬",
     duration: "12 Months",
-    eligibility: "MD Medicine/DNB",
+    eligibility: "MD/DNB General Medicine",
     description: "Comprehensive training in diagnostic and therapeutic gastroenterology procedures.",
     overview: "This fellowship offers in-depth training in diagnostic and therapeutic endoscopy, hepatology, and inflammatory bowel disease management.",
     highlights: ["Endoscopy", "Colonoscopy", "ERCP", "Hepatology"],
@@ -399,7 +399,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Reproductive Medicine",
     icon: "👶",
     duration: "12 Months",
-    eligibility: "MD/MS Obs & Gyn",
+    eligibility: "MD/MS/DNB/DGO",
     description: "Specialized training in infertility management and assisted reproductive techniques.",
     overview: "This fellowship provides comprehensive training in reproductive endocrinology, IVF procedures, and male factor infertility management.",
     highlights: ["IVF", "ICSI", "Fertility Preservation", "Reproductive Surgery"],
@@ -429,7 +429,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Neonatology",
     icon: "👶",
     duration: "12 Months",
-    eligibility: "MD Pediatrics/DNB",
+    eligibility: "MD/DNB Pediatrics",
     description: "Advanced training in newborn critical care and neonatal intensive care.",
     overview: "This fellowship provides specialized training in neonatal intensive care, newborn resuscitation, and management of premature and critically ill newborns.",
     highlights: ["NICU Management", "Neonatal Resuscitation", "Premature Care", "Neonatal Ventilation"],
@@ -489,7 +489,7 @@ const programsData: { [key: string]: any } = {
     name: "Fellowship in Arthroscopy and Arthroplasty",
     icon: "🦴",
     duration: "12 Months",
-    eligibility: "MS Orthopedics/DNB",
+    eligibility: "MS/MD/DNB Ortho",
     description: "Advanced training in arthroscopic procedures and joint replacement surgery.",
     overview: "This comprehensive fellowship focuses on advanced arthroscopic techniques and arthroplasty procedures with extensive hands-on training in high-volume centers.",
     highlights: ["Knee Arthroscopy", "Hip Replacement", "Shoulder Surgery", "Sports Medicine"],
@@ -632,31 +632,31 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-16">
+      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-10 md:py-16">
         <div className="container-custom">
-          <Link href="/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+          <Link href="/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-5 md:mb-6 transition-colors text-sm md:text-base">
             ← Back to All Programs
           </Link>
-          <div className="flex items-start gap-6">
-            <div className="w-20 h-20 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center text-4xl">
+          <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
+            <div className="w-14 h-14 md:w-20 md:h-20 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center text-3xl md:text-4xl shrink-0">
               {program.icon}
             </div>
             <div className="flex-1">
-              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">{program.name}</h1>
-              <div className="flex flex-wrap gap-4 mb-4">
-                <span className="px-4 py-2 bg-white/20 backdrop-blur rounded-full font-semibold">
+              <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-3 md:mb-4">{program.name}</h1>
+              <div className="flex flex-wrap gap-2 md:gap-4 mb-3 md:mb-4">
+                <span className="px-3 py-1.5 md:px-4 md:py-2 bg-white/20 backdrop-blur rounded-full font-semibold text-sm md:text-base">
                   ⏱️ {program.duration}
                 </span>
-                <span className="px-4 py-2 bg-white/20 backdrop-blur rounded-full font-semibold">
+                <span className="px-3 py-1.5 md:px-4 md:py-2 bg-white/20 backdrop-blur rounded-full font-semibold text-sm md:text-base">
                   📋 {program.eligibility}
                 </span>
                 {program.onlinePrice && (
-                  <span className="px-4 py-2 bg-accent/90 backdrop-blur rounded-full font-semibold">
+                  <span className="px-3 py-1.5 md:px-4 md:py-2 bg-accent/90 backdrop-blur rounded-full font-semibold text-sm md:text-base">
                     💰 From ₹{(program.onlinePrice / 100000).toFixed(2)}L
                   </span>
                 )}
               </div>
-              <p className="text-xl opacity-90">{program.description}</p>
+              <p className="text-base md:text-xl opacity-90">{program.description}</p>
             </div>
           </div>
         </div>
@@ -678,25 +678,25 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
       {/* Main Content */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-3 gap-6 md:gap-12">
             {/* Main Content */}
-            <div className="lg:col-span-2 space-y-12">
+            <div className="lg:col-span-2 space-y-8 md:space-y-12">
               {/* Overview */}
               <div>
-                <h2 className="text-3xl font-heading font-bold text-primary mb-6">Program Overview</h2>
-                <p className="text-lg text-text-secondary leading-relaxed">{program.overview}</p>
+                <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Program Overview</h2>
+                <p className="text-base md:text-lg text-text-secondary leading-relaxed">{program.overview}</p>
               </div>
 
               {/* Key Highlights */}
               <div>
-                <h2 className="text-3xl font-heading font-bold text-primary mb-6">Key Highlights</h2>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Key Highlights</h2>
+                <div className="grid grid-cols-2 gap-3">
                   {program.highlights.map((highlight: string, index: number) => (
-                    <div key={index} className="flex items-center gap-3 p-4 bg-background rounded-lg border border-gray-100">
-                      <div className="w-10 h-10 bg-linear-to-br from-secondary to-primary rounded-lg flex items-center justify-center text-white font-bold">
+                    <div key={index} className="flex items-center gap-2 p-3 bg-background rounded-lg border border-gray-100">
+                      <div className="w-7 h-7 shrink-0 bg-linear-to-br from-secondary to-primary rounded-md flex items-center justify-center text-white text-sm font-bold">
                         ✓
                       </div>
-                      <span className="font-semibold text-primary">{highlight}</span>
+                      <span className="font-semibold text-primary text-sm md:text-base leading-tight">{highlight}</span>
                     </div>
                   ))}
                 </div>
@@ -704,15 +704,15 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 
               {/* Curriculum */}
               <div>
-                <h2 className="text-3xl font-heading font-bold text-primary mb-6">Month-by-Month Curriculum</h2>
+                <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Month-by-Month Curriculum</h2>
                 <div className="space-y-4">
                   {program.curriculum.map((module: any, index: number) => (
-                    <div key={index} className="card p-6 hover:shadow-lg transition-shadow">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-xl font-heading font-bold text-primary">
+                    <div key={index} className="card p-4 md:p-6 hover:shadow-lg transition-shadow">
+                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                        <h3 className="text-base md:text-xl font-heading font-bold text-primary">
                           Module {index + 1}: {module.module}
                         </h3>
-                        <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-semibold">
+                        <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs md:text-sm font-semibold self-start">
                           {module.duration}
                         </span>
                       </div>
@@ -737,28 +737,28 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               {/* Fee Breakdown */}
               {program.feeBreakdown && (
                 <div>
-                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Complete Fee Breakdown</h2>
-                  <div className="card p-8">
+                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Complete Fee Breakdown</h2>
+                  <div className="card p-5 md:p-8">
                     <div className="space-y-4 mb-6">
                       <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                        <span className="text-lg text-text-secondary">Tuition Fee</span>
-                        <span className="text-xl font-bold text-primary">{program.feeBreakdown.tuition}</span>
+                        <span className="text-sm md:text-lg text-text-secondary">Tuition Fee</span>
+                        <span className="text-base md:text-xl font-bold text-primary">{program.feeBreakdown.tuition}</span>
                       </div>
                       <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                        <span className="text-lg text-text-secondary">Learning Materials & Books</span>
-                        <span className="text-xl font-bold text-primary">{program.feeBreakdown.materials}</span>
+                        <span className="text-sm md:text-lg text-text-secondary">Learning Materials &amp; Books</span>
+                        <span className="text-base md:text-xl font-bold text-primary">{program.feeBreakdown.materials}</span>
                       </div>
                       <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                        <span className="text-lg text-text-secondary">Examination Fees</span>
-                        <span className="text-xl font-bold text-primary">{program.feeBreakdown.examFees}</span>
+                        <span className="text-sm md:text-lg text-text-secondary">Examination Fees</span>
+                        <span className="text-base md:text-xl font-bold text-primary">{program.feeBreakdown.examFees}</span>
                       </div>
                       <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                        <span className="text-lg text-text-secondary">Registration & Admin</span>
-                        <span className="text-xl font-bold text-primary">{program.feeBreakdown.registration}</span>
+                        <span className="text-sm md:text-lg text-text-secondary">Registration &amp; Admin</span>
+                        <span className="text-base md:text-xl font-bold text-primary">{program.feeBreakdown.registration}</span>
                       </div>
                       <div className="flex justify-between items-center pt-3">
-                        <span className="text-2xl font-heading font-bold text-primary">Total Program Fee</span>
-                        <span className="text-3xl font-bold text-accent">{program.fees}</span>
+                        <span className="text-lg md:text-2xl font-heading font-bold text-primary">Total Program Fee</span>
+                        <span className="text-xl md:text-3xl font-bold text-accent">{program.fees}</span>
                       </div>
                     </div>
                     <div className="bg-secondary/10 border border-secondary/30 rounded-lg p-4">
@@ -789,15 +789,15 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               {/* Hospital Rotations */}
               {program.hospitalRotations && (
                 <div>
-                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Hospital Rotation Schedule</h2>
+                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Hospital Rotation Schedule</h2>
                   <p className="text-text-secondary mb-6">
                     Our fellows train at India's premier hospitals, gaining real-world experience across multiple specialties and patient populations.
                   </p>
                   <div className="space-y-4">
                     {program.hospitalRotations.map((rotation: any, index: number) => (
-                      <div key={index} className="card p-6 hover:shadow-lg transition-shadow">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 bg-linear-to-br from-secondary to-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                      <div key={index} className="card p-4 md:p-6 hover:shadow-lg transition-shadow">
+                        <div className="flex items-start gap-3 md:gap-4">
+                          <div className="w-10 h-10 md:w-12 md:h-12 bg-linear-to-br from-secondary to-primary rounded-lg flex items-center justify-center text-white font-bold text-base md:text-xl shrink-0">
                             {index + 1}
                           </div>
                           <div className="flex-1">
@@ -821,21 +821,21 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               {/* Examination Pattern */}
               {program.examPattern && (
                 <div>
-                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Examination & Assessment</h2>
-                  <div className="card p-8">
-                    <h3 className="text-xl font-heading font-bold text-primary mb-4">Evaluation Breakdown</h3>
-                    <div className="grid sm:grid-cols-3 gap-6 mb-6">
-                      <div className="text-center p-4 bg-background rounded-lg">
-                        <div className="text-4xl font-bold text-secondary mb-2">{program.examPattern.theory}</div>
-                        <div className="text-sm text-text-secondary">Theory</div>
+                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Examination &amp; Assessment</h2>
+                  <div className="card p-5 md:p-8">
+                    <h3 className="text-lg md:text-xl font-heading font-bold text-primary mb-4">Evaluation Breakdown</h3>
+                    <div className="grid grid-cols-3 gap-3 md:gap-6 mb-6">
+                      <div className="text-center p-3 md:p-4 bg-background rounded-lg">
+                        <div className="text-2xl md:text-4xl font-bold text-secondary mb-1 md:mb-2">{program.examPattern.theory}</div>
+                        <div className="text-xs md:text-sm text-text-secondary">Theory</div>
                       </div>
-                      <div className="text-center p-4 bg-background rounded-lg">
-                        <div className="text-4xl font-bold text-accent mb-2">{program.examPattern.practical}</div>
-                        <div className="text-sm text-text-secondary">Practical</div>
+                      <div className="text-center p-3 md:p-4 bg-background rounded-lg">
+                        <div className="text-2xl md:text-4xl font-bold text-accent mb-1 md:mb-2">{program.examPattern.practical}</div>
+                        <div className="text-xs md:text-sm text-text-secondary">Practical</div>
                       </div>
-                      <div className="text-center p-4 bg-background rounded-lg">
-                        <div className="text-4xl font-bold text-primary mb-2">{program.examPattern.viva}</div>
-                        <div className="text-sm text-text-secondary">Viva Voce</div>
+                      <div className="text-center p-3 md:p-4 bg-background rounded-lg">
+                        <div className="text-2xl md:text-4xl font-bold text-primary mb-1 md:mb-2">{program.examPattern.viva}</div>
+                        <div className="text-xs md:text-sm text-text-secondary">Viva Voce</div>
                       </div>
                     </div>
                     <div className="bg-primary/5 border border-primary/10 rounded-lg p-4">
@@ -848,12 +848,12 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               {/* Hands-on Training */}
               {program.procedureCount && (
                 <div>
-                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Guaranteed Hands-On Experience</h2>
-                  <div className="card p-8 bg-linear-to-br from-accent/5 to-secondary/5">
-                    <div className="flex items-start gap-4">
-                      <div className="text-5xl">🔧</div>
+                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Guaranteed Hands-On Experience</h2>
+                  <div className="card p-5 md:p-8 bg-linear-to-br from-accent/5 to-secondary/5">
+                    <div className="flex items-start gap-3 md:gap-4">
+                      <div className="text-3xl md:text-5xl">🔧</div>
                       <div>
-                        <h3 className="text-2xl font-heading font-bold text-primary mb-3">
+                        <h3 className="text-lg md:text-2xl font-heading font-bold text-primary mb-2 md:mb-3">
                           Minimum Procedure Requirements
                         </h3>
                         <p className="text-lg text-text-primary font-semibold mb-2">{program.procedureCount}</p>
@@ -870,13 +870,13 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               {/* Faculty Ratio */}
               {program.facultyRatio && (
                 <div>
-                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">Personalized Mentorship</h2>
-                  <div className="card p-8">
-                    <div className="flex items-center gap-6 mb-6">
-                      <div className="text-6xl">👥</div>
+                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Personalized Mentorship</h2>
+                  <div className="card p-5 md:p-8">
+                    <div className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6">
+                      <div className="text-4xl md:text-6xl">👥</div>
                       <div>
-                        <h3 className="text-3xl font-bold text-accent mb-2">{program.facultyRatio}</h3>
-                        <p className="text-xl text-text-secondary">Faculty-to-Student Ratio</p>
+                        <h3 className="text-2xl md:text-3xl font-bold text-accent mb-1 md:mb-2">{program.facultyRatio}</h3>
+                        <p className="text-base md:text-xl text-text-secondary">Faculty-to-Student Ratio</p>
                       </div>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
@@ -903,8 +903,8 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 
               {/* Career Opportunities */}
               <div>
-                <h2 className="text-3xl font-heading font-bold text-primary mb-6">Career Opportunities</h2>
-                <div className="card p-8">
+                <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Career Opportunities</h2>
+                <div className="card p-5 md:p-8">
                   <ul className="space-y-4">
                     {program.careerOpportunities.map((opportunity: string, index: number) => (
                       <li key={index} className="flex items-start gap-3">
@@ -922,7 +922,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Apply Card */}
-              <div className="card p-6 sticky top-6">
+              <div className="card p-5 md:p-6 lg:sticky lg:top-6">
                 <div className="mb-4 bg-accent/10 border border-accent/30 rounded-lg p-3 text-center">
                   <p className="text-xs text-primary font-semibold mb-1">Next Batch Starts</p>
                   <p className="text-lg font-bold text-accent">March 2026</p>

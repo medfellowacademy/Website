@@ -11,7 +11,7 @@ export default function ProgramsPage() {
       category: "Critical Care & Emergency",
       icon: "🚑",
       duration: "12 Months",
-      eligibility: "MBBS with 2+ years",
+      eligibility: "MBBS",
       description: "Advanced training in emergency care and trauma management",
       highlights: ["ICU Rotations", "Trauma Management", "Toxicology"],
       image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&q=80",
@@ -79,7 +79,7 @@ export default function ProgramsPage() {
       category: "Medical Specialties",
       icon: "✨",
       duration: "12 Months",
-      eligibility: "MD/DNB Dermatology",
+      eligibility: "MBBS",
       description: "Advanced training in dermatological procedures and cosmetic dermatology",
       highlights: ["Cosmetic Procedures", "Laser Therapy", "Skin Surgery"],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
@@ -96,7 +96,7 @@ export default function ProgramsPage() {
       category: "Medical Specialties",
       icon: "⚕️",
       duration: "12 Months",
-      eligibility: "MD Medicine/DNB",
+      eligibility: "MBBS",
       description: "Comprehensive training in adult medicine and clinical decision-making",
       highlights: ["Critical Care", "Clinical Diagnosis", "Patient Management"],
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
@@ -113,7 +113,7 @@ export default function ProgramsPage() {
       category: "Medical Specialties",
       icon: "❤️",
       duration: "12 Months",
-      eligibility: "MD Medicine/DNB",
+      eligibility: "MBBS/MD General Medicine",
       description: "Specialized training in cardiovascular disease management and diagnostics",
       highlights: ["ECG Interpretation", "Echo Cardiography", "Cardiac Emergencies"],
       image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
@@ -181,7 +181,7 @@ export default function ProgramsPage() {
       category: "Surgical Specialties",
       icon: "🦴",
       duration: "12 Months",
-      eligibility: "MS Orthopedics/DNB",
+      eligibility: "MS/MD/DNB Orthopedics",
       description: "Comprehensive training in orthopedic surgery and trauma",
       highlights: ["Trauma Surgery", "Sports Medicine", "Fracture Management"],
       image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80",
@@ -198,7 +198,7 @@ export default function ProgramsPage() {
       category: "Medical Specialties",
       icon: "🫘",
       duration: "12 Months",
-      eligibility: "MD Medicine/DNB",
+      eligibility: "MD/DNB General Medicine",
       description: "Specialized training in kidney diseases and dialysis management",
       highlights: ["Dialysis", "Kidney Disorders", "Transplant Medicine"],
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
@@ -215,7 +215,7 @@ export default function ProgramsPage() {
       category: "Medical Specialties",
       icon: "🔬",
       duration: "12 Months",
-      eligibility: "MD Medicine/DNB",
+      eligibility: "MD/DNB General Medicine",
       description: "Comprehensive training in diagnostic and therapeutic gastroenterology",
       highlights: ["Endoscopy", "Colonoscopy", "ERCP"],
       image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80",
@@ -232,7 +232,7 @@ export default function ProgramsPage() {
       category: "Reproductive Medicine",
       icon: "👶",
       duration: "12 Months",
-      eligibility: "MD/MS Obs & Gyn",
+      eligibility: "MD/MS/DNB/DGO",
       description: "Specialized training in infertility and assisted reproductive techniques",
       highlights: ["IVF", "ICSI", "Fertility Preservation"],
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
@@ -249,7 +249,7 @@ export default function ProgramsPage() {
       category: "Medical Specialties",
       icon: "👶",
       duration: "12 Months",
-      eligibility: "MD Pediatrics/DNB",
+      eligibility: "MD/DNB Pediatrics",
       description: "Advanced training in newborn critical care and neonatal intensive care",
       highlights: ["NICU Management", "Neonatal Resuscitation", "Premature Care"],
       image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
@@ -283,7 +283,7 @@ export default function ProgramsPage() {
       category: "Surgical Specialties",
       icon: "🦴",
       duration: "12 Months",
-      eligibility: "MS Orthopedics/DNB",
+      eligibility: "MS/MD/DNB Ortho",
       description: "Advanced training in arthroscopic procedures and joint replacement surgery",
       highlights: ["Knee Arthroscopy", "Hip Replacement", "Shoulder Surgery"],
       image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80",
@@ -309,13 +309,13 @@ export default function ProgramsPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-20">
+      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-20">
         <div className="container-custom text-center">
           <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full mb-4">
             <span className="font-semibold">17 Specialized Programs</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">Fellowship Programs</h1>
-          <p className="text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">
+          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">Fellowship Programs</h1>
+          <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">
             Explore our comprehensive range of specialized fellowship programs across multiple medical disciplines. Click any program to view detailed curriculum and apply.
           </p>
         </div>
@@ -324,21 +324,21 @@ export default function ProgramsPage() {
       {/* Filter by Category */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold text-primary mb-4">Browse by Specialty</h2>
-            <p className="text-lg text-text-secondary">Select a category to filter programs or scroll to view all</p>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 md:mb-4">Browse by Specialty</h2>
+            <p className="text-base md:text-lg text-text-secondary">Select a category to filter programs or scroll to view all</p>
           </div>
           
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4 mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 mb-10 md:mb-16">
             {categories.map((category, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer group border-2 border-transparent hover:border-secondary">
-                <div className={`w-16 h-16 mx-auto mb-4 bg-linear-to-br ${category.color} rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform`}>
+              <div key={index} className="bg-white rounded-xl p-4 md:p-6 text-center hover:shadow-lg transition-all cursor-pointer group border-2 border-transparent hover:border-secondary">
+                <div className={`w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 bg-linear-to-br ${category.color} rounded-2xl flex items-center justify-center text-2xl md:text-3xl group-hover:scale-110 transition-transform`}>
                   {category.icon}
                 </div>
-                <h3 className="font-heading font-bold text-primary group-hover:text-secondary transition-colors">
+                <h3 className="font-heading font-bold text-primary text-sm md:text-base group-hover:text-secondary transition-colors">
                   {category.name}
                 </h3>
-                <p className="text-sm text-text-secondary mt-2">
+                <p className="text-xs md:text-sm text-text-secondary mt-1 md:mt-2">
                   {allPrograms.filter(p => p.category === category.name).length} Programs
                 </p>
               </div>
@@ -346,8 +346,8 @@ export default function ProgramsPage() {
           </div>
 
           {/* All Programs Grid */}
-          <div className="mb-12">
-            <h2 className="text-3xl font-heading font-bold text-primary mb-8">All Fellowship Programs</h2>
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-5 md:mb-8">All Fellowship Programs</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {allPrograms.map((program, index) => (
                 <Link 
@@ -421,11 +421,11 @@ export default function ProgramsPage() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 text-center bg-linear-to-br from-primary to-primary-dark rounded-2xl p-12 text-white">
+          <div className="mt-10 md:mt-16 text-center bg-linear-to-br from-primary to-primary-dark rounded-2xl p-6 md:p-12 text-white">
             <div className="max-w-3xl mx-auto">
-              <div className="text-5xl mb-6">🎓</div>
-              <h3 className="text-3xl font-heading font-bold mb-4">Ready to Start Your Fellowship Journey?</h3>
-              <p className="text-lg mb-8 opacity-90 leading-relaxed">
+              <div className="text-4xl md:text-5xl mb-4 md:mb-6">🎓</div>
+              <h3 className="text-xl md:text-3xl font-heading font-bold mb-3 md:mb-4">Ready to Start Your Fellowship Journey?</h3>
+              <p className="text-sm md:text-lg mb-6 md:mb-8 opacity-90 leading-relaxed">
                 Join hundreds of doctors who have advanced their careers through our world-class fellowship programs. Apply now or schedule a consultation with our admissions team.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

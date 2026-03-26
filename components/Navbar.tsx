@@ -20,12 +20,18 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    
     window.addEventListener('scroll', handleScroll);
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsOpen(false);
+      }
     };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -50,7 +56,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center group">
             <motion.div 
               className="relative"
-              style={{ width: '180px', height: '56px' }}
+              style={{ width: '140px', height: '44px' }}
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
@@ -59,7 +65,7 @@ export default function Navbar() {
                 alt="Med Fellow Academy Logo"
                 fill
                 className="object-contain object-left"
-                sizes="180px"
+                sizes="(max-width: 640px) 120px, 180px"
                 priority
               />
             </motion.div>
@@ -213,10 +219,9 @@ export default function Navbar() {
               <div className="flex flex-col space-y-4">
                 {[
                   { href: '/', label: 'Home' },
-                  { href: '/programs?mode=online', label: 'Online Programs' },
-                  { href: '/programs?mode=blended', label: 'Blended Programs' },
-                  { href: '/contact', label: 'Contact' },
                   { href: '/about', label: 'About Us' },
+                  { href: '/programs?mode=online', label: 'Our Programs' },
+                  { href: '/contact', label: 'Contact' },
                 ].map((item, index) => (
                   <motion.div
                     key={item.href}

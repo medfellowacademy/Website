@@ -35,11 +35,11 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="section-padding bg-background">
       <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-heading font-bold text-primary mb-4">
+        <div className="text-center mb-10 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-heading font-bold text-primary mb-3 md:mb-4">
             What Our Fellows Say
           </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-text-secondary max-w-2xl mx-auto">
             Hear from doctors who have completed our fellowship programs and transformed their careers.
           </p>
         </div>

@@ -58,13 +58,13 @@ export default function ApplyPage() {
       <Navbar />
       
       {/* Hero */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-20">
+      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-20">
         <div className="container-custom text-center">
-          <h1 className="text-5xl font-heading font-bold mb-6">Apply for Fellowship</h1>
-          <p className="text-xl max-w-3xl mx-auto opacity-90">
+          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">Apply for Fellowship</h1>
+          <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90">
             Take the first step towards advancing your medical career
           </p>
-          <div className="mt-6 inline-flex items-center gap-4 text-sm">
+          <div className="mt-6 flex flex-wrap justify-center items-center gap-3 text-sm">
             <span className="px-4 py-2 bg-white/20 rounded-full">⏰ Next Batch: March 2026</span>
             <span className="px-4 py-2 bg-white/20 rounded-full">📅 Application Deadline: Apr 30, 2026</span>
           </div>
@@ -75,8 +75,8 @@ export default function ApplyPage() {
         <div className="container-custom max-w-4xl">
           {/* Application Steps */}
           <div className="mb-12">
-            <h2 className="text-3xl font-heading font-bold text-primary mb-8 text-center">Application Process</h2>
-            <div className="grid md:grid-cols-4 gap-6 mb-8">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-6 md:mb-8 text-center">Application Process</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold">
                   1
@@ -116,8 +116,8 @@ export default function ApplyPage() {
           </div>
 
           {/* Application Form */}
-          <div className="card p-8 lg:p-12">
-            <h2 className="text-3xl font-heading font-bold text-primary mb-8">Application Form</h2>
+          <div className="card p-6 md:p-8 lg:p-12">
+            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-6 md:mb-8">Application Form</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Personal Information */}
               <div>
