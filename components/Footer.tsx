@@ -37,7 +37,7 @@ export default function Footer() {
               <a href="#" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
                 <span className="text-lg">X</span>
               </a>
-              <a href="https://www.instagram.com/medfellow_academy?utm_source=qr&igsh=MXduanduMm9lM3B2bQ%3D%3D" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
+              <a href="https://www.instagram.com/medfellow_academy/" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
                 <span className="text-lg">📷</span>
               </a>
             </div>
