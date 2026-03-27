@@ -1,11 +1,12 @@
-import Link from "next/link";
+ import Link from "next/link";
 import Image from "next/image";
+import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-br from-primary via-primary-dark to-primary text-white">
+    <footer className="bg-linear-to-br from-primary via-primary-dark to-primary text-white">
       <div className="container-custom py-10 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
           {/* Brand */}
@@ -28,14 +29,13 @@ export default function Footer() {
               for clinical excellence and professional advancement.
             </p>
             <div className="flex gap-4">
-
   <a 
     href="https://www.facebook.com/people/MedFellow-Academy/61576370840302/" 
     target="_blank" 
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
   >
-    <span className="text-lg">f</span>
+    <FaFacebookF />
   </a>
 
   <a 
@@ -44,7 +44,7 @@ export default function Footer() {
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
   >
-    <span className="text-lg">in</span>
+    <FaLinkedinIn />
   </a>
 
   <a 
@@ -53,7 +53,7 @@ export default function Footer() {
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
   >
-    <span className="text-lg">X</span>
+    <FaTwitter />
   </a>
 
   <a 
@@ -62,9 +62,8 @@ export default function Footer() {
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
   >
-    <span className="text-lg">IG</span>
+    <FaInstagram />
   </a>
-
 </div>
           </div>
 
