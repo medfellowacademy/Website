@@ -12,7 +12,7 @@ export default function AboutPage() {
         <div className="container-custom text-center">
           <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">About MedFellow Academy</h1>
           <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90">
-            Leading the way in medical fellowship education since 2015
+          Advancing the future of medical fellowship education
           </p>
         </div>
       </section>
