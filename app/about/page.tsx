@@ -48,13 +48,12 @@ export default function AboutPage() {
             <h2 className="text-2xl md:text-4xl font-heading font-bold text-primary mb-5 md:mb-6 text-center">Our Story</h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-               MedFellow Academy was established with a vision to bridge the gap between medical education and clinical practice. Our founders—a group of distinguished medical educators and practicing clinicians—recognized the need for specialized fellowship programs that go beyond traditional training.
-              </p>
+              MedFellow Academy was founded with a clear vision to bridge the gap between medical education and real-world clinical practice. The academy was started by a team of professionals who bring over 10 years of experience in the healthcare and medical education industry.
               <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-                Over the years, we have grown from offering 3 fellowship programs to 17 comprehensive specializations, training more than 500 doctors from across India and neighboring countries. Our programs combine rigorous academic curricula with extensive hands-on training at over 50 partner hospitals.
+                Recognizing the need for practical, skill-based training, we focus on delivering specialized fellowship programs that go beyond traditional learning. Our approach emphasizes real-time exposure, industry relevance, and hands-on training to help doctors build confidence in their practice.
               </p>
               <p className="text-lg text-text-secondary leading-relaxed">
-                Today, MedFellow Academy stands as a symbol of excellence in medical education, with our fellows achieving remarkable success in their careers and making meaningful contributions to healthcare.
+                As a growing institution, MedFellow Academy is committed to creating meaningful learning opportunities and supporting medical professionals in advancing their careers with the right knowledge and skills.
               </p>
             </div>
           </div>
