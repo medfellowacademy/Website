@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
