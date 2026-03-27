@@ -20,7 +20,7 @@ export default function Footer() {
                 />
               </div>
               <h3 className="text-2xl font-heading font-bold">
-                Med Fellow Academy
+                MedFellow Academy
               </h3>
             </div>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
@@ -83,7 +83,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-300 text-sm">
-              © {currentYear} Med Fellow Academy. All rights reserved.
+              © {currentYear} MedFellow Academy. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-300 hover:text-accent transition-colors">Privacy Policy</a>
