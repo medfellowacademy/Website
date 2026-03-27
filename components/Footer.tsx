@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -28,19 +29,42 @@ export default function Footer() {
               for clinical excellence and professional advancement.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.facebook.com/people/MedFellow-Academy/61576370840302/" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
-                <span className="text-lg">f</span>
-              </a>
-              <a href="https://www.linkedin.com/in/medfellow-academy-4628823b8/" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
-                <span className="text-lg">in</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
-                <span className="text-lg">X</span>
-              </a>
-              <a href="https://www.instagram.com/medfellow_academy/" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
-                <span className="text-lg">📷</span>
-              </a>
-            </div>
+  <a 
+    href="https://www.facebook.com/people/MedFellow-Academy/61576370840302/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
+  >
+    <FaFacebookF />
+  </a>
+
+  <a 
+    href="https://www.linkedin.com/in/medfellow-academy-4628823b8/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
+  >
+    <FaLinkedinIn />
+  </a>
+
+  <a 
+    href="https://twitter.com" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
+  >
+    <FaTwitter />
+  </a>
+
+  <a 
+    href="https://www.instagram.com/medfellow_academy/" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
+  >
+    <FaInstagram />
+  </a>
+</div>
           </div>
 
           {/* Quick Links */}
