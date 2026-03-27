@@ -28,16 +28,16 @@ export default function Footer() {
               for clinical excellence and professional advancement.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
+              <a href="https://www.facebook.com/people/MedFellow-Academy/61576370840302/" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
                 <span className="text-lg">f</span>
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
+              <a href="https://www.linkedin.com/in/medfellow-academy-4628823b8/" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
                 <span className="text-lg">in</span>
               </a>
               <a href="#" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
                 <span className="text-lg">X</span>
               </a>
-              <a href="#" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
+              <a href="https://www.instagram.com/medfellow_academy?utm_source=qr&igsh=MXduanduMm9lM3B2bQ%3D%3D" className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
                 <span className="text-lg">@</span>
               </a>
             </div>
