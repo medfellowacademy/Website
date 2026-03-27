@@ -29,13 +29,14 @@ export default function Footer() {
               for clinical excellence and professional advancement.
             </p>
             <div className="flex gap-4">
+
   <a 
     href="https://www.facebook.com/people/MedFellow-Academy/61576370840302/" 
     target="_blank" 
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
   >
-    <FaFacebookF />
+    <span className="text-lg">f</span>
   </a>
 
   <a 
@@ -44,7 +45,7 @@ export default function Footer() {
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
   >
-    <FaLinkedinIn />
+    <span className="text-lg">in</span>
   </a>
 
   <a 
@@ -53,7 +54,7 @@ export default function Footer() {
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
   >
-    <FaTwitter />
+    <span className="text-lg">X</span>
   </a>
 
   <a 
@@ -62,8 +63,9 @@ export default function Footer() {
     rel="noopener noreferrer"
     className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
   >
-    <FaInstagram />
+    <span className="text-lg">IG</span>
   </a>
+
 </div>
           </div>
 
