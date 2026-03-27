@@ -69,7 +69,8 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">📍</span>
-                <span>Mahavir House, 307, Avanti Nagar, Basheer Bagh, Hyderabad, Telangana 500029</span>
+                <span>23-5-449, Second Floor, Nagul Chinta, Lal Darwaza, Shahalibanda, Charminar, Charminar, Hyderabad- 500065, Telangana,
+India</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">🕒</span>
