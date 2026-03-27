@@ -65,7 +65,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">📞</span>
-                <span>+91 99850 44993</span>
+                <span>+91 9985044993</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">📍</span>
