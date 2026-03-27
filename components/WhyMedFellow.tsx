@@ -46,7 +46,7 @@ export default function WhyMedFellow() {
         <div className="text-center mb-16" ref={ref}>
           <div className="inline-flex items-center gap-2 px-5 py-2 glass-card rounded-full mb-6">
             <Award className="w-4 h-4 text-accent" />
-            <span className="text-sm font-semibold text-primary">THE MED FELLOW ADVANTAGE</span>
+            <span className="text-sm font-semibold text-primary">THE MEDFELLOW ADVANTAGE</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-6">
             What Makes This Different From <br className="hidden md:block"/>
