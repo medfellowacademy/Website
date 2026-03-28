@@ -363,7 +363,7 @@ export default function ProgramsPage() {
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-primary/80 to-transparent" />
                     {/* Icon Badge */}
                     <div className="absolute bottom-4 left-4 w-14 h-14 bg-white/95 rounded-xl flex items-center justify-center text-3xl shadow-lg">
                       {program.icon}
@@ -373,7 +373,7 @@ export default function ProgramsPage() {
                     </span>
                   </div>
 
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="p-6 flex flex-col grow">
                     {/* Program Name */}
                     <h3 className="text-xl font-heading font-bold text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2">
                       {program.name}

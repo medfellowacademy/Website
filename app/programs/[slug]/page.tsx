@@ -908,7 +908,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                   <ul className="space-y-4">
                     {program.careerOpportunities.map((opportunity: string, index: number) => (
                       <li key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-linear-to-br from-accent to-secondary rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">
+                        <div className="w-6 h-6 bg-linear-to-br from-accent to-secondary rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0 mt-0.5">
                           {index + 1}
                         </div>
                         <span className="text-text-secondary">{opportunity}</span>
@@ -1012,7 +1012,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2">
                     <span>📧</span>
-                    <span>admissions@medfellowacademy.com</span>
+                    <span>info@medfellow.in</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span>📞</span>

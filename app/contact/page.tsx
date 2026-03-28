@@ -51,7 +51,7 @@ export default function ContactPage() {
         <div className="container-custom text-center">
           <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">Contact Us</h1>
           <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90">
-            Have questions? We're here to help you start your fellowship journey
+            Have questions? We&apos;re here to help you start your fellowship journey
           </p>
         </div>
       </section>
@@ -167,9 +167,8 @@ export default function ContactPage() {
                       <h3 className="font-heading font-bold text-primary mb-2">Address</h3>
                       <p className="text-text-secondary">
                         Med Fellow Academy<br />
-                       23-5-449, Second Floor, Nagul Chinta, Lal Darwaza<br />
-                        Shahalibanda, Charminar, Hyderabad<br />
-                        Telangana 500029, India
+                        23-5-449, Second Floor, Nagul Chinta<br />
+                        Hyderabad- 500065, Telangana, India
                       </p>
                     </div>
                   </div>
@@ -198,9 +197,9 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-heading font-bold text-primary mb-2">Email</h3>
                       <p className="text-text-secondary">
-                        info@medfellowacademy.com<br />
-                        admissions@medfellowacademy.com<br />
-                        support@medfellowacademy.com
+                        info@medfellow.in<br />
+                        info@medfellow.in<br />
+                        info@medfellow.in
                       </p>
                     </div>
                   </div>

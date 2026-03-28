@@ -175,7 +175,7 @@ export default function Blog() {
                   <Link key={index} href={`/blog/${post.slug}`} className="group">
                     <div className="card overflow-hidden hover:shadow-lg transition-all">
                       <div className="flex gap-4">
-                        <div className="relative w-40 h-40 flex-shrink-0 overflow-hidden">
+                        <div className="relative w-40 h-40 shrink-0 overflow-hidden">
                           <Image
                             src={post.image}
                             alt={post.title}

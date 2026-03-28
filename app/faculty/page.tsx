@@ -139,7 +139,7 @@ export default function FacultyPage() {
             <p className="text-lg text-text-secondary mb-6 max-w-2xl mx-auto">
               We're always looking for passionate educators and experienced clinicians to join our team
             </p>
-            <a href="mailto:careers@medfellowacademy.com" className="btn-primary px-8 py-3">
+            <a href="mailto:info@medfellow.in" className="btn-primary px-8 py-3">
               Apply to Teach
             </a>
           </div>

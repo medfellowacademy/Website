@@ -382,7 +382,7 @@ export default function FellowshipPrograms() {
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-t from-primary/90 via-primary/40 to-transparent" />
                       
                       {/* Icon Badge with 3D effect */}
                       <motion.div 
@@ -474,7 +474,7 @@ export default function FellowshipPrograms() {
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: idx * 0.1 }}
                             >
-                              <Star className="w-3 h-3 text-accent mt-1 flex-shrink-0" />
+                              <Star className="w-3 h-3 text-accent mt-1 shrink-0" />
                               <span>{highlight}</span>
                             </motion.li>
                           ))}
