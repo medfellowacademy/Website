@@ -109,13 +109,7 @@ export default function Footer() {
             <p className="text-gray-300 text-sm">
               © {currentYear} MedFellow Academy. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm">
-              <a href="#" className="text-gray-300 hover:text-accent transition-colors">Privacy Policy</a>
-              <span className="text-gray-500">•</span>
-              <a href="#" className="text-gray-300 hover:text-accent transition-colors">Terms of Service</a>
-              <span className="text-gray-500">•</span>
-              <a href="#" className="text-gray-300 hover:text-accent transition-colors">Cookie Policy</a>
-            </div>
+           
           </div>
         </div>
       </div>
