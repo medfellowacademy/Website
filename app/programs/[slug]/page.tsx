@@ -726,12 +726,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     </div>
                   ))}
                 </div>
-                <div className="mt-6 text-center">
-                  <a href="/downloads/sample-timetable.pdf" download className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all">
-                    <span>📥</span>
-                    Download Sample Timetable
-                  </a>
-                </div>
               </div>
 
               {/* Fee Breakdown */}
