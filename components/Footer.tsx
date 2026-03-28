@@ -47,14 +47,7 @@ export default function Footer() {
     <FaLinkedinIn />
   </a>
 
-  <a 
-    href="https://twitter.com" 
-    target="_blank" 
-    rel="noopener noreferrer"
-    className="w-10 h-10 bg-white/10 hover:bg-accent rounded-lg flex items-center justify-center transition-colors"
-  >
-    <FaTwitter />
-  </a>
+ 
 
   <a 
     href="https://www.instagram.com/medfellow_academy/" 
