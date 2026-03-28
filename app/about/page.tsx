@@ -49,6 +49,7 @@ export default function AboutPage() {
             <div className="max-w-4xl mx-auto">
               <p className="text-lg text-text-secondary mb-6 leading-relaxed">
               MedFellow Academy was founded with a clear vision to bridge the gap between medical education and real-world clinical practice. The academy was started by a team of professionals who bring over 10 years of experience in the healthcare and medical education industry.
+              </p>
               <p className="text-lg text-text-secondary mb-6 leading-relaxed">
                 Recognizing the need for practical, skill-based training, we focus on delivering specialized fellowship programs that go beyond traditional learning. Our approach emphasizes real-time exposure, industry relevance, and hands-on training to help doctors build confidence in their practice.
               </p>
