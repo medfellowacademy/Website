@@ -197,8 +197,6 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-heading font-bold text-primary mb-2">Email</h3>
                       <p className="text-text-secondary">
-                        info@medfellow.in<br />
-                        info@medfellow.in<br />
                         info@medfellow.in
                       </p>
                     </div>
