@@ -167,8 +167,8 @@ export default function ContactPage() {
                       <h3 className="font-heading font-bold text-primary mb-2">Address</h3>
                       <p className="text-text-secondary">
                         Med Fellow Academy<br />
-                        Mahavir House, 307, Avanti Nagar<br />
-                        Basheer Bagh, Hyderabad<br />
+                       23-5-449, Second Floor, Nagul Chinta, Lal Darwaza,<br />
+                        Shahalibanda, Charminar, Hyderabad<br />
                         Telangana 500029, India
                       </p>
                     </div>
@@ -183,8 +183,7 @@ export default function ContactPage() {
                     <div>
                       <h3 className="font-heading font-bold text-primary mb-2">Phone</h3>
                       <p className="text-text-secondary">
-                        +91 99850 44993<br />
-                        +91 98765 43211<br />
+                        +91 9985044993<br />
                         Mon-Fri: 9:00 AM - 6:00 PM
                       </p>
                     </div>
