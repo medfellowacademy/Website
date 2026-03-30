@@ -493,7 +493,7 @@ export default function FellowshipPrograms() {
                           </div>
                           <div className="space-y-1">
                             <div className="flex justify-between text-xs opacity-80">
-                              <span>11+1 Month</span>
+                              <span>11 Months(online) + 1 month (clinical)</span>
                               <span>₹{program.month11_1.toLocaleString('en-IN')}</span>
                             </div>
                           </div>

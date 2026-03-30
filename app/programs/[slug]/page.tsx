@@ -941,7 +941,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                             <span className="font-semibold text-primary">₹{program.onlinePrice.toLocaleString('en-IN')}</span>
                           </div>
                           <div className="flex justify-between items-center py-1">
-                            <span className="text-text-secondary">11+1 Month</span>
+                            <span className="text-text-secondary">11 Months(online) + 1 month (clinical)</span>
                             <span className="font-semibold text-primary">₹{program.month11_1.toLocaleString('en-IN')}</span>
                           </div>
                         </div>
