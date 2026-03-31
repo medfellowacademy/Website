@@ -5,18 +5,23 @@ export async function POST(request: NextRequest) {
   try {
     const fd = await request.formData();
     const first_name = fd.get('first_name') as string;
-    const last_name = fd.get('last_name') as string;
-    const email = fd.get('email') as string;
-    const phone = fd.get('phone') as string;
-    const program = fd.get('program') as string;
+    const last_name   = fd.get('last_name')  as string;
+    const email        = fd.get('email')       as string;
+    const phone        = fd.get('phone')       as string;
+    const program      = fd.get('program')     as string;
     const qualification = fd.get('qualification') as string;
-    const experience = fd.get('experience') as string;
-    const message = fd.get('message') as string;
+    const experience   = fd.get('experience')  as string;
+    const message      = fd.get('message')     as string;
 
-    const files = fd.getAll('documents') as File[];
-    const documentNames = files.filter(f => f.size > 0).map(f => f.name);
-    const fullMessage = documentNames.length > 0
-      ? `${message}\n\n[Attached documents: ${documentNames.join(', ')}]`
+    // Collect uploaded document names (doc_degree, doc_registration, etc.)
+    const docKeys = ['doc_degree', 'doc_registration', 'doc_govtId', 'doc_photo'];
+    const uploadedDocs = docKeys
+      .map(k => fd.get(k) as File | null)
+      .filter((f): f is File => f !== null && f.size > 0)
+      .map(f => f.name);
+
+    const fullMessage = uploadedDocs.length > 0
+      ? `${message}\n\n[Uploaded documents: ${uploadedDocs.join(', ')}]`
       : message;
 
     if (!first_name || !email || !phone || !program || !qualification) {
