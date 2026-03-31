@@ -15,6 +15,7 @@ export default function ApplyPage() {
     currentInstitution: '',
     statement: ''
   });
+  const [documentFiles, setDocumentFiles] = useState<File[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -28,23 +29,25 @@ export default function ApplyPage() {
       const first_name = nameParts[0] || '';
       const last_name = nameParts.slice(1).join(' ') || '';
 
+      const fd = new FormData();
+      fd.append('first_name', first_name);
+      fd.append('last_name', last_name);
+      fd.append('email', formData.email);
+      fd.append('phone', formData.phone);
+      fd.append('program', formData.program);
+      fd.append('qualification', formData.qualification);
+      fd.append('experience', formData.experience);
+      fd.append('message', formData.statement);
+      documentFiles.forEach((file) => fd.append('documents', file));
+
       const res = await fetch('/api/applications', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          first_name,
-          last_name,
-          email: formData.email,
-          phone: formData.phone,
-          program: formData.program,
-          qualification: formData.qualification,
-          experience: formData.experience,
-          message: formData.statement,
-        }),
+        body: fd,
       });
       const result = await res.json();
       if (!res.ok) throw new Error(result.error || 'Submission failed');
       setSubmitted(true);
+      setDocumentFiles([]);
       setFormData({ fullName: '', email: '', phone: '', qualification: '', yearOfPassing: '', program: '', experience: '', currentInstitution: '', statement: '' });
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Something went wrong. Please try again.');
@@ -76,14 +79,13 @@ export default function ApplyPage() {
           {/* Application Steps */}
           <div className="mb-12">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-6 md:mb-8 text-center">Application Process</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-8">
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-2xl font-bold">
                   1
                 </div>
                 <h3 className="font-semibold text-primary mb-2">Submit Application</h3>
                 <p className="text-sm text-text-secondary">Complete the online form</p>
-                <p className="text-xs text-accent mt-1 font-semibold">1-2 days</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-secondary to-accent rounded-full flex items-center justify-center text-white text-2xl font-bold">
@@ -91,28 +93,16 @@ export default function ApplyPage() {
                 </div>
                 <h3 className="font-semibold text-primary mb-2">Document Review</h3>
                 <p className="text-sm text-text-secondary">We verify your credentials</p>
-                <p className="text-xs text-accent mt-1 font-semibold">3-5 days</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-accent to-primary rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                  3
-                </div>
-                <h3 className="font-semibold text-primary mb-2">Interview</h3>
-                <p className="text-sm text-text-secondary">Virtual/In-person with faculty</p>
-                <p className="text-xs text-accent mt-1 font-semibold">Within 7 days</p>
               </div>
               <div className="text-center">
                 <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-primary to-accent rounded-full flex items-center justify-center text-white text-2xl font-bold">
-                  4
+                  3
                 </div>
                 <h3 className="font-semibold text-primary mb-2">Admission</h3>
                 <p className="text-sm text-text-secondary">Receive offer letter & fee details</p>
-                <p className="text-xs text-accent mt-1 font-semibold">Within 3 days</p>
               </div>
             </div>
-            <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 text-center">
-              <p className="text-sm text-primary"><strong>Total Timeline:</strong> Complete admission process in 14-20 days from application submission</p>
-            </div>
+
           </div>
 
           {/* Application Form */}
@@ -254,6 +244,41 @@ export default function ApplyPage() {
                     <option value="emergency">Fellowship in Emergency Medicine</option>
                     <option value="critical">Fellowship in Critical Care Medicine</option>
                   </select>
+                </div>
+              </div>
+
+              {/* Document Upload */}
+              <div>
+                <h3 className="text-xl font-heading font-semibold text-primary mb-4">Upload Documents</h3>
+                <p className="text-sm text-text-secondary mb-4">Upload supporting documents such as degree certificate, medical registration, ID proof, or experience letter (PDF, JPG, PNG — max 5MB each).</p>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-secondary transition-colors">
+                  <input
+                    type="file"
+                    id="documents"
+                    multiple
+                    accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                    className="hidden"
+                    onChange={(e) => setDocumentFiles(Array.from(e.target.files || []))}
+                  />
+                  <label htmlFor="documents" className="cursor-pointer block">
+                    <div className="text-4xl mb-2">📎</div>
+                    <p className="text-primary font-semibold">Click to upload documents</p>
+                    <p className="text-sm text-text-secondary mt-1">PDF, JPG, PNG, DOC up to 5MB each</p>
+                  </label>
+                  {documentFiles.length > 0 && (
+                    <div className="mt-4 text-left space-y-1">
+                      {documentFiles.map((file, i) => (
+                        <div key={i} className="flex items-center justify-between py-1 px-3 bg-green-50 rounded text-sm">
+                          <span className="text-green-700">✓ {file.name}</span>
+                          <button
+                            type="button"
+                            onClick={() => setDocumentFiles(documentFiles.filter((_, j) => j !== i))}
+                            className="text-red-400 hover:text-red-600 ml-2 font-bold"
+                          >×</button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
 
