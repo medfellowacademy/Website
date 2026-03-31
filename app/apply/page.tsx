@@ -1,26 +1,26 @@
-﻿'use client';
+'use client';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useState } from "react";
 
 const PROGRAMS = [
-  { value: 'arthroscopy', label: 'Arthroscopy & Arthroplasty', icon: 'ðŸ¦´' },
-  { value: 'gastro', label: 'Gastroenterology', icon: 'ðŸ«€' },
-  { value: 'reproductive', label: 'Reproductive Medicine', icon: 'ðŸ§¬' },
-  { value: 'pain', label: 'Pain Management', icon: 'ðŸ’Š' },
-  { value: 'diabeto', label: 'Diabetology', icon: 'ðŸ©º' },
-  { value: 'endo', label: 'Endocrinology', icon: 'âš—ï¸' },
-  { value: 'rheum', label: 'Rheumatology', icon: 'ðŸ”¬' },
-  { value: 'neuro', label: 'Neurology', icon: 'ðŸ§ ' },
-  { value: 'radio', label: 'Radiology', icon: 'ðŸ©»' },
-  { value: 'usg', label: 'Ultrasonography', icon: 'ðŸ“¡' },
-  { value: 'cardio', label: 'Interventional Cardiology', icon: 'â¤ï¸' },
-  { value: 'ortho', label: 'Orthopedics', icon: 'ðŸ¦·' },
-  { value: 'gyn', label: 'Gynecology & Obstetrics', icon: 'ðŸ‘¶' },
-  { value: 'surgery', label: 'General Surgery', icon: 'ðŸ¥' },
-  { value: 'spine', label: 'Spine Surgery', icon: 'ðŸ”©' },
-  { value: 'emergency', label: 'Emergency Medicine', icon: 'ðŸš‘' },
-  { value: 'critical', label: 'Critical Care Medicine', icon: 'ðŸ’‰' },
+  { value: 'arthroscopy', label: 'Arthroscopy & Arthroplasty' },
+  { value: 'gastro', label: 'Gastroenterology' },
+  { value: 'reproductive', label: 'Reproductive Medicine' },
+  { value: 'pain', label: 'Pain Management' },
+  { value: 'diabeto', label: 'Diabetology' },
+  { value: 'endo', label: 'Endocrinology' },
+  { value: 'rheum', label: 'Rheumatology' },
+  { value: 'neuro', label: 'Neurology' },
+  { value: 'radio', label: 'Radiology' },
+  { value: 'usg', label: 'Ultrasonography' },
+  { value: 'cardio', label: 'Interventional Cardiology' },
+  { value: 'ortho', label: 'Orthopedics' },
+  { value: 'gyn', label: 'Gynecology & Obstetrics' },
+  { value: 'surgery', label: 'General Surgery' },
+  { value: 'spine', label: 'Spine Surgery' },
+  { value: 'emergency', label: 'Emergency Medicine' },
+  { value: 'critical', label: 'Critical Care Medicine' },
 ];
 
 const PRACTICE_TYPES = [
@@ -72,8 +72,8 @@ const TERMS_SECTIONS = [
   {
     title: 'D. Payment & Refund Policy',
     items: [
-      'Within 7 days of enrollment â†’ Partial refund applicable.',
-      'After course access is granted â†’ No refund.',
+      'Within 7 days of enrollment - Partial refund applicable.',
+      'After course access is granted - No refund.',
       'GST and transaction charges are non-refundable.',
     ],
   },
@@ -94,10 +94,10 @@ const TERMS_SECTIONS = [
 ];
 
 const DOC_SLOTS = [
-  { key: 'degree',       label: 'MBBS / PG Degree Certificate',       accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
-  { key: 'registration', label: 'Medical Registration Certificate',    accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
-  { key: 'govtId',       label: 'Govt ID Proof (Aadhar / Passport)',   accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
-  { key: 'photo',        label: 'Recent Photograph',                   accept: '.jpg,.jpeg,.png',      hint: 'JPG or PNG' },
+  { key: 'degree',       label: 'MBBS / PG Degree Certificate',     accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
+  { key: 'registration', label: 'Medical Registration Certificate',  accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
+  { key: 'govtId',       label: 'Govt ID Proof (Aadhar / Passport)', accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
+  { key: 'photo',        label: 'Recent Photograph',                 accept: '.jpg,.jpeg,.png',      hint: 'JPG or PNG' },
 ];
 
 export default function ApplyPage() {
@@ -171,7 +171,11 @@ export default function ApplyPage() {
         <Navbar />
         <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-primary via-primary-dark to-secondary px-4 py-20">
           <div className="text-center text-white max-w-lg">
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center text-5xl mx-auto mb-8 animate-bounce">ðŸŽ‰</div>
+            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-8">
+              <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Application Submitted!</h2>
             <p className="text-white/80 text-lg mb-8">Our admissions team will contact you within 48 hours to discuss next steps.</p>
             <a href="/" className="inline-block px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-accent hover:text-white transition-colors">Back to Home</a>
@@ -186,15 +190,18 @@ export default function ApplyPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      {/* â”€â”€ Hero â”€â”€ */}
+      {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-secondary py-14 md:py-20">
         <div className="absolute top-[-60px] right-[-60px] w-80 h-80 bg-secondary/30 rounded-full blur-3xl animate-blob" />
         <div className="absolute bottom-[-40px] left-[-40px] w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,white 39px,white 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,white 39px,white 40px)' }} />
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,white 39px,white 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,white 39px,white 40px)' }}
+        />
         <div className="container-custom relative z-10 text-center text-white">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/15 rounded-full text-sm font-medium mb-5 backdrop-blur-sm border border-white/20">
             <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            Applications Open Â· Next Batch: March 2026
+            Applications Open - Next Batch: March 2026
           </div>
           <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 leading-tight">
             Begin Your <span className="text-accent">Fellowship</span> Journey
@@ -203,21 +210,21 @@ export default function ApplyPage() {
             Join 500+ doctors who have transformed their careers through our fellowship programs.
           </p>
           <div className="flex flex-wrap justify-center gap-3 text-sm">
-            {[['ðŸ¥', '17 Specialties'], ['ðŸ‘¨â€âš•ï¸', '500+ Alumni'], ['ðŸ“…', 'Deadline: Apr 30, 2026']].map(([icon, label]) => (
-              <span key={label} className="flex items-center gap-2 px-4 py-2 bg-white/15 border border-white/20 rounded-full backdrop-blur-sm">
-                <span>{icon}</span><span className="font-medium">{label}</span>
+            {['17 Specialties', '500+ Alumni', 'Deadline: Apr 30, 2026'].map((label) => (
+              <span key={label} className="px-4 py-2 bg-white/15 border border-white/20 rounded-full backdrop-blur-sm font-medium">
+                {label}
               </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* â”€â”€ Body â”€â”€ */}
+      {/* Body */}
       <section className="py-10 md:py-16">
         <div className="container-custom max-w-6xl">
           <div className="grid lg:grid-cols-[300px_1fr] gap-8 items-start">
 
-            {/* â”€â”€ Sidebar â”€â”€ */}
+            {/* Sidebar */}
             <div className="lg:sticky lg:top-24 space-y-6">
               {/* Step tracker */}
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
@@ -231,7 +238,7 @@ export default function ApplyPage() {
                         <div className={`flex items-center gap-4 p-3 rounded-xl transition-all ${active ? 'bg-primary/8' : ''}`}>
                           <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0 transition-all
                             ${done ? 'bg-secondary text-white' : active ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-gray-100 text-gray-400'}`}>
-                            {done ? 'âœ“' : s.id}
+                            {done ? 'Done' : s.id}
                           </div>
                           <div>
                             <p className={`text-sm font-semibold leading-none mb-1 ${active ? 'text-primary' : done ? 'text-secondary' : 'text-gray-400'}`}>{s.title}</p>
@@ -251,8 +258,10 @@ export default function ApplyPage() {
                     <span>{Math.round(((step - 1) / STEPS.length) * 100)}%</span>
                   </div>
                   <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500"
-                      style={{ width: `${((step - 1) / STEPS.length) * 100}%` }} />
+                    <div
+                      className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500"
+                      style={{ width: `${((step - 1) / STEPS.length) * 100}%` }}
+                    />
                   </div>
                 </div>
               </div>
@@ -263,14 +272,14 @@ export default function ApplyPage() {
                 <ul className="space-y-3 text-sm text-white/85">
                   {['Industry-recognized certifications', 'Expert faculty & mentors', 'Hands-on clinical training', 'Career placement support'].map(item => (
                     <li key={item} className="flex items-start gap-2">
-                      <span className="text-accent mt-0.5">âœ¦</span>{item}
+                      <span className="text-accent mt-0.5 font-bold">+</span>{item}
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            {/* â”€â”€ Form panel â”€â”€ */}
+            {/* Form panel */}
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
               {/* Step header */}
               <div className="px-6 md:px-10 pt-8 pb-6 border-b border-gray-100">
@@ -286,7 +295,7 @@ export default function ApplyPage() {
               <form onSubmit={handleSubmit}>
                 <div className="px-6 md:px-10 py-8">
 
-                  {/* â”€â”€â”€ Step 1: Personal Details â”€â”€â”€ */}
+                  {/* Step 1: Personal Details */}
                   {step === 1 && (
                     <div className="space-y-5 animate-fade-in-up">
                       <div className="grid md:grid-cols-2 gap-5">
@@ -319,7 +328,7 @@ export default function ApplyPage() {
                     </div>
                   )}
 
-                  {/* â”€â”€â”€ Step 2: Professional Details â”€â”€â”€ */}
+                  {/* Step 2: Professional Details */}
                   {step === 2 && (
                     <div className="space-y-8 animate-fade-in-up">
                       <div className="grid md:grid-cols-2 gap-5">
@@ -384,7 +393,7 @@ export default function ApplyPage() {
                     </div>
                   )}
 
-                  {/* â”€â”€â”€ Step 3: Course Selection â”€â”€â”€ */}
+                  {/* Step 3: Course Selection */}
                   {step === 3 && (
                     <div className="space-y-8 animate-fade-in-up">
                       {/* Program picker */}
@@ -393,18 +402,17 @@ export default function ApplyPage() {
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 max-h-64 overflow-y-auto pr-1 custom-scroll">
                           {PROGRAMS.map(p => (
                             <button type="button" key={p.value} onClick={() => u('program', p.value)}
-                              className={`flex items-center gap-2 px-3 py-2.5 rounded-xl border text-left transition-all
+                              className={`px-3 py-2.5 rounded-xl border text-left transition-all
                                 ${formData.program === p.value
                                   ? 'border-secondary bg-secondary/10 text-secondary font-semibold shadow-sm'
                                   : 'border-gray-200 text-text-secondary hover:border-primary/30 hover:bg-primary/5'}`}>
-                              <span className="text-lg shrink-0">{p.icon}</span>
                               <span className="leading-tight text-xs">{p.label}</span>
                             </button>
                           ))}
                         </div>
                         {formData.program && (
                           <p className="mt-2 text-xs text-secondary font-medium">
-                            âœ“ Selected: {PROGRAMS.find(p => p.value === formData.program)?.label}
+                            Selected: {PROGRAMS.find(p => p.value === formData.program)?.label}
                           </p>
                         )}
                       </div>
@@ -414,15 +422,14 @@ export default function ApplyPage() {
                         <p className="text-xs font-semibold text-text-secondary uppercase tracking-wide mb-3">Mode Preference *</p>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {[
-                            { value: 'online_handson', label: 'Online + Hands-on Training', desc: 'In-depth clinical exposure with practical sessions', icon: 'ðŸ¥' },
-                            { value: 'online_only', label: 'Online Only', desc: 'Flexible digital learning from anywhere', icon: 'ðŸ’»' },
+                            { value: 'online_handson', label: 'Online + Hands-on Training', desc: 'In-depth clinical exposure with practical sessions' },
+                            { value: 'online_only', label: 'Online Only', desc: 'Flexible digital learning from anywhere' },
                           ].map(m => (
                             <button type="button" key={m.value} onClick={() => u('modePreference', m.value)}
                               className={`flex items-start gap-3 p-4 rounded-xl border text-left transition-all
                                 ${formData.modePreference === m.value
                                   ? 'border-secondary bg-secondary/10 shadow-sm'
                                   : 'border-gray-200 hover:border-primary/30 hover:bg-primary/5'}`}>
-                              <span className="text-2xl mt-0.5">{m.icon}</span>
                               <div>
                                 <p className={`text-sm font-semibold ${formData.modePreference === m.value ? 'text-secondary' : 'text-primary'}`}>{m.label}</p>
                                 <p className="text-xs text-text-tertiary mt-0.5">{m.desc}</p>
@@ -442,14 +449,14 @@ export default function ApplyPage() {
                     </div>
                   )}
 
-                  {/* â”€â”€â”€ Step 4: Documents + Declaration â”€â”€â”€ */}
+                  {/* Step 4: Documents + Declaration */}
                   {step === 4 && (
                     <div className="space-y-8 animate-fade-in-up">
 
                       {/* Document upload slots */}
                       <div>
                         <p className="text-sm font-semibold text-primary mb-1">Document Upload</p>
-                        <p className="text-xs text-text-secondary mb-4">Upload clear copies of each document â€” PDF, JPG, or PNG, max 5MB each.</p>
+                        <p className="text-xs text-text-secondary mb-4">Upload clear copies of each document - PDF, JPG, or PNG, max 5MB each.</p>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {DOC_SLOTS.map(slot => (
                             <div key={slot.key}
@@ -462,9 +469,9 @@ export default function ApplyPage() {
                                   setDocuments(prev => ({ ...prev, [slot.key]: file }));
                                 }} />
                               <div className="flex items-center gap-3">
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0
-                                  ${documents[slot.key] ? 'bg-secondary/20' : 'bg-gray-100'}`}>
-                                  {documents[slot.key] ? 'âœ…' : 'ðŸ“„'}
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-xs font-bold shrink-0
+                                  ${documents[slot.key] ? 'bg-secondary/20 text-secondary' : 'bg-gray-100 text-gray-400'}`}>
+                                  {documents[slot.key] ? 'Done' : 'Upload'}
                                 </div>
                                 <div className="min-w-0">
                                   <p className={`text-xs font-semibold leading-tight ${documents[slot.key] ? 'text-secondary' : 'text-primary'}`}>
@@ -484,8 +491,8 @@ export default function ApplyPage() {
                       <div className="border border-gray-200 rounded-xl overflow-hidden">
                         <button type="button" onClick={() => setTermsOpen(v => !v)}
                           className="w-full flex items-center justify-between px-5 py-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left">
-                          <span className="text-sm font-semibold text-primary">ðŸ“‹ Terms & Conditions â€” Please Read</span>
-                          <span className={`text-text-tertiary text-xs transition-transform duration-200 ${termsOpen ? 'rotate-180' : ''}`}>â–¼</span>
+                          <span className="text-sm font-semibold text-primary">Terms and Conditions - Please Read</span>
+                          <span className={`text-text-tertiary text-xs font-bold transition-transform duration-200 ${termsOpen ? 'rotate-180' : ''}`}>v</span>
                         </button>
                         {termsOpen && (
                           <div className="px-5 py-4 space-y-5 text-xs text-text-secondary max-h-64 overflow-y-auto custom-scroll border-t border-gray-100">
@@ -503,7 +510,7 @@ export default function ApplyPage() {
 
                       {/* Declaration checkboxes */}
                       <div>
-                        <p className="text-sm font-semibold text-primary mb-1">âœï¸ Declaration by Applicant</p>
+                        <p className="text-sm font-semibold text-primary mb-1">Declaration by Applicant</p>
                         <p className="text-xs text-text-secondary mb-4">All declarations must be confirmed before submitting your application.</p>
                         <div className="space-y-2">
                           {DECLARATIONS.map((decl, i) => (
@@ -519,7 +526,7 @@ export default function ApplyPage() {
                                   }} />
                                 <div className={`w-5 h-5 rounded flex items-center justify-center border-2 transition-all
                                   ${declarations[i] ? 'bg-secondary border-secondary' : 'border-gray-300 bg-white'}`}>
-                                  {declarations[i] && <span className="text-white text-xs font-bold leading-none">âœ“</span>}
+                                  {declarations[i] && <span className="text-white text-xs font-bold leading-none">v</span>}
                                 </div>
                               </div>
                               <p className="text-xs text-text-secondary leading-relaxed">{decl}</p>
@@ -527,41 +534,41 @@ export default function ApplyPage() {
                           ))}
                         </div>
                         {!allDeclared && (
-                          <p className="mt-3 text-xs text-accent font-medium flex items-center gap-1.5">
-                            <span>âš ï¸</span> Please confirm all 6 declarations to submit.
+                          <p className="mt-3 text-xs text-accent font-medium">
+                            Please confirm all 6 declarations to submit.
                           </p>
                         )}
                       </div>
 
                       {error && (
                         <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm text-center">
-                          âŒ {error}
+                          {error}
                         </div>
                       )}
                     </div>
                   )}
                 </div>
 
-                {/* â”€â”€ Navigation â”€â”€ */}
+                {/* Navigation */}
                 <div className="px-6 md:px-10 py-6 bg-gray-50 border-t border-gray-100 flex items-center justify-between gap-4">
                   {step > 1 ? (
                     <button type="button" onClick={() => setStep(s => s - 1)}
-                      className="flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-200 text-text-secondary hover:border-primary hover:text-primary text-sm font-semibold transition-all">
-                      â† Back
+                      className="px-6 py-3 rounded-xl border border-gray-200 text-text-secondary hover:border-primary hover:text-primary text-sm font-semibold transition-all">
+                      Back
                     </button>
                   ) : <div />}
 
                   {step < STEPS.length ? (
                     <button type="button" disabled={!canAdvance} onClick={() => setStep(s => s + 1)}
-                      className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none">
-                      Continue â†’
+                      className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none">
+                      Continue
                     </button>
                   ) : (
                     <button type="submit" disabled={submitting || !canSubmit}
                       className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-secondary to-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-secondary/25 hover:shadow-secondary/40 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none">
                       {submitting ? (
                         <><span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" /> Submitting...</>
-                      ) : 'ðŸš€ Submit Application'}
+                      ) : 'Submit Application'}
                     </button>
                   )}
                 </div>
@@ -584,4 +591,3 @@ function FL({ label, children, className }: { label: string; children: React.Rea
     </div>
   );
 }
-
