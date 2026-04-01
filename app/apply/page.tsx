@@ -191,30 +191,59 @@ export default function ApplyPage() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-secondary py-14 md:py-20">
-        <div className="absolute top-[-60px] right-[-60px] w-80 h-80 bg-secondary/30 rounded-full blur-3xl animate-blob" />
-        <div className="absolute bottom-[-40px] left-[-40px] w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-blob animation-delay-2000" />
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 39px,white 39px,white 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,white 39px,white 40px)' }}
-        />
-        <div className="container-custom relative z-10 text-center text-white">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/15 rounded-full text-sm font-medium mb-5 backdrop-blur-sm border border-white/20">
-            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-            Applications Open - Next Batch: March 2026
-          </div>
-          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 leading-tight">
-            Begin Your <span className="text-accent">Fellowship</span> Journey
-          </h1>
-          <p className="text-white/75 text-base md:text-lg max-w-2xl mx-auto mb-8">
-            Join 500+ doctors who have transformed their careers through our fellowship programs.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3 text-sm">
-            {['17 Specialties', '500+ Alumni', 'Deadline: Apr 30, 2026'].map((label) => (
-              <span key={label} className="px-4 py-2 bg-white/15 border border-white/20 rounded-full backdrop-blur-sm font-medium">
-                {label}
-              </span>
-            ))}
+      <section className="relative overflow-hidden bg-white border-b border-gray-100 py-16 md:py-24">
+        {/* Decorative blobs */}
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="container-custom relative z-10">
+          <div className="max-w-3xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-semibold text-primary mb-6">
+              <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
+              Applications Open — Next Batch: April 2026
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-4xl md:text-6xl font-heading font-bold text-gray-900 leading-tight mb-5">
+              Begin Your{' '}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-primary">Fellowship</span>
+                <span className="absolute left-0 bottom-1 w-full h-3 bg-accent/25 rounded-sm -z-10" />
+              </span>{' '}
+              Journey
+            </h1>
+
+            {/* Sub-copy */}
+            <p className="text-gray-500 text-lg md:text-xl max-w-xl mb-8 leading-relaxed">
+              Take the next step in your medical career with our nationally recognised fellowship programs.
+            </p>
+
+            {/* Pills */}
+            <div className="flex flex-wrap gap-3 mb-10">
+              {[
+                { icon: '🩺', label: '17 Specialties' },
+                { icon: '📅', label: 'Deadline: Apr 30, 2026' },
+                { icon: '✅', label: 'Nationally Recognised' },
+              ].map(({ icon, label }) => (
+                <span key={label} className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700">
+                  <span>{icon}</span>{label}
+                </span>
+              ))}
+            </div>
+
+            {/* CTA row */}
+            <div className="flex items-center gap-4 flex-wrap">
+              <a
+                href="#application-form"
+                className="inline-block px-7 py-3.5 bg-primary text-white font-bold rounded-full shadow-lg shadow-primary/25 hover:bg-primary-dark transition-colors text-sm"
+              >
+                Apply Now
+              </a>
+              <a href="/programs" className="text-sm font-semibold text-primary hover:text-primary-dark underline underline-offset-4 transition-colors">
+                Explore Programs →
+              </a>
+            </div>
           </div>
         </div>
       </section>
