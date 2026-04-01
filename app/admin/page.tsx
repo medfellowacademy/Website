@@ -25,17 +25,91 @@ type Application = {
   message: string;
   status: string;
   created_at: string;
+  dob?: string;
+  gender?: string;
+  reg_number?: string;
+  state_council?: string;
+  year_of_reg?: string;
+  practice_type?: string;
+  hospital_name?: string;
+  clinic_name?: string;
+  city?: string;
+  mode_preference?: string;
+  reason?: string;
 };
+
+type InvoiceItem = { desc: string; qty: number; rate: number };
+
+type InvoiceData = {
+  invoiceNo: string;
+  date: string;
+  dueDate: string;
+  clientName: string;
+  clientEmail: string;
+  clientPhone: string;
+  clientCity: string;
+  program: string;
+  items: InvoiceItem[];
+  notes: string;
+  taxPercent: number;
+};
+
+const PROGRAM_LABELS: Record<string, string> = {
+  arthroscopy: 'Arthroscopy & Arthroplasty',
+  gastro: 'Gastroenterology',
+  reproductive: 'Reproductive Medicine',
+  pain: 'Pain Management',
+  diabeto: 'Diabetology',
+  endo: 'Endocrinology',
+  rheum: 'Rheumatology',
+  neuro: 'Neurology',
+  radio: 'Radiology',
+  usg: 'Ultrasonography',
+  cardio: 'Interventional Cardiology',
+  ortho: 'Orthopedics',
+  gyn: 'Gynecology & Obstetrics',
+  surgery: 'General Surgery',
+  spine: 'Spine Surgery',
+  emergency: 'Emergency Medicine',
+  critical: 'Critical Care Medicine',
+};
+
+function parseDocuments(msg: string | null | undefined): string[] {
+  if (!msg) return [];
+  const match = msg.match(/\[Uploaded documents: (.+?)\]/);
+  if (!match) return [];
+  return match[1].split(', ').filter(Boolean);
+}
+
+function fmt(n: number) {
+  return n.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
 
 export default function AdminPage() {
   const [authenticated, setAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [authError, setAuthError] = useState('');
-  const [activeTab, setActiveTab] = useState<'enquiries' | 'applications'>('enquiries');
+  const [activeTab, setActiveTab] = useState<'enquiries' | 'applications' | 'invoice'>('enquiries');
   const [enquiries, setEnquiries] = useState<ContactEnquiry[]>([]);
   const [applications, setApplications] = useState<Application[]>([]);
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState<ContactEnquiry | Application | null>(null);
+
+  const today = new Date().toISOString().split('T')[0];
+  const due7 = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0];
+  const [inv, setInv] = useState<InvoiceData>({
+    invoiceNo: `MFA-${new Date().getFullYear()}-${String(Date.now()).slice(-4)}`,
+    date: today,
+    dueDate: due7,
+    clientName: '',
+    clientEmail: '',
+    clientPhone: '',
+    clientCity: '',
+    program: '',
+    items: [{ desc: 'Fellowship Program Fee', qty: 1, rate: 0 }],
+    notes: 'Payment via NEFT / RTGS / UPI.\nPlease quote the invoice number as reference.',
+    taxPercent: 18,
+  });
 
   const ADMIN_PASSWORD = 'MedFellow@Admin2026';
 
@@ -84,6 +158,32 @@ export default function AdminPage() {
     await supabase.from(table).update({ status }).eq('id', id);
     fetchData();
     setSelected(null);
+  };
+
+  // Invoice helpers
+  const subtotal = inv.items.reduce((s, it) => s + it.qty * it.rate, 0);
+  const taxAmt = Math.round(subtotal * inv.taxPercent / 100);
+  const total = subtotal + taxAmt;
+
+  const setItem = (idx: number, field: keyof InvoiceItem, val: string | number) =>
+    setInv(prev => ({ ...prev, items: prev.items.map((it, i) => i === idx ? { ...it, [field]: val } : it) }));
+  const addItem = () =>
+    setInv(prev => ({ ...prev, items: [...prev.items, { desc: '', qty: 1, rate: 0 }] }));
+  const removeItem = (idx: number) =>
+    setInv(prev => ({ ...prev, items: prev.items.filter((_, i) => i !== idx) }));
+  const fillFromApp = (app: Application) => {
+    const label = PROGRAM_LABELS[app.program] || app.program;
+    setInv(prev => ({
+      ...prev,
+      invoiceNo: `MFA-${new Date().getFullYear()}-${String(Date.now()).slice(-4)}`,
+      clientName: `Dr. ${app.first_name} ${app.last_name}`,
+      clientEmail: app.email,
+      clientPhone: app.phone,
+      clientCity: app.city || '',
+      program: label,
+      items: [{ desc: `Fellowship – ${label}`, qty: 1, rate: 0 }],
+    }));
+    setActiveTab('invoice');
   };
 
   const statusColor = (status: string) => {
@@ -135,7 +235,7 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b shadow-sm sticky top-0 z-10">
+      <div className="bg-white border-b shadow-sm sticky top-0 z-10 print:hidden">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-linear-to-br from-primary to-secondary rounded-lg flex items-center justify-center text-white font-bold">M</div>
@@ -150,7 +250,7 @@ export default function AdminPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-6 py-8 print:hidden">
         {/* Stats Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white rounded-xl p-5 shadow-sm border">
@@ -173,20 +273,21 @@ export default function AdminPage() {
 
         {/* Tabs */}
         <div className="bg-white rounded-xl shadow-sm border overflow-hidden">
-          <div className="flex border-b">
-            <button
-              onClick={() => setActiveTab('enquiries')}
-              className={`px-6 py-4 font-semibold text-sm transition-colors ${activeTab === 'enquiries' ? 'text-primary border-b-2 border-primary bg-primary/5' : 'text-gray-500 hover:text-primary'}`}
-            >
-              Contact Enquiries ({enquiries.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('applications')}
-              className={`px-6 py-4 font-semibold text-sm transition-colors ${activeTab === 'applications' ? 'text-primary border-b-2 border-primary bg-primary/5' : 'text-gray-500 hover:text-primary'}`}
-            >
-              Applications ({applications.length})
-            </button>
-            <button onClick={fetchData} className="ml-auto px-6 py-4 text-sm text-gray-500 hover:text-primary transition-colors">
+          <div className="flex border-b overflow-x-auto">
+            {([
+              { key: 'enquiries', label: `Contact Enquiries (${enquiries.length})` },
+              { key: 'applications', label: `Applications (${applications.length})` },
+              { key: 'invoice', label: '🧾 Invoice Generator' },
+            ] as { key: typeof activeTab; label: string }[]).map(tab => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`px-6 py-4 font-semibold text-sm whitespace-nowrap transition-colors ${activeTab === tab.key ? 'text-primary border-b-2 border-primary bg-primary/5' : 'text-gray-500 hover:text-primary'}`}
+              >
+                {tab.label}
+              </button>
+            ))}
+            <button onClick={fetchData} className="ml-auto px-6 py-4 text-sm text-gray-500 hover:text-primary transition-colors whitespace-nowrap">
               {loading ? '⟳ Refreshing...' : '⟳ Refresh'}
             </button>
           </div>
@@ -265,6 +366,7 @@ export default function AdminPage() {
                       <th className="px-6 py-3 font-semibold text-gray-600">Status</th>
                       <th className="px-6 py-3 font-semibold text-gray-600">Date</th>
                       <th className="px-6 py-3 font-semibold text-gray-600">Action</th>
+                      <th className="px-6 py-3 font-semibold text-gray-600">Invoice</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
@@ -273,7 +375,7 @@ export default function AdminPage() {
                         <td className="px-6 py-4 font-medium text-gray-900">{app.first_name} {app.last_name}</td>
                         <td className="px-6 py-4 text-gray-600">{app.email}</td>
                         <td className="px-6 py-4 text-gray-600">{app.phone}</td>
-                        <td className="px-6 py-4 text-gray-600 max-w-37.5 truncate">{app.program}</td>
+                        <td className="px-6 py-4 text-gray-600 max-w-37.5 truncate">{PROGRAM_LABELS[app.program] || app.program}</td>
                         <td className="px-6 py-4 text-gray-600">{app.qualification}</td>
                         <td className="px-6 py-4">
                           <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusColor(app.status)}`}>
@@ -294,6 +396,14 @@ export default function AdminPage() {
                             <option value="rejected">Rejected</option>
                           </select>
                         </td>
+                        <td className="px-6 py-4" onClick={e => e.stopPropagation()}>
+                          <button
+                            onClick={() => fillFromApp(app)}
+                            className="text-xs bg-primary/10 text-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition-colors font-medium whitespace-nowrap"
+                          >
+                            🧾 Invoice
+                          </button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -301,30 +411,314 @@ export default function AdminPage() {
               )}
             </div>
           )}
+
+          {/* Invoice Generator */}
+          {activeTab === 'invoice' && (
+            <div className="p-6 lg:p-8">
+              <div className="grid lg:grid-cols-2 gap-8 items-start">
+
+                {/* ── Form ── */}
+                <div className="space-y-6">
+
+                  {/* Auto-fill */}
+                  {applications.length > 0 && (
+                    <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
+                      <p className="text-xs font-bold text-primary uppercase tracking-widest mb-3">Auto-fill from Application</p>
+                      <select
+                        title="Select application"
+                        defaultValue=""
+                        onChange={e => { const app = applications.find(a => a.id === e.target.value); if (app) fillFromApp(app); }}
+                        className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2.5 outline-none bg-white"
+                      >
+                        <option value="" disabled>Select an applicant…</option>
+                        {applications.map(a => (
+                          <option key={a.id} value={a.id}>Dr. {a.first_name} {a.last_name} — {PROGRAM_LABELS[a.program] || a.program}</option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+
+                  {/* Invoice Meta */}
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Invoice Details</p>
+                    <div className="grid grid-cols-3 gap-3">
+                      <div>
+                        <label className="text-xs text-gray-500 mb-1 block">Invoice No.</label>
+                        <input className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={inv.invoiceNo} onChange={e => setInv(p => ({ ...p, invoiceNo: e.target.value }))} />
+                      </div>
+                      <div>
+                        <label className="text-xs text-gray-500 mb-1 block">Date</label>
+                        <input type="date" className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={inv.date} onChange={e => setInv(p => ({ ...p, date: e.target.value }))} />
+                      </div>
+                      <div>
+                        <label className="text-xs text-gray-500 mb-1 block">Due Date</label>
+                        <input type="date" className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={inv.dueDate} onChange={e => setInv(p => ({ ...p, dueDate: e.target.value }))} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Client */}
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Bill To</p>
+                    <div className="space-y-3">
+                      <div>
+                        <label className="text-xs text-gray-500 mb-1 block">Full Name</label>
+                        <input className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" placeholder="Dr. Jane Smith" value={inv.clientName} onChange={e => setInv(p => ({ ...p, clientName: e.target.value }))} />
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div><label className="text-xs text-gray-500 mb-1 block">Email</label><input className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={inv.clientEmail} onChange={e => setInv(p => ({ ...p, clientEmail: e.target.value }))} /></div>
+                        <div><label className="text-xs text-gray-500 mb-1 block">Phone</label><input className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={inv.clientPhone} onChange={e => setInv(p => ({ ...p, clientPhone: e.target.value }))} /></div>
+                        <div><label className="text-xs text-gray-500 mb-1 block">City</label><input className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={inv.clientCity} onChange={e => setInv(p => ({ ...p, clientCity: e.target.value }))} /></div>
+                        <div><label className="text-xs text-gray-500 mb-1 block">Program</label><input className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={inv.program} onChange={e => setInv(p => ({ ...p, program: e.target.value }))} /></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Line Items */}
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Line Items</p>
+                    <div className="space-y-2">
+                      <div className="grid grid-cols-[1fr_52px_90px_32px] gap-2 text-xs font-semibold text-gray-400 px-1">
+                        <span>Description</span><span className="text-center">Qty</span><span className="text-right">Rate (₹)</span><span />
+                      </div>
+                      {inv.items.map((it, idx) => (
+                        <div key={idx} className="grid grid-cols-[1fr_52px_90px_32px] gap-2 items-center">
+                          <input placeholder="e.g. Fellowship Fee" className="text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={it.desc} onChange={e => setItem(idx, 'desc', e.target.value)} />
+                          <input type="number" min={1} className="text-sm border border-gray-200 rounded-lg px-2 py-2 outline-none text-center" value={it.qty} onChange={e => setItem(idx, 'qty', Number(e.target.value))} />
+                          <input type="number" min={0} className="text-sm border border-gray-200 rounded-lg px-2 py-2 outline-none text-right" value={it.rate} onChange={e => setItem(idx, 'rate', Number(e.target.value))} />
+                          <button onClick={() => removeItem(idx)} className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors text-xl leading-none">×</button>
+                        </div>
+                      ))}
+                      <button onClick={addItem} className="text-xs text-primary font-semibold hover:text-primary-dark flex items-center gap-1 mt-1">+ Add line item</button>
+                    </div>
+                  </div>
+
+                  {/* Tax & Notes */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-xs text-gray-500 mb-1 block">GST %</label>
+                      <input type="number" min={0} max={100} className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none" value={inv.taxPercent} onChange={e => setInv(p => ({ ...p, taxPercent: Number(e.target.value) }))} />
+                    </div>
+                    <div className="flex items-end">
+                      <div className="w-full bg-gray-50 rounded-lg px-3 py-2">
+                        <span className="text-xs text-gray-400 block">Total</span>
+                        <span className="font-bold text-primary text-base">₹{fmt(total)}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="text-xs text-gray-500 mb-1 block">Notes / Payment Instructions</label>
+                    <textarea rows={3} className="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 outline-none resize-none" value={inv.notes} onChange={e => setInv(p => ({ ...p, notes: e.target.value }))} />
+                  </div>
+
+                  <button
+                    onClick={() => window.print()}
+                    className="w-full bg-primary text-white py-3.5 rounded-xl font-bold text-sm hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+                  >
+                    🖨️ Print / Download Invoice
+                  </button>
+                </div>
+
+                {/* ── Preview ── */}
+                <div className="lg:sticky lg:top-28">
+                  <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Live Preview</p>
+                  <InvoicePreview inv={inv} subtotal={subtotal} taxAmt={taxAmt} total={total} />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
+      </div>
+
+      {/* Print-only invoice */}
+      <div className="hidden print:block p-8">
+        <InvoicePreview inv={inv} subtotal={subtotal} taxAmt={taxAmt} total={total} />
       </div>
 
       {/* Detail Modal */}
       {selected && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" onClick={() => setSelected(null)}>
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 print:hidden" onClick={() => setSelected(null)}>
           <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-start mb-6">
               <h2 className="text-xl font-bold text-primary">Details</h2>
               <button onClick={() => setSelected(null)} className="text-gray-400 hover:text-gray-600 text-2xl leading-none">×</button>
             </div>
-            <div className="space-y-3 text-sm">
-              {Object.entries(selected).map(([key, val]) => (
-                key !== 'id' && (
-                  <div key={key} className="flex gap-3">
-                    <span className="font-semibold text-gray-600 w-28 shrink-0 capitalize">{key.replace(/_/g, ' ')}:</span>
-                    <span className="text-gray-800 break-all">{String(val)}</span>
-                  </div>
-                )
-              ))}
-            </div>
+
+            {'first_name' in selected ? (
+              <div className="space-y-5 text-sm">
+                <Section title="Personal">
+                  <Row label="Name" value={`${(selected as Application).first_name} ${(selected as Application).last_name}`} />
+                  <Row label="Email" value={(selected as Application).email} />
+                  <Row label="Phone" value={(selected as Application).phone} />
+                  <Row label="DOB" value={(selected as Application).dob} />
+                  <Row label="Gender" value={(selected as Application).gender} />
+                </Section>
+                <Section title="Professional">
+                  <Row label="Qualification" value={(selected as Application).qualification} />
+                  <Row label="Reg Number" value={(selected as Application).reg_number} />
+                  <Row label="State Council" value={(selected as Application).state_council} />
+                  <Row label="Year of Reg" value={(selected as Application).year_of_reg} />
+                  <Row label="Practice Type" value={(selected as Application).practice_type} />
+                  <Row label="Experience" value={(selected as Application).experience} />
+                  <Row label="Hospital" value={(selected as Application).hospital_name} />
+                  <Row label="Clinic" value={(selected as Application).clinic_name} />
+                  <Row label="City" value={(selected as Application).city} />
+                </Section>
+                <Section title="Course">
+                  <Row label="Program" value={PROGRAM_LABELS[(selected as Application).program] || (selected as Application).program} />
+                  <Row label="Mode" value={(selected as Application).mode_preference} />
+                  <Row label="Reason" value={(selected as Application).reason} />
+                </Section>
+                {parseDocuments((selected as Application).message).length > 0 && (
+                  <Section title="Documents Submitted">
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {parseDocuments((selected as Application).message).map(doc => (
+                        <span key={doc} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100">
+                          📄 {doc}
+                        </span>
+                      ))}
+                    </div>
+                  </Section>
+                )}
+                <Section title="Application">
+                  <Row label="Status" value={(selected as Application).status} />
+                  <Row label="Applied On" value={new Date((selected as Application).created_at).toLocaleString('en-IN')} />
+                </Section>
+                <button
+                  onClick={() => { fillFromApp(selected as Application); setSelected(null); }}
+                  className="w-full bg-primary/10 text-primary border border-primary/20 py-2.5 rounded-xl font-semibold text-sm hover:bg-primary hover:text-white transition-colors"
+                >
+                  🧾 Generate Invoice for this Applicant
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-3 text-sm">
+                {Object.entries(selected).map(([key, val]) =>
+                  key !== 'id' && val ? (
+                    <div key={key} className="flex gap-3">
+                      <span className="font-semibold text-gray-600 w-28 shrink-0 capitalize">{key.replace(/_/g, ' ')}:</span>
+                      <span className="text-gray-800 break-all">{String(val)}</span>
+                    </div>
+                  ) : null
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function InvoicePreview({ inv, subtotal, taxAmt, total }: {
+  inv: InvoiceData; subtotal: number; taxAmt: number; total: number;
+}) {
+  const fmtDate = (d: string) =>
+    d ? new Date(d).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '—';
+  return (
+    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden text-sm">
+      {/* Header band */}
+      <div className="bg-gradient-to-r from-primary to-primary-dark p-6 text-white">
+        <div className="flex justify-between items-start gap-4">
+          <div>
+            <p className="text-xl font-extrabold tracking-tight">MedFellow Academy</p>
+            <p className="text-white/65 text-xs mt-1 leading-relaxed">
+              23-5-449, Second Floor, Nagul Chinta<br />
+              Hyderabad – 500065, Telangana<br />
+              info@medfellow.in · +91 9985044993
+            </p>
+          </div>
+          <div className="text-right shrink-0">
+            <p className="text-3xl font-black tracking-widest opacity-90">INVOICE</p>
+            <p className="text-white/75 text-xs mt-1">#{inv.invoiceNo}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-6 space-y-5">
+        {/* Dates row */}
+        <div className="flex justify-between">
+          <div>
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">Invoice Date</p>
+            <p className="font-semibold text-gray-800">{fmtDate(inv.date)}</p>
+          </div>
+          <div className="text-right">
+            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-0.5">Due Date</p>
+            <p className="font-semibold text-orange-500">{fmtDate(inv.dueDate)}</p>
+          </div>
+        </div>
+
+        {/* Bill To */}
+        <div className="bg-gray-50 rounded-xl p-4">
+          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Bill To</p>
+          <p className="font-bold text-gray-900 text-base">{inv.clientName || '—'}</p>
+          {inv.program    && <p className="text-gray-500 text-xs mt-0.5">{inv.program}</p>}
+          {inv.clientEmail && <p className="text-gray-500 text-xs">{inv.clientEmail}</p>}
+          {inv.clientPhone && <p className="text-gray-500 text-xs">{inv.clientPhone}</p>}
+          {inv.clientCity  && <p className="text-gray-500 text-xs">{inv.clientCity}</p>}
+        </div>
+
+        {/* Items table */}
+        <table className="w-full text-xs">
+          <thead>
+            <tr className="border-b-2 border-gray-200">
+              <th className="text-left py-2 font-bold text-gray-400 uppercase tracking-wide">Description</th>
+              <th className="text-center py-2 font-bold text-gray-400 uppercase tracking-wide w-10">Qty</th>
+              <th className="text-right py-2 font-bold text-gray-400 uppercase tracking-wide w-20">Rate</th>
+              <th className="text-right py-2 font-bold text-gray-400 uppercase tracking-wide w-20">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {inv.items.map((it, i) => (
+              <tr key={i} className="border-b border-gray-100">
+                <td className="py-2.5 text-gray-800">{it.desc || '—'}</td>
+                <td className="py-2.5 text-center text-gray-500">{it.qty}</td>
+                <td className="py-2.5 text-right text-gray-500">₹{fmt(it.rate)}</td>
+                <td className="py-2.5 text-right font-semibold text-gray-800">₹{fmt(it.qty * it.rate)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        {/* Totals */}
+        <div className="space-y-1.5 text-sm">
+          <div className="flex justify-between text-gray-500"><span>Subtotal</span><span>₹{fmt(subtotal)}</span></div>
+          <div className="flex justify-between text-gray-500"><span>GST ({inv.taxPercent}%)</span><span>₹{fmt(taxAmt)}</span></div>
+          <div className="flex justify-between font-bold text-base text-primary border-t-2 border-primary pt-3">
+            <span>Total Due</span><span>₹{fmt(total)}</span>
+          </div>
+        </div>
+
+        {/* Notes */}
+        {inv.notes && (
+          <div className="bg-amber-50 border border-amber-100 rounded-xl p-3">
+            <p className="text-[10px] font-bold text-amber-600 uppercase tracking-widest mb-1">Notes</p>
+            <p className="text-xs text-amber-800 whitespace-pre-line leading-relaxed">{inv.notes}</p>
+          </div>
+        )}
+
+        <p className="text-center text-[10px] text-gray-400 pt-1">Thank you for choosing MedFellow Academy</p>
+      </div>
+    </div>
+  );
+}
+
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div>
+      <p className="text-xs uppercase tracking-widest font-bold text-primary/60 mb-2 border-b pb-1">{title}</p>
+      <div className="space-y-1.5">{children}</div>
+    </div>
+  );
+}
+
+function Row({ label, value }: { label: string; value?: string | null }) {
+  if (!value) return null;
+  return (
+    <div className="flex gap-3">
+      <span className="font-semibold text-gray-600 w-28 shrink-0">{label}:</span>
+      <span className="text-gray-800 break-all">{value}</span>
     </div>
   );
 }

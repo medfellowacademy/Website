@@ -1,30 +1,32 @@
 -- Run this SQL in your Supabase SQL Editor
 
--- Contact Enquiries Table
-CREATE TABLE IF NOT EXISTS contact_enquiries (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  phone TEXT,
-  subject TEXT,
-  message TEXT NOT NULL,
-  status TEXT DEFAULT 'new' CHECK (status IN ('new', 'contacted', 'resolved')),
-  created_at TIMESTAMPTZ DEFAULT NOW()
+-- Applications Table
+CREATE TABLE public.applications (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  first_name text NOT NULL,
+  last_name text NOT NULL,
+  email text NOT NULL,
+  phone text NOT NULL,
+  program text NOT NULL,
+  qualification text NOT NULL,
+  experience text,
+  message text,
+  status text DEFAULT 'pending'::text CHECK (status = ANY (ARRAY['pending'::text, 'reviewing'::text, 'accepted'::text, 'rejected'::text])),
+  created_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT applications_pkey PRIMARY KEY (id)
 );
 
--- Applications Table
-CREATE TABLE IF NOT EXISTS applications (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  first_name TEXT NOT NULL,
-  last_name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  phone TEXT NOT NULL,
-  program TEXT NOT NULL,
-  qualification TEXT NOT NULL,
-  experience TEXT,
-  message TEXT,
-  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'reviewing', 'accepted', 'rejected')),
-  created_at TIMESTAMPTZ DEFAULT NOW()
+-- Contact Enquiries Table
+CREATE TABLE public.contact_enquiries (
+  id uuid NOT NULL DEFAULT gen_random_uuid(),
+  name text NOT NULL,
+  email text NOT NULL,
+  phone text,
+  subject text,
+  message text NOT NULL,
+  status text DEFAULT 'new'::text CHECK (status = ANY (ARRAY['new'::text, 'contacted'::text, 'resolved'::text])),
+  created_at timestamp with time zone DEFAULT now(),
+  CONSTRAINT contact_enquiries_pkey PRIMARY KEY (id)
 );
 
 -- Enable Row Level Security

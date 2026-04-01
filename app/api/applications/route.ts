@@ -11,7 +11,16 @@ export async function POST(request: NextRequest) {
     const program      = fd.get('program')     as string;
     const qualification = fd.get('qualification') as string;
     const experience   = fd.get('experience')  as string;
-    const message      = fd.get('message')     as string;
+    const rawMessage   = fd.get('message')     as string;
+
+    // Parse the extra JSON fields that the apply form sends inside 'message'
+    let extraFields: Record<string, string> = {};
+    try { extraFields = JSON.parse(rawMessage || '{}'); } catch { extraFields = {}; }
+
+    const {
+      dob, gender, regNumber, stateCouncil, yearOfReg,
+      practiceType, hospitalName, clinicName, city, modePreference, reason,
+    } = extraFields;
 
     // Collect uploaded document names (doc_degree, doc_registration, etc.)
     const docKeys = ['doc_degree', 'doc_registration', 'doc_govtId', 'doc_photo'];
@@ -20,9 +29,9 @@ export async function POST(request: NextRequest) {
       .filter((f): f is File => f !== null && f.size > 0)
       .map(f => f.name);
 
-    const fullMessage = uploadedDocs.length > 0
-      ? `${message}\n\n[Uploaded documents: ${uploadedDocs.join(', ')}]`
-      : message;
+    const message = uploadedDocs.length > 0
+      ? `[Uploaded documents: ${uploadedDocs.join(', ')}]`
+      : null;
 
     if (!first_name || !email || !phone || !program || !qualification) {
       return NextResponse.json({ error: 'Required fields missing' }, { status: 400 });
@@ -30,7 +39,21 @@ export async function POST(request: NextRequest) {
 
     const { data, error } = await supabase
       .from('applications')
-      .insert([{ first_name, last_name, email, phone, program, qualification, experience, message: fullMessage, status: 'pending' }])
+      .insert([{
+        first_name, last_name, email, phone, program, qualification, experience, message,
+        status: 'pending',
+        dob: dob || null,
+        gender: gender || null,
+        reg_number: regNumber || null,
+        state_council: stateCouncil || null,
+        year_of_reg: yearOfReg || null,
+        practice_type: practiceType || null,
+        hospital_name: hospitalName || null,
+        clinic_name: clinicName || null,
+        city: city || null,
+        mode_preference: modePreference || null,
+        reason: reason || null,
+      }])
       .select()
       .single();
 

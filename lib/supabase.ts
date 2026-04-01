@@ -9,8 +9,8 @@ export type ContactEnquiry = {
   id?: string;
   name: string;
   email: string;
-  phone: string;
-  subject: string;
+  phone?: string;
+  subject?: string;
   message: string;
   created_at?: string;
   status?: 'new' | 'contacted' | 'resolved';
@@ -24,8 +24,20 @@ export type Application = {
   phone: string;
   program: string;
   qualification: string;
-  experience: string;
+  experience?: string;
   message?: string;
-  created_at?: string;
   status?: 'pending' | 'reviewing' | 'accepted' | 'rejected';
+  created_at?: string;
+  // Extended fields from the multi-step apply form
+  dob?: string;
+  gender?: string;
+  reg_number?: string;
+  state_council?: string;
+  year_of_reg?: string;
+  practice_type?: string;
+  hospital_name?: string;
+  clinic_name?: string;
+  city?: string;
+  mode_preference?: string;
+  reason?: string;
 };
