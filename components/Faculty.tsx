@@ -76,7 +76,7 @@ const FACULTY_DATA: FacultyMember[] = [
       achievements: "Award-Winning Educator • 60+ Publications",
       expertise: {
         clinical: 93,
-        research: 85,
+        research: 75,
         teaching: 96
       }
     }

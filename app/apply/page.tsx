@@ -155,6 +155,13 @@ export default function ApplyPage() {
         if (file) fd.append(`doc_${key}`, file);
       });
       const res = await fetch('/api/applications', { method: 'POST', body: fd });
+      
+      // Check if response is JSON before parsing
+      const contentType = res.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error(`Server error: ${res.status} ${res.statusText}`);
+      }
+      
       const result = await res.json();
       if (!res.ok) throw new Error(result.error || 'Submission failed');
       setSubmitted(true);
@@ -495,6 +502,13 @@ export default function ApplyPage() {
                                 className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                                 onChange={e => {
                                   const file = e.target.files?.[0] || null;
+                                  // Validate file size (max 5MB)
+                                  if (file && file.size > 5 * 1024 * 1024) {
+                                    setError(`File "${file.name}" is too large. Maximum size is 5MB.`);
+                                    e.target.value = ''; // Reset input
+                                    return;
+                                  }
+                                  setError(''); // Clear any previous errors
                                   setDocuments(prev => ({ ...prev, [slot.key]: file }));
                                 }} />
                               <div className="flex items-center gap-3">

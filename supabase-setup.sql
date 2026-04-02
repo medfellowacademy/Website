@@ -13,6 +13,17 @@ CREATE TABLE public.applications (
   message text,
   status text DEFAULT 'pending'::text CHECK (status = ANY (ARRAY['pending'::text, 'reviewing'::text, 'accepted'::text, 'rejected'::text])),
   created_at timestamp with time zone DEFAULT now(),
+  dob text,
+  gender text,
+  reg_number text,
+  state_council text,
+  year_of_reg text,
+  practice_type text,
+  hospital_name text,
+  clinic_name text,
+  city text,
+  mode_preference text,
+  reason text,
   CONSTRAINT applications_pkey PRIMARY KEY (id)
 );
 
