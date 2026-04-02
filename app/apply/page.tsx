@@ -4,23 +4,71 @@ import Footer from "@/components/Footer";
 import { useState } from "react";
 
 const PROGRAMS = [
-  { value: 'arthroscopy', label: 'Arthroscopy & Arthroplasty' },
-  { value: 'gastro', label: 'Gastroenterology' },
-  { value: 'reproductive', label: 'Reproductive Medicine' },
-  { value: 'pain', label: 'Pain Management' },
-  { value: 'diabeto', label: 'Diabetology' },
-  { value: 'endo', label: 'Endocrinology' },
-  { value: 'rheum', label: 'Rheumatology' },
-  { value: 'neuro', label: 'Neurology' },
-  { value: 'radio', label: 'Radiology' },
-  { value: 'usg', label: 'Ultrasonography' },
-  { value: 'cardio', label: 'Interventional Cardiology' },
-  { value: 'ortho', label: 'Orthopedics' },
-  { value: 'gyn', label: 'Gynecology & Obstetrics' },
-  { value: 'surgery', label: 'General Surgery' },
-  { value: 'spine', label: 'Spine Surgery' },
-  { value: 'emergency', label: 'Emergency Medicine' },
-  { value: 'critical', label: 'Critical Care Medicine' },
+  // ORTHOPEDICS
+  { value: 'rheumatology', label: 'Fellowship in Rheumatology' },
+  { value: 'pain-management', label: 'Fellowship in Pain Management' },
+  { value: 'orthopedics', label: 'Fellowship in Orthopedics' },
+  { value: 'arthroscopy-arthroplasty', label: 'Fellowship in Arthroscopy and Arthroplasty' },
+  
+  // SURGERY
+  { value: 'pediatric-surgery', label: 'Fellowship in Pediatric Surgery' },
+  { value: 'spine-surgery', label: 'Fellowship in Spine Surgery' },
+  { value: 'robotic-surgery', label: 'Fellowship in Robotic Surgery' },
+  { value: 'minimal-access-surgery', label: 'Fellowship in Minimal Access Surgery' },
+  { value: 'gi-endoscopy', label: 'Fellowship in GI Endoscopy' },
+  { value: 'laparoscopy-hysteroscopy-surgery', label: 'Fellowship in Laparoscopy & Hysteroscopy' },
+  
+  // DENTAL
+  { value: 'oral-implantology-laser', label: 'Fellowship in Oral Implantology and Laser Dentistry' },
+  { value: 'maxillofacial-oral-surgery', label: 'Fellowship in Maxillofacial and Oral Surgery' },
+  
+  // UROLOGY
+  { value: 'urology', label: 'Fellowship in Urology' },
+  { value: 'nephrology', label: 'Fellowship in Nephrology' },
+  
+  // MEDICINE
+  { value: 'psychiatric-medicine', label: 'Fellowship in Psychiatric Medicine' },
+  { value: 'family-medicine', label: 'Fellowship in Family Medicine' },
+  { value: 'internal-medicine', label: 'Fellowship in Internal Medicine' },
+  
+  // DERMATOLOGY
+  { value: 'trichology', label: 'Fellowship in Trichology' },
+  { value: 'dermatology', label: 'Fellowship in Dermatology' },
+  { value: 'cosmetology-aesthetic', label: 'Fellowship in Cosmetology and Aesthetic Medicine' },
+  
+  // OBSTETRICS & GYNECOLOGY
+  { value: 'high-risk-pregnancy', label: 'Fellowship in High Risk Pregnancy' },
+  { value: 'fetal-medicine', label: 'Fellowship in Fetal Medicine' },
+  { value: 'laparoscopy-hysteroscopy-gyn', label: 'Fellowship in Laparoscopy and Hysteroscopy' },
+  { value: 'cosmetic-gynecology', label: 'Fellowship in Cosmetic Gynecology' },
+  { value: 'obstetrics-gynecology', label: 'Fellowship in Obstetrics and Gynecology' },
+  { value: 'gynecologic-oncology', label: 'Fellowship in Gynecologic Oncology' },
+  
+  // CARDIOLOGY
+  { value: 'echocardiography', label: 'Fellowship in Echocardiography' },
+  { value: 'interventional-cardiology', label: 'Fellowship in Interventional Cardiology' },
+  { value: 'clinical-cardiology', label: 'Fellowship in Clinical Cardiology' },
+  { value: 'cardiothoracic-surgery', label: 'Fellowship in Cardiothoracic Surgery' },
+  { value: 'cardio-oncology', label: 'Fellowship in Cardio Oncology' },
+  
+  // PEDIATRIC
+  { value: 'neonatology', label: 'Fellowship in Neonatology' },
+  { value: 'pediatrics', label: 'Fellowship in Pediatrics' },
+  { value: 'pediatric-neurology', label: 'Fellowship in Pediatric Neurology' },
+  { value: 'pediatric-endocrinology', label: 'Fellowship in Pediatric Endocrinology' },
+  { value: 'pediatric-echocardiography', label: 'Fellowship in Pediatric Echocardiography' },
+  
+  // NEUROLOGY
+  { value: 'neurology', label: 'Fellowship in Neurology' },
+  
+  // ONCOLOGY
+  { value: 'head-neck-oncology', label: 'Fellowship in Head and Neck Oncology' },
+  { value: 'medical-oncology', label: 'Fellowship in Medical Oncology' },
+  { value: 'clinical-hematology', label: 'Fellowship in Clinical Hematology' },
+  
+  // RADIOLOGY
+  { value: 'radiology', label: 'Fellowship in Radiology' },
+  { value: 'interventional-radiology', label: 'Fellowship in Interventional Radiology' },
 ];
 
 const PRACTICE_TYPES = [
