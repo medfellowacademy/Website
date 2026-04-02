@@ -4,39 +4,39 @@ import Footer from "@/components/Footer";
 import { useState } from "react";
 
 const PROGRAMS = [
-  // ORTHOPEDICS
+  // ORTHOPEDICS (4)
   { value: 'rheumatology', label: 'Fellowship in Rheumatology' },
   { value: 'pain-management', label: 'Fellowship in Pain Management' },
   { value: 'orthopedics', label: 'Fellowship in Orthopedics' },
   { value: 'arthroscopy-arthroplasty', label: 'Fellowship in Arthroscopy and Arthroplasty' },
   
-  // SURGERY
-  { value: 'pediatric-surgery', label: 'Fellowship in Pediatric Surgery' },
+  // SURGERY (6)
+  { value: 'pediatric-surgery-surg', label: 'Fellowship in Pediatric Surgery' },
   { value: 'spine-surgery', label: 'Fellowship in Spine Surgery' },
   { value: 'robotic-surgery', label: 'Fellowship in Robotic Surgery' },
   { value: 'minimal-access-surgery', label: 'Fellowship in Minimal Access Surgery' },
   { value: 'gi-endoscopy', label: 'Fellowship in GI Endoscopy' },
-  { value: 'laparoscopy-hysteroscopy-surgery', label: 'Fellowship in Laparoscopy & Hysteroscopy' },
+  { value: 'laparoscopy-hysteroscopy-surg', label: 'Fellowship in Laparoscopy & Hysteroscopy' },
   
-  // DENTAL
+  // DENTAL (2)
   { value: 'oral-implantology-laser', label: 'Fellowship in Oral Implantology and Laser Dentistry' },
   { value: 'maxillofacial-oral-surgery', label: 'Fellowship in Maxillofacial and Oral Surgery' },
   
-  // UROLOGY
+  // UROLOGY (2)
   { value: 'urology', label: 'Fellowship in Urology' },
   { value: 'nephrology', label: 'Fellowship in Nephrology' },
   
-  // MEDICINE
-  { value: 'psychiatric-medicine', label: 'Fellowship in Psychiatric Medicine' },
+  // MEDICINE (3)
+  { value: 'psychiatric-medicine-med', label: 'Fellowship in Psychiatric Medicine' },
   { value: 'family-medicine', label: 'Fellowship in Family Medicine' },
   { value: 'internal-medicine', label: 'Fellowship in Internal Medicine' },
   
-  // DERMATOLOGY
+  // DERMATOLOGY (3)
   { value: 'trichology', label: 'Fellowship in Trichology' },
   { value: 'dermatology', label: 'Fellowship in Dermatology' },
   { value: 'cosmetology-aesthetic', label: 'Fellowship in Cosmetology and Aesthetic Medicine' },
   
-  // OBSTETRICS & GYNECOLOGY
+  // OBSTETRICS & GYNECOLOGY (6)
   { value: 'high-risk-pregnancy', label: 'Fellowship in High Risk Pregnancy' },
   { value: 'fetal-medicine', label: 'Fellowship in Fetal Medicine' },
   { value: 'laparoscopy-hysteroscopy-gyn', label: 'Fellowship in Laparoscopy and Hysteroscopy' },
@@ -44,29 +44,33 @@ const PROGRAMS = [
   { value: 'obstetrics-gynecology', label: 'Fellowship in Obstetrics and Gynecology' },
   { value: 'gynecologic-oncology', label: 'Fellowship in Gynecologic Oncology' },
   
-  // CARDIOLOGY
-  { value: 'echocardiography', label: 'Fellowship in Echocardiography' },
+  // CARDIOLOGY (5)
+  { value: 'echocardiography-cardio', label: 'Fellowship in Echocardiography' },
   { value: 'interventional-cardiology', label: 'Fellowship in Interventional Cardiology' },
   { value: 'clinical-cardiology', label: 'Fellowship in Clinical Cardiology' },
   { value: 'cardiothoracic-surgery', label: 'Fellowship in Cardiothoracic Surgery' },
-  { value: 'cardio-oncology', label: 'Fellowship in Cardio Oncology' },
+  { value: 'cardio-oncology-cardio', label: 'Fellowship in Cardio Oncology' },
   
-  // PEDIATRIC
+  // PEDIATRIC (6)
   { value: 'neonatology', label: 'Fellowship in Neonatology' },
   { value: 'pediatrics', label: 'Fellowship in Pediatrics' },
-  { value: 'pediatric-neurology', label: 'Fellowship in Pediatric Neurology' },
+  { value: 'pediatric-neurology-ped', label: 'Fellowship in Pediatric Neurology' },
+  { value: 'pediatric-surgery-ped', label: 'Fellowship in Pediatric Surgery' },
   { value: 'pediatric-endocrinology', label: 'Fellowship in Pediatric Endocrinology' },
   { value: 'pediatric-echocardiography', label: 'Fellowship in Pediatric Echocardiography' },
   
-  // NEUROLOGY
+  // NEUROLOGY (3)
+  { value: 'pediatric-neurology-neuro', label: 'Fellowship in Pediatric Neurology' },
+  { value: 'psychiatric-medicine-neuro', label: 'Fellowship in Psychiatric Medicine' },
   { value: 'neurology', label: 'Fellowship in Neurology' },
   
-  // ONCOLOGY
+  // ONCOLOGY (4)
   { value: 'head-neck-oncology', label: 'Fellowship in Head and Neck Oncology' },
   { value: 'medical-oncology', label: 'Fellowship in Medical Oncology' },
   { value: 'clinical-hematology', label: 'Fellowship in Clinical Hematology' },
+  { value: 'cardio-oncology-onco', label: 'Fellowship in Cardio Oncology' },
   
-  // RADIOLOGY
+  // RADIOLOGY (2)
   { value: 'radiology', label: 'Fellowship in Radiology' },
   { value: 'interventional-radiology', label: 'Fellowship in Interventional Radiology' },
 ];
