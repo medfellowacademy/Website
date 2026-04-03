@@ -261,6 +261,40 @@ export default function ProgramsPage() {
       month12Offline: 650000
     },
     {
+      name: "Fellowship in Pediatric Echocardiography",
+      slug: "fellowship-in-pediatric-echocardiography",
+      category: "Interventional & Diagnostic",
+      icon: "🫀",
+      duration: "12 Months",
+      eligibility: "MBBS / MD / DNB",
+      description: "Expertise in cardiac ultrasound for neonates, infants, and children with focus on congenital heart disease",
+      highlights: ["TTE, TEE & Fetal Echo", "Congenital Heart Disease", "3D Echocardiography"],
+      image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
+      onlinePrice: 180000,
+      month11_1: 200000,
+      month10_2: 250000,
+      month9_3: 290000,
+      month6_6: 490000,
+      month12Offline: 680000
+    },
+    {
+      name: "Fellowship in Pediatric Endocrinology",
+      slug: "fellowship-in-pediatric-endocrinology",
+      category: "Medical Specialties",
+      icon: "💉",
+      duration: "12 Months",
+      eligibility: "MBBS / MD / DNB / MS",
+      description: "Comprehensive training in hormonal and metabolic disorders in children with clinical focus",
+      highlights: ["Growth & Diabetes Management", "Thyroid & Adrenal Disorders", "Pubertal Abnormalities"],
+      image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
+      onlinePrice: 180000,
+      month11_1: 200000,
+      month10_2: 245000,
+      month9_3: 285000,
+      month6_6: 490000,
+      month12Offline: 650000
+    },
+    {
       name: "Fellowship in Interventional Cardiology",
       slug: "fellowship-in-interventional-cardiology",
       category: "Interventional & Diagnostic",
@@ -312,7 +346,7 @@ export default function ProgramsPage() {
       <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-20">
         <div className="container-custom text-center">
           <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full mb-4">
-            <span className="font-semibold">17 Specialized Programs</span>
+            <span className="font-semibold">19 Specialized Programs</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">Fellowship Programs</h1>
           <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">

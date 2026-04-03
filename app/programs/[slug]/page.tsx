@@ -604,6 +604,73 @@ const programsData: { [key: string]: any } = {
       "Academic Pulmonologist"
     ],
     applicationDeadline: "Rolling Admissions"
+  },
+  "fellowship-in-pediatric-echocardiography": {
+    name: "Fellowship in Pediatric Echocardiography",
+    icon: "🫀",
+    duration: "12 Months",
+    eligibility: "MBBS / MD / DNB",
+    description: "Comprehensive, clinically oriented program for expertise in cardiac ultrasound for neonates, infants, and children.",
+    overview: "The Fellowship in Pediatric Echocardiography is a comprehensive, clinically oriented program designed to develop expertise in cardiac ultrasound for neonates, infants, and children. The program focuses on accurate diagnosis and functional assessment of congenital and acquired heart diseases using advanced echocardiographic modalities. This fellowship integrates core principles, advanced imaging techniques, and real-world clinical application, enabling practitioners to confidently perform and interpret pediatric echocardiograms across diverse clinical scenarios.",
+    highlights: ["TTE, TEE & Fetal Echo", "Congenital Heart Disease", "3D Echocardiography", "Case-Based Learning"],
+    onlinePrice: 180000,
+    month11_1: 200000,
+    month10_2: 250000,
+    month9_3: 290000,
+    month6_6: 490000,
+    month12Offline: 680000,
+    curriculum: [
+      { module: "Fundamentals of Pediatric Echocardiography", duration: "1.5 Months", topics: ["Ultrasound physics and instrumentation", "Pediatric cardiac anatomy & physiology", "Standard imaging views and protocols"] },
+      { module: "Core Echocardiographic Techniques", duration: "1.5 Months", topics: ["Transthoracic Echocardiography (TTE)", "M-mode, 2D imaging, and Doppler principles", "Hemodynamic assessment"] },
+      { module: "Congenital Heart Disease", duration: "2 Months", topics: ["Acyanotic and cyanotic heart diseases", "Segmental approach to diagnosis", "Pre- and post-surgical evaluation"] },
+      { module: "Advanced Echocardiography", duration: "2 Months", topics: ["Transesophageal Echocardiography (TEE)", "3D echocardiography", "Strain imaging and advanced Doppler"] },
+      { module: "Fetal Echocardiography", duration: "2 Months", topics: ["Fetal cardiac anatomy and screening protocols", "Early detection of congenital anomalies", "Integration with obstetric care"] },
+      { module: "Acquired Heart Diseases in Children", duration: "1.5 Months", topics: ["Cardiomyopathies", "Pericardial diseases", "Infective and inflammatory conditions"] },
+      { module: "Clinical Integration & Case-Based Learning", duration: "1.5 Months", topics: ["Real-life case discussions", "Reporting and documentation", "Clinical decision-making and multidisciplinary coordination"] }
+    ],
+    careerOpportunities: [
+      "Pediatric Echocardiography Specialist",
+      "Congenital Heart Disease Consultant",
+      "Pediatric Cardiac Imaging Expert",
+      "Fetal Echocardiography Specialist",
+      "Academic Pediatric Cardiologist"
+    ],
+    applicationDeadline: "Rolling Admissions"
+  },
+  "fellowship-in-pediatric-endocrinology": {
+    name: "Fellowship in Pediatric Endocrinology",
+    icon: "💉",
+    duration: "12 Months",
+    eligibility: "MBBS / MD / DNB / MS",
+    description: "Comprehensive training in hormonal and metabolic disorders in children with focus on clinical application.",
+    overview: "The Fellowship in Pediatric Endocrinology is a comprehensive 12-month advanced training program designed for clinicians seeking specialisation in hormonal and metabolic disorders in children. This program provides in-depth clinical expertise in diagnosing and managing endocrine conditions, including growth disorders, pediatric diabetes, thyroid dysfunction, pubertal abnormalities, and metabolic bone diseases. It integrates evidence-based learning with case-oriented clinical exposure to develop proficiency in managing both common and complex pediatric endocrine conditions. With a strong emphasis on clinical decision-making, long-term patient management, and emerging treatment protocols, this fellowship prepares practitioners to deliver specialised, high-quality care in pediatric endocrinology.",
+    highlights: ["Growth & Diabetes Management", "Thyroid & Adrenal Disorders", "Pubertal Abnormalities", "Evidence-Based Practice"],
+    onlinePrice: 180000,
+    month11_1: 200000,
+    month10_2: 245000,
+    month9_3: 285000,
+    month6_6: 490000,
+    month12Offline: 650000,
+    curriculum: [
+      { module: "Fundamentals of Pediatric Endocrinology", duration: "1 Month", topics: ["Endocrine physiology and hormonal regulation in children", "Growth and development: normal vs pathological patterns", "Pediatric endocrine evaluation and diagnostic approach"] },
+      { module: "Growth & Development Disorders", duration: "1.5 Months", topics: ["Short stature and growth hormone deficiency", "Constitutional growth delay", "Turner syndrome and genetic growth disorders"] },
+      { module: "Pediatric Diabetes & Metabolic Disorders", duration: "1.5 Months", topics: ["Type 1 and Type 2 diabetes in children", "Insulin therapy, CGM, and glucose monitoring", "Diabetic emergencies (DKA, hypoglycemia)"] },
+      { module: "Thyroid Disorders in Children", duration: "1 Month", topics: ["Congenital hypothyroidism and screening", "Autoimmune thyroid disease", "Thyroid nodules and pediatric thyroid cancers"] },
+      { module: "Adrenal & Pituitary Disorders", duration: "1.5 Months", topics: ["Congenital adrenal hyperplasia", "Adrenal insufficiency and Cushing's syndrome", "Pituitary dysfunction and hormone deficiencies"] },
+      { module: "Pubertal & Reproductive Endocrinology", duration: "1 Month", topics: ["Precocious puberty and delayed puberty", "Disorders of sexual development (DSD)", "PCOS in adolescents"] },
+      { module: "Bone & Mineral Metabolism", duration: "1 Month", topics: ["Rickets and calcium-phosphorus metabolism", "Vitamin D deficiency and osteoporosis", "Genetic bone disorders"] },
+      { module: "Pediatric Obesity & Lifestyle Disorders", duration: "1 Month", topics: ["Pathophysiology of obesity", "Metabolic syndrome in children", "Nutritional and behavioural management strategies"] },
+      { module: "Clinical Case Discussions & Practical Training", duration: "1.5 Months", topics: ["Case-based learning and treatment planning", "Interpretation of endocrine investigations", "Long-term follow-up strategies"] },
+      { module: "Research & Evidence-Based Practice", duration: "1 Month", topics: ["Basics of clinical research in endocrinology", "Guidelines and protocol-based management", "Critical appraisal of literature"] }
+    ],
+    careerOpportunities: [
+      "Pediatric Endocrinology Consultant",
+      "Growth & Diabetes Specialist",
+      "Pediatric Metabolic Disease Expert",
+      "Adolescent Endocrinology Specialist",
+      "Academic Pediatric Endocrinologist"
+    ],
+    applicationDeadline: "Rolling Admissions"
   }
 };
 
