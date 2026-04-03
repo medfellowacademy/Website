@@ -26,9 +26,10 @@ const PROGRAMS = [
   { value: 'urology', label: 'Fellowship in Urology' },
   { value: 'nephrology', label: 'Fellowship in Nephrology' },
   
-  // MEDICINE (3)
+  // MEDICINE (4)
   { value: 'psychiatric-medicine-med', label: 'Fellowship in Psychiatric Medicine' },
   { value: 'family-medicine', label: 'Fellowship in Family Medicine' },
+  { value: 'emergency-medicine', label: 'Fellowship in Emergency Medicine' },
   { value: 'internal-medicine', label: 'Fellowship in Internal Medicine' },
   
   // DERMATOLOGY (3)
