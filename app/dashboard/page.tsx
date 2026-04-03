@@ -193,7 +193,7 @@ export default function LiveDashboard() {
           <div className="mt-12 bg-linear-to-br from-primary to-primary-dark text-white rounded-2xl p-8 text-center">
             <h3 className="text-3xl font-heading font-bold mb-4">Join Our Next Batch</h3>
             <p className="text-lg opacity-90 mb-6">
-              Be part of this vibrant learning community. Applications open for March 2026 batch.
+              Be part of this vibrant learning community. Applications open for April 2026 batch.
             </p>
             <Link href="/apply" className="inline-block px-8 py-4 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition-all text-lg">
               Apply Now

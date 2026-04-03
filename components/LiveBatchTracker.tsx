@@ -41,7 +41,7 @@ export default function LiveBatchTracker() {
             Active Batch Progress
           </h2>
           <p className="text-lg text-text-secondary max-w-3xl mx-auto">
-            Real-time updates from our ongoing fellowship programs. Join the next batch starting March 2026.
+            Real-time updates from our ongoing fellowship programs. Join the next batch starting April 2026.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export default function LiveBatchTracker() {
         {/* Next Batch CTA */}
         <div className="text-center bg-white rounded-2xl p-8 border border-gray-100">
           <h3 className="text-2xl font-heading font-bold text-primary mb-4">
-            Join Our Next Batch Starting March 2026
+            Join Our Next Batch Starting April 2026
           </h3>
           <p className="text-text-secondary mb-6">
             Limited seats available. Applications close on Apr 30, 2026.
