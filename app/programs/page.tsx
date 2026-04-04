@@ -91,6 +91,23 @@ export default function ProgramsPage() {
       month12Offline: 520000
     },
     {
+      name: "Fellowship in Cosmetic and Aesthetic Medicine",
+      slug: "fellowship-in-cosmetic-aesthetic-medicine",
+      category: "Medical Specialties",
+      icon: "💆",
+      duration: "12 Months",
+      eligibility: "MBBS",
+      description: "Comprehensive training in cosmetic medicine, aesthetic procedures, and evidence-based practice",
+      highlights: ["Facial Aesthetics", "Injectable Treatments", "Laser & IPL", "Clinical Ethics"],
+      image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+      onlinePrice: 150000,
+      month11_1: 180000,
+      month10_2: 230000,
+      month9_3: 270000,
+      month6_6: 390000,
+      month12Offline: 520000
+    },
+    {
       name: "Fellowship in Internal Medicine",
       slug: "fellowship-in-internal-medicine",
       category: "Medical Specialties",
@@ -346,7 +363,7 @@ export default function ProgramsPage() {
       <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-20">
         <div className="container-custom text-center">
           <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full mb-4">
-            <span className="font-semibold">19 Specialized Programs</span>
+            <span className="font-semibold">20 Specialized Programs</span>
           </div>
           <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">Fellowship Programs</h1>
           <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">

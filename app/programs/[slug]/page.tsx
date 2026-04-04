@@ -154,6 +154,61 @@ const programsData: { [key: string]: any } = {
     ],
     applicationDeadline: "Rolling Admissions"
   },
+  "fellowship-in-cosmetic-aesthetic-medicine": {
+    name: "Fellowship in Cosmetic and Aesthetic Medicine",
+    icon: "💆",
+    duration: "12 Months",
+    eligibility: "MBBS",
+    description: "Comprehensive training in cosmetic medicine, aesthetic procedures, and evidence-based practice.",
+    overview: "This fellowship provides specialized training in cosmetic and aesthetic medicine, covering facial anatomy, skin science, advanced aesthetic treatments, and professional ethics. Fellows gain expertise in evidence-based cosmetic practice and clinical decision-making.",
+    highlights: ["Facial Anatomy & Ageing", "Skin Science & Treatments", "Injectable Procedures", "Laser & IPL", "Clinical Ethics", "Evidence-Based Practice"],
+    onlinePrice: 150000,
+    month11_1: 180000,
+    month10_2: 230000,
+    month9_3: 270000,
+    month6_6: 390000,
+    month12Offline: 520000,
+    curriculum: [
+      { 
+        module: "Anatomy, Physiology and Professional Issues", 
+        duration: "2 Months", 
+        topics: ["Facial Anatomy (Skin, Muscles, Fat Pads, Vessels, Nerves, Bones)", "Age-Related Changes", "Functional Anatomy & Ageing", "Professional Ethics"]
+      },
+      { 
+        module: "Skin Science & Cosmetic Treatments", 
+        duration: "2 Months", 
+        topics: ["Skin Anatomy & Physiology", "UV Damage & Pigmentation", "Fitzpatrick Skin Types", "Chemical Peels", "Laser & IPL Treatments"]
+      },
+      { 
+        module: "Clinical Cosmetic Practice & Procedures", 
+        duration: "2 Months", 
+        topics: ["Patient Assessment & Safety", "Procedure Selection", "Evidence-Based Treatment Planning", "Risk Management", "Complications Management"]
+      },
+      { 
+        module: "Advanced Aesthetic Treatments", 
+        duration: "2 Months", 
+        topics: ["Advanced Facial Aesthetics", "Injectable Treatments (Fillers, Botulinum Toxin)", "Combination Therapies", "Device-Based Treatments"]
+      },
+      { 
+        module: "Professional Practice & Ethics", 
+        duration: "2 Months", 
+        topics: ["Ethical & Legal Considerations", "Patient Consent & Communication", "Professional Accountability", "Regulatory Environment", "Clinical Governance"]
+      },
+      { 
+        module: "Evidence-Based Practice & Clinical Decision Making", 
+        duration: "2 Months", 
+        topics: ["Critical Appraisal of Literature", "Evidence-Based Practice", "Clinical Decision-Making Frameworks", "Outcome Evaluation & Audit", "CPD"]
+      }
+    ],
+    careerOpportunities: [
+      "Consultant Aesthetic Medicine Specialist",
+      "Cosmetic Medicine Practitioner",
+      "Aesthetic Clinic Director",
+      "Injectable Treatment Specialist",
+      "Aesthetic Dermatology Consultant"
+    ],
+    applicationDeadline: "Rolling Admissions"
+  },
   "fellowship-in-internal-medicine": {
     name: "Fellowship in Internal Medicine",
     icon: "⚕️",

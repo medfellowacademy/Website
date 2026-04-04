@@ -93,6 +93,22 @@ export default function FellowshipPrograms() {
       month12Offline: 520000
     },
     {
+      name: "Fellowship in Cosmetic and Aesthetic Medicine",
+      duration: "12 Months",
+      eligibility: "MBBS",
+      description: "Comprehensive training in cosmetic medicine, aesthetic procedures, and evidence-based practice.",
+      highlights: ["Facial Aesthetics", "Injectable Treatments", "Laser & IPL", "Clinical Ethics"],
+      icon: "💆",
+      image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
+      onlinePrice: 150000,
+      month11_1: 180000,
+      month10_2: 230000,
+      month9_3: 270000,
+      month6_6: 390000,
+      month12Offline: 520000,
+      isNew: true
+    },
+    {
       name: "Fellowship in Internal Medicine",
       duration: "12 Months",
       eligibility: "MD Medicine/DNB",
