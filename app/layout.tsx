@@ -1,0 +1,55 @@
+import type { Metadata } from "next";
+import Script from "next/script";
+import { Inter, Poppins } from "next/font/google";
+import "./globals.css";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
+import CustomCursor from "@/components/effects/CustomCursor";
+import ScrollProgress from "@/components/effects/ScrollProgress";
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: '--font-inter',
+});
+
+const poppins = Poppins({ 
+  weight: ['400', '500', '600', '700'],
+  subsets: ["latin"],
+  variable: '--font-poppins',
+});
+
+export const metadata: Metadata = {
+  title: "Med Fellow Academy - Advanced Fellowship Programs for Practicing Doctors",
+  description: "Premium medical fellowship programs with academic credibility, hospital exposure, and internationally recognized certification.",
+  verification: {
+    google: "VMwO22oDHhOk_ZM826hn0tYULxDgng1775FUlw-sWDI",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-background text-text-primary`}>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ED7203NW6B"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ED7203NW6B');
+          `}
+        </Script>
+        <CustomCursor />
+        <ScrollProgress />
+        {children}
+        <WhatsAppWidget />
+      </body>
+    </html>
+  );
+}
