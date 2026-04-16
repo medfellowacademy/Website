@@ -750,19 +750,19 @@ export default function ProgramsPage() {
 
       {/* Filter by Category */}
       <section className="section-padding bg-background">
-        <div className="container-custom">
+        <div className="container-custom max-w-screen-2xl">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 md:mb-4">Browse by Specialty</h2>
-            <p className="text-base md:text-lg text-text-secondary">Select a category to filter programs or scroll to view all</p>
+            <p className="text-base md:text-lg text-text-secondary">Select a category to filter programs</p>
           </div>
           
-          <div className="flex gap-3 md:gap-4 mb-10 md:mb-16 overflow-x-auto pb-2">
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-4 mb-10 md:mb-16">
             {categories.map((category, index) => (
               <button
                 key={index}
                 type="button"
                 onClick={() => handleCategoryClick(category.name)}
-                className={`shrink-0 w-56 md:w-64 bg-white rounded-xl p-4 md:p-6 text-center transition-all cursor-pointer group border-2 ${
+                className={`w-full bg-white rounded-xl p-4 md:p-6 text-center transition-all cursor-pointer group border-2 ${
                   selectedCategory === category.name
                     ? "border-secondary shadow-lg"
                     : "border-transparent hover:border-secondary hover:shadow-lg"
