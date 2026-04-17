@@ -252,64 +252,6 @@ export default function ApplyPage() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-white border-b border-gray-100 py-16 md:py-24">
-        {/* Decorative blobs */}
-        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-primary/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="container-custom relative z-10">
-          <div className="max-w-3xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-semibold text-primary mb-6">
-              <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-              Applications Open — Next Batch: April 2026
-            </div>
-
-            {/* Headline */}
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-gray-900 leading-tight mb-5">
-              Begin Your{' '}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-primary">Fellowship</span>
-                <span className="absolute left-0 bottom-1 w-full h-3 bg-accent/25 rounded-sm -z-10" />
-              </span>{' '}
-              Journey
-            </h1>
-
-            {/* Sub-copy */}
-            <p className="text-gray-500 text-lg md:text-xl max-w-xl mb-8 leading-relaxed">
-              Take the next step in your medical career with our nationally recognised fellowship programs.
-            </p>
-
-            {/* Pills */}
-            <div className="flex flex-wrap gap-3 mb-10">
-              {[
-                { icon: '🩺', label: '17 Specialties' },
-                { icon: '📅', label: 'Deadline: Apr 30, 2026' },
-                { icon: '✅', label: 'Nationally Recognised' },
-              ].map(({ icon, label }) => (
-                <span key={label} className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm font-medium text-gray-700">
-                  <span>{icon}</span>{label}
-                </span>
-              ))}
-            </div>
-
-            {/* CTA row */}
-            <div className="flex items-center gap-4 flex-wrap">
-              <a
-                href="#application-form"
-                className="inline-block px-7 py-3.5 bg-primary text-white font-bold rounded-full shadow-lg shadow-primary/25 hover:bg-primary-dark transition-colors text-sm"
-              >
-                Apply Now
-              </a>
-              <a href="/programs" className="text-sm font-semibold text-primary hover:text-primary-dark underline underline-offset-4 transition-colors">
-                Explore Programs →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Body */}
       <section className="py-10 md:py-16">
         <div className="container-custom max-w-6xl">
