@@ -298,18 +298,6 @@ export default function ApplyPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Why card */}
-              <div className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-6 text-white">
-                <p className="font-heading font-bold text-base mb-4">Why MedFellow?</p>
-                <ul className="space-y-3 text-sm text-white/85">
-                  {['Industry-recognized certifications', 'Expert faculty & mentors', 'Hands-on clinical training', 'Career placement support'].map(item => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span className="text-accent mt-0.5 font-bold">+</span>{item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
 
             {/* Form panel */}
