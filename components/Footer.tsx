@@ -140,6 +140,7 @@ export default function Footer() {
             variants={itemVariants}
           >
             <h4 className="font-heading font-bold mb-5 text-lg sm:text-xl text-accent">Contact Us</h4>
+            <p className="text-white font-semibold text-sm sm:text-base mb-4">MedFellow Academy LLP</p>
             <ul className="space-y-4 text-gray-200">
               {[
                 { icon: "📧", text: "info@medfellow.in", href: "mailto:info@medfellow.in" },
