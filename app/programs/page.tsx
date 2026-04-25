@@ -791,7 +791,15 @@ export default function ProgramsPage() {
               </label>
 
               <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-text-tertiary text-lg">🔎</span>
+                <div className="absolute left-4 top-1/2 -translate-y-1/2">
+                  <Image
+                    src="/logo.png"
+                    alt="Search"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </div>
                 <input
                   id="program-search"
                   type="text"

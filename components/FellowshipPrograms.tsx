@@ -330,10 +330,10 @@ export default function FellowshipPrograms() {
   }, []);
 
   return (
-    <section id="programs" className="section-padding bg-linear-to-br from-background to-gray-50 relative overflow-hidden">
+    <section id="programs" className="section-padding bg-white relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-secondary/5 rounded-full blur-3xl animate-pulse-3d" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-pulse-3d" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
       
       <div className="container-custom relative z-10">
         <motion.div 
@@ -351,7 +351,7 @@ export default function FellowshipPrograms() {
             <span className="text-sm font-semibold text-primary">FEATURED PROGRAMS</span>
           </motion.div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-primary mb-6">
-            Popular <span className="gradient-text">Fellowship Programs</span>
+            Popular Fellowship Programs
           </h2>
           <p className="text-base sm:text-lg text-text-secondary max-w-3xl mx-auto">
             Explore our most sought-after specializations with proven career outcomes

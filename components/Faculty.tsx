@@ -122,7 +122,7 @@ export default function Faculty() {
   }, []);
 
   return (
-    <section id="faculty" className="section-padding bg-gradient-to-br from-white via-secondary/5 to-white relative overflow-hidden" aria-labelledby="faculty-heading">
+    <section id="faculty" className="section-padding bg-white relative overflow-hidden" aria-labelledby="faculty-heading">
       {/* Background decorative elements */}
       <div className="absolute top-10 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse-3d" aria-hidden="true" />
       <div className="absolute bottom-10 right-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse-3d" style={{ animationDelay: '1.5s' }} aria-hidden="true" />

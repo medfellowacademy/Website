@@ -4,7 +4,7 @@ import { Award, CheckCircle, Globe, Building2, TrendingUp, Shield } from 'lucide
 export default function Certification() {
 
   return (
-    <section id="certification" className="section-padding bg-linear-to-br from-primary/5 via-background to-secondary/5 relative overflow-hidden">
+    <section id="certification" className="section-padding bg-gray-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-64 h-64 bg-accent rounded-full filter blur-3xl"></div>

@@ -33,7 +33,7 @@ export default function Testimonials() {
   ];
 
   return (
-    <section id="testimonials" className="section-padding bg-background">
+    <section id="testimonials" className="section-padding bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-10 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-heading font-bold text-primary mb-3 md:mb-4">
