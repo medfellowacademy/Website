@@ -56,22 +56,6 @@ export const metadata: Metadata = {
     description: 'Premium medical fellowship programs with academic credibility, hospital exposure, and internationally recognized certification.',
     images: ['/logo.png'],
   },
-  icons: {
-    icon: [
-      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo.png', sizes: '16x16', type: 'image/png' },
-    ],
-    shortcut: '/logo.png',
-    apple: [
-      { url: '/logo.png', sizes: '180x180', type: 'image/png' },
-    ],
-    other: [
-      {
-        rel: 'apple-touch-icon-precomposed',
-        url: '/logo.png',
-      },
-    ],
-  },
   verification: {
     google: "VMwO22oDHhOk_ZM826hn0tYULxDgng1775FUlw-sWDI",
   },
