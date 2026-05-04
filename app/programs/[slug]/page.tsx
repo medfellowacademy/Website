@@ -5624,10 +5624,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             <div className="space-y-6">
               {/* Apply Card */}
               <div className="card p-5 md:p-6 lg:sticky lg:top-6">
-                <div className="mb-4 bg-accent/10 border border-accent/30 rounded-lg p-3 text-center">
-                  <p className="text-xs text-primary font-semibold mb-1">Next Batch Starts</p>
-                  <p className="text-lg font-bold text-accent">April 2026</p>
-                </div>
                 <h3 className="text-2xl font-heading font-bold text-primary mb-4">Program Details</h3>
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center gap-3 text-text-secondary">
