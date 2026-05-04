@@ -76,6 +76,18 @@ const PROGRAM_LABELS: Record<string, string> = {
 
 function parseDocuments(msg: string | null | undefined): string[] {
   if (!msg) return [];
+  
+  // Try parsing as JSON first (new format with file paths)
+  try {
+    const parsed = JSON.parse(msg);
+    if (Array.isArray(parsed)) {
+      return parsed.filter(Boolean);
+    }
+  } catch {
+    // Not JSON, try old format
+  }
+  
+  // Fall back to old format: [Uploaded documents: file1.jpg, file2.pdf]
   const match = msg.match(/\[Uploaded documents: (.+?)\]/);
   if (!match) return [];
   return match[1].split(', ').filter(Boolean);

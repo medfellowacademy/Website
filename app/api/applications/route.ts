@@ -28,13 +28,44 @@ export async function POST(request: NextRequest) {
 
     // Collect uploaded document names (doc_degree, doc_registration, etc.)
     const docKeys = ['doc_degree', 'doc_registration', 'doc_govtId', 'doc_photo'];
-    const uploadedDocs = docKeys
-      .map(k => fd.get(k) as File | null)
-      .filter((f): f is File => f !== null && f.size > 0)
-      .map(f => f.name);
+    const uploadedFilePaths: string[] = [];
 
-    const message = uploadedDocs.length > 0
-      ? `[Uploaded documents: ${uploadedDocs.join(', ')}]`
+    // Upload each document to Supabase Storage
+    for (const key of docKeys) {
+      const file = fd.get(key) as File | null;
+      if (file && file.size > 0) {
+        try {
+          // Generate unique filename to avoid conflicts
+          const timestamp = Date.now();
+          const sanitizedName = file.name.replace(/[^a-zA-Z0-9.-]/g, '_');
+          const filePath = `${timestamp}_${sanitizedName}`;
+
+          // Convert File to ArrayBuffer for upload
+          const arrayBuffer = await file.arrayBuffer();
+          const buffer = Buffer.from(arrayBuffer);
+
+          // Upload to Supabase Storage
+          const { data: uploadData, error: uploadError } = await supabase.storage
+            .from('application-documents')
+            .upload(filePath, buffer, {
+              contentType: file.type,
+              upsert: false
+            });
+
+          if (uploadError) {
+            console.error('Upload error:', uploadError);
+            // Continue with other files even if one fails
+          } else if (uploadData) {
+            uploadedFilePaths.push(uploadData.path);
+          }
+        } catch (uploadErr) {
+          console.error('File upload exception:', uploadErr);
+        }
+      }
+    }
+
+    const message = uploadedFilePaths.length > 0
+      ? JSON.stringify(uploadedFilePaths)
       : null;
 
     if (!first_name || !email || !phone || !program || !qualification) {
