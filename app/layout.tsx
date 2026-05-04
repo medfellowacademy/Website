@@ -26,10 +26,51 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Med Fellow Academy - Advanced Fellowship Programs for Practicing Doctors",
   description: "Premium medical fellowship programs with academic credibility, hospital exposure, and internationally recognized certification.",
+  keywords: "medical fellowship, fellowship programs, doctor fellowship, advanced medical training, postgraduate medical education",
+  authors: [{ name: "Med Fellow Academy" }],
+  creator: "Med Fellow Academy",
+  publisher: "Med Fellow Academy",
+  metadataBase: new URL('https://www.medfellowacademy.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://www.medfellowacademy.com',
+    title: 'Med Fellow Academy - Advanced Fellowship Programs for Practicing Doctors',
+    description: 'Premium medical fellowship programs with academic credibility, hospital exposure, and internationally recognized certification.',
+    siteName: 'Med Fellow Academy',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'Med Fellow Academy',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Med Fellow Academy - Advanced Fellowship Programs for Practicing Doctors',
+    description: 'Premium medical fellowship programs with academic credibility, hospital exposure, and internationally recognized certification.',
+    images: ['/logo.png'],
+  },
   icons: {
-    icon: '/logo.png',
+    icon: [
+      { url: '/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/logo.png', sizes: '16x16', type: 'image/png' },
+    ],
     shortcut: '/logo.png',
-    apple: '/logo.png',
+    apple: [
+      { url: '/logo.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/logo.png',
+      },
+    ],
   },
   verification: {
     google: "VMwO22oDHhOk_ZM826hn0tYULxDgng1775FUlw-sWDI",
