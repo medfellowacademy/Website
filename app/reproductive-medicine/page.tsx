@@ -73,8 +73,8 @@ export default function ReproductiveMedicinePage() {
         </button>
       </div>
 
-      {/* Hero Section - Enhanced */}
-      <section className="relative bg-gradient-to-br from-primary via-secondary to-primary-dark text-white py-24 md:py-36 overflow-hidden">
+      {/* Hero Section - Enhanced with Image */}
+      <section className="relative bg-gradient-to-br from-primary via-secondary to-primary-dark text-white overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full opacity-20">
@@ -87,74 +87,108 @@ export default function ReproductiveMedicinePage() {
         </div>
         
         <div className="container-custom relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-lg px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20 shadow-xl hover:bg-white/20 transition-all">
-              <span className="text-2xl animate-bounce">🌟</span>
-              <span>Advance Your Career in Fertility & IVF</span>
-              <span className="text-2xl animate-bounce" style={{ animationDelay: '0.5s' }}>🌟</span>
-            </div>
-            
-            {/* Main Heading */}
-            <h1 className="text-5xl md:text-7xl font-heading font-extrabold mb-6 leading-tight">
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-white/90">Fellowship in</span>
-              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent animate-pulse">Reproductive Medicine</span>
-            </h1>
-            
-            {/* Subheading */}
-            <p className="text-xl md:text-2xl text-white/95 mb-10 leading-relaxed max-w-4xl mx-auto font-light">
-              Master the science and practice of <span className="font-semibold text-accent">infertility management</span>, <span className="font-semibold text-accent">IVF procedures</span>, and <span className="font-semibold text-accent">assisted reproductive techniques</span> with expert-led training.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center py-20 md:py-32">
+            {/* Left Content */}
+            <div className="text-center lg:text-left">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-lg px-6 py-3 rounded-full text-sm font-semibold mb-8 border border-white/20 shadow-xl hover:bg-white/20 transition-all">
+                <span className="text-2xl animate-bounce">🌟</span>
+                <span>Advance Your Career in Fertility & IVF</span>
+                <span className="text-2xl animate-bounce" style={{ animationDelay: '0.5s' }}>🌟</span>
+              </div>
+              
+              {/* Main Heading */}
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold mb-6 leading-tight">
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-white/90">Fellowship in</span>
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent animate-pulse">Reproductive Medicine</span>
+              </h1>
+              
+              {/* Subheading */}
+              <p className="text-lg md:text-xl text-white/95 mb-8 leading-relaxed font-light">
+                Master the science and practice of <span className="font-semibold text-accent">infertility management</span>, <span className="font-semibold text-accent">IVF procedures</span>, and <span className="font-semibold text-accent">assisted reproductive techniques</span> with expert-led training.
+              </p>
 
-            {/* Key Benefits - Enhanced */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-              {[
-                { icon: '🎯', text: 'Hands-on Clinical Learning', color: 'from-blue-500 to-cyan-500' },
-                { icon: '🔬', text: 'IVF Lab & Procedure Exposure', color: 'from-purple-500 to-pink-500' },
-                { icon: '👨‍⚕️', text: 'Expert Mentorship', color: 'from-orange-500 to-red-500' },
-                { icon: '🚀', text: 'Career & Clinic Setup Support', color: 'from-green-500 to-emerald-500' }
-              ].map((item, i) => (
-                <div key={i} className="group bg-white/10 backdrop-blur-lg rounded-2xl p-5 border border-white/20 shadow-2xl hover:bg-white/20 hover:scale-105 transition-all duration-300 hover:shadow-accent/50">
-                  <div className={`text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300`}>{item.icon}</div>
-                  <p className="text-sm font-bold leading-tight">{item.text}</p>
+              {/* Key Benefits - Enhanced */}
+              <div className="grid grid-cols-2 gap-3 mb-8">
+                {[
+                  { icon: '🎯', text: 'Hands-on Clinical Learning' },
+                  { icon: '🔬', text: 'IVF Lab Exposure' },
+                  { icon: '👨‍⚕️', text: 'Expert Mentorship' },
+                  { icon: '🚀', text: 'Career Support' }
+                ].map((item, i) => (
+                  <div key={i} className="group bg-white/10 backdrop-blur-lg rounded-xl p-4 border border-white/20 shadow-xl hover:bg-white/20 hover:scale-105 transition-all duration-300">
+                    <div className="text-3xl mb-2 transform group-hover:scale-110 transition-transform">{item.icon}</div>
+                    <p className="text-xs md:text-sm font-bold leading-tight">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Buttons - Enhanced */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                <button
+                  onClick={() => setShowForm(true)}
+                  className="group px-8 py-4 bg-gradient-to-r from-accent via-yellow-400 to-accent text-primary font-extrabold rounded-full hover:shadow-2xl transition-all shadow-xl text-base md:text-lg relative overflow-hidden transform hover:scale-105"
+                >
+                  <span className="relative z-10 flex items-center gap-2 justify-center">
+                    <span className="text-xl group-hover:animate-bounce">🚀</span>
+                    Apply Now!
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-accent to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </button>
+                <a
+                  href="tel:+919876543210"
+                  className="px-8 py-4 bg-white/95 text-primary font-bold rounded-full hover:bg-white transition-all shadow-xl text-base md:text-lg flex items-center gap-2 hover:scale-105 transform justify-center"
+                >
+                  <span className="text-xl">📞</span>
+                  <span>Call Now</span>
+                </a>
+              </div>
+
+              {/* Stats Bar */}
+              <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20">
+                {[
+                  { number: '500+', label: 'Doctors Trained' },
+                  { number: '95%', label: 'Success Rate' },
+                  { number: '10+', label: 'Years Experience' }
+                ].map((stat, i) => (
+                  <div key={i} className="text-center lg:text-left">
+                    <div className="text-3xl md:text-4xl font-extrabold text-accent mb-1">{stat.number}</div>
+                    <div className="text-xs md:text-sm text-white/80 font-medium">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="relative hidden lg:block">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-primary/20 z-10"></div>
+                <img 
+                  src="/fertility-consultation.png" 
+                  alt="Fertility Consultation - Doctor with Couple" 
+                  className="w-full h-auto object-cover"
+                />
+                {/* Overlay Badge */}
+                <div className="absolute bottom-6 left-6 right-6 z-20 bg-white/95 backdrop-blur-lg rounded-2xl p-6 shadow-2xl">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-2xl">
+                      ✨
+                    </div>
+                    <div>
+                      <p className="text-primary font-extrabold text-lg">Expert-Led Training</p>
+                      <p className="text-gray-600 text-sm">Real IVF Clinical Exposure</p>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            {/* CTA Buttons - Enhanced */}
-            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-8">
-              <button
-                onClick={() => setShowForm(true)}
-                className="group px-10 py-5 bg-gradient-to-r from-accent via-yellow-400 to-accent text-primary font-extrabold rounded-full hover:shadow-2xl transition-all shadow-xl text-lg relative overflow-hidden transform hover:scale-105"
-              >
-                <span className="relative z-10 flex items-center gap-3">
-                  <span className="text-2xl group-hover:animate-bounce">🚀</span>
-                  Apply Now - Limited Seats!
-                  <span className="text-2xl group-hover:animate-bounce">🚀</span>
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-accent to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              </button>
-              <a
-                href="tel:+919876543210"
-                className="px-10 py-5 bg-white/95 text-primary font-bold rounded-full hover:bg-white transition-all shadow-2xl text-lg flex items-center gap-3 hover:scale-105 transform"
-              >
-                <span className="text-2xl">📞</span>
-                <span>Call: +91-98765-43210</span>
-              </a>
-            </div>
-
-            {/* Stats Bar */}
-            <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto mt-12 pt-12 border-t border-white/20">
-              {[
-                { number: '500+', label: 'Doctors Trained' },
-                { number: '95%', label: 'Success Rate' },
-                { number: '10+', label: 'Years Experience' }
-              ].map((stat, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-4xl md:text-5xl font-extrabold text-accent mb-2">{stat.number}</div>
-                  <div className="text-sm md:text-base text-white/80 font-medium">{stat.label}</div>
-                </div>
-              ))}
+              </div>
+              
+              {/* Floating Badges */}
+              <div className="absolute -top-6 -right-6 bg-accent text-white px-6 py-3 rounded-2xl shadow-2xl transform rotate-12 animate-bounce">
+                <p className="font-bold text-sm">🎓 Certified</p>
+              </div>
+              <div className="absolute -bottom-6 -left-6 bg-secondary text-white px-6 py-3 rounded-2xl shadow-2xl transform -rotate-12 animate-bounce" style={{ animationDelay: '1s' }}>
+                <p className="font-bold text-sm">💼 Job Ready</p>
+              </div>
             </div>
           </div>
         </div>
