@@ -1,5 +1,16 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: "Our Faculty | Expert Medical Educators at MedFellow Academy",
+  description: "Meet MedFellow Academy's distinguished faculty — senior specialists and academic leaders with 15–25+ years of clinical experience across cardiology, critical care, surgery, and more.",
+  openGraph: {
+    title: "Faculty at MedFellow Academy",
+    description: "Senior specialists and academic leaders guiding the next generation of medical fellows.",
+    url: "https://medfellowacademy.com/faculty",
+  },
+};
 
 export default function FacultyPage() {
   const faculty = [

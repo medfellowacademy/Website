@@ -1,89 +1,43 @@
 'use client';
-import { Award, CheckCircle, Globe, Building2, TrendingUp, Shield } from 'lucide-react';
+import { Award, Globe, Building2, Shield } from 'lucide-react';
 
 export default function Certification() {
-
   return (
-    <section id="certification" className="section-padding bg-gray-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-accent rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-64 h-64 bg-secondary rounded-full filter blur-3xl"></div>
-      </div>
-
-      <div className="container-custom relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-5 py-2 glass-card rounded-full mb-6">
-            <Shield className="w-4 h-4 text-accent" />
-            <span className="text-accent font-semibold text-sm">ACCREDITATION & CERTIFICATION</span>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-heading font-extrabold text-primary mb-6">
-            Globally <span className="gradient-text">Recognized Certification</span>
+    <section className="py-10" style={{ background: '#EAF2FB' }}>
+      <div className="max-w-7xl mx-auto px-8">
+        
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-medium mb-2" style={{ color: '#1B4F72' }}>
+            Internationally Accredited Certification
           </h2>
-          <p className="text-lg lg:text-xl text-text-secondary max-w-3xl mx-auto">
-            Our fellowship programs are accredited by leading medical bodies and recognized worldwide.
+          <p className="text-xs" style={{ color: '#5D6D7E' }}>
+            Recognized by leading medical bodies worldwide
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          {/* Main Certification Card */}
-          <div className="card overflow-hidden mb-12 hover-lift">
-            <div className="bg-linear-to-r from-accent via-yellow-500 to-accent p-10 text-white text-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-20">
-                <div className="absolute inset-0" style={{
-                  backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-                  backgroundSize: '30px 30px'
-                }}></div>
+        {/* Features */}
+        <div className="grid md:grid-cols-3 gap-4">
+          {[
+            { Icon: Globe, title: 'Global Recognition', desc: 'Accepted by hospitals and institutions worldwide' },
+            { Icon: Building2, title: 'Hospital Validated', desc: 'Recognized by premier hospital networks' },
+            { Icon: Shield, title: 'Career Advancement', desc: 'Opens doors to specialist positions' },
+          ].map((item, i) => (
+            <div key={i} className="bg-white rounded-lg p-5 text-center" style={{ border: '0.5px solid #BFC9CA' }}>
+              <div 
+                className="w-10 h-10 rounded-md mx-auto mb-3 flex items-center justify-center"
+                style={{ background: '#1B4F72' }}
+              >
+                <item.Icon className="w-5 h-5 text-white" />
               </div>
-              <div className="relative z-10">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur rounded-full mb-6">
-                  <Award className="w-12 h-12" />
-                </div>
-                <h3 className="text-3xl lg:text-4xl font-heading font-bold mb-3">
-                  Internationally Accredited Certification
-                </h3>
-                <p className="text-lg lg:text-xl opacity-95">
-                  Premium certification included with every fellowship program
-                </p>
-              </div>
-            </div>
-            
-            <div className="p-8 lg:p-10">
-              <p className="text-lg text-text-secondary mb-8 text-center">
-                Upon successful completion of your fellowship program, you will receive a certification that is:
+              <h3 className="text-xs font-medium mb-1" style={{ color: '#1B4F72' }}>
+                {item.title}
+              </h3>
+              <p className="text-xs" style={{ color: '#5D6D7E', lineHeight: 1.6 }}>
+                {item.desc}
               </p>
-              
-              <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <div className="glass-card rounded-2xl p-6 text-center hover-lift">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-blue-500 to-cyan-500 rounded-2xl text-white mb-4">
-                    <Globe className="w-8 h-8" />
-                  </div>
-                  <h4 className="font-heading font-bold text-primary mb-2 text-lg">Globally Recognized</h4>
-                  <p className="text-sm text-text-secondary">Accepted by medical institutions worldwide</p>
-                </div>
-                
-                <div className="glass-card rounded-2xl p-6 text-center hover-lift">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-purple-500 to-pink-500 rounded-2xl text-white mb-4">
-                    <Building2 className="w-8 h-8" />
-                  </div>
-                  <h4 className="font-heading font-bold text-primary mb-2 text-lg">Industry Validated</h4>
-                  <p className="text-sm text-text-secondary">Endorsed by top medical professionals</p>
-                </div>
-                
-                <div className="glass-card rounded-2xl p-6 text-center hover-lift">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-green-500 to-emerald-500 rounded-2xl text-white mb-4">
-                    <TrendingUp className="w-8 h-8" />
-                  </div>
-                  <h4 className="font-heading font-bold text-primary mb-2 text-lg">Career Enhancing</h4>
-                  <p className="text-sm text-text-secondary">Opens doors to advanced opportunities</p>
-                </div>
-              </div>
-
-
             </div>
-          </div>
-
-
+          ))}
         </div>
       </div>
     </section>

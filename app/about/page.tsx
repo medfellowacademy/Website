@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About MedFellow Academy | Our Mission, Vision & Story",
+  description: "Learn about MedFellow Academy — India's premier medical fellowship institution. Discover our mission to bridge education and clinical practice, our expert team, and our commitment to advancing doctors' careers.",
+  openGraph: {
+    title: "About MedFellow Academy",
+    description: "India's premier medical fellowship institution bridging education and clinical practice.",
+    url: "https://medfellowacademy.com/about",
+  },
+};
 
 export default function AboutPage() {
   return (

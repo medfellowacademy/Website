@@ -1,10 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import WhyMedFellow from "@/components/WhyMedFellow";
+import HowItWorks from "@/components/HowItWorks";
 import TrainingFacilities from "@/components/TrainingFacilities";
 import Faculty from "@/components/Faculty";
-import Certification from "@/components/Certification";
 import Testimonials from "@/components/Testimonials";
+import Certification from "@/components/Certification";
+import LeadMagnetBanner from "@/components/LeadMagnetBanner";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -12,11 +14,13 @@ export default function Home() {
     <div className="min-h-screen">
       <Navbar />
       <Hero />
-      <WhyMedFellow />
+      <HowItWorks />
       <TrainingFacilities />
       <Faculty />
       <Testimonials />
       <Certification />
+      <LeadMagnetBanner />
+      <FAQ />
       <Footer />
     </div>
   );

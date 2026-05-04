@@ -1,63 +1,63 @@
 import Link from "next/link";
 
 export default function TrustProof() {
-  const certifications = [
-    { name: "Medical Council of India Recognition", file: "mci-certificate.pdf", icon: "📜" },
-    { name: "National Board Accreditation", file: "nb-accreditation.pdf", icon: "🎓" },
-    { name: "ISO 9001:2015 Certification", file: "iso-certificate.pdf", icon: "✓" },
-    { name: "International Accreditation", file: "intl-accreditation.pdf", icon: "🌍" }
-  ];
-
   const alumniPlacements = [
     {
       name: "Dr. Rajiv Kumar",
       program: "Fellowship in Cardiology",
       placement: "Senior Consultant, Apollo Hospitals",
-      salary: "₹45 LPA",
-      year: "2024"
     },
     {
       name: "Dr. Priya Sharma",
       program: "Fellowship in Critical Care",
       placement: "ICU Head, Fortis Memorial",
-      salary: "₹38 LPA",
-      year: "2024"
     },
     {
       name: "Dr. Arun Mehta",
       program: "Fellowship in Gastroenterology",
       placement: "Consultant, Max Super Specialty",
-      salary: "₹42 LPA",
-      year: "2025"
     },
     {
       name: "Dr. Kavita Singh",
       program: "Fellowship in Reproductive Medicine",
       placement: "IVF Specialist, Cloudnine",
-      salary: "₹50 LPA",
-      year: "2025"
     }
   ];
 
   return (
-    <section className="section-padding bg-linear-to-br from-background to-white">
-      <div className="container-custom">
-        {/* Section Header */}
-        <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-2xl md:text-4xl font-heading font-bold text-primary mb-3 md:mb-4">
-            Our Fellows&apos; Success Stories
+    <section className="py-10 bg-white">
+      <div className="max-w-7xl mx-auto px-8">
+        
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-medium mb-2" style={{ color: '#1B4F72' }}>
+            Alumni Success Stories
           </h2>
-          <p className="text-base md:text-lg text-text-secondary max-w-3xl mx-auto">
-            Our fellows secure top positions across the country&apos;s best healthcare organizations.
+          <p className="text-xs" style={{ color: '#5D6D7E' }}>
+            Our fellows secure top positions across leading healthcare organizations
           </p>
         </div>
 
-        {/* Recent Alumni Placements */}
-        <div className="mb-16">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-2xl font-heading font-bold text-primary">
-              Recent Alumni Placements
-            </h3>
+        {/* Placements Grid */}
+        <div className="grid md:grid-cols-2 gap-4">
+          {alumniPlacements.map((alumni, i) => (
+            <div key={i} className="bg-white rounded-lg p-5" style={{ border: '0.5px solid #BFC9CA' }}>
+              <div className="text-xs font-medium mb-1" style={{ color: '#1B4F72' }}>
+                {alumni.name}
+              </div>
+              <div className="text-xs mb-1" style={{ color: '#2E86C1' }}>
+                {alumni.program}
+              </div>
+              <div className="text-xs" style={{ color: '#5D6D7E' }}>
+                {alumni.placement}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
             <Link href="/alumni" className="text-secondary hover:text-primary font-semibold text-sm">
               View All Success Stories →
             </Link>

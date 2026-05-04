@@ -13,12 +13,12 @@ const programsData: { [key: string]: any } = {
     description: "Advanced training in emergency care, trauma management, and critical decision-making.",
     overview: "This fellowship provides comprehensive training in emergency medicine covering trauma care, medical emergencies, toxicology, and emergency procedures. Fellows work in high-volume emergency departments gaining hands-on experience in acute care.",
     highlights: ["ICU Rotations", "Trauma Management", "Toxicology", "Emergency Procedures"],
-    onlinePrice: 150000,
-    month11_1: 170000,
-    month10_2: 220000,
-    month9_3: 250000,
-    month6_6: 350000,
-    month12Offline: 440000,
+    onlinePrice: 172500,
+    month11_1: 195500,
+    month10_2: 253000,
+    month9_3: 287500,
+    month6_6: 402500,
+    month12Offline: 506000,
     curriculum: [
       { module: "Introduction and Overview", topics: ["Organisation of the Emergency Medicine Department", "Organisation of Emergency Medical Services", "Disaster Management", "Legal Aspects of Emergency Medicine"] },
       { module: "Airway Management", topics: ["Introduction", "Airway Management", "Assisted Ventilation", "Pulse Oximetry", "Ventilator Basics", "Nastro Gastric Tube"] },
@@ -51,12 +51,12 @@ const programsData: { [key: string]: any } = {
     description: "Focused training in diabetes care, insulin management, and metabolic disorders.",
     overview: "This fellowship offers specialized training in comprehensive diabetes management including insulin therapy, complications management, and patient education. Fellows gain expertise in managing complex diabetic patients.",
     highlights: ["Insulin Therapy", "Metabolic Disorders", "Diabetic Complications", "Patient Education"],
-    onlinePrice: 150000,
-    month11_1: 170000,
-    month10_2: 240000,
-    month9_3: 280000,
-    month6_6: 450000,
-    month12Offline: 570000,
+    onlinePrice: 172500,
+    month11_1: 195500,
+    month10_2: 276000,
+    month9_3: 322000,
+    month6_6: 517500,
+    month12Offline: 655500,
     curriculum: [
       {
         module: "Certificate in Diabetes Mellitus",
@@ -111,12 +111,12 @@ const programsData: { [key: string]: any } = {
     description: "Advanced training in high-risk obstetrics and gynecological procedures.",
     overview: "This fellowship provides specialized training in high-risk pregnancy management, advanced laparoscopic gynecology, and fetal medicine.",
     highlights: ["High-Risk Pregnancy", "Laparoscopic Surgery", "Fetal Medicine", "Gynec Oncology"],
-    onlinePrice: 145000,
-    month11_1: 190000,
-    month10_2: 230000,
-    month9_3: 280000,
-    month6_6: 390000,
-    month12Offline: 520000,
+    onlinePrice: 166750,
+    month11_1: 218500,
+    month10_2: 264500,
+    month9_3: 322000,
+    month6_6: 448500,
+    month12Offline: 598000,
     curriculum: [
       {
         module: "Certificate Course in Gynecology and Obstetrics",
@@ -175,8 +175,8 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive fellowship in cosmetic gynecology integrating aesthetic, functional, and sexual wellness care.",
     overview: "This curriculum-focused fellowship in Cosmetic Gynecology builds competency across patient evaluation, non-surgical energy-based procedures, surgical cosmetic gynecology, urogynecologic functional corrections, perioperative care, complication prevention, and practice development. The program emphasizes evidence-based decision-making, ethical consent, hands-on clinical exposure, and medico-legal safety.",
     highlights: ["Aesthetic and functional cosmetic gynecology training", "Laser, RF, PRP, injectables, and device-based procedures", "Surgical cosmetic gynecology and urogynecology integration", "Hands-on case exposure with practice setup and business modules"],
-    onlinePrice: 160000,
-    month11_1: 195000,
+    onlinePrice: 184000,
+    month11_1: 224250,
     curriculum: [
       {
         module: "Module 1: Fundamentals of Cosmetic Gynecology",
@@ -312,8 +312,8 @@ const programsData: { [key: string]: any } = {
     description: "One-year blended fellowship focused on diagnostic and operative gynecological endoscopy.",
     overview: "This 12-month blended fellowship (online learning + skill lab + hospital-based training) provides structured progression in gynecological endoscopy. The curriculum covers fundamentals, diagnostic workflows, basic and advanced operative laparoscopy and hysteroscopy, complication management, ethics, and endoscopy practice setup.",
     highlights: ["Blended learning with skill lab and hospital exposure", "Diagnostic and operative gynecological endoscopy", "Stepwise laparoscopy and hysteroscopy training", "Complication management and ethical practice"],
-    onlinePrice: 180000,
-    month11_1: 210000,
+    onlinePrice: 207000,
+    month11_1: 241500,
     curriculum: [
       {
         module: "Module 1: Fundamentals of Endoscopic Surgery (Month 1-2)",
@@ -445,8 +445,8 @@ const programsData: { [key: string]: any } = {
     description: "One-year structured fellowship in high-risk obstetrics with maternal-fetal and critical care focus.",
     overview: "This 12-month fellowship provides advanced, phase-wise training in high-risk pregnancy care, spanning preconception risk assessment, maternal medicine, fetal medicine, obstetric emergencies, critical care, and labour-delivery planning. The curriculum is designed for clinicians managing complex pregnancies and multidisciplinary maternal-fetal pathways.",
     highlights: ["Foundations of high-risk obstetrics", "Maternal medicine and ICU protocols", "Prenatal diagnosis and fetal surveillance", "Labour, delivery, and postpartum-neonatal integration"],
-    onlinePrice: 180000,
-    month11_1: 210000,
+    onlinePrice: 207000,
+    month11_1: 241500,
     curriculum: [
       {
         module: "Phase 1: Foundations (Month 1-3)",
@@ -565,8 +565,8 @@ const programsData: { [key: string]: any } = {
     description: "Advanced fellowship in fetal diagnosis, imaging, genetics, and intrauterine care pathways.",
     overview: "Fellowship in Fetal Medicine is a 12-month advanced training program focused on fetal imaging, prenatal diagnosis, growth surveillance, genetics, invasive procedures, complex fetal pathology, and fetal therapy exposure. The curriculum is designed to build independent fetal medicine specialists with strong technical and counseling competence.",
     highlights: ["Comprehensive fetal imaging pathway", "Prenatal genetics and invasive diagnostics", "Advanced fetal surveillance and complex case review", "Fetal intervention exposure with ethics and counseling"],
-    onlinePrice: 160000,
-    month11_1: 210000,
+    onlinePrice: 184000,
+    month11_1: 241500,
     curriculum: [
       {
         module: "Phase 1: Foundations (Month 1-3)",
@@ -674,8 +674,8 @@ const programsData: { [key: string]: any } = {
     description: "Advanced competency-based training in diagnosis, surgical management, and rehabilitation of oral and maxillofacial conditions.",
     overview: "The Fellowship in Maxillofacial and Oral Surgery is an advanced 1-year program designed for dental and medical professionals seeking expertise in oral and maxillofacial surgery. The curriculum integrates surgical foundations, trauma care, orthognathic planning, implantology, TMJ management, oral oncology, reconstructive techniques, and practice-oriented professional development.",
     highlights: ["Comprehensive maxillofacial surgical training", "Trauma, orthognathic, and reconstructive focus", "Implantology, TMJ, and oral oncology pathways", "Advanced technology integration and practice management"],
-    onlinePrice: 200000,
-    month11_1: 230000,
+    onlinePrice: 230000,
+    month11_1: 264500,
     curriculum: [
       {
         module: "Module 1: Basic Sciences and Surgical Foundations",
@@ -917,8 +917,8 @@ const programsData: { [key: string]: any } = {
     description: "Master advanced urological care with clinical precision and surgical expertise through a comprehensive practice-oriented fellowship.",
     overview: "The Fellowship in Urology is a comprehensive, practice-oriented program designed to equip medical professionals with advanced knowledge and clinical skills in the diagnosis, management, and surgical treatment of urological disorders. Urology focuses on diseases of the urinary tract in both males and females, along with the male reproductive system, covering conditions ranging from infections and stone disease to complex malignancies and reconstructive procedures. This fellowship integrates evidence-based learning, modern diagnostics, and minimally invasive surgical techniques, enabling participants to confidently manage both routine and complex urological cases in clinical and hospital settings.",
     highlights: ["Comprehensive coverage of medical and surgical urology", "Training in minimally invasive, endoscopic, and laparoscopic techniques", "Exposure to uro-oncology and reconstructive urology", "Focus on clinical decision-making and patient-centered care", "Case-based discussions and real-world clinical scenarios", "Emphasis on modern technologies and evolving practices"],
-    onlinePrice: 170000,
-    month11_1: 190000,
+    onlinePrice: 195500,
+    month11_1: 218500,
     learningOutcomes: [
       "Develop a strong understanding of urogenital anatomy, physiology, and pathology",
       "Diagnose and manage common urological conditions such as UTI, BPH, and urolithiasis",
@@ -993,8 +993,8 @@ const programsData: { [key: string]: any } = {
     description: "Advanced clinical training in mental health and behavioral sciences with evidence-based, empathetic psychiatric care.",
     overview: "The Fellowship in Psychiatric Medicine is a comprehensive, clinically oriented one-year program designed to build advanced competencies in assessment, diagnosis, management, and holistic care of psychiatric disorders. The course integrates neurobiological understanding with psychosocial and therapeutic approaches, preparing clinicians for outpatient, inpatient, and emergency psychiatric settings.",
     highlights: ["Blended, structured 1-year fellowship", "Case-based real-world psychiatric training", "Emergency psychiatry and crisis intervention exposure", "Strong focus on communication, empathy, ethics, and medico-legal practice"],
-    onlinePrice: 150000,
-    month11_1: 170000,
+    onlinePrice: 172500,
+    month11_1: 195500,
     curriculum: [
       {
         module: "Module 1: Foundations of Psychiatry",
@@ -1054,6 +1054,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced hybrid training in neurosurgical care with case-based learning, skill development, and OT exposure.",
     overview: "The Fellowship in Neurosurgery is a one-year hybrid program designed to build advanced clinical and procedural competence in neurosurgical practice. The curriculum integrates applied neuroscience, emergency neurosurgery, neuro-oncology, neurovascular and spine care, critical care, and evolving minimally invasive technologies through structured case-based and skill-based training.",
     highlights: ["Hybrid learning with hospital-based exposure", "Neurotrauma and emergency neurosurgical protocols", "Neuro-oncology, neurovascular, and spine modules", "Critical care, advanced techniques, and research orientation"],
+    onlinePrice: 195500,
     curriculum: [
       {
         module: "Module 1: Foundations of Neurosurgery",
@@ -1159,6 +1160,7 @@ const programsData: { [key: string]: any } = {
     description: "Hybrid one-year program in clinical neurology with case-based learning, OPD exposure, and diagnostic skill development.",
     overview: "The Fellowship in Clinical Neurology is a 12-month hybrid program designed to strengthen clinical reasoning and diagnostic competency in neurology. It integrates structured case-based teaching, OPD-focused exposure, emergency neurology, neurodiagnostics, and supervised clinical postings to prepare participants for real-world neurological practice.",
     highlights: ["Localization-based neurological assessment", "Acute neurology and emergency protocols", "Stroke, epilepsy, neuroinflammatory, and neurodegenerative pathways", "Hands-on logbook-driven clinical training"],
+    onlinePrice: 172500,
     curriculum: [
       {
         module: "Module 1: Foundations of Clinical Neurology",
@@ -1268,7 +1270,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive fellowship in pediatric neurological disorders with strong emphasis on diagnosis, neurodiagnostics, and long-term management.",
     overview: "The Fellowship in Pediatric Neurology is a clinically focused one-year program designed for pediatricians, neurologists, and practicing clinicians. It delivers structured training in pediatric neurological assessment, seizure care, neurodevelopmental and neuromuscular disorders, neurovascular and metabolic conditions, and diagnostic interpretation through case-based mentorship and multidisciplinary exposure.",
     highlights: ["Comprehensive pediatric neurology disorder coverage", "Case-based learning with expert mentorship", "Neurodiagnostic training (EEG, imaging, electrophysiology)", "Multidisciplinary real-world pediatric neurological care"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 210000,
     curriculum: [
       {
@@ -1321,6 +1323,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced, clinically driven fellowship focused on surgical management of complex cardiac and thoracic conditions.",
     overview: "The Fellowship in Cardiothoracic Surgery is a structured high-intensity program offering focused training in cardiac and thoracic surgical practice. It integrates operative exposure, perioperative critical care, minimally invasive approaches, and multidisciplinary collaboration to prepare participants for advanced tertiary-care and super-speciality surgical roles.",
     highlights: ["One-year blended fellowship (theory + clinical exposure)", "Hands-on operative and OT-based training", "Perioperative critical care and decision-making focus", "Exposure to minimally invasive, robotic, and hybrid procedures"],
+    onlinePrice: 207000,
     curriculum: [
       {
         module: "Module 1: Foundations of Cardiothoracic Surgery (Weeks 1-4)",
@@ -1426,7 +1429,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced clinically intensive fellowship in diagnosis, staging, and systemic management of cancer.",
     overview: "The Fellowship in Medical Oncology is an advanced program that builds deep expertise in contemporary oncology practice across solid tumors and hematological malignancies. It integrates chemotherapy, immunotherapy, targeted therapy, and precision medicine with multidisciplinary decision-making, supportive care, and evidence-based treatment planning for high-quality, patient-centered cancer care.",
     highlights: ["Comprehensive systemic therapy training (chemo, immunotherapy, targeted)", "Precision oncology and individualized treatment planning", "Multidisciplinary tumor board exposure", "Oncologic emergencies, supportive care, and palliative integration"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 200000,
     curriculum: [
       {
@@ -1480,6 +1483,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive clinical fellowship covering benign and malignant hematological disorders, diagnostics, and modern therapeutics.",
     overview: "The Fellowship in Clinical Haematology is an advanced program designed to build expertise in diagnostic hematology, hemato-oncology, coagulation disorders, transfusion medicine, and transplantation principles. The training emphasizes evidence-based clinical decision making, laboratory integration, multidisciplinary care, and research-oriented practice.",
     highlights: ["Comprehensive benign and malignant hematology training", "Structured focus on diagnostics and laboratory interpretation", "Bone marrow procedures and transplant principles", "Modern therapies including targeted and immunotherapy with research exposure"],
+    onlinePrice: 207000,
     curriculum: [
       {
         module: "Module 1: Foundations of Haematology",
@@ -1571,7 +1575,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive clinically driven program in diagnosis, staging, and multidisciplinary management of head and neck cancers.",
     overview: "The Fellowship in Head & Neck Oncology is an advanced clinical program focused on oncologic surgery, reconstruction, and integrated cancer care across oral cavity, pharyngeal, laryngeal, thyroid, salivary, and skull base malignancies. The fellowship combines hands-on case exposure, tumor board participation, and protocol-based decision making to deliver high-quality, patient-centric oncologic outcomes.",
     highlights: ["Advanced head and neck oncologic surgery training", "Multidisciplinary exposure across surgery, radiation, and medical oncology", "Hands-on case-based learning with clinical decision frameworks", "Functional rehabilitation and survivorship-focused care"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 210000,
     curriculum: [
       {
@@ -1640,7 +1644,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced clinically oriented fellowship in hair and scalp disorders integrating medical, aesthetic, and restoration approaches.",
     overview: "The Fellowship in Trichology is a comprehensive program focused on diagnosis, management, and treatment of hair and scalp disorders. It combines trichological science, clinical dermatology, procedural interventions, and hair restoration techniques to build holistic, evidence-based practice capability.",
     highlights: ["Integrated medical and procedural trichology training", "Hands-on exposure to PRP, microneedling, and hair restoration", "Diagnostic proficiency with trichoscopy and lab correlation", "Practice setup and real-world case management orientation"],
-    onlinePrice: 170000,
+    onlinePrice: 195500,
     month11_1: 190000,
     curriculum: [
       {
@@ -1784,7 +1788,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive clinically driven fellowship in diagnostic imaging and image-guided interventions.",
     overview: "The Fellowship in Radiology is designed to build practical expertise in diagnostic imaging, emergency radiology, and image-guided interventions. The curriculum integrates physics, modality-based interpretation, procedural principles, and multidisciplinary clinical correlation to prepare participants for real-world radiology practice in hospitals and diagnostic centers.",
     highlights: ["Comprehensive modality-based imaging training", "Emergency and trauma radiology focus", "Image-guided intervention fundamentals", "Structured reporting and clinicoradiological integration"],
-    onlinePrice: 170000,
+    onlinePrice: 195500,
     month11_1: 190000,
     curriculum: [
       {
@@ -1849,6 +1853,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced clinically oriented fellowship in image-guided minimally invasive diagnostic and therapeutic procedures.",
     overview: "The Fellowship in Interventional Radiology is an advanced, clinically oriented program designed to train doctors in image-guided minimally invasive diagnostic and therapeutic procedures. The program integrates vascular, non-vascular, and oncologic interventions using modalities such as fluoroscopy, CT, MRI, and ultrasound. With a strong emphasis on hands-on procedural training, clinical decision-making, and multidisciplinary care, this fellowship prepares participants to deliver safe, effective, and evidence-based interventional treatments across a wide spectrum of diseases.",
     highlights: ["Comprehensive vascular, non-vascular, and oncologic interventions", "Hands-on procedural training with multimodality imaging guidance", "Strong focus on clinical decision-making and complication management", "Multidisciplinary evidence-based interventional care"],
+    onlinePrice: 195500,
     curriculum: [
       {
         module: "Module 1: Fundamentals of Interventional Radiology",
@@ -1916,7 +1921,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive training in pediatric care and child health management.",
     overview: "This fellowship offers advanced training in pediatric subspecialties including neonatology, pediatric emergency care, and developmental pediatrics.",
     highlights: ["Neonatal Care", "Pediatric Emergencies", "Child Development", "Immunization"],
-    onlinePrice: 150000,
+    onlinePrice: 172500,
     month11_1: 180000,
     month10_2: 240000,
     month9_3: 280000,
@@ -1993,7 +1998,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced training in clinical dermatology covering medical, procedural, and aesthetic practice.",
     overview: "Fellowship in Clinical Dermatology is a 100% flexible online/blended programme designed for busy practitioners (10–12 hrs/week). It follows a case-based clinical training approach covering medical and basic procedural dermatology, aligned with international curriculum frameworks.",
     highlights: ["100% Flexible Learning (Online / Blended)", "Case-Based Clinical Training", "Medical + Procedural Dermatology", "Dermoscopy Basics", "Infectious & Tropical Dermatology", "Aesthetic Dermatology Basics"],
-    onlinePrice: 160000,
+    onlinePrice: 184000,
     month11_1: 185000,
     month10_2: 230000,
     month9_3: 250000,
@@ -2024,7 +2029,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive training in cosmetic medicine, aesthetic procedures, and evidence-based practice.",
     overview: "This fellowship provides specialized training in cosmetic and aesthetic medicine, covering facial anatomy, skin science, advanced aesthetic treatments, and professional ethics. Fellows gain expertise in evidence-based cosmetic practice and clinical decision-making.",
     highlights: ["Facial Anatomy & Ageing", "Skin Science & Treatments", "Injectable Procedures", "Laser & IPL", "Clinical Ethics", "Evidence-Based Practice"],
-    onlinePrice: 150000,
+    onlinePrice: 172500,
     month11_1: 180000,
     month10_2: 230000,
     month9_3: 270000,
@@ -2099,7 +2104,7 @@ const programsData: { [key: string]: any } = {
     description: "Clinically intensive training in comprehensive adult patient care, clinical reasoning, and evidence-based practice.",
     overview: "The Fellowship in Internal Medicine by MedFellow is a clinically intensive program designed to build expertise in comprehensive adult patient care. It emphasizes system-based learning, clinical reasoning, evidence-based practice, and real-world case management across outpatient, inpatient, and critical care settings.",
     highlights: ["System-Based Learning", "Clinical Reasoning", "Case Management", "Critical Care Exposure", "Evidence-Based Practice", "Applied Skills"],
-    onlinePrice: 175000,
+    onlinePrice: 201250,
     month11_1: 185000,
     month10_2: 220000,
     month9_3: 240000,
@@ -2355,7 +2360,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive training in cardiovascular disease diagnosis, management, emergencies, and modern cardiology advances.",
     overview: "The Fellowship in Clinical Cardiology is a structured, clinically focused program that builds strong foundations in cardiovascular biology, bedside cardiology, diagnostics, pharmacology, rhythm disorders, heart failure, special populations, resuscitation, and emerging technologies in contemporary cardiac care.",
     highlights: ["ECG and Echo Mastery", "Rhythm and Conduction Disorders", "Heart Failure and Emergencies", "Resuscitation Protocols", "Special Population Cardiology", "AI and Wearable Cardiology"],
-    onlinePrice: 160000,
+    onlinePrice: 184000,
     month11_1: 190000,
     month10_2: 240000,
     month9_3: 280000,
@@ -2521,7 +2526,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive critical care training covering ICU resuscitation, organ support, emergencies, procedures, and advanced case-based practice.",
     overview: "The Fellowship in Critical Care Medicine is an intensive, multi-level program designed to build expertise in ICU-based diagnosis, monitoring, resuscitation, and multidisciplinary management of critically ill patients through structured modules, procedure training, and real-world case learning.",
     highlights: ["Resuscitation and ACLS/BLS", "ICU Monitoring and Organ Support", "Critical Care Procedures", "System-wise ICU Management", "Poisoning and Emergency Care", "Ethics and End-of-life Care"],
-    onlinePrice: 150000,
+    onlinePrice: 172500,
     month11_1: 180000,
     month10_2: 230000,
     month9_3: 270000,
@@ -2930,7 +2935,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive training in primary care and family health management.",
     overview: "This fellowship provides broad training in family medicine covering all age groups and common medical conditions with emphasis on preventive care and community health.",
     highlights: ["Primary Care", "Preventive Medicine", "Community Health", "Chronic Disease Management"],
-    onlinePrice: 150000,
+    onlinePrice: 172500,
     month11_1: 170000,
     month10_2: 220000,
     month9_3: 250000,
@@ -3035,7 +3040,7 @@ const programsData: { [key: string]: any } = {
     description: "One-year fellowship in rheumatic diseases with strong emphasis on clinical exposure, immunology, and musculoskeletal medicine.",
     overview: "This 12-month Fellowship in Rheumatology is designed to train physicians in the diagnosis, management, and procedural skills required for rheumatic diseases. The program is structured in three phases: Foundations (Months 1-3), Core Clinical Rheumatology (Months 4-9), and Advanced Skills plus Research (Months 10-12). It combines outpatient-focused rheumatology exposure, immunology, musculoskeletal medicine, procedural training, and evidence-based academic development.",
     highlights: ["Structured 1-year fellowship", "Strong clinical and outpatient exposure", "Immunology and musculoskeletal medicine", "Procedural rheumatology skills", "Research and professional development"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 200000,
     curriculum: [
       {
@@ -3197,7 +3202,7 @@ const programsData: { [key: string]: any } = {
     description: "One-year fellowship in pain medicine focused on diagnosis, multidisciplinary management, and interventional pain procedures.",
     overview: "This 12-month Fellowship in Pain Management is designed to build expertise in acute, chronic, cancer, neuropathic, and palliative pain care. The curriculum spans foundations of pain medicine, acute and chronic pain management, interventional procedures, rehabilitation, special pain conditions, and research, with emphasis on evidence-based practice and clinic setup.",
     highlights: ["Foundations of pain medicine", "Acute and chronic pain management", "Interventional pain procedures", "Multidisciplinary rehabilitation", "Palliative and end-of-life care"],
-    onlinePrice: 150000,
+    onlinePrice: 172500,
     month11_1: 170000,
     curriculum: [
       {
@@ -3340,7 +3345,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced training in endocrine physiology, complex hormonal disorders, and evidence-based endocrine disease management.",
     overview: "The Fellowship in Endocrinology is a clinically focused program that develops expertise in hypothalamic-pituitary, thyroid, adrenal, calcium-bone, reproductive, and endocrine oncology disorders with integrated diagnostic and multidisciplinary management approaches.",
     highlights: ["Pituitary and Thyroid Mastery", "Adrenal and Bone-Endocrine Disorders", "Reproductive Endocrinology", "Endocrine Oncology", "Advanced Diagnostics", "Medical and Surgical Management"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 210000,
     month10_2: 240000,
     month9_3: 280000,
@@ -3565,6 +3570,7 @@ const programsData: { [key: string]: any } = {
     description: "One-year modular fellowship in spine surgery with training in degenerative disorders, trauma, deformity, infection, and minimally invasive techniques.",
     overview: "This 12-month Fellowship in Spine Surgery follows a quarter-wise modular progression combining didactic learning, clinical exposure, surgical training, case discussions, and research. The curriculum covers spine fundamentals, degenerative disorders, trauma, infections and tumours, pediatric and deformity surgery, minimally invasive techniques, instrumentation, navigation, rehabilitation, and interventional pain management.",
     highlights: ["Quarter-wise modular training", "Degenerative and trauma spine", "Infection, tumour, and deformity management", "MISS, navigation, and robotics", "Research and dissertation"],
+    onlinePrice: 207000,
     curriculum: [
       {
         module: "Module 1: Basic Sciences and Spine Fundamentals (Month 1-2)",
@@ -3732,7 +3738,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive training in core general surgery integrating theory, clinical exposure, and hands-on operative skills.",
     overview: "This fellowship is designed to provide comprehensive training in core general surgery, combining theoretical knowledge, clinical exposure, and hands-on surgical skills. The program emphasises perioperative care, operative techniques, and independent surgical decision-making. Program structure: Duration 12 months, Mode Hybrid (Online + Clinical Training), Clinical Posting 1-3 months (modular), and Assessment through module-wise evaluation with final assessment.",
     highlights: ["Hybrid model with modular clinical posting", "Broad-based general surgery curriculum", "Perioperative care and emergency decision-making", "Hands-on core procedure training"],
-    onlinePrice: 200000,
+    onlinePrice: 230000,
     month11_1: 230000,
     curriculum: [
       {
@@ -3813,7 +3819,7 @@ const programsData: { [key: string]: any } = {
     description: "One-year fellowship in minimal access and robotic surgery with modular skill progression and surgical exposure.",
     overview: "Fellowship in Minimal Access & Robotic Surgery (FMARS) is a 12-month modular program for surgeons seeking structured progression from laparoscopy fundamentals to robotic surgery workflows, advanced laparoscopic procedures, perioperative care, and practice integration. The curriculum combines didactic learning, clinical exposure, surgical training, case discussions, and research-oriented development.",
     highlights: ["High-impact phase-wise curriculum", "Simulation and robotic console training", "Basic to advanced laparoscopic surgery", "Robotic transition and advanced procedures", "ERAS and practice setup"],
-    onlinePrice: 200000,
+    onlinePrice: 230000,
     month11_1: 230000,
     curriculum: [
       {
@@ -3976,7 +3982,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive training in orthopedic surgery and trauma management.",
     overview: "This fellowship provides advanced training in orthopedic surgery including trauma, sports medicine, and joint reconstruction.",
     highlights: ["Trauma Surgery", "Sports Medicine", "Fracture Management", "Joint Surgery"],
-    onlinePrice: 160000,
+    onlinePrice: 184000,
     month11_1: 180000,
     month10_2: 240000,
     month9_3: 270000,
@@ -4167,7 +4173,7 @@ const programsData: { [key: string]: any } = {
     description: "Specialized training in kidney diseases and dialysis management.",
     overview: "This fellowship provides comprehensive training in nephrology including acute and chronic kidney disease, dialysis, and kidney transplant medicine.",
     highlights: ["Dialysis", "Kidney Disorders", "Transplant Medicine", "Renal Procedures"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 195000,
     month10_2: 250000,
     month9_3: 290000,
@@ -4197,7 +4203,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive fellowship covering clinical gastroenterology, hepatology, advanced endoscopy, and surgical GI foundations.",
     overview: "The Fellowship in Gastroenterology is a clinically intensive program that develops expertise in GI diagnostics, hepatology, inflammatory and functional bowel disorders, GI oncology, advanced endoscopic interventions, pancreaticobiliary care, and academic research with integrated exposure to surgical gastroenterology.",
     highlights: ["Diagnostic and Therapeutic Endoscopy", "Hepatology and Transplant Care", "IBD and Functional GI Disorders", "GI Oncology and Bleeding", "Advanced Endoscopic Procedures", "Surgical Gastroenterology Basics"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 195000,
     month10_2: 240000,
     month9_3: 280000,
@@ -4343,7 +4349,7 @@ const programsData: { [key: string]: any } = {
     description: "Specialized training in infertility management and assisted reproductive techniques.",
     overview: "This fellowship provides comprehensive training in reproductive endocrinology, IVF procedures, and male factor infertility management.",
     highlights: ["IVF", "ICSI", "Fertility Preservation", "Reproductive Surgery"],
-    onlinePrice: 160000,
+    onlinePrice: 184000,
     month11_1: 210000,
     month10_2: 250000,
     month9_3: 290000,
@@ -4477,7 +4483,7 @@ const programsData: { [key: string]: any } = {
       "Enable independent management of NICU cases and emergencies",
       "Train for multidisciplinary and evidence-based neonatal practice"
     ],
-    onlinePrice: 190000,
+    onlinePrice: 218500,
     month11_1: 210000,
     month10_2: 245000,
     month9_3: 285000,
@@ -4567,7 +4573,7 @@ const programsData: { [key: string]: any } = {
     description: "Specialized training in coronary interventions and structural heart procedures.",
     overview: "This advanced fellowship provides comprehensive training in percutaneous coronary interventions, structural heart disease interventions, and complex cardiac catheterization procedures.",
     highlights: ["Angioplasty", "Device Implantation", "Structural Interventions", "Complex PCI"],
-    onlinePrice: 220000,
+    onlinePrice: 253000,
     month11_1: 260000,
     month10_2: 290000,
     month9_3: 330000,
@@ -4700,7 +4706,7 @@ const programsData: { [key: string]: any } = {
     description: "One-year structured fellowship in arthroscopy, sports medicine, and arthroplasty with phased progression and outcomes-focused training.",
     overview: "Program Structure (12 Months): Phase 1 (Months 1-5): Arthroscopy and Sports Medicine. Phase 2 (Months 6-10): Arthroplasty (Joint Replacement). Phase 3 (Months 11-12): Integrated Practice, Revision, and Research.",
     highlights: ["Comprehensive arthroscopy foundation with safety and technique focus", "Knee, shoulder, hip, ankle, and upper limb arthroscopy exposure", "Core and advanced arthroplasty concepts across knee, hip, and shoulder", "Complication management, rehabilitation outcomes, and research integration"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 210000,
     month10_2: 240000,
     month9_3: 280000,
@@ -4863,7 +4869,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced training in cardiovascular disease management and cardiac diagnostics.",
     overview: "This fellowship provides comprehensive training in clinical cardiology, non-invasive cardiology procedures, and cardiovascular disease management.",
     highlights: ["ECG Interpretation", "Echocardiography", "Cardiac Care", "Preventive Cardiology"],
-    onlinePrice: 160000,
+    onlinePrice: 184000,
     month11_1: 190000,
     month10_2: 240000,
     month9_3: 280000,
@@ -4893,7 +4899,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced training in anesthesia techniques, pain management, and critical care.",
     overview: "This fellowship offers specialized training in regional anesthesia, cardiac anesthesia, neuro-anesthesia, and pain management procedures.",
     highlights: ["Regional Anesthesia", "Cardiac Anesthesia", "Pain Management", "Critical Care"],
-    onlinePrice: 170000,
+    onlinePrice: 195500,
     month11_1: 210000,
     month10_2: 240000,
     month9_3: 280000,
@@ -4923,7 +4929,7 @@ const programsData: { [key: string]: any } = {
     description: "Specialized training in pulmonary diseases and respiratory critical care.",
     overview: "This fellowship provides comprehensive training in bronchoscopy, sleep medicine, interventional pulmonology, and management of chronic respiratory diseases.",
     highlights: ["Bronchoscopy", "Sleep Medicine", "Pulmonary Rehabilitation", "Critical Care"],
-    onlinePrice: 160000,
+    onlinePrice: 184000,
     month11_1: 185000,
     month10_2: 240000,
     month9_3: 280000,
@@ -4953,7 +4959,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive fellowship in 2D echocardiography focused on practical imaging and cardiac diagnosis.",
     overview: "The Fellowship in 2D Echocardiography is a clinically oriented program designed to build strong competency in echocardiographic imaging, interpretation, and simulation-based application. The curriculum integrates foundational principles, diagnostic workflows, and hands-on simulation modules for accurate evaluation of cardiac structure and function.",
     highlights: ["2D and M-Mode Echocardiography", "Doppler and Transesophageal Echocardiography", "Systematic Echo Windows", "Cardiac Function and Valvular Assessment", "Simulation-based Training"],
-    onlinePrice: 160000,
+    onlinePrice: 184000,
     month11_1: 190000,
     month10_2: 240000,
     month9_3: 280000,
@@ -5024,7 +5030,7 @@ const programsData: { [key: string]: any } = {
     description: "Advanced one-year fellowship in diagnostic and therapeutic arthroscopy with sports medicine integration and hands-on skill development.",
     overview: "The Fellowship in Arthroscopy is a comprehensive 12-month program focused on arthroscopic principles, knee and shoulder arthroscopy, hip and ankle arthroscopy, advanced sports medicine concepts, complications, and evidence-based clinical practice. The curriculum emphasizes safe surgical technique, structured clinical decision-making, and mandatory practical exposure through supervised cases, cadaveric skills, and OSATS-based assessment.",
     highlights: ["Foundations of arthroscopy and surgical safety", "Comprehensive knee, shoulder, hip, ankle, elbow, and wrist arthroscopy coverage", "Advanced sports medicine and revision-focused training", "Mandatory surgical exposure, logbook, viva, and OSATS evaluation"],
-    onlinePrice: 180000,
+    onlinePrice: 207000,
     month11_1: 210000,
     curriculum: [
       {
@@ -5274,7 +5280,7 @@ const programsData: { [key: string]: any } = {
       "Assess pediatric cardiomyopathies and inflammatory cardiac conditions",
       "Utilise advanced modalities, including 3D echocardiography, for precise imaging"
     ],
-    onlinePrice: 190000,
+    onlinePrice: 218500,
     month11_1: 210000,
     month10_2: 250000,
     month9_3: 290000,
@@ -5306,7 +5312,7 @@ const programsData: { [key: string]: any } = {
     description: "Comprehensive 12-month advanced training in hormonal and metabolic disorders in children.",
     overview: "The Fellowship in Pediatric Endocrinology is a comprehensive 12-month advanced training program designed for clinicians seeking specialisation in hormonal and metabolic disorders in children. This program provides in-depth clinical expertise in diagnosing and managing endocrine conditions, including growth disorders, pediatric diabetes, thyroid dysfunction, pubertal abnormalities, and metabolic bone diseases. It integrates evidence-based learning with case-oriented clinical exposure to develop proficiency in managing both common and complex pediatric endocrine conditions. With a strong emphasis on clinical decision-making, long-term patient management, and emerging treatment protocols, this fellowship prepares practitioners to deliver specialised, high-quality care in pediatric endocrinology. Paediatricians and clinicians with an interest in subspecialty practice are preferred.",
     highlights: ["Structured 1-year comprehensive fellowship", "Clinical application with case-based decision-making", "Aligned with global endocrine care standards", "Management of chronic, lifestyle, and genetic endocrine conditions", "Designed for subspecialty pediatric practice"],
-    onlinePrice: 190000,
+    onlinePrice: 218500,
     month11_1: 210000,
     month10_2: 245000,
     month9_3: 285000,
@@ -5389,19 +5395,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           </div>
         </div>
       </section>
-
-      {/* Quick Apply Banner */}
-      <div className="bg-accent text-white py-4">
-        <div className="container-custom flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">🎓</span>
-            <span className="font-semibold">Application Deadline: {program.applicationDeadline}</span>
-          </div>
-          <Link href="/apply" className="px-6 py-2 bg-white text-accent rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-            Apply Now
-          </Link>
-        </div>
-      </div>
 
       {/* Main Content */}
       <section className="section-padding">
@@ -5662,13 +5655,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     <div>
                       <p className="text-xs text-text-tertiary">Eligibility</p>
                       <p className="font-semibold text-primary">{program.eligibility}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 text-text-secondary">
-                    <span className="text-secondary">⏰</span>
-                    <div>
-                      <p className="text-xs text-text-tertiary">Application Deadline</p>
-                      <p className="font-semibold text-primary">Apr 30, 2026</p>
                     </div>
                   </div>
                 </div>

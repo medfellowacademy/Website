@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from 'next/image';
 import { useMemo, useState } from "react";
+import { Search, X, Clock, Stethoscope, ArrowRight } from "lucide-react";
 
 export default function ProgramsPage() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,12 +24,12 @@ export default function ProgramsPage() {
       description: "Advanced training in emergency care and trauma management",
       highlights: ["ICU Rotations", "Trauma Management", "Toxicology"],
       image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 170000,
-      month10_2: 220000,
-      month9_3: 250000,
-      month6_6: 350000,
-      month12Offline: 440000
+      onlinePrice: 172500,
+      month11_1: 195500,
+      month10_2: 253000,
+      month9_3: 287500,
+      month6_6: 402500,
+      month12Offline: 506000
     },
     {
       name: "Fellowship in Diabetes Mellitus",
@@ -40,12 +41,12 @@ export default function ProgramsPage() {
       description: "Focused training in diabetes care and metabolic disorders",
       highlights: ["Insulin Therapy", "Metabolic Disorders", "Diabetic Complications"],
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 170000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 450000,
-      month12Offline: 570000
+      onlinePrice: 172500,
+      month11_1: 195500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 517500,
+      month12Offline: 655500
     },
     {
       name: "Fellowship in Gynecology & Obstetrics",
@@ -57,12 +58,12 @@ export default function ProgramsPage() {
       description: "Advanced training in high-risk obstetrics and gynecology",
       highlights: ["High-Risk Pregnancy", "Laparoscopic Surgery", "Fetal Medicine"],
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
-      onlinePrice: 145000,
-      month11_1: 190000,
-      month10_2: 230000,
-      month9_3: 280000,
-      month6_6: 390000,
-      month12Offline: 520000
+      onlinePrice: 166750,
+      month11_1: 218500,
+      month10_2: 264500,
+      month9_3: 322000,
+      month6_6: 448500,
+      month12Offline: 598000
     },
     {
       name: "Fellowship in High-Risk Pregnancy",
@@ -74,8 +75,8 @@ export default function ProgramsPage() {
       description: "One-year structured fellowship in maternal medicine, fetal medicine, and obstetric critical care",
       highlights: ["Maternal Medicine", "Fetal Medicine", "Obstetric Emergencies", "High-Risk Labour Management"],
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000
+      onlinePrice: 207000,
+      month11_1: 241500
     },
     {
       name: "Fellowship in Fetal Medicine",
@@ -87,8 +88,8 @@ export default function ProgramsPage() {
       description: "Advanced training in fetal diagnosis, imaging, genetics, and intrauterine interventions",
       highlights: ["Fetal Imaging and Diagnosis", "Prenatal Genetics", "Doppler and Surveillance", "Fetal Therapy and Ethics"],
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 210000
+      onlinePrice: 184000,
+      month11_1: 241500
     },
     {
       name: "Fellowship in Cosmetic Gynecology",
@@ -100,8 +101,8 @@ export default function ProgramsPage() {
       description: "Comprehensive fellowship in cosmetic gynecology covering non-surgical and surgical aesthetic procedures with functional and sexual wellness integration",
       highlights: ["Laser, RF, PRP and injectable techniques", "Labiaplasty, vaginoplasty and perineal reconstruction", "Urogynecology and sexual medicine integration", "Practice setup, legal compliance and aesthetic business"],
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 195000
+      onlinePrice: 184000,
+      month11_1: 224250
     },
     {
       name: "Fellowship in Maxillofacial and Oral Surgery",
@@ -113,8 +114,8 @@ export default function ProgramsPage() {
       description: "Advanced competency-based training in diagnosis, surgery, and rehabilitation of oral and maxillofacial conditions",
       highlights: ["Maxillofacial Trauma Surgery", "Orthognathic and Reconstructive Surgery", "Implantology and Bone Grafting", "Oral Oncology and TMJ Care"],
       image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
-      onlinePrice: 200000,
-      month11_1: 230000
+      onlinePrice: 230000,
+      month11_1: 264500
     },
     {
       name: "Fellowship in Oral Implantology and Laser Dentistry",
@@ -137,8 +138,8 @@ export default function ProgramsPage() {
       description: "Master advanced urological care with clinical precision and surgical expertise through a comprehensive practice-oriented fellowship",
       highlights: ["Comprehensive Medical and Surgical Urology", "Endoscopic, Minimally Invasive, and Laparoscopic Training", "Uro-Oncology and Reconstructive Urology Exposure", "Case-based Clinical Decision-Making"],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-      onlinePrice: 170000,
-      month11_1: 190000
+      onlinePrice: 195500,
+      month11_1: 218500
     },
     {
       name: "Fellowship in Psychiatric Medicine",
@@ -150,8 +151,8 @@ export default function ProgramsPage() {
       description: "Advanced clinical training in mental health and behavioral sciences with patient-centered psychiatric care",
       highlights: ["Case-based Psychiatric Training", "Emergency and Liaison Psychiatry", "Psychopharmacology and Counseling Skills", "Ethical and Medico-legal Practice"],
       image: "https://images.unsplash.com/photo-1579165466949-3180a3d056d1?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 170000
+      onlinePrice: 172500,
+      month11_1: 195500
     },
     {
       name: "Fellowship in Neurosurgery",
@@ -185,8 +186,8 @@ export default function ProgramsPage() {
       description: "Comprehensive one-year fellowship focused on pediatric neurological disorders, diagnostics, and multidisciplinary care",
       highlights: ["Pediatric Epilepsy and Seizure Management", "Neurodevelopmental and Neuromuscular Care", "Neurodiagnostics and Imaging Interpretation", "Case-based Clinical Mentorship"],
       image: "https://images.unsplash.com/photo-1530026186672-2cd00ffc50fe?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000
+      onlinePrice: 207000,
+      month11_1: 241500
     },
     {
       name: "Fellowship in Cardiothoracic Surgery",
@@ -209,8 +210,8 @@ export default function ProgramsPage() {
       description: "Advanced clinical fellowship in systemic cancer management, precision oncology, and multidisciplinary care",
       highlights: ["Systemic Cancer Therapy Training", "Precision and Personalized Oncology", "Tumor Board and Multidisciplinary Exposure", "Oncologic Emergency and Supportive Care"],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 200000
+      onlinePrice: 207000,
+      month11_1: 230000
     },
     {
       name: "Fellowship in Clinical Haematology",
@@ -233,8 +234,8 @@ export default function ProgramsPage() {
       description: "Comprehensive clinically driven fellowship in diagnosis, staging, surgery, and multidisciplinary care of head and neck cancers",
       highlights: ["Head and Neck Oncologic Surgery and Reconstruction", "Multidisciplinary Tumor Board Exposure", "Functional Preservation and Rehabilitation", "Evidence-based Patient-centric Oncology Care"],
       image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000
+      onlinePrice: 207000,
+      month11_1: 241500
     },
     {
       name: "Fellowship in Trichology",
@@ -246,8 +247,8 @@ export default function ProgramsPage() {
       description: "Advanced clinical training in diagnosis and management of hair and scalp disorders with medical and procedural trichology",
       highlights: ["Comprehensive Hair and Scalp Disorder Care", "Procedural and Surgical Hair Restoration", "Diagnostic Trichoscopy and Lab Integration", "Clinic Setup and Practice Growth"],
       image: "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80",
-      onlinePrice: 170000,
-      month11_1: 190000
+      onlinePrice: 195500,
+      month11_1: 218500
     },
     {
       name: "Fellowship in Radiology",
@@ -259,8 +260,8 @@ export default function ProgramsPage() {
       description: "Comprehensive clinically driven fellowship in diagnostic imaging and image-guided interventions",
       highlights: ["Cross-sectional and Emergency Imaging", "Image-guided Procedural Basics", "Structured Reporting and Clinical Integration", "Radiation Safety and Evidence-based Practice"],
       image: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?w=800&q=80",
-      onlinePrice: 170000,
-      month11_1: 190000
+      onlinePrice: 195500,
+      month11_1: 218500
     },
     {
       name: "Fellowship in Interventional Radiology",
@@ -283,12 +284,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in pediatric care and child health management",
       highlights: ["Neonatal Care", "Pediatric Emergencies", "Child Development"],
       image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 180000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 470000,
-      month12Offline: 580000
+      onlinePrice: 172500,
+      month11_1: 207000,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 540500,
+      month12Offline: 667000
     },
     {
       name: "Fellowship in Dermatology",
@@ -300,12 +301,12 @@ export default function ProgramsPage() {
       description: "Advanced training in dermatological procedures and cosmetic dermatology",
       highlights: ["Cosmetic Procedures", "Laser Therapy", "Skin Surgery"],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 185000,
-      month10_2: 230000,
-      month9_3: 250000,
-      month6_6: 390000,
-      month12Offline: 520000
+      onlinePrice: 184000,
+      month11_1: 212750,
+      month10_2: 264500,
+      month9_3: 287500,
+      month6_6: 448500,
+      month12Offline: 598000
     },
     {
       name: "Fellowship in Cosmetic and Aesthetic Medicine",
@@ -317,12 +318,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in cosmetic medicine, aesthetic procedures, and evidence-based practice",
       highlights: ["Facial Aesthetics", "Injectable Treatments", "Laser & IPL", "Clinical Ethics"],
       image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 180000,
-      month10_2: 230000,
-      month9_3: 270000,
-      month6_6: 390000,
-      month12Offline: 520000
+      onlinePrice: 172500,
+      month11_1: 207000,
+      month10_2: 264500,
+      month9_3: 310500,
+      month6_6: 448500,
+      month12Offline: 598000,
     },
     {
       name: "Fellowship in Internal Medicine",
@@ -334,12 +335,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in adult medicine and clinical decision-making",
       highlights: ["Critical Care", "Clinical Diagnosis", "Patient Management"],
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-      onlinePrice: 175000,
-      month11_1: 185000,
-      month10_2: 220000,
-      month9_3: 240000,
-      month6_6: 350000,
-      month12Offline: 450000
+      onlinePrice: 201250,
+      month11_1: 212750,
+      month10_2: 253000,
+      month9_3: 276000,
+      month6_6: 402500,
+      month12Offline: 517500
     },
     {
       name: "Fellowship in Clinical Cardiology",
@@ -351,12 +352,12 @@ export default function ProgramsPage() {
       description: "Specialized training in cardiovascular disease management and diagnostics",
       highlights: ["ECG Interpretation", "Echo Cardiography", "Cardiac Emergencies"],
       image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 190000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 480000,
-      month12Offline: 650000
+      onlinePrice: 184000,
+      month11_1: 218500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 552000,
+      month12Offline: 747500
     },
     {
       name: "Fellowship in Critical Care Medicine",
@@ -368,12 +369,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in managing critically ill patients",
       highlights: ["Ventilator Management", "Hemodynamics", "Point-of-Care Ultrasound"],
       image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 180000,
-      month10_2: 230000,
-      month9_3: 270000,
-      month6_6: 450000,
-      month12Offline: 590000
+      onlinePrice: 172500,
+      month11_1: 207000,
+      month10_2: 264500,
+      month9_3: 310500,
+      month6_6: 517500,
+      month12Offline: 678500
     },
     {
       name: "Fellowship in Family Medicine",
@@ -385,12 +386,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in primary care and family health management",
       highlights: ["Primary Care", "Preventive Medicine", "Community Health"],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 170000,
-      month10_2: 220000,
-      month9_3: 250000,
-      month6_6: 330000,
-      month12Offline: 440000
+      onlinePrice: 172500,
+      month11_1: 195500,
+      month10_2: 253000,
+      month9_3: 287500,
+      month6_6: 379500,
+      month12Offline: 506000
     },
     {
       name: "Fellowship in Rheumatology",
@@ -402,8 +403,8 @@ export default function ProgramsPage() {
       description: "One-year clinically focused training in rheumatic diseases, immunology, musculoskeletal medicine, and procedural rheumatology",
       highlights: ["Clinical Rheumatology", "Immunology and Autoimmunity", "Musculoskeletal Medicine", "Procedural Skills"],
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 200000
+      onlinePrice: 207000,
+      month11_1: 230000
     },
     {
       name: "Fellowship in Pain Management",
@@ -415,8 +416,8 @@ export default function ProgramsPage() {
       description: "One-year fellowship in pain medicine focused on clinical management, interventional skills, and multidisciplinary care",
       highlights: ["Pain Medicine Foundations", "Interventional Procedures", "Multidisciplinary Care", "Palliative Pain"],
       image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 170000
+      onlinePrice: 172500,
+      month11_1: 195500
     },
     {
       name: "Fellowship in Endocrinology",
@@ -428,12 +429,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in hormone disorders and endocrine management",
       highlights: ["Thyroid Disorders", "Pituitary Disorders", "Bone Health"],
       image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 490000,
-      month12Offline: 650000
+      onlinePrice: 207000,
+      month11_1: 241500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 563500,
+      month12Offline: 747500
     },
     {
       name: "Fellowship in Orthopaedics",
@@ -445,12 +446,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in orthopedic surgery and trauma",
       highlights: ["Trauma Surgery", "Sports Medicine", "Fracture Management"],
       image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 180000,
-      month10_2: 240000,
-      month9_3: 270000,
-      month6_6: 430000,
-      month12Offline: 560000
+      onlinePrice: 184000,
+      month11_1: 207000,
+      month10_2: 276000,
+      month9_3: 310500,
+      month6_6: 494500,
+      month12Offline: 644000
     },
     {
       name: "Fellowship in Spine Surgery",
@@ -473,8 +474,8 @@ export default function ProgramsPage() {
       description: "Comprehensive one-year fellowship in core general surgery with perioperative care, operative techniques, and independent surgical decision-making",
       highlights: ["Core General Surgery Foundations", "Trauma, Emergency, and Critical Care Exposure", "Minimal Access and Hernia Surgery Training", "Structured Skills and Procedure-based Learning"],
       image: "https://images.unsplash.com/photo-1516549655669-df76ab6eced4?w=800&q=80",
-      onlinePrice: 200000,
-      month11_1: 230000
+      onlinePrice: 230000,
+      month11_1: 264500
     },
     {
       name: "Fellowship in Minimal Access & Robotic Surgery",
@@ -486,8 +487,8 @@ export default function ProgramsPage() {
       description: "One-year fellowship in laparoscopic and robotic surgery with simulation, core procedures, and practice integration",
       highlights: ["Laparoscopy and Robotics Foundations", "Simulation and Core Skills", "Advanced GI and Hernia Surgery", "ERAS and Practice Integration"],
       image: "https://images.unsplash.com/photo-1516549655669-df76ab6eced4?w=800&q=80",
-      onlinePrice: 200000,
-      month11_1: 230000
+      onlinePrice: 230000,
+      month11_1: 264500
     },
     {
       name: "Fellowship in Laparoscopy & Hysteroscopy",
@@ -499,8 +500,8 @@ export default function ProgramsPage() {
       description: "One-year blended fellowship in diagnostic and operative gynecological endoscopy",
       highlights: ["Diagnostic and Operative Endoscopy", "Advanced Laparoscopic Surgery", "Advanced Hysteroscopy", "Ethics and Practice Setup"],
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000
+      onlinePrice: 207000,
+      month11_1: 241500
     },
     {
       name: "Fellowship in Nephrology",
@@ -512,12 +513,12 @@ export default function ProgramsPage() {
       description: "Specialized training in kidney diseases and dialysis management",
       highlights: ["Dialysis", "Kidney Disorders", "Transplant Medicine"],
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 195000,
-      month10_2: 250000,
-      month9_3: 290000,
-      month6_6: 490000,
-      month12Offline: 690000
+      onlinePrice: 207000,
+      month11_1: 224250,
+      month10_2: 287500,
+      month9_3: 333500,
+      month6_6: 563500,
+      month12Offline: 793500
     },
     {
       name: "Fellowship in Gastroenterology",
@@ -529,12 +530,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in diagnostic and therapeutic gastroenterology",
       highlights: ["Endoscopy", "Colonoscopy", "ERCP"],
       image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 195000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 490000,
-      month12Offline: 680000
+      onlinePrice: 207000,
+      month11_1: 224250,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 563500,
+      month12Offline: 782000
     },
     {
       name: "Fellowship in Reproductive Medicine",
@@ -546,12 +547,12 @@ export default function ProgramsPage() {
       description: "Specialized training in infertility and assisted reproductive techniques",
       highlights: ["IVF", "ICSI", "Fertility Preservation"],
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 210000,
-      month10_2: 250000,
-      month9_3: 290000,
-      month6_6: 490000,
-      month12Offline: 690000
+      onlinePrice: 184000,
+      month11_1: 241500,
+      month10_2: 287500,
+      month9_3: 333500,
+      month6_6: 563500,
+      month12Offline: 793500
     },
     {
       name: "Fellowship in Neonatology",
@@ -563,12 +564,12 @@ export default function ProgramsPage() {
       description: "Advanced fellowship in neonatal critical care, NICU emergency management, and evidence-based newborn practice",
       highlights: ["NICU-focused Practical Training", "Case-based and Protocol-driven Learning", "Real-world Neonatal Emergency Exposure", "Hands-on Clinical Skills"],
       image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
-      onlinePrice: 190000,
-      month11_1: 210000,
-      month10_2: 245000,
-      month9_3: 285000,
-      month6_6: 490000,
-      month12Offline: 650000
+      onlinePrice: 218500,
+      month11_1: 241500,
+      month10_2: 281750,
+      month9_3: 327750,
+      month6_6: 563500,
+      month12Offline: 747500
     },
     {
       name: "Fellowship in Pediatric Echocardiography",
@@ -580,12 +581,12 @@ export default function ProgramsPage() {
       description: "Comprehensive clinically oriented fellowship in pediatric cardiac ultrasound for neonates, infants, and children",
       highlights: ["Structured 12-month blended fellowship", "TTE, TEE, fetal echo and Doppler exposure", "Case-based congenital heart disease learning", "Clinical interpretation and decision-making focus"],
       image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
-      onlinePrice: 190000,
-      month11_1: 210000,
-      month10_2: 250000,
-      month9_3: 290000,
-      month6_6: 490000,
-      month12Offline: 680000
+      onlinePrice: 218500,
+      month11_1: 241500,
+      month10_2: 287500,
+      month9_3: 333500,
+      month6_6: 563500,
+      month12Offline: 782000
     },
     {
       name: "Fellowship in 2D Echocardiography",
@@ -597,12 +598,12 @@ export default function ProgramsPage() {
       description: "Structured training in 2D echocardiography, Doppler studies, simulation, and cardiac diagnosis",
       highlights: ["2D and M-Mode Echo", "Doppler and TEE", "Case-based Diagnosis"],
       image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 190000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 480000,
-      month12Offline: 650000
+      onlinePrice: 184000,
+      month11_1: 218500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 552000,
+      month12Offline: 747500
     },
     {
       name: "Fellowship in Pediatric Endocrinology",
@@ -614,12 +615,12 @@ export default function ProgramsPage() {
       description: "Comprehensive training in hormonal and metabolic disorders in children with clinical focus",
       highlights: ["Growth & Diabetes Management", "Thyroid & Adrenal Disorders", "Pubertal Abnormalities"],
       image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
-      onlinePrice: 190000,
-      month11_1: 210000,
-      month10_2: 245000,
-      month9_3: 285000,
-      month6_6: 490000,
-      month12Offline: 650000
+      onlinePrice: 218500,
+      month11_1: 241500,
+      month10_2: 281750,
+      month9_3: 327750,
+      month6_6: 563500,
+      month12Offline: 747500
     },
     {
       name: "Fellowship in Interventional Cardiology",
@@ -631,12 +632,12 @@ export default function ProgramsPage() {
       description: "Specialized training in coronary and structural heart interventions",
       highlights: ["Angioplasty", "Device Implantation", "Structural Interventions"],
       image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
-      onlinePrice: 220000,
-      month11_1: 260000,
-      month10_2: 290000,
-      month9_3: 330000,
-      month6_6: 500000,
-      month12Offline: 700000
+      onlinePrice: 253000,
+      month11_1: 299000,
+      month10_2: 333500,
+      month9_3: 379500,
+      month6_6: 575000,
+      month12Offline: 805000
     },
     {
       name: "Fellowship in Cardiology",
@@ -648,12 +649,12 @@ export default function ProgramsPage() {
       description: "Advanced training in cardiovascular disease management and cardiac diagnostics",
       highlights: ["ECG Interpretation", "Echocardiography", "Cardiac Care"],
       image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 190000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 480000,
-      month12Offline: 650000
+      onlinePrice: 184000,
+      month11_1: 218500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 552000,
+      month12Offline: 747500
     },
     {
       name: "Fellowship in Arthroscopy",
@@ -665,8 +666,8 @@ export default function ProgramsPage() {
       description: "Advanced one-year fellowship in diagnostic and therapeutic arthroscopy with sports medicine integration and hands-on skill development",
       highlights: ["Knee and Shoulder Arthroscopy Mastery", "Hip, Ankle, Elbow and Wrist Arthroscopy Exposure", "Complications and Revision Arthroscopy", "Mandatory Surgical Logbook and OSATS Assessment"],
       image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000
+      onlinePrice: 207000,
+      month11_1: 241500
     },
     {
       name: "Fellowship in Arthroscopy & Arthroplasty",
@@ -678,12 +679,12 @@ export default function ProgramsPage() {
       description: "One-year structured fellowship in arthroscopy, sports medicine, and arthroplasty with integrated practice, revision, and research",
       highlights: ["Arthroscopy and Sports Medicine (Months 1-5)", "Arthroplasty and Joint Replacement (Months 6-10)", "Integrated Practice, Revision, and Research (Months 11-12)"],
       image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 490000,
-      month12Offline: 610000
+      onlinePrice: 207000,
+      month11_1: 241500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 563500,
+      month12Offline: 701500
     }
   ];
 
@@ -723,12 +724,12 @@ export default function ProgramsPage() {
   };
 
   const categories = [
-    { name: "All", icon: "📚", color: "from-slate-500 to-slate-600" },
-    { name: "Surgical Specialties", icon: "🏥", color: "from-blue-500 to-blue-600" },
-    { name: "Medical Specialties", icon: "⚕️", color: "from-green-500 to-green-600" },
-    { name: "Interventional & Diagnostic", icon: "🔬", color: "from-purple-500 to-purple-600" },
-    { name: "Critical Care & Emergency", icon: "🚑", color: "from-red-500 to-red-600" },
-    { name: "Reproductive Medicine", icon: "👶", color: "from-pink-500 to-pink-600" }
+    { name: "All" },
+    { name: "Critical Care & Emergency" },
+    { name: "Medical Specialties" },
+    { name: "Surgical Specialties" },
+    { name: "Interventional & Diagnostic" },
+    { name: "Reproductive Medicine" },
   ];
 
   return (
@@ -736,13 +737,13 @@ export default function ProgramsPage() {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-20">
-        <div className="container-custom text-center">
+      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-10 sm:py-12 md:py-16 lg:py-20">
+        <div className="container-custom text-center px-4 sm:px-6 md:px-8">
           <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full mb-4">
             <span className="font-semibold">{allPrograms.length} Specialized Programs</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">Fellowship Programs</h1>
-          <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-3 sm:mb-4 md:mb-6 px-2">Fellowship Programs</h1>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl mx-auto opacity-90 leading-relaxed px-4">
             Explore our comprehensive range of specialized fellowship programs across multiple medical disciplines. Click any program to view detailed curriculum and apply.
           </p>
         </div>
@@ -750,71 +751,59 @@ export default function ProgramsPage() {
 
       {/* Filter by Category */}
       <section className="section-padding bg-background">
-        <div className="container-custom max-w-screen-2xl">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 md:mb-4">Browse by Specialty</h2>
-            <p className="text-base md:text-lg text-text-secondary">Select a category to filter programs</p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-4 mb-10 md:mb-16">
-            {categories.map((category, index) => (
-              <button
-                key={index}
-                type="button"
-                onClick={() => handleCategoryClick(category.name)}
-                className={`w-full bg-white rounded-xl p-4 md:p-6 text-center transition-all cursor-pointer group border-2 ${
-                  selectedCategory === category.name
-                    ? "border-secondary shadow-lg"
-                    : "border-transparent hover:border-secondary hover:shadow-lg"
-                }`}
-              >
-                <div className={`w-12 h-12 md:w-16 md:h-16 mx-auto mb-3 md:mb-4 bg-linear-to-br ${category.color} rounded-2xl flex items-center justify-center text-2xl md:text-3xl group-hover:scale-110 transition-transform`}>
-                  {category.icon}
-                </div>
-                <h3 className={`font-heading font-bold text-sm md:text-base transition-colors ${selectedCategory === category.name ? "text-secondary" : "text-primary group-hover:text-secondary"}`}>
+        <div className="container-custom max-w-screen-2xl px-4 sm:px-6 md:px-8">
+          {/* Category tab pills */}
+          <div className="flex flex-wrap gap-2 mb-6 sm:mb-8 justify-center px-2">
+            {categories.map((category) => {
+              const count = category.name === "All" ? allPrograms.length : allPrograms.filter(p => p.category === category.name).length;
+              const isActive = selectedCategory === category.name;
+              return (
+                <button
+                  key={category.name}
+                  type="button"
+                  onClick={() => handleCategoryClick(category.name)}
+                  className={`inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold border transition-all duration-200 ${
+                    isActive
+                      ? "bg-[#2B6CB0] text-white border-[#2B6CB0] shadow-md shadow-blue-500/20"
+                      : "bg-white text-gray-700 border-gray-200 hover:border-[#2B6CB0] hover:text-[#2B6CB0]"
+                  }`}
+                >
                   {category.name}
-                </h3>
-                <p className="text-xs md:text-sm text-text-secondary mt-1 md:mt-2">
-                  {category.name === "All" ? allPrograms.length : allPrograms.filter(p => p.category === category.name).length} Programs
-                </p>
-              </button>
-            ))}
+                  <span className={`text-xs px-1.5 py-0.5 rounded-full font-bold ${isActive ? "bg-white/20 text-white" : "bg-gray-100 text-gray-500"}`}>
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           {/* All Programs Grid */}
-          <div className="mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-5 md:mb-8">All Fellowship Programs</h2>
+          <div className="mb-6 sm:mb-8 md:mb-12">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-primary mb-4 sm:mb-5 md:mb-8 px-2">All Fellowship Programs</h2>
 
-            <div className="mb-6 md:mb-8 rounded-2xl border border-primary/10 bg-linear-to-br from-white to-primary/5 p-4 md:p-6 shadow-xs">
-              <label htmlFor="program-search" className="block text-sm font-semibold text-primary mb-2">
+            <div className="mb-6 md:mb-8 rounded-xl sm:rounded-2xl border border-primary/10 bg-linear-to-br from-white to-primary/5 p-3 sm:p-4 md:p-6 shadow-xs">
+              <label htmlFor="program-search" className="block text-xs sm:text-sm font-semibold text-primary mb-2">
                 Search Programs
               </label>
 
               <div className="relative">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2">
-                  <Image
-                    src="/logo.png"
-                    alt="Search"
-                    width={24}
-                    height={24}
-                    className="object-contain"
-                  />
-                </div>
+                <Search className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                 <input
                   id="program-search"
                   type="text"
                   value={searchQuery}
                   onChange={(e) => handleSearchChange(e.target.value)}
-                  placeholder="Search by course name, category, or keyword"
-                  className="w-full rounded-xl border border-gray-200 bg-white pl-12 pr-24 py-3 text-text-primary placeholder:text-text-tertiary focus:outline-none focus:ring-2 focus:ring-secondary/60 focus:border-secondary transition-all"
+                  placeholder="Search by course name, specialty, or keyword…"
+                  className="w-full rounded-lg sm:rounded-xl border border-gray-200 bg-white pl-10 sm:pl-11 pr-20 sm:pr-24 py-2.5 sm:py-3 text-sm sm:text-base text-text-primary placeholder:text-text-tertiary focus:outline-none focus:ring-2 focus:ring-[#2B6CB0]/40 focus:border-[#2B6CB0] transition-all"
                 />
                 {searchQuery && (
                   <button
                     type="button"
                     onClick={() => handleSearchChange("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-100 text-primary hover:bg-gray-200 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+                    aria-label="Clear search"
                   >
-                    Clear
+                    <X className="w-4 h-4" />
                   </button>
                 )}
               </div>
@@ -897,12 +886,10 @@ export default function ProgramsPage() {
 
                     {/* CTA */}
                     <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
-                      <span className="text-secondary font-semibold text-sm group-hover:underline">
+                      <span className="text-[#2B6CB0] font-semibold text-sm group-hover:underline">
                         View Full Details
                       </span>
-                      <span className="text-secondary text-xl group-hover:translate-x-1 transition-transform">
-                        →
-                      </span>
+                      <ArrowRight className="w-4 h-4 text-[#2B6CB0] group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </Link>

@@ -1,193 +1,111 @@
 'use client';
 import Link from "next/link";
-import Image from "next/image";
-import { FaFacebookF, FaLinkedinIn, FaTwitter, FaInstagram } from "react-icons/fa";
-import { motion, type Variants } from 'framer-motion';
+import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: "easeOut"
-      }
-    }
-  };
-
   return (
-    <footer className="bg-linear-to-br from-primary via-primary-dark to-primary text-white relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container-custom py-12 sm:py-14 md:py-16 lg:py-20 relative z-10">
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 mb-10 md:mb-14"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+    <footer className="text-white" style={{ background: '#1B4F72' }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+          
           {/* Brand */}
-          <motion.div 
-            className="sm:col-span-2 lg:col-span-1"
-            variants={itemVariants}
-          >
-            <Link href="/" className="inline-block mb-5 group">
-              <motion.div 
-                className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40"
-                whileHover={{ scale: 1.05, rotate: 2 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-              >
-                <Image
-                  src="/logo.png"
-                  alt="Med Fellow Academy Logo"
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  sizes="(max-width: 640px) 128px, (max-width: 768px) 144px, 160px"
-                />
-              </motion.div>
+          <div>
+            <Link href="/" className="inline-block mb-2 sm:mb-3">
+              <span className="text-base sm:text-lg font-medium">MedFellow</span>
+              <span style={{ color: '#AED6F1' }} className="ml-1">Academy</span>
             </Link>
-            <p className="text-gray-200 mb-6 max-w-md leading-relaxed text-sm sm:text-base">
-              Empowering practicing doctors with advanced fellowship programs 
-              for clinical excellence and professional advancement.
+            <p className="text-xs mb-4 opacity-90" style={{ lineHeight: 1.6 }}>
+              Empowering doctors with advanced fellowship programs for clinical excellence.
             </p>
-            <div className="flex gap-3 sm:gap-4">
+            <div className="flex gap-2">
               {[
-                { 
-                  href: "https://www.facebook.com/people/MedFellow-Academy/61576370840302/", 
-                  icon: <FaFacebookF className="w-4 h-4 sm:w-5 sm:h-5" />,
-                  label: "Facebook",
-                  color: "hover:bg-blue-500"
-                },
-                { 
-                  href: "https://www.linkedin.com/in/medfellow-academy-4628823b8/", 
-                  icon: <FaLinkedinIn className="w-4 h-4 sm:w-5 sm:h-5" />,
-                  label: "LinkedIn",
-                  color: "hover:bg-blue-600"
-                },
-                { 
-                  href: "https://www.instagram.com/medfellow_academy/", 
-                  icon: <FaInstagram className="w-4 h-4 sm:w-5 sm:h-5" />,
-                  label: "Instagram",
-                  color: "hover:bg-pink-600"
-                }
+                { href: "https://www.facebook.com/people/MedFellow-Academy/61576370840302/", icon: <FaFacebookF className="w-3 h-3" />, label: "Facebook" },
+                { href: "https://www.linkedin.com/in/medfellow-academy-4628823b8/", icon: <FaLinkedinIn className="w-3 h-3" />, label: "LinkedIn" },
+                { href: "https://www.instagram.com/medfellow_academy/", icon: <FaInstagram className="w-3 h-3" />, label: "Instagram" }
               ].map((social, index) => (
-                <motion.a
+                <a
                   key={index}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-10 h-10 sm:w-11 sm:h-11 bg-white/10 backdrop-blur-sm ${social.color} rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-white/20`}
+                  className="w-8 h-8 rounded-md flex items-center justify-center hover:opacity-80 transition-opacity"
+                  style={{ background: 'rgba(255,255,255,0.1)' }}
                   aria-label={social.label}
-                  whileHover={{ scale: 1.1, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   {social.icon}
-                </motion.a>
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div variants={itemVariants}>
-            <h4 className="font-heading font-bold mb-5 text-lg sm:text-xl text-accent">Quick Links</h4>
-            <ul className="space-y-2.5 sm:space-y-3">
+          <div>
+            <h4 className="font-medium mb-2 sm:mb-3 text-xs sm:text-sm">Quick Links</h4>
+            <ul className="space-y-2 text-xs opacity-90">
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Us" },
                 { href: "/programs", label: "Programs" },
-                { href: "/contact", label: "Contact" },
-                { href: "/privacy-policy", label: "Privacy Policy" },
-                { href: "/terms-and-conditions", label: "Terms & Conditions" },
-                { href: "/apply", label: "Apply Now" }
+                { href: "/contact", label: "Contact" }
               ].map((link, index) => (
                 <li key={index}>
-                  <Link 
-                    href={link.href} 
-                    className="text-gray-200 hover:text-accent hover:translate-x-1 inline-flex items-center gap-2 transition-all duration-300 text-sm sm:text-base group"
-                  >
-                    <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+                  <Link href={link.href} className="hover:opacity-70 transition-opacity">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </div>
 
-          {/* Contact */}
-          <motion.div 
-            className="sm:col-span-2 lg:col-span-2"
-            variants={itemVariants}
-          >
-            <h4 className="font-heading font-bold mb-5 text-lg sm:text-xl text-accent">Contact Us</h4>
-            <p className="text-white font-semibold text-sm sm:text-base mb-4">MedFellow Academy LLP</p>
-            <ul className="space-y-4 text-gray-200">
+          {/* Legal */}
+          <div>
+            <h4 className="font-medium mb-2 sm:mb-3 text-xs sm:text-sm">Legal</h4>
+            <ul className="space-y-2 text-xs opacity-90">
               {[
-                { icon: "📧", text: "info@medfellow.in", href: "mailto:info@medfellow.in" },
-                { icon: "📞", text: "+91 4045674378", href: "tel:+914045674378" },
-                { icon: "📍", text: "3-6-622 Flat No - 307, Mahavir house, Basheer bagh, Hyderabad, 500029" },
-                { icon: "🕒", text: "Mon-Fri: 10AM - 7PM" }
-              ].map((item, index) => (
-                <motion.li 
-                  key={index} 
-                  className="flex items-start gap-3 group"
-                  whileHover={{ x: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <span className="text-accent text-xl mt-0.5 group-hover:scale-110 transition-transform">{item.icon}</span>
-                  {item.href ? (
-                    <a href={item.href} className="hover:text-accent transition-colors text-sm sm:text-base">
-                      {item.text}
-                    </a>
-                  ) : (
-                    <span className="text-sm sm:text-base leading-relaxed">{item.text}</span>
-                  )}
-                </motion.li>
+                { href: "/privacy-policy", label: "Privacy Policy" },
+                { href: "/terms-and-conditions", label: "Terms & Conditions" }
+              ].map((link, index) => (
+                <li key={index}>
+                  <Link href={link.href} className="hover:opacity-70 transition-opacity">
+                    {link.label}
+                  </Link>
+                </li>
               ))}
             </ul>
-          </motion.div>
-        </motion.div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-medium mb-2 sm:mb-3 text-xs sm:text-sm">Contact Us</h4>
+            <ul className="space-y-2 text-xs opacity-90">
+              <li>
+                <a href="mailto:info@medfellow.in" className="hover:opacity-70 transition-opacity">
+                  info@medfellow.in
+                </a>
+              </li>
+              <li>
+                <a href="tel:+914045674378" className="hover:opacity-70 transition-opacity">
+                  +91 4045674378
+                </a>
+              </li>
+              <li>
+                <a href="tel:+919985044993" className="hover:opacity-70 transition-opacity">
+                  +91 9985044993
+                </a>
+              </li>
+              <li className="leading-relaxed">
+                3-6-622 Flat No - 307, Mahavir house, Basheer bagh, Hyderabad, 500029
+              </li>
+            </ul>
+          </div>
+        </div>
 
         {/* Bottom Bar */}
-        <motion.div 
-          className="pt-6 sm:pt-8 border-t border-white/10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
-            <p className="text-gray-200 text-xs sm:text-sm">
-              © {currentYear} MedFellow Academy. All rights reserved.
-            </p>
-            <motion.p 
-              className="text-gray-300 text-xs sm:text-sm"
-              whileHover={{ scale: 1.05 }}
-            >
-              Made with <span className="text-red-400">❤️</span> for Medical Excellence
-            </motion.p>
-          </div>
-        </motion.div>
+        <div className="pt-6 border-t text-center text-xs opacity-80" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+          <p>© {currentYear} MedFellow Academy. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );

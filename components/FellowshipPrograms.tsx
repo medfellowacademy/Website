@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Card3D from './3d/Card3D';
 import FlipCard3D from './3d/FlipCard3D';
 
 if (typeof window !== 'undefined') {
@@ -23,12 +22,12 @@ export default function FellowshipPrograms() {
       highlights: ["ICU Rotations", "Trauma Management", "Toxicology"],
       icon: "🚑",
       image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 170000,
-      month10_2: 220000,
-      month9_3: 250000,
-      month6_6: 350000,
-      month12Offline: 440000,
+      onlinePrice: 172500,
+      month11_1: 195500,
+      month10_2: 253000,
+      month9_3: 287500,
+      month6_6: 402500,
+      month12Offline: 506000,
       isPopular: true
     },
     {
@@ -39,12 +38,12 @@ export default function FellowshipPrograms() {
       highlights: ["Insulin Therapy", "Metabolic Disorders", "Diabetic Complications"],
       icon: "🩺",
       image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 170000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 450000,
-      month12Offline: 570000
+      onlinePrice: 172500,
+      month11_1: 195500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 517500,
+      month12Offline: 655500
     },
     {
       name: "Fellowship in Gynecology & Obstetrics",
@@ -54,12 +53,12 @@ export default function FellowshipPrograms() {
       highlights: ["High-Risk Pregnancy", "Laparoscopic Surgery", "Fetal Medicine"],
       icon: "🤰",
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
-      onlinePrice: 145000,
-      month11_1: 190000,
-      month10_2: 230000,
-      month9_3: 280000,
-      month6_6: 390000,
-      month12Offline: 520000,
+      onlinePrice: 166750,
+      month11_1: 218500,
+      month10_2: 264500,
+      month9_3: 322000,
+      month6_6: 448500,
+      month12Offline: 598000,
       isPopular: true
     },
     {
@@ -70,12 +69,12 @@ export default function FellowshipPrograms() {
       highlights: ["Neonatal Care", "Pediatric Emergencies", "Child Development"],
       icon: "👶",
       image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 180000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 470000,
-      month12Offline: 580000
+      onlinePrice: 172500,
+      month11_1: 207000,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 540500,
+      month12Offline: 667000
     },
     {
       name: "Fellowship in Dermatology",
@@ -85,12 +84,12 @@ export default function FellowshipPrograms() {
       highlights: ["Cosmetic Procedures", "Laser Therapy", "Skin Surgery"],
       icon: "✨",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 185000,
-      month10_2: 230000,
-      month9_3: 250000,
-      month6_6: 390000,
-      month12Offline: 520000
+      onlinePrice: 184000,
+      month11_1: 212750,
+      month10_2: 264500,
+      month9_3: 287500,
+      month6_6: 448500,
+      month12Offline: 598000
     },
     {
       name: "Fellowship in Cosmetic and Aesthetic Medicine",
@@ -100,12 +99,12 @@ export default function FellowshipPrograms() {
       highlights: ["Facial Aesthetics", "Injectable Treatments", "Laser & IPL", "Clinical Ethics"],
       icon: "💆",
       image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 180000,
-      month10_2: 230000,
-      month9_3: 270000,
-      month6_6: 390000,
-      month12Offline: 520000,
+      onlinePrice: 172500,
+      month11_1: 207000,
+      month10_2: 264500,
+      month9_3: 310500,
+      month6_6: 448500,
+      month12Offline: 598000,
       isNew: true
     },
     {
@@ -116,12 +115,12 @@ export default function FellowshipPrograms() {
       highlights: ["Critical Care", "Clinical Diagnosis", "Patient Management"],
       icon: "⚕️",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-      onlinePrice: 175000,
-      month11_1: 185000,
-      month10_2: 220000,
-      month9_3: 240000,
-      month6_6: 350000,
-      month12Offline: 450000
+      onlinePrice: 201250,
+      month11_1: 212750,
+      month10_2: 253000,
+      month9_3: 276000,
+      month6_6: 402500,
+      month12Offline: 517500
     },
     {
       name: "Fellowship in Clinical Cardiology",
@@ -131,12 +130,12 @@ export default function FellowshipPrograms() {
       highlights: ["ECG Interpretation", "Echo Cardiography", "Cardiac Emergencies"],
       icon: "❤️",
       image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 190000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 480000,
-      month12Offline: 650000,
+      onlinePrice: 184000,
+      month11_1: 218500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 552000,
+      month12Offline: 747500,
       isPopular: true
     },
     {
@@ -147,12 +146,12 @@ export default function FellowshipPrograms() {
       highlights: ["Ventilator Management", "Hemodynamics", "Point-of-Care Ultrasound"],
       icon: "🏥",
       image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 180000,
-      month10_2: 230000,
-      month9_3: 270000,
-      month6_6: 450000,
-      month12Offline: 590000
+      onlinePrice: 172500,
+      month11_1: 207000,
+      month10_2: 264500,
+      month9_3: 310500,
+      month6_6: 517500,
+      month12Offline: 678500
     },
     {
       name: "Fellowship in Family Medicine",
@@ -162,12 +161,12 @@ export default function FellowshipPrograms() {
       highlights: ["Primary Care", "Preventive Medicine", "Community Health"],
       icon: "👨‍👩‍👧‍👦",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80",
-      onlinePrice: 150000,
-      month11_1: 170000,
-      month10_2: 220000,
-      month9_3: 250000,
-      month6_6: 330000,
-      month12Offline: 440000
+      onlinePrice: 172500,
+      month11_1: 195500,
+      month10_2: 253000,
+      month9_3: 287500,
+      month6_6: 379500,
+      month12Offline: 506000
     },
     {
       name: "Fellowship in Endocrinology",
@@ -177,12 +176,12 @@ export default function FellowshipPrograms() {
       highlights: ["Thyroid Disorders", "Pituitary Disorders", "Bone Health"],
       icon: "⚕️",
       image: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 490000,
-      month12Offline: 650000,
+      onlinePrice: 207000,
+      month11_1: 241500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 563500,
+      month12Offline: 747500,
       isNew: true
     },
     {
@@ -193,12 +192,12 @@ export default function FellowshipPrograms() {
       highlights: ["Trauma Surgery", "Sports Medicine", "Fracture Management"],
       icon: "🦴",
       image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 180000,
-      month10_2: 240000,
-      month9_3: 270000,
-      month6_6: 430000,
-      month12Offline: 560000
+      onlinePrice: 184000,
+      month11_1: 207000,
+      month10_2: 276000,
+      month9_3: 310500,
+      month6_6: 494500,
+      month12Offline: 644000
     },
     {
       name: "Fellowship in Nephrology",
@@ -208,12 +207,12 @@ export default function FellowshipPrograms() {
       highlights: ["Dialysis", "Kidney Disorders", "Transplant Medicine"],
       icon: "🫘",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 195000,
-      month10_2: 250000,
-      month9_3: 290000,
-      month6_6: 490000,
-      month12Offline: 690000
+      onlinePrice: 207000,
+      month11_1: 224250,
+      month10_2: 287500,
+      month9_3: 333500,
+      month6_6: 563500,
+      month12Offline: 793500
     },
     {
       name: "Fellowship in Gastroenterology",
@@ -223,12 +222,12 @@ export default function FellowshipPrograms() {
       highlights: ["Endoscopy", "Colonoscopy", "ERCP"],
       icon: "🔬",
       image: "https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 195000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 490000,
-      month12Offline: 680000,
+      onlinePrice: 207000,
+      month11_1: 224250,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 563500,
+      month12Offline: 782000,
       isPopular: true
     },
     {
@@ -239,12 +238,12 @@ export default function FellowshipPrograms() {
       highlights: ["IVF", "ICSI", "Fertility Preservation"],
       icon: "👶",
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 210000,
-      month10_2: 250000,
-      month9_3: 290000,
-      month6_6: 490000,
-      month12Offline: 690000,
+      onlinePrice: 184000,
+      month11_1: 241500,
+      month10_2: 287500,
+      month9_3: 333500,
+      month6_6: 563500,
+      month12Offline: 793500,
       isNew: true
     },
     {
@@ -255,12 +254,12 @@ export default function FellowshipPrograms() {
       highlights: ["NICU Management", "Neonatal Resuscitation", "Premature Care"],
       icon: "👶",
       image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
-      onlinePrice: 190000,
-      month11_1: 210000,
-      month10_2: 245000,
-      month9_3: 285000,
-      month6_6: 490000,
-      month12Offline: 650000
+      onlinePrice: 218500,
+      month11_1: 241500,
+      month10_2: 281750,
+      month9_3: 327750,
+      month6_6: 563500,
+      month12Offline: 747500
     },
     {
       name: "Fellowship in Interventional Cardiology",
@@ -270,12 +269,12 @@ export default function FellowshipPrograms() {
       highlights: ["Angioplasty", "Device Implantation", "Structural Interventions"],
       icon: "❤️",
       image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
-      onlinePrice: 220000,
-      month11_1: 260000,
-      month10_2: 290000,
-      month9_3: 330000,
-      month6_6: 500000,
-      month12Offline: 700000
+      onlinePrice: 253000,
+      month11_1: 299000,
+      month10_2: 333500,
+      month9_3: 379500,
+      month6_6: 575000,
+      month12Offline: 805000
     },
     {
       name: "Fellowship in Arthroscopy & Sports Medicine",
@@ -285,12 +284,12 @@ export default function FellowshipPrograms() {
       highlights: ["Sports Medicine", "Knee and Shoulder Procedures", "Arthroplasty Pathways"],
       icon: "🦴",
       image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80",
-      onlinePrice: 180000,
-      month11_1: 210000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 490000,
-      month12Offline: 610000,
+      onlinePrice: 207000,
+      month11_1: 241500,
+      month10_2: 276000,
+      month9_3: 322000,
+      month6_6: 563500,
+      month12Offline: 701500,
       isPopular: true
     }
   ];
@@ -479,7 +478,7 @@ export default function FellowshipPrograms() {
                       <div className="mb-6">
                         <p className="text-sm font-semibold mb-3 flex items-center gap-2">
                           <CheckCircle2 className="w-4 h-4 text-accent" />
-                          What You'll Learn:
+                          What You&apos;ll Learn:
                         </p>
                         <ul className="space-y-2">
                           {program.highlights.map((highlight, idx) => (
@@ -599,7 +598,7 @@ export default function FellowshipPrograms() {
                 className="text-3xl lg:text-4xl font-heading font-bold mb-4"
                 whileHover={{ scale: 1.05 }}
               >
-                Can't Find What You're Looking For?
+                Can&apos;t Find What You&apos;re Looking For?
               </motion.h3>
               <p className="text-lg lg:text-xl mb-8 opacity-95 max-w-2xl mx-auto">
                 We offer customized fellowship programs tailored to your specialization needs

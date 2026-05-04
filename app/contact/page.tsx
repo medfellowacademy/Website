@@ -167,8 +167,8 @@ export default function ContactPage() {
                       <h3 className="font-heading font-bold text-primary mb-2">Address</h3>
                       <p className="text-text-secondary">
                         Med Fellow Academy<br />
-                        23-5-449, Second Floor, Nagul Chinta<br />
-                        Hyderabad- 500065, Telangana, India
+                        3-6-622 Flat No - 307, Mahavir house, Basheer bagh<br />
+                        Hyderabad - 500029, Telangana, India
                       </p>
                     </div>
                   </div>

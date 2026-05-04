@@ -363,6 +363,7 @@ export default function AdminPage() {
                       <th className="px-6 py-3 font-semibold text-gray-600">Phone</th>
                       <th className="px-6 py-3 font-semibold text-gray-600">Program</th>
                       <th className="px-6 py-3 font-semibold text-gray-600">Qualification</th>
+                      <th className="px-6 py-3 font-semibold text-gray-600">Documents</th>
                       <th className="px-6 py-3 font-semibold text-gray-600">Status</th>
                       <th className="px-6 py-3 font-semibold text-gray-600">Date</th>
                       <th className="px-6 py-3 font-semibold text-gray-600">Action</th>
@@ -370,42 +371,63 @@ export default function AdminPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
-                    {applications.map((app) => (
-                      <tr key={app.id} className="hover:bg-gray-50 cursor-pointer" onClick={() => setSelected(app)}>
-                        <td className="px-6 py-4 font-medium text-gray-900">{app.first_name} {app.last_name}</td>
-                        <td className="px-6 py-4 text-gray-600">{app.email}</td>
-                        <td className="px-6 py-4 text-gray-600">{app.phone}</td>
-                        <td className="px-6 py-4 text-gray-600 max-w-37.5 truncate">{PROGRAM_LABELS[app.program] || app.program}</td>
-                        <td className="px-6 py-4 text-gray-600">{app.qualification}</td>
-                        <td className="px-6 py-4">
-                          <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusColor(app.status)}`}>
-                            {app.status}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-gray-500">{new Date(app.created_at).toLocaleDateString('en-IN')}</td>
-                        <td className="px-6 py-4" onClick={(e) => e.stopPropagation()}>
-                          <select
-                            title="Update application status"
-                            value={app.status}
-                            onChange={(e) => updateStatus(app.id, e.target.value, 'applications')}
-                            className="text-xs border border-gray-200 rounded px-2 py-1 outline-none"
-                          >
-                            <option value="pending">Pending</option>
-                            <option value="reviewing">Reviewing</option>
-                            <option value="accepted">Accepted</option>
-                            <option value="rejected">Rejected</option>
-                          </select>
-                        </td>
-                        <td className="px-6 py-4" onClick={e => e.stopPropagation()}>
-                          <button
-                            onClick={() => fillFromApp(app)}
-                            className="text-xs bg-primary/10 text-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition-colors font-medium whitespace-nowrap"
-                          >
-                            🧾 Invoice
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
+                    {applications.map((app) => {
+                      const docs = parseDocuments(app.message);
+                      const docCount = docs.length;
+                      
+                      return (
+                        <tr key={app.id} className="hover:bg-gray-50 cursor-pointer" onClick={() => setSelected(app)}>
+                          <td className="px-6 py-4 font-medium text-gray-900">{app.first_name} {app.last_name}</td>
+                          <td className="px-6 py-4 text-gray-600">{app.email}</td>
+                          <td className="px-6 py-4 text-gray-600">{app.phone}</td>
+                          <td className="px-6 py-4 text-gray-600 max-w-37.5 truncate">{PROGRAM_LABELS[app.program] || app.program}</td>
+                          <td className="px-6 py-4 text-gray-600">{app.qualification}</td>
+                          <td className="px-6 py-4" onClick={(e) => e.stopPropagation()}>
+                            {docCount > 0 ? (
+                              <button
+                                onClick={() => setSelected(app)}
+                                className="flex items-center gap-1.5 px-2.5 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100 hover:bg-blue-100 transition-colors"
+                                title={`View ${docCount} document${docCount > 1 ? 's' : ''}`}
+                              >
+                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                </svg>
+                                {docCount} doc{docCount > 1 ? 's' : ''}
+                              </button>
+                            ) : (
+                              <span className="text-gray-400 text-xs">No docs</span>
+                            )}
+                          </td>
+                          <td className="px-6 py-4">
+                            <span className={`px-2 py-1 rounded-full text-xs font-semibold ${statusColor(app.status)}`}>
+                              {app.status}
+                            </span>
+                          </td>
+                          <td className="px-6 py-4 text-gray-500">{new Date(app.created_at).toLocaleDateString('en-IN')}</td>
+                          <td className="px-6 py-4" onClick={(e) => e.stopPropagation()}>
+                            <select
+                              title="Update application status"
+                              value={app.status}
+                              onChange={(e) => updateStatus(app.id, e.target.value, 'applications')}
+                              className="text-xs border border-gray-200 rounded px-2 py-1 outline-none"
+                            >
+                              <option value="pending">Pending</option>
+                              <option value="reviewing">Reviewing</option>
+                              <option value="accepted">Accepted</option>
+                              <option value="rejected">Rejected</option>
+                            </select>
+                          </td>
+                          <td className="px-6 py-4" onClick={e => e.stopPropagation()}>
+                            <button
+                              onClick={() => fillFromApp(app)}
+                              className="text-xs bg-primary/10 text-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition-colors font-medium whitespace-nowrap"
+                            >
+                              🧾 Invoice
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               )}
@@ -572,12 +594,90 @@ export default function AdminPage() {
                 </Section>
                 {parseDocuments((selected as Application).message).length > 0 && (
                   <Section title="Documents Submitted">
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {parseDocuments((selected as Application).message).map(doc => (
-                        <span key={doc} className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100">
-                          📄 {doc}
-                        </span>
-                      ))}
+                    <div className="space-y-3 pt-1">
+                      {/* Download All Button */}
+                      {parseDocuments((selected as Application).message).length > 1 && (
+                        <button
+                          onClick={async () => {
+                            const docs = parseDocuments((selected as Application).message);
+                            for (const doc of docs) {
+                              try {
+                                const { data, error } = await supabase.storage
+                                  .from('application-documents')
+                                  .download(doc);
+                                
+                                if (error) throw error;
+                                
+                                const url = window.URL.createObjectURL(data);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = doc;
+                                document.body.appendChild(a);
+                                a.click();
+                                document.body.removeChild(a);
+                                window.URL.revokeObjectURL(url);
+                                
+                                // Small delay between downloads
+                                await new Promise(resolve => setTimeout(resolve, 500));
+                              } catch (err) {
+                                console.error('Download error:', err);
+                              }
+                            }
+                          }}
+                          className="w-full px-4 py-2.5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg text-sm font-semibold hover:from-blue-700 hover:to-blue-800 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                        >
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                          </svg>
+                          Download All Documents ({parseDocuments((selected as Application).message).length})
+                        </button>
+                      )}
+                      
+                      {/* Individual Documents */}
+                      <div className="flex flex-col gap-2">
+                        {parseDocuments((selected as Application).message).map(doc => {
+                          const handleDownload = async () => {
+                            try {
+                              const { data, error } = await supabase.storage
+                                .from('application-documents')
+                                .download(doc);
+                              
+                              if (error) throw error;
+                              
+                              const url = window.URL.createObjectURL(data);
+                              const a = document.createElement('a');
+                              a.href = url;
+                              a.download = doc;
+                              document.body.appendChild(a);
+                              a.click();
+                              document.body.removeChild(a);
+                              window.URL.revokeObjectURL(url);
+                            } catch (err) {
+                              console.error('Download error:', err);
+                              alert('Failed to download document. Please try again.');
+                            }
+                          };
+
+                          return (
+                            <div key={doc} className="flex items-center justify-between p-3 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 hover:bg-blue-100 transition-colors group">
+                              <div className="flex items-center gap-2 flex-1 min-w-0">
+                                <span className="text-lg shrink-0">📄</span>
+                                <span className="text-xs font-medium truncate">{doc}</span>
+                              </div>
+                              <button
+                                onClick={handleDownload}
+                                className="ml-2 px-3 py-1.5 bg-blue-600 text-white rounded-md text-xs font-semibold hover:bg-blue-700 transition-colors shrink-0 flex items-center gap-1.5"
+                                title="Download document"
+                              >
+                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                Download
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
                   </Section>
                 )}

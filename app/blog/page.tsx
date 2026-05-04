@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from 'next/image';
+
+export const metadata: Metadata = {
+  title: "Blog | Medical Fellowship Insights & Career Advice | MedFellow Academy",
+  description: "Expert articles on medical fellowship programs, career advancement for doctors, specialty training tips, and the latest in medical education — from MedFellow Academy.",
+  openGraph: {
+    title: "MedFellow Academy Blog",
+    description: "Expert articles on medical fellowship programs and career advancement for doctors.",
+    url: "https://medfellowacademy.com/blog",
+  },
+};
 
 export default function Blog() {
   const featuredPosts = [

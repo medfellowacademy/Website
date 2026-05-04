@@ -4,6 +4,7 @@ import { Inter, Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
 import ScrollProgress from "@/components/effects/ScrollProgress";
+import AnnouncementBar from "@/components/AnnouncementBar";
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -25,6 +26,11 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Med Fellow Academy - Advanced Fellowship Programs for Practicing Doctors",
   description: "Premium medical fellowship programs with academic credibility, hospital exposure, and internationally recognized certification.",
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   verification: {
     google: "VMwO22oDHhOk_ZM826hn0tYULxDgng1775FUlw-sWDI",
   },
@@ -50,7 +56,8 @@ export default function RootLayout({
             gtag('config', 'G-ED7203NW6B');
           `}
         </Script>
-          <ScrollProgress />
+        <AnnouncementBar />
+        <ScrollProgress />
         {children}
         <WhatsAppWidget />
       </body>

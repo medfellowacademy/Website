@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Learning Model | How MedFellow Academy Trains Doctors",
+  description: "Discover MedFellow Academy's unique learning model — a blend of live online sessions, hospital-based clinical rotations, simulation labs, and one-on-one mentorship designed for practicing doctors.",
+  openGraph: {
+    title: "MedFellow Academy Learning Model",
+    description: "A blend of online sessions, hospital rotations, and mentorship designed for practicing doctors.",
+    url: "https://medfellowacademy.com/learning-model",
+  },
+};
 
 export default function LearningModel() {
   const hybridFeatures = [
