@@ -164,36 +164,6 @@ export default function ReproductiveMedicinePage() {
         <div className="absolute bottom-20 right-20 w-16 h-16 bg-accent/20 rounded-full animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
         <div className="absolute top-40 right-40 w-12 h-12 bg-secondary/20 rounded-full animate-bounce" style={{ animationDuration: '5s', animationDelay: '0.5s' }}></div>
       </section>
-                  <p className="text-sm font-semibold">{item.text}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button
-                onClick={() => setShowForm(true)}
-                className="px-8 py-4 bg-accent text-white font-bold rounded-full hover:bg-accent/90 transition-all shadow-xl hover:scale-105 text-lg"
-              >
-                🚀 Apply Now - Limited Seats
-              </button>
-              <a
-                href="tel:+919876543210"
-                className="px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-gray-100 transition-all shadow-xl text-lg"
-              >
-                📞 Call: +91-98765-43210
-              </a>
-            </div>
-
-            <p className="mt-6 text-white/80 text-sm">
-              📞 Call/WhatsApp: +91-98765-43210 | 
-              <button onClick={() => setShowForm(true)} className="underline ml-2 hover:text-white">
-                Download Brochure
-              </button>
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* Lead Form Above Fold - Enhanced */}
       <section className="py-16 relative overflow-hidden">
