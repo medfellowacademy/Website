@@ -636,6 +636,23 @@ export default function AdminPage() {
                       {/* Individual Documents */}
                       <div className="flex flex-col gap-2">
                         {parseDocuments((selected as Application).message).map(doc => {
+                          const handleView = async () => {
+                            try {
+                              const { data, error } = await supabase.storage
+                                .from('application-documents')
+                                .createSignedUrl(doc, 3600); // 1 hour expiry
+                              
+                              if (error) throw error;
+                              
+                              if (data?.signedUrl) {
+                                window.open(data.signedUrl, '_blank');
+                              }
+                            } catch (err) {
+                              console.error('View error:', err);
+                              alert('Failed to view document. Please try again.');
+                            }
+                          };
+
                           const handleDownload = async () => {
                             try {
                               const { data, error } = await supabase.storage
@@ -664,16 +681,29 @@ export default function AdminPage() {
                                 <span className="text-lg shrink-0">📄</span>
                                 <span className="text-xs font-medium truncate">{doc}</span>
                               </div>
-                              <button
-                                onClick={handleDownload}
-                                className="ml-2 px-3 py-1.5 bg-blue-600 text-white rounded-md text-xs font-semibold hover:bg-blue-700 transition-colors shrink-0 flex items-center gap-1.5"
-                                title="Download document"
-                              >
-                                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                </svg>
-                                Download
-                              </button>
+                              <div className="flex gap-2 shrink-0">
+                                <button
+                                  onClick={handleView}
+                                  className="px-3 py-1.5 bg-green-600 text-white rounded-md text-xs font-semibold hover:bg-green-700 transition-colors flex items-center gap-1.5"
+                                  title="View document"
+                                >
+                                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                  </svg>
+                                  View
+                                </button>
+                                <button
+                                  onClick={handleDownload}
+                                  className="px-3 py-1.5 bg-blue-600 text-white rounded-md text-xs font-semibold hover:bg-blue-700 transition-colors flex items-center gap-1.5"
+                                  title="Download document"
+                                >
+                                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                  </svg>
+                                  Download
+                                </button>
+                              </div>
                             </div>
                           );
                         })}

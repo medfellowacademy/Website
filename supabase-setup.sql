@@ -63,3 +63,33 @@ CREATE POLICY "Allow authenticated update on contact_enquiries"
 
 CREATE POLICY "Allow authenticated update on applications"
   ON applications FOR UPDATE TO anon USING (true);
+
+-- Create Storage Bucket for Application Documents (skip if already exists)
+-- To check if bucket exists, run: SELECT * FROM storage.buckets WHERE id = 'application-documents';
+INSERT INTO storage.buckets (id, name, public)
+VALUES ('application-documents', 'application-documents', false)
+ON CONFLICT (id) DO NOTHING;
+
+-- Storage Policies for application-documents bucket
+-- Drop existing policies first to avoid conflicts
+DROP POLICY IF EXISTS "Allow public uploads to application-documents" ON storage.objects;
+DROP POLICY IF EXISTS "Allow public reads from application-documents" ON storage.objects;
+DROP POLICY IF EXISTS "Allow public updates to application-documents" ON storage.objects;
+DROP POLICY IF EXISTS "Allow public deletes from application-documents" ON storage.objects;
+
+-- Recreate policies
+CREATE POLICY "Allow public uploads to application-documents"
+  ON storage.objects FOR INSERT TO anon
+  WITH CHECK (bucket_id = 'application-documents');
+
+CREATE POLICY "Allow public reads from application-documents"
+  ON storage.objects FOR SELECT TO anon
+  USING (bucket_id = 'application-documents');
+
+CREATE POLICY "Allow public updates to application-documents"
+  ON storage.objects FOR UPDATE TO anon
+  USING (bucket_id = 'application-documents');
+
+CREATE POLICY "Allow public deletes from application-documents"
+  ON storage.objects FOR DELETE TO anon
+  USING (bucket_id = 'application-documents');
