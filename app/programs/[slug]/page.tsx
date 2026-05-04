@@ -1055,6 +1055,7 @@ const programsData: { [key: string]: any } = {
     overview: "The Fellowship in Neurosurgery is a one-year hybrid program designed to build advanced clinical and procedural competence in neurosurgical practice. The curriculum integrates applied neuroscience, emergency neurosurgery, neuro-oncology, neurovascular and spine care, critical care, and evolving minimally invasive technologies through structured case-based and skill-based training.",
     highlights: ["Hybrid learning with hospital-based exposure", "Neurotrauma and emergency neurosurgical protocols", "Neuro-oncology, neurovascular, and spine modules", "Critical care, advanced techniques, and research orientation"],
     onlinePrice: 195500,
+    month11_1: 224750,
     curriculum: [
       {
         module: "Module 1: Foundations of Neurosurgery",
@@ -1161,6 +1162,7 @@ const programsData: { [key: string]: any } = {
     overview: "The Fellowship in Clinical Neurology is a 12-month hybrid program designed to strengthen clinical reasoning and diagnostic competency in neurology. It integrates structured case-based teaching, OPD-focused exposure, emergency neurology, neurodiagnostics, and supervised clinical postings to prepare participants for real-world neurological practice.",
     highlights: ["Localization-based neurological assessment", "Acute neurology and emergency protocols", "Stroke, epilepsy, neuroinflammatory, and neurodegenerative pathways", "Hands-on logbook-driven clinical training"],
     onlinePrice: 172500,
+    month11_1: 224750,
     curriculum: [
       {
         module: "Module 1: Foundations of Clinical Neurology",
@@ -1324,6 +1326,7 @@ const programsData: { [key: string]: any } = {
     overview: "The Fellowship in Cardiothoracic Surgery is a structured high-intensity program offering focused training in cardiac and thoracic surgical practice. It integrates operative exposure, perioperative critical care, minimally invasive approaches, and multidisciplinary collaboration to prepare participants for advanced tertiary-care and super-speciality surgical roles.",
     highlights: ["One-year blended fellowship (theory + clinical exposure)", "Hands-on operative and OT-based training", "Perioperative critical care and decision-making focus", "Exposure to minimally invasive, robotic, and hybrid procedures"],
     onlinePrice: 207000,
+    month11_1: 264500,
     curriculum: [
       {
         module: "Module 1: Foundations of Cardiothoracic Surgery (Weeks 1-4)",
@@ -1484,6 +1487,7 @@ const programsData: { [key: string]: any } = {
     overview: "The Fellowship in Clinical Haematology is an advanced program designed to build expertise in diagnostic hematology, hemato-oncology, coagulation disorders, transfusion medicine, and transplantation principles. The training emphasizes evidence-based clinical decision making, laboratory integration, multidisciplinary care, and research-oriented practice.",
     highlights: ["Comprehensive benign and malignant hematology training", "Structured focus on diagnostics and laboratory interpretation", "Bone marrow procedures and transplant principles", "Modern therapies including targeted and immunotherapy with research exposure"],
     onlinePrice: 207000,
+    month11_1: 241500,
     curriculum: [
       {
         module: "Module 1: Foundations of Haematology",
@@ -1854,6 +1858,7 @@ const programsData: { [key: string]: any } = {
     overview: "The Fellowship in Interventional Radiology is an advanced, clinically oriented program designed to train doctors in image-guided minimally invasive diagnostic and therapeutic procedures. The program integrates vascular, non-vascular, and oncologic interventions using modalities such as fluoroscopy, CT, MRI, and ultrasound. With a strong emphasis on hands-on procedural training, clinical decision-making, and multidisciplinary care, this fellowship prepares participants to deliver safe, effective, and evidence-based interventional treatments across a wide spectrum of diseases.",
     highlights: ["Comprehensive vascular, non-vascular, and oncologic interventions", "Hands-on procedural training with multimodality imaging guidance", "Strong focus on clinical decision-making and complication management", "Multidisciplinary evidence-based interventional care"],
     onlinePrice: 195500,
+    month11_1: 218500,
     curriculum: [
       {
         module: "Module 1: Fundamentals of Interventional Radiology",
@@ -3571,6 +3576,7 @@ const programsData: { [key: string]: any } = {
     overview: "This 12-month Fellowship in Spine Surgery follows a quarter-wise modular progression combining didactic learning, clinical exposure, surgical training, case discussions, and research. The curriculum covers spine fundamentals, degenerative disorders, trauma, infections and tumours, pediatric and deformity surgery, minimally invasive techniques, instrumentation, navigation, rehabilitation, and interventional pain management.",
     highlights: ["Quarter-wise modular training", "Degenerative and trauma spine", "Infection, tumour, and deformity management", "MISS, navigation, and robotics", "Research and dissertation"],
     onlinePrice: 207000,
+    month11_1: 241500,
     curriculum: [
       {
         module: "Module 1: Basic Sciences and Spine Fundamentals (Month 1-2)",

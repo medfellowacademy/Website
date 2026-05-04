@@ -163,7 +163,9 @@ export default function ProgramsPage() {
       eligibility: "MBBS / MS / MCh / DNB / Equivalent medical qualification",
       description: "Hybrid one-year fellowship in neurosurgical foundations, emergencies, neurovascular care, spine, and advanced techniques",
       highlights: ["Case-based and skill-based neurosurgical training", "Neurotrauma and emergency procedures", "Neuro-oncology, vascular and spine exposure", "Critical care and advanced neurosurgical concepts"],
-      image: "https://images.unsplash.com/photo-1559757175-7f6d7b3b3c35?w=800&q=80"
+      image: "https://images.unsplash.com/photo-1559757175-7f6d7b3b3c35?w=800&q=80",
+      onlinePrice: 195500,
+      month11_1: 224750
     },
     {
       name: "Fellowship in Clinical Neurology",
@@ -174,7 +176,9 @@ export default function ProgramsPage() {
       eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
       description: "Hybrid one-year fellowship focused on case-based clinical neurology, OPD exposure, and diagnostic skill development",
       highlights: ["Acute Neurology and Emergency Assessment", "Stroke, Epilepsy, and Neurodegeneration", "Neurodiagnostics and Imaging Skills", "Structured Clinical Posting and Logbook"],
-      image: "https://images.unsplash.com/photo-1579165466949-3180a3d056d1?w=800&q=80"
+      image: "https://images.unsplash.com/photo-1579165466949-3180a3d056d1?w=800&q=80",
+      onlinePrice: 195500,
+      month11_1: 224750
     },
     {
       name: "Fellowship in Pediatric Neurology",
@@ -198,7 +202,9 @@ export default function ProgramsPage() {
       eligibility: "MS / MCh / DNB / Equivalent surgical qualification",
       description: "Advanced clinically driven fellowship in surgical management of complex cardiac and thoracic conditions",
       highlights: ["High-intensity operative exposure", "Perioperative critical care integration", "Minimally invasive and robotic orientation", "Multidisciplinary tertiary-care decision making"],
-      image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80"
+      image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
+      onlinePrice: 230000,
+      month11_1: 264500
     },
     {
       name: "Fellowship in Medical Oncology",
@@ -222,7 +228,9 @@ export default function ProgramsPage() {
       eligibility: "MBBS with MD/DNB in General Medicine or equivalent",
       description: "Advanced fellowship in benign and malignant blood disorders with strong diagnostic and hemato-oncology training",
       highlights: ["Hematology Diagnostics and Lab Interpretation", "Bone Marrow and Transplantation Principles", "Targeted, Immunotherapy, and Supportive Hemato-Oncology", "Case-based Learning and Research Orientation"],
-      image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=800&q=80"
+      image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=800&q=80",
+      onlinePrice: 207000,
+      month11_1: 241500
     },
     {
       name: "Fellowship in Head & Neck Oncology",
@@ -462,7 +470,9 @@ export default function ProgramsPage() {
       eligibility: "MS/MD/DNB Orthopaedics / Neurosurgery / Equivalent medical qualification",
       description: "One-year modular fellowship in spine surgery covering degenerative disease, trauma, deformity, infection, and minimally invasive techniques",
       highlights: ["Degenerative Spine Disorders", "Spine Trauma", "Deformity and Pediatric Spine", "MISS and Navigation"],
-      image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80"
+      image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800&q=80",
+      onlinePrice: 207000,
+      month11_1: 241500
     },
     {
       name: "Fellowship in General Surgery (1 Year)",
