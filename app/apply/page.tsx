@@ -11,6 +11,7 @@ const PROGRAMS = [
   { value: 'family-medicine', label: 'Fellowship in Family Medicine' },
   // Cardiology
   { value: 'clinical-cardiology', label: 'Fellowship in Clinical Cardiology' },
+  { value: 'Echocardiography', label: 'Fellowship in Echocardiography'},
   { value: 'interventional-cardiology', label: 'Fellowship in Interventional Cardiology' },
   { value: 'pediatric-cardiology', label: 'Fellowship in Pediatric Cardiology' },
   { value: 'cardiothoracic-vascular-surgery', label: 'Fellowship in Cardiothoracic and Vascular Surgery' },
