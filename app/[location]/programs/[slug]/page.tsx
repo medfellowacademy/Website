@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import CurriculumAccordion from "@/components/CurriculumAccordion";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 const VALID_LOCATIONS = ["dubai", "uae", "saudi-arabia"];
 
@@ -5380,6 +5381,1062 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     );
   }
 
+  if (location.toLowerCase() === "saudi-arabia" && slug === "fellowship-in-pediatrics") {
+    const comparisonRows = [
+      ["Fully Online", "Yes", "Limited"],
+      ["Duration", "12 Months", "1-3 Years"],
+      ["Saudi Doctor Friendly", "Yes", "Not always"],
+      ["SCFHS CV Value", "Strong", "Variable"]
+    ];
+
+    const faqs = [
+      {
+        q: "Is a Pediatrics fellowship required to become a consultant in Saudi Arabia?",
+        a: "A Pediatrics fellowship is not officially required to become a consultant under SCFHS. However, in 2026, hospitals increasingly prefer candidates with additional specialty credentials beyond MD/DNB Pediatrics. A fellowship strengthens your specialist categorisation profile and improves your chances of consultant-level roles."
+      },
+      {
+        q: "Is an online Pediatrics fellowship valid for Saudi Arabia?",
+        a: "Online fellowships are accepted as supplementary training credentials. They do not replace SCFHS licensing exams but help demonstrate structured specialty training, which is valued by private hospitals and during SCFHS evaluation."
+      },
+      {
+        q: "Can I do a Pediatrics fellowship while working in Saudi Arabia?",
+        a: "Most online Pediatrics fellowships are designed for working doctors. You can continue your clinical practice while completing 8-12 hours per week of coursework, including case discussions and assignments."
+      },
+      {
+        q: "Which is better: online or clinical (hands-on) Pediatrics fellowship?",
+        a: "Online is best for theoretical knowledge, flexibility, and no career break. Hybrid with rotation is better for NICU exposure and hands-on skills. For most practising pediatricians in Saudi Arabia, online is sufficient unless you want procedural or neonatal intensive care experience."
+      },
+      {
+        q: "Will a Pediatrics fellowship increase my salary in Saudi Arabia?",
+        a: "A fellowship does not guarantee a salary increase, but it improves your eligibility for consultant roles, higher-paying private hospital jobs, and clinic expansion opportunities. Salary growth usually follows role upgrade, not just certification."
+      },
+      {
+        q: "How long does a Pediatrics fellowship take?",
+        a: "Most structured programs are 12 months long, with flexible online modules. Hybrid options may include an additional 1-month clinical rotation."
+      },
+      {
+        q: "What is the best Pediatrics subspecialty for Saudi Arabia?",
+        a: "High-demand areas include neonatology (NICU expansion), pediatric emergency medicine, pediatric infectious diseases, and growth and development. These align with Saudi Arabia's maternal and child healthcare priorities."
+      },
+      {
+        q: "Is a Pediatrics fellowship worth it after MD Pediatrics?",
+        a: "With increasing competition, MD alone may not be enough for career progression. A fellowship helps you stand out in job applications, strengthen your SCFHS profile, and move toward consultant-level roles."
+      },
+      {
+        q: "Do I need to travel for a Pediatrics fellowship?",
+        a: "Fully online programs require no travel. Some fellowships offer optional clinical rotations in India, which can be useful for hands-on exposure but are not mandatory."
+      },
+      {
+        q: "Which doctors are eligible for a Pediatrics fellowship?",
+        a: "Typical eligibility includes MD / DNB Pediatrics (preferred), MBBS doctors working in pediatric departments, and pediatric practitioners."
+      },
+      {
+        q: "How does a fellowship help with SCFHS classification?",
+        a: "SCFHS evaluates your full profile, including education, experience, and additional certifications. A fellowship adds documented specialty training, improving your chances of better classification."
+      },
+      {
+        q: "What are the fees for a Pediatrics fellowship?",
+        a: "Online: INR 1,50,000-1,90,000. Hybrid: INR 1,80,000-2,10,000. This is relatively affordable compared to traditional fellowships requiring relocation."
+      }
+    ];
+
+    const relatedPrograms = [
+      {
+        title: "Endocrinology Fellowship for Saudi Doctors",
+        desc: "Advance skills in diabetes, hormones, and metabolic disorders with expert-led training.",
+        href: "/saudi-arabia/programs/fellowship-in-endocrinology"
+      },
+      {
+        title: "Nephrology Fellowship for Saudi Arabia Doctors",
+        desc: "Gain renal care expertise in CKD, dialysis, and kidney disease management.",
+        href: "/saudi-arabia/programs/fellowship-in-nephrology"
+      },
+      {
+        title: "Gastroenterology Fellowship for Saudi Doctors",
+        desc: "Learn GI disorders, endoscopy basics, and digestive disease management.",
+        href: "/saudi-arabia/programs/fellowship-in-gastroenterology"
+      },
+      {
+        title: "Reproductive Medicine Fellowship for Doctors",
+        desc: "Develop skills in fertility, IVF basics, and reproductive health treatments.",
+        href: "/saudi-arabia/programs/fellowship-in-reproductive-medicine"
+      },
+      {
+        title: "Neonatology Fellowship for Saudi Arabia Doctors",
+        desc: "Enhance newborn care skills, NICU basics, and neonatal emergency management.",
+        href: "/saudi-arabia/programs/fellowship-in-neonatology"
+      },
+      {
+        title: "Arthroscopy & Arthroplasty Fellowship",
+        desc: "Upgrade orthopedic skills in joint replacement and minimally invasive procedures.",
+        href: "/saudi-arabia/programs/fellowship-in-arthroscopy-and-arthroplasty"
+      }
+    ];
+
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+
+        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+          <div className="container-custom">
+            <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+              ← Back to All Programs in Saudi Arabia
+            </Link>
+            <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Pediatrics Specialty Program</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Pediatrics for Doctors in Saudi Arabia</h1>
+            <p className="text-base md:text-xl text-white/90 max-w-4xl mb-6">
+              A structured Pediatrics fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.
+              Gain case-based clinical training, recognised certification, and the credentials needed to progress toward consultant positions.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link>
+              <Link href="/contact" className="px-6 py-3 rounded-lg border border-white/40 bg-white/10 hover:bg-white/20 transition-colors">Schedule Consultation</Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-8 border-y border-slate-200 bg-white">
+          <div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <p className="text-2xl font-bold text-primary">46+</p>
+              <p className="text-sm text-text-secondary">Medical Fellowships</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <p className="text-2xl font-bold text-primary">3,500+</p>
+              <p className="text-sm text-text-secondary">Doctors Trained</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <p className="text-2xl font-bold text-primary">GCC</p>
+              <p className="text-sm text-text-secondary">Doctors Across Saudi Arabia & GCC</p>
+            </div>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
+              <p className="text-2xl font-bold text-primary">4.8/5</p>
+              <p className="text-sm text-text-secondary">Doctor Rating</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-padding">
+          <div className="container-custom max-w-5xl space-y-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Why Pediatrics Fellowship is High Demand in Saudi Arabia</h2>
+              <p className="text-text-secondary leading-relaxed mb-4">
+                Saudi Arabia's healthcare system is undergoing rapid expansion under Vision 2030, with a strong focus on maternal and child health infrastructure.
+                Pediatrics is one of the most in-demand specialties across government hospitals (MOH, SCFHS-linked institutions), private pediatric clinics, and tertiary care centers in Riyadh, Jeddah, and Dammam.
+              </p>
+              <ul className="space-y-2 text-text-secondary">
+                <li>General pediatric roles are plateauing.</li>
+                <li>Specialist-level credentials are becoming essential.</li>
+                <li>A structured Pediatrics fellowship helps bridge this gap.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">The 2026 Credentialing Gap for Pediatric Doctors</h2>
+              <p className="text-text-secondary leading-relaxed">
+                With evolving SCFHS specialist categorisation standards, pediatric doctors face a common issue: MBBS + MD Pediatrics alone is often not enough for consultant progression. Hospitals increasingly prioritise documented specialty training. A fellowship acts as a credential multiplier, strengthening your SCFHS application and hospital profile.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">What the MedFellow Pediatrics Fellowship Covers</h2>
+              <p className="text-text-secondary leading-relaxed mb-4">The Pediatrics fellowship is a 12-month structured online program designed for working doctors.</p>
+              <h3 className="text-lg font-bold text-primary mb-2">Program Highlights</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-4">
+                <li>Monthly module-based curriculum</li>
+                <li>Live pediatric case discussions</li>
+                <li>Recorded lectures for flexible learning</li>
+                <li>Protocol-based clinical training</li>
+                <li>Structured assessments</li>
+              </ul>
+              <h3 className="text-lg font-bold text-primary mb-2">Clinical Focus Areas</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary">
+                <li>Neonatal care and NICU basics</li>
+                <li>Pediatric emergencies</li>
+                <li>Growth and development disorders</li>
+                <li>Infectious diseases in children</li>
+                <li>Vaccination protocols</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Optional Clinical Rotation (Hybrid Pathway)</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="card p-5">
+                  <h3 className="text-lg font-bold text-primary mb-2">Fully Online (12 Months)</h3>
+                  <p className="text-text-secondary">Ideal for working pediatricians. No travel required.</p>
+                </div>
+                <div className="card p-5">
+                  <h3 className="text-lg font-bold text-primary mb-2">Hybrid (11 Months + 1 Month India Rotation)</h3>
+                  <p className="text-text-secondary">Exposure to hospital-based pediatric cases and useful for hands-on NICU experience.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How This Fellowship Strengthens Your SCFHS Profile</h2>
+              <p className="text-text-secondary leading-relaxed mb-4">A Pediatrics fellowship does not replace SCFHS licensing. But it significantly improves your profile:</p>
+              <ul className="space-y-2 text-text-secondary">
+                <li>Adds structured specialty training</li>
+                <li>Signals commitment to pediatric specialization</li>
+                <li>Strengthens consultant-level applications</li>
+              </ul>
+              <p className="mt-4 text-text-secondary">Example: A doctor with MD Pediatrics + Fellowship is positioned stronger than MD alone.</p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Who Should Enrol in This Pediatrics Fellowship?</h2>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary">
+                <li>MD / DNB Pediatrics doctors</li>
+                <li>MBBS doctors working in pediatric departments</li>
+                <li>Doctors running pediatric clinics</li>
+                <li>Pediatricians targeting consultant roles</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Career Outcomes After Pediatrics Fellowship</h2>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-3">
+                <li>Consultant Pediatrician roles</li>
+                <li>Pediatric clinic expansion</li>
+                <li>NICU / Neonatal specialization pathways</li>
+                <li>Private practice growth</li>
+              </ul>
+              <p className="text-text-secondary">The fellowship removes the credential barrier - your experience drives the rest.</p>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Fees, EMI & Payment Options</h2>
+              <div className="card p-5">
+                <ul className="space-y-2 text-text-secondary mb-3">
+                  <li>Fully Online: INR 1,50,000 - 1,90,000</li>
+                  <li>Hybrid: INR 1,80,000 - 2,10,000</li>
+                  <li>EMI options available</li>
+                </ul>
+                <p className="text-sm text-text-tertiary">Approximate conversion (April 2026): ~SAR 6,750 onwards</p>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How to Apply (Saudi Arabia Doctors)</h2>
+              <ol className="list-decimal pl-5 space-y-2 text-text-secondary mb-5">
+                <li>Submit online application</li>
+                <li>Schedule advisor call</li>
+                <li>Upload documents</li>
+                <li>Receive decision (within 72 hours)</li>
+                <li>Confirm enrolment</li>
+              </ol>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link>
+                <a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Chat on WhatsApp</a>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">First 30 Days After Enrolment</h2>
+              <div className="grid md:grid-cols-2 gap-3 text-text-secondary">
+                <div className="card p-4">Week 1: Platform onboarding + faculty intro</div>
+                <div className="card p-4">Week 2: First live pediatric session</div>
+                <div className="card p-4">Week 3: Case-based assignment</div>
+                <div className="card p-4">Week 4: Feedback + next module</div>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Doctor Testimonials (Saudi Arabia)</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <blockquote className="card p-5 text-text-secondary">
+                  "The Pediatrics fellowship helped me expand my clinic in Jeddah without pausing my practice."<br />
+                  <span className="font-semibold text-primary">- Dr Kavitha Reddy</span>
+                </blockquote>
+                <blockquote className="card p-5 text-text-secondary">
+                  "Structured learning improved my consultant profile significantly."<br />
+                  <span className="font-semibold text-primary">- Pediatric Specialist, Riyadh</span>
+                </blockquote>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">MedFellow vs Other Pediatrics Fellowships</h2>
+              <div className="overflow-x-auto card p-2 md:p-4">
+                <table className="w-full text-sm md:text-base">
+                  <thead>
+                    <tr className="text-left border-b border-slate-200">
+                      <th className="p-3">Feature</th>
+                      <th className="p-3">MedFellow</th>
+                      <th className="p-3">Others</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {comparisonRows.map((row, idx) => (
+                      <tr key={idx} className="border-b last:border-b-0 border-slate-100">
+                        <td className="p-3 font-semibold text-primary">{row[0]}</td>
+                        <td className="p-3 text-text-secondary">{row[1]}</td>
+                        <td className="p-3 text-text-secondary">{row[2]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Top FAQs: Pediatrics Fellowship for Saudi Arabia Doctors</h2>
+              <div className="space-y-3">
+                {faqs.map((faq, idx) => (
+                  <details key={idx} className="card p-4" open={idx === 0}>
+                    <summary className="font-semibold text-primary cursor-pointer">{faq.q}</summary>
+                    <p className="mt-3 text-text-secondary leading-relaxed">{faq.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Read More</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {relatedPrograms.map((item) => (
+                  <Link key={item.href} href={item.href} className="card p-5 block hover:shadow-md transition-shadow">
+                    <h3 className="font-bold text-primary mb-2">{item.title}</h3>
+                    <p className="text-sm text-text-secondary">{item.desc}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-primary text-white p-6 md:p-8">
+              <p className="text-sm uppercase tracking-wide text-white/80 mb-2">Ready to Advance Your Pediatrics Career?</p>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold mb-2">Apply for 2026 Intake</h2>
+              <p className="text-white/90 mb-4">MedFellow Academy. Flexible. Online. Designed for Saudi Arabia Doctors.</p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/apply" className="px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-slate-100 transition-colors">Apply Now</Link>
+                <a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-white/60 text-white hover:bg-white/10 transition-colors">WhatsApp</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
+  if (location.toLowerCase() === "saudi-arabia" && slug === "fellowship-in-endocrinology") {
+    const comparisonRows = [
+      ["Fully Online", "Yes", "Limited"],
+      ["Duration", "12 Months", "1-3 Years"],
+      ["Saudi Doctor Friendly", "Yes", "Not always"],
+      ["SCFHS CV Value", "Strong", "Variable"]
+    ];
+
+    const faqs = [
+      {
+        q: "Is an Endocrinology fellowship required in Saudi Arabia?",
+        a: "No, it is not mandatory under SCFHS. However, hospitals increasingly prefer doctors with subspecialty training, especially in diabetes and metabolic care. A fellowship improves your chances for specialist and consultant roles."
+      },
+      {
+        q: "Is an online Endocrinology fellowship valid?",
+        a: "Yes, it is accepted as a supplementary credential. It does not replace SCFHS licensing but helps demonstrate structured training and strengthens your professional profile during evaluation."
+      },
+      {
+        q: "Can I do this while working?",
+        a: "Yes, the program is designed for working doctors. You can complete it alongside your job with flexible learning, requiring around 8-12 hours per week."
+      },
+      {
+        q: "Which is better: online or hybrid?",
+        a: "Online is ideal for flexibility and continuing your job without interruption. Hybrid is better if you want additional hands-on clinical exposure in endocrine case management."
+      },
+      {
+        q: "Will this increase my salary?",
+        a: "A fellowship does not directly increase salary. However, it improves eligibility for higher roles, and salary growth typically follows position upgrades and experience."
+      },
+      {
+        q: "What is the duration?",
+        a: "The program is typically 12 months long. Hybrid options may include an additional 1-month clinical rotation for practical exposure."
+      },
+      {
+        q: "What are the best subspecialties in Endocrinology?",
+        a: "High-demand areas include diabetology, thyroid disorders, obesity management, and hormonal imbalance treatments. These align with Saudi Arabia's rising lifestyle disease burden."
+      },
+      {
+        q: "Is it worth after MD/Internal Medicine?",
+        a: "Yes, it helps you stand out in competitive job markets. A fellowship strengthens your specialization and supports progression toward consultant-level roles."
+      },
+      {
+        q: "Do I need to travel?",
+        a: "No travel is required for the fully online program. Travel is optional only if you choose the hybrid pathway with clinical rotation."
+      },
+      {
+        q: "Who is eligible?",
+        a: "MD/DNB Internal Medicine doctors are preferred. MBBS doctors with relevant clinical experience in managing endocrine or diabetes cases can also apply."
+      },
+      {
+        q: "How does it help SCFHS classification?",
+        a: "SCFHS considers overall qualifications, experience, and additional training. A fellowship adds structured specialty learning, improving your profile strength during classification."
+      },
+      {
+        q: "What are the fees?",
+        a: "Online programs range from INR 1.5L to 1.9L, while hybrid options cost slightly higher. EMI options are available, making it accessible for working doctors."
+      },
+      {
+        q: "Why choose MedFellow Academy for an Endocrinology fellowship?",
+        a: "MedFellow Academy offers a structured, case-based Endocrinology fellowship designed specifically for working doctors in Saudi Arabia. The program focuses on practical clinical learning, flexible online access, and curriculum aligned with real-world endocrine practice."
+      },
+      {
+        q: "Are MedFellow fellowship programs suitable for doctors in Saudi Arabia?",
+        a: "Yes, MedFellow programs are designed to be accessible for doctors practising in Saudi Arabia and across the GCC. The flexible online format allows you to continue working while gaining structured subspecialty training relevant to local clinical needs."
+      },
+      {
+        q: "What other fellowship programs does MedFellow offer?",
+        a: "MedFellow Academy offers 40+ fellowship programs across specialties including Pediatrics, Internal Medicine, Cardiology, and more."
+      }
+    ];
+
+    const relatedPrograms = [
+      {
+        title: "Pediatrics Fellowship for Saudi Arabia Doctors",
+        desc: "Advance pediatric skills with flexible training designed for Saudi doctors aiming for consultant roles.",
+        href: "/saudi-arabia/programs/fellowship-in-pediatrics"
+      },
+      {
+        title: "Nephrology Fellowship for Saudi Arabia Doctors",
+        desc: "Build expertise in kidney care and dialysis management with structured training for Saudi practitioners.",
+        href: "/saudi-arabia/programs/fellowship-in-nephrology"
+      },
+      {
+        title: "Gastroenterology Fellowship for Saudi Doctors",
+        desc: "Gain skills in digestive disorders and endoscopy with case-based training aligned to Saudi practice.",
+        href: "/saudi-arabia/programs/fellowship-in-gastroenterology"
+      },
+      {
+        title: "Reproductive Medicine Fellowship for Saudi Doctors",
+        desc: "Specialize in IVF and fertility care with flexible training tailored for Saudi clinical practice needs.",
+        href: "/saudi-arabia/programs/fellowship-in-reproductive-medicine"
+      },
+      {
+        title: "Neonatology Fellowship for Saudi Arabia Doctors",
+        desc: "Develop NICU and newborn care expertise with structured training for pediatricians in Saudi Arabia.",
+        href: "/saudi-arabia/programs/fellowship-in-neonatology"
+      },
+      {
+        title: "Arthroscopy Fellowship for Saudi Orthopedic Surgeons",
+        desc: "Enhance joint surgery and sports injury skills with advanced orthopedic training for Saudi surgeons.",
+        href: "/saudi-arabia/programs/fellowship-in-arthroscopy-and-arthroplasty"
+      }
+    ];
+
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+
+        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+          <div className="container-custom">
+            <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
+              ← Back to All Programs in Saudi Arabia
+            </Link>
+            <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Endocrinology Specialty Program</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Endocrinology for Doctors in Saudi Arabia</h1>
+            <p className="text-base md:text-xl text-white/90 max-w-4xl mb-3">
+              A structured Endocrinology fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.
+            </p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">
+              Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in endocrine care.
+            </p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">
+              An Endocrinology fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in diabetes, hormonal disorders, and metabolic diseases while strengthening their SCFHS specialist profile.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link>
+              <Link href="/contact" className="px-6 py-3 rounded-lg border border-white/40 bg-white/10 hover:bg-white/20 transition-colors">Schedule Consultation</Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="py-8 border-y border-slate-200 bg-white">
+          <div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">46+</p><p className="text-sm text-text-secondary">Medical Fellowships</p></div>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">3,500+</p><p className="text-sm text-text-secondary">Doctors Trained</p></div>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">GCC</p><p className="text-sm text-text-secondary">Doctors Across Saudi Arabia & GCC</p></div>
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">4.8/5</p><p className="text-sm text-text-secondary">Doctor Rating</p></div>
+          </div>
+        </section>
+
+        <section className="section-padding">
+          <div className="container-custom max-w-5xl space-y-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Why Endocrinology Fellowship is High Demand in Saudi Arabia</h2>
+              <p className="text-text-secondary leading-relaxed mb-3">Saudi Arabia is witnessing a sharp rise in lifestyle-related diseases under Vision 2030 healthcare expansion.</p>
+              <p className="text-text-secondary leading-relaxed mb-3">Endocrinology is now one of the fastest-growing specialties due to increasing cases of diabetes (Type 1 & Type 2), thyroid disorders, obesity and metabolic syndrome, and hormonal imbalances.</p>
+              <p className="text-text-secondary leading-relaxed mb-3">Demand is rising across government hospitals (MOH, SCFHS-linked institutions), private endocrine and diabetes clinics, and multispecialty hospitals in Riyadh, Jeddah, and Dammam.</p>
+              <ul className="space-y-2 text-text-secondary mb-4">
+                <li>General physician roles are becoming saturated.</li>
+                <li>Specialised endocrine expertise is highly valued.</li>
+                <li>A structured Endocrinology fellowship helps bridge this gap.</li>
+              </ul>
+              <h3 className="text-lg font-bold text-primary mb-2">Common Use Cases for This Fellowship</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary">
+                <li>Doctors managing diabetes clinics</li>
+                <li>Physicians targeting endocrinologist roles</li>
+                <li>Internal medicine doctors upgrading specialization</li>
+              </ul>
+            </div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">The 2026 Credentialing Gap for Endocrinology Doctors</h2><p className="text-text-secondary leading-relaxed">With changing SCFHS classification standards, many doctors face a key challenge: MBBS or MD alone may not be enough for specialist or consultant progression. Hospitals increasingly prefer subspecialty training and documented clinical expertise. A fellowship acts as a credential multiplier, strengthening your SCFHS profile and improving job competitiveness.</p></div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">What the MedFellow Endocrinology Fellowship Covers</h2>
+              <p className="text-text-secondary leading-relaxed mb-4">A 12-month structured online program designed for working doctors.</p>
+              <h3 className="text-lg font-bold text-primary mb-2">Program Highlights</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-4">
+                <li>Monthly module-based curriculum</li>
+                <li>Live endocrine case discussions</li>
+                <li>Recorded lectures for flexible learning</li>
+                <li>Evidence-based clinical protocols</li>
+                <li>Structured assessments</li>
+              </ul>
+              <h3 className="text-lg font-bold text-primary mb-2">Clinical Focus Areas</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary">
+                <li>Diabetes management (insulin therapy, complications)</li>
+                <li>Thyroid disorders (hypo/hyperthyroidism)</li>
+                <li>Obesity and metabolic syndrome</li>
+                <li>Hormonal disorders (pituitary, adrenal, reproductive)</li>
+                <li>PCOS and endocrine gynecology basics</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Optional Clinical Rotation (Hybrid Pathway)</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Fully Online (12 Months)</h3><p className="text-text-secondary">Ideal for working doctors. No travel required.</p></div>
+                <div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Hybrid (11 Months + 1 Month India Rotation)</h3><p className="text-text-secondary">Exposure to endocrine case management. Useful for diabetes clinics and hospital-based learning.</p></div>
+              </div>
+            </div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How This Fellowship Strengthens Your SCFHS Profile</h2><ul className="space-y-2 text-text-secondary"><li>Adds structured subspecialty training</li><li>Demonstrates commitment to endocrine care</li><li>Improves consultant-level applications</li></ul><p className="mt-4 text-text-secondary">Example: A doctor with MD/Internal Medicine + Fellowship in Endocrinology is positioned stronger than MD alone.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Who Should Enrol in This Endocrinology Fellowship?</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>MD / DNB Internal Medicine doctors</li><li>MBBS doctors managing diabetes patients</li><li>General physicians in clinics/hospitals</li><li>Doctors targeting endocrine specialization</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Career Outcomes After Endocrinology Fellowship</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-3"><li>Endocrinologist / Diabetes Specialist roles</li><li>Diabetes clinic setup or expansion</li><li>Hospital endocrine departments</li><li>Preventive and metabolic care practice</li></ul><p className="text-text-secondary">The fellowship helps remove the credential barrier, enabling career growth.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Fees, EMI & Payment Options</h2><div className="card p-5"><ul className="space-y-2 text-text-secondary mb-3"><li>Fully Online: INR 1,50,000 - 1,90,000</li><li>Hybrid: INR 1,80,000 - 2,10,000</li><li>EMI options available</li></ul><p className="text-sm text-text-tertiary">Approximate conversion (April 2026): ~SAR 6,750 onwards</p></div></div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How to Apply (Saudi Arabia Doctors)</h2>
+              <ol className="list-decimal pl-5 space-y-2 text-text-secondary mb-5"><li>Submit online application</li><li>Schedule advisor call</li><li>Upload documents</li><li>Receive decision (within 72 hours)</li><li>Confirm enrolment</li></ol>
+              <div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Chat on WhatsApp</a></div>
+            </div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">First 30 Days After Enrolment</h2><div className="grid md:grid-cols-2 gap-3 text-text-secondary"><div className="card p-4">Week 1: Platform onboarding + faculty introduction</div><div className="card p-4">Week 2: First live endocrine session</div><div className="card p-4">Week 3: Case-based assignment</div><div className="card p-4">Week 4: Feedback + next module</div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Doctor Testimonials (Saudi Arabia)</h2><div className="grid md:grid-cols-2 gap-4"><blockquote className="card p-5 text-text-secondary">"This fellowship helped me manage diabetes patients more confidently in my clinic."<br /><span className="font-semibold text-primary">- General Physician, Riyadh</span></blockquote><blockquote className="card p-5 text-text-secondary">"Structured endocrine training improved my hospital profile significantly."<br /><span className="font-semibold text-primary">- Internal Medicine Specialist, Jeddah</span></blockquote></div></div>
+
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">MedFellow vs Other Endocrinology Fellowships</h2>
+              <div className="overflow-x-auto card p-2 md:p-4">
+                <table className="w-full text-sm md:text-base">
+                  <thead><tr className="text-left border-b border-slate-200"><th className="p-3">Feature</th><th className="p-3">MedFellow</th><th className="p-3">Others</th></tr></thead>
+                  <tbody>{comparisonRows.map((row, idx) => (<tr key={idx} className="border-b last:border-b-0 border-slate-100"><td className="p-3 font-semibold text-primary">{row[0]}</td><td className="p-3 text-text-secondary">{row[1]}</td><td className="p-3 text-text-secondary">{row[2]}</td></tr>))}</tbody>
+                </table>
+              </div>
+            </div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Top FAQs: Endocrinology Fellowship for Saudi Arabia Doctors</h2><div className="space-y-3">{faqs.map((faq, idx) => (<details key={idx} className="card p-4" open={idx === 0}><summary className="font-semibold text-primary cursor-pointer">{faq.q}</summary><p className="mt-3 text-text-secondary leading-relaxed">{faq.a}</p></details>))}</div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Read More</h2><div className="grid md:grid-cols-2 gap-4">{relatedPrograms.map((item) => (<Link key={item.href} href={item.href} className="card p-5 block hover:shadow-md transition-shadow"><h3 className="font-bold text-primary mb-2">{item.title}</h3><p className="text-sm text-text-secondary">{item.desc}</p></Link>))}</div></div>
+
+            <div className="rounded-2xl bg-primary text-white p-6 md:p-8"><p className="text-sm uppercase tracking-wide text-white/80 mb-2">Ready to Advance Your Endocrinology Career?</p><h2 className="text-2xl md:text-3xl font-heading font-bold mb-2">Apply for 2026 Intake</h2><p className="text-white/90 mb-4">MedFellow Academy. Flexible. Online. Designed for Saudi Arabia Doctors.</p><div className="flex flex-wrap gap-3"><Link href="/apply" className="px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-slate-100 transition-colors">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-white/60 text-white hover:bg-white/10 transition-colors">WhatsApp</a></div></div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
+  if (location.toLowerCase() === "saudi-arabia" && slug === "fellowship-in-nephrology") {
+    const comparisonRows = [
+      ["Fully Online", "Yes", "Limited"],
+      ["Duration", "12 Months", "1-3 Years"],
+      ["Saudi Doctor Friendly", "Yes", "Not always"],
+      ["SCFHS CV Value", "Strong", "Variable"]
+    ];
+
+    const faqs = [
+      { q: "Is a Nephrology fellowship required in Saudi Arabia?", a: "No, it is not mandatory under SCFHS. However, hospitals prefer doctors with renal specialization, especially for dialysis and CKD management roles. A fellowship improves career progression opportunities." },
+      { q: "Is an online Nephrology fellowship valid?", a: "Yes, it is accepted as a supplementary credential. It strengthens your profile but does not replace SCFHS licensing or classification requirements." },
+      { q: "Can I do this while working?", a: "Yes, the program is designed for working doctors. It requires around 8-12 hours per week and can be completed alongside your clinical practice." },
+      { q: "Which is better: online or hybrid?", a: "Online is ideal for flexibility and continuous work. Hybrid is better if you want hands-on exposure in dialysis units and hospital nephrology cases." },
+      { q: "Will this increase my salary?", a: "Not directly, but it improves eligibility for higher roles. Salary growth typically comes with role upgrades and increased clinical expertise." },
+      { q: "What is the duration?", a: "The program is typically 12 months long. Hybrid options may include a 1-month clinical rotation for practical experience." },
+      { q: "What are the best subspecialties in Nephrology?", a: "High-demand areas include dialysis management, CKD care, hypertension-related kidney disease, and transplant support. These align with Saudi Arabia's growing renal disease burden." },
+      { q: "Is it worth after MD/Internal Medicine?", a: "Yes, it helps differentiate your profile and strengthens your specialization. It supports progression toward nephrology-focused roles and consultant pathways." },
+      { q: "Do I need to travel?", a: "No travel is required for the online program. Travel is optional if you choose the hybrid pathway with clinical rotation." },
+      { q: "Who is eligible?", a: "MD/DNB Internal Medicine doctors are preferred. MBBS doctors with experience in managing renal or dialysis patients can also apply." },
+      { q: "How does it help SCFHS classification?", a: "SCFHS evaluates qualifications, experience, and certifications. A fellowship adds structured nephrology training, improving your profile strength during classification." },
+      { q: "What are the fees?", a: "Online programs range from INR 1.5L to 1.9L, while hybrid options cost slightly higher. EMI options are available." },
+      { q: "Why choose MedFellow Academy for a Nephrology fellowship?", a: "MedFellow offers a structured, case-based nephrology program tailored for working doctors. It focuses on practical renal care training aligned with real clinical scenarios in Saudi Arabia." },
+      { q: "Are MedFellow programs suitable for Saudi Arabia doctors?", a: "Yes, programs are designed for doctors across Saudi Arabia and GCC. The flexible format allows you to gain specialization without interrupting your job." },
+      { q: "What other fellowship programs does MedFellow offer?", a: "MedFellow offers 40+ fellowships across specialties like Internal Medicine, Pediatrics, Cardiology, and more. These programs help doctors enhance clinical expertise and career growth." }
+    ];
+
+    const relatedPrograms = [
+      { title: "Explore Fellowship Programs for Saudi Doctors", desc: "Discover 40+ online fellowships designed for Saudi doctors to build specialization and advance careers.", href: "/saudi-arabia/programs" },
+      { title: "Pediatrics Fellowship for Saudi Arabia Doctors", desc: "Advance pediatric skills with flexible training for doctors aiming for consultant roles in Saudi Arabia.", href: "/saudi-arabia/programs/fellowship-in-pediatrics" },
+      { title: "Endocrinology Fellowship for Saudi Arabia Doctors", desc: "Gain expertise in diabetes and hormonal disorders with structured training aligned to Saudi practice.", href: "/saudi-arabia/programs/fellowship-in-endocrinology" },
+      { title: "Gastroenterology Fellowship for Saudi Doctors", desc: "Build skills in digestive diseases and endoscopy with practical training for Saudi clinical settings.", href: "/saudi-arabia/programs/fellowship-in-gastroenterology" },
+      { title: "Reproductive Medicine Fellowship for Saudi Doctors", desc: "Specialize in IVF and fertility care with flexible training tailored for Saudi healthcare demand.", href: "/saudi-arabia/programs/fellowship-in-reproductive-medicine" },
+      { title: "Arthroscopy Fellowship for Saudi Orthopedic Doctors", desc: "Enhance joint surgery and sports injury skills with advanced orthopedic training for Saudi surgeons.", href: "/saudi-arabia/programs/fellowship-in-arthroscopy-and-arthroplasty" },
+      { title: "Neonatology Fellowship for Saudi Arabia Doctors", desc: "Develop NICU and newborn care expertise with structured training for pediatricians in Saudi Arabia.", href: "/saudi-arabia/programs/fellowship-in-neonatology" }
+    ];
+
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+          <div className="container-custom">
+            <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
+            <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Nephrology Specialty Program</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Nephrology for Doctors in Saudi Arabia</h1>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Nephrology fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in renal care.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A Nephrology fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in kidney diseases, dialysis management, and chronic kidney care while strengthening their SCFHS specialist profile.</p>
+            <div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><Link href="/contact" className="px-6 py-3 rounded-lg border border-white/40 bg-white/10 hover:bg-white/20 transition-colors">Schedule Consultation</Link></div>
+          </div>
+        </section>
+
+        <section className="py-8 border-y border-slate-200 bg-white"><div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-4"><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">46+</p><p className="text-sm text-text-secondary">Medical Fellowships</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">3,500+</p><p className="text-sm text-text-secondary">Doctors Trained</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">GCC</p><p className="text-sm text-text-secondary">Doctors Across Saudi Arabia & GCC</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">4.8/5</p><p className="text-sm text-text-secondary">Doctor Rating</p></div></div></section>
+
+        <section className="section-padding">
+          <div className="container-custom max-w-5xl space-y-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Why Nephrology Fellowship is High Demand in Saudi Arabia</h2>
+              <p className="text-text-secondary leading-relaxed mb-3">Saudi Arabia is seeing a significant rise in kidney-related disorders due to diabetes, hypertension, and lifestyle changes under Vision 2030.</p>
+              <p className="text-text-secondary leading-relaxed mb-3">Nephrology is becoming a critical specialty due to increasing cases of Chronic Kidney Disease (CKD), Acute Kidney Injury (AKI), diabetic nephropathy, and hypertension-related kidney complications.</p>
+              <p className="text-text-secondary leading-relaxed mb-3">Demand is rising across government hospitals, dialysis centers and renal clinics, and multispecialty hospitals in Riyadh, Jeddah, and Dammam.</p>
+              <ul className="space-y-2 text-text-secondary mb-4"><li>General physician roles are becoming saturated.</li><li>Renal specialization is increasingly required.</li><li>A structured Nephrology fellowship helps bridge this gap.</li></ul>
+              <h3 className="text-lg font-bold text-primary mb-2">Common Use Cases for This Fellowship</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Doctors managing dialysis centers</li><li>Physicians treating CKD and hypertension patients</li><li>Internal medicine doctors upgrading specialization</li></ul>
+            </div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">The 2026 Credentialing Gap for Nephrology Doctors</h2><p className="text-text-secondary leading-relaxed">With changing SCFHS classification standards, many doctors face a key challenge: MBBS or MD alone may not be sufficient for specialist or consultant progression. Hospitals increasingly prefer subspecialty nephrology training and documented renal case management expertise. A fellowship acts as a credential multiplier, strengthening your SCFHS profile and improving job competitiveness.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">What the MedFellow Nephrology Fellowship Covers</h2><p className="text-text-secondary leading-relaxed mb-4">A 12-month structured online program designed for working doctors.</p><h3 className="text-lg font-bold text-primary mb-2">Program Highlights</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-4"><li>Monthly module-based curriculum</li><li>Live nephrology case discussions</li><li>Recorded lectures for flexible learning</li><li>Evidence-based renal care protocols</li><li>Structured assessments</li></ul><h3 className="text-lg font-bold text-primary mb-2">Clinical Focus Areas</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Chronic Kidney Disease (CKD) management</li><li>Dialysis (hemodialysis and peritoneal dialysis basics)</li><li>Electrolyte and fluid balance disorders</li><li>Hypertension and renal complications</li><li>Acute kidney injury (AKI) management</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Optional Clinical Rotation (Hybrid Pathway)</h2><div className="grid md:grid-cols-2 gap-4"><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Fully Online (12 Months)</h3><p className="text-text-secondary">Ideal for working doctors. No travel required.</p></div><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Hybrid (11 Months + 1 Month India Rotation)</h3><p className="text-text-secondary">Exposure to dialysis units and renal case management, useful for hospital-based nephrology practice.</p></div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How This Fellowship Strengthens Your SCFHS Profile</h2><ul className="space-y-2 text-text-secondary"><li>Adds structured subspecialty training</li><li>Demonstrates commitment to renal care</li><li>Improves consultant-level applications</li></ul><p className="mt-4 text-text-secondary">Example: A doctor with MD/Internal Medicine + Fellowship in Nephrology is positioned stronger than MD alone.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Who Should Enrol in This Nephrology Fellowship?</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>MD / DNB Internal Medicine doctors</li><li>MBBS doctors managing kidney-related patients</li><li>General physicians in clinics/hospitals</li><li>Doctors targeting nephrology specialization</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Career Outcomes After Nephrology Fellowship</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-3"><li>Nephrologist / Renal Specialist roles</li><li>Dialysis center management</li><li>Hospital nephrology departments</li><li>Chronic disease management clinics</li></ul><p className="text-text-secondary">The fellowship helps remove the credential barrier, enabling career growth.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Fees, EMI & Payment Options</h2><div className="card p-5"><ul className="space-y-2 text-text-secondary mb-3"><li>Fully Online: INR 1,50,000 - 1,90,000</li><li>Hybrid: INR 1,80,000 - 2,10,000</li><li>EMI options available</li></ul><p className="text-sm text-text-tertiary">Approximate conversion (April 2026): ~SAR 6,750 onwards</p></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How to Apply (Saudi Arabia Doctors)</h2><ol className="list-decimal pl-5 space-y-2 text-text-secondary mb-5"><li>Submit online application</li><li>Schedule advisor call</li><li>Upload documents</li><li>Receive decision (within 72 hours)</li><li>Confirm enrolment</li></ol><div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Chat on WhatsApp</a></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">First 30 Days After Enrolment</h2><div className="grid md:grid-cols-2 gap-3 text-text-secondary"><div className="card p-4">Week 1: Platform onboarding + faculty introduction</div><div className="card p-4">Week 2: First live nephrology session</div><div className="card p-4">Week 3: Case-based assignment</div><div className="card p-4">Week 4: Feedback + next module</div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Doctor Testimonials (Saudi Arabia)</h2><div className="grid md:grid-cols-2 gap-4"><blockquote className="card p-5 text-text-secondary">"This fellowship helped me manage dialysis patients more effectively in my hospital."<br /><span className="font-semibold text-primary">- General Physician, Riyadh</span></blockquote><blockquote className="card p-5 text-text-secondary">"The structured nephrology training improved my confidence in CKD management."<br /><span className="font-semibold text-primary">- Internal Medicine Specialist, Jeddah</span></blockquote></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">MedFellow vs Other Nephrology Fellowships</h2><div className="overflow-x-auto card p-2 md:p-4"><table className="w-full text-sm md:text-base"><thead><tr className="text-left border-b border-slate-200"><th className="p-3">Feature</th><th className="p-3">MedFellow</th><th className="p-3">Others</th></tr></thead><tbody>{comparisonRows.map((row, idx) => (<tr key={idx} className="border-b last:border-b-0 border-slate-100"><td className="p-3 font-semibold text-primary">{row[0]}</td><td className="p-3 text-text-secondary">{row[1]}</td><td className="p-3 text-text-secondary">{row[2]}</td></tr>))}</tbody></table></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Top FAQs: Nephrology Fellowship for Saudi Arabia Doctors</h2><div className="space-y-3">{faqs.map((faq, idx) => (<details key={idx} className="card p-4" open={idx === 0}><summary className="font-semibold text-primary cursor-pointer">{faq.q}</summary><p className="mt-3 text-text-secondary leading-relaxed">{faq.a}</p></details>))}</div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Read More</h2><div className="grid md:grid-cols-2 gap-4">{relatedPrograms.map((item) => (<Link key={item.href} href={item.href} className="card p-5 block hover:shadow-md transition-shadow"><h3 className="font-bold text-primary mb-2">{item.title}</h3><p className="text-sm text-text-secondary">{item.desc}</p></Link>))}</div></div>
+
+            <div className="rounded-2xl bg-primary text-white p-6 md:p-8"><p className="text-sm uppercase tracking-wide text-white/80 mb-2">Ready to Advance Your Nephrology Career?</p><h2 className="text-2xl md:text-3xl font-heading font-bold mb-2">Apply for 2026 Intake</h2><p className="text-white/90 mb-4">MedFellow Academy. Flexible. Online. Designed for Saudi Arabia Doctors.</p><div className="flex flex-wrap gap-3"><Link href="/apply" className="px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-slate-100 transition-colors">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-white/60 text-white hover:bg-white/10 transition-colors">WhatsApp</a></div></div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
+  if (location.toLowerCase() === "saudi-arabia" && slug === "fellowship-in-gastroenterology") {
+    const comparisonRows = [
+      ["Fully Online", "Yes", "Limited"],
+      ["Duration", "12 Months", "1-3 Years"],
+      ["Saudi Doctor Friendly", "Yes", "Not always"],
+      ["SCFHS CV Value", "Strong", "Variable"]
+    ];
+
+    const faqs = [
+      { q: "Is a Gastroenterology fellowship required in Saudi Arabia?", a: "No, it is not mandatory under SCFHS. However, hospitals prefer doctors with GI specialization, especially for liver and digestive disease management. A fellowship improves career advancement opportunities." },
+      { q: "Is an online Gastroenterology fellowship valid?", a: "Yes, it is accepted as a supplementary credential. It strengthens your profile but does not replace SCFHS licensing or classification requirements." },
+      { q: "Can I do this while working?", a: "Yes, the program is designed for working doctors. It requires around 8-12 hours per week and can be completed alongside your clinical practice." },
+      { q: "Which is better: online or hybrid?", a: "Online is ideal for flexibility and uninterrupted work. Hybrid is better if you want exposure to GI procedures and hospital-based gastroenterology practice." },
+      { q: "Will this increase my salary?", a: "Not directly, but it improves eligibility for higher roles. Salary growth typically comes with role upgrades and increased clinical expertise." },
+      { q: "What is the duration?", a: "The program is typically 12 months long. Hybrid options may include a 1-month clinical rotation for practical experience." },
+      { q: "What are the best subspecialties in Gastroenterology?", a: "High-demand areas include hepatology (liver diseases), GI endoscopy, inflammatory bowel diseases, and digestive disorder management. These align with Saudi Arabia's growing GI disease burden." },
+      { q: "Is it worth after MD/Internal Medicine?", a: "Yes, it helps differentiate your profile and strengthens your specialization. It supports progression toward gastroenterology-focused and consultant roles." },
+      { q: "Do I need to travel?", a: "No travel is required for the online program. Travel is optional if you choose the hybrid pathway with clinical rotation." },
+      { q: "Who is eligible?", a: "MD/DNB Internal Medicine doctors are preferred. MBBS doctors with experience in managing GI or liver-related conditions can also apply." },
+      { q: "How does it help SCFHS classification?", a: "SCFHS evaluates qualifications, experience, and certifications. A fellowship adds structured gastroenterology training, improving your profile strength during classification." },
+      { q: "What are the fees?", a: "Online programs range from INR 1.5L to 1.9L, while hybrid options cost slightly higher. EMI options are available." },
+      { q: "Why choose MedFellow Academy for a Gastroenterology fellowship?", a: "MedFellow offers a structured, case-based GI program tailored for working doctors. It focuses on practical digestive disease management aligned with real clinical scenarios." },
+      { q: "Are MedFellow programs suitable for Saudi Arabia doctors?", a: "Yes, programs are designed for doctors across Saudi Arabia and GCC. The flexible format allows you to gain specialization without interrupting your job." },
+      { q: "What other fellowship programs does MedFellow offer?", a: "MedFellow offers 40+ fellowships across specialties like Internal Medicine, Pediatrics, Cardiology, and more. These programs help doctors enhance clinical expertise and career growth." }
+    ];
+
+    const relatedPrograms = [
+      { title: "Explore Fellowship Programs for Saudi Doctors", desc: "Browse 40+ fellowships designed for Saudi doctors to build specialization and advance clinical careers.", href: "/saudi-arabia/programs" },
+      { title: "Pediatrics Fellowship for Saudi Arabia Doctors", desc: "Strengthen pediatric expertise with flexible training for doctors targeting specialist and consultant roles.", href: "/saudi-arabia/programs/fellowship-in-pediatrics" },
+      { title: "Endocrinology Fellowship for Saudi Arabia Doctors", desc: "Gain advanced skills in diabetes and hormonal care with structured training aligned to Saudi practice.", href: "/saudi-arabia/programs/fellowship-in-endocrinology" },
+      { title: "Nephrology Fellowship for Saudi Arabia Doctors", desc: "Build expertise in kidney diseases and dialysis care with practical training for Saudi healthcare needs.", href: "/saudi-arabia/programs/fellowship-in-nephrology" },
+      { title: "Reproductive Medicine Fellowship for Saudi Doctors", desc: "Specialize in IVF and fertility care with flexible programs tailored for Saudi clinical demand.", href: "/saudi-arabia/programs/fellowship-in-reproductive-medicine" },
+      { title: "Neonatology Fellowship for Saudi Arabia Doctors", desc: "Develop NICU and newborn care skills with structured training for pediatricians in Saudi Arabia.", href: "/saudi-arabia/programs/fellowship-in-neonatology" },
+      { title: "Arthroscopy Fellowship for Saudi Orthopedic Doctors", desc: "Enhance joint surgery and sports injury expertise with advanced orthopedic training for surgeons.", href: "/saudi-arabia/programs/fellowship-in-arthroscopy-and-arthroplasty" }
+    ];
+
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+          <div className="container-custom">
+            <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
+            <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Gastroenterology Specialty Program</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Gastroenterology for Doctors in Saudi Arabia</h1>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Gastroenterology fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in digestive and liver care.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A Gastroenterology fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in gastrointestinal diseases, liver disorders, and endoscopy basics while strengthening their SCFHS specialist profile.</p>
+            <div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><Link href="/contact" className="px-6 py-3 rounded-lg border border-white/40 bg-white/10 hover:bg-white/20 transition-colors">Schedule Consultation</Link></div>
+          </div>
+        </section>
+
+        <section className="py-8 border-y border-slate-200 bg-white"><div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-4"><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">46+</p><p className="text-sm text-text-secondary">Medical Fellowships</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">3,500+</p><p className="text-sm text-text-secondary">Doctors Trained</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">GCC</p><p className="text-sm text-text-secondary">Doctors Across Saudi Arabia & GCC</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">4.8/5</p><p className="text-sm text-text-secondary">Doctor Rating</p></div></div></section>
+
+        <section className="section-padding">
+          <div className="container-custom max-w-5xl space-y-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Why Gastroenterology Fellowship is High Demand in Saudi Arabia</h2>
+              <p className="text-text-secondary leading-relaxed mb-3">Saudi Arabia is experiencing a growing burden of digestive and liver diseases due to lifestyle changes, diet patterns, and metabolic conditions under Vision 2030.</p>
+              <p className="text-text-secondary leading-relaxed mb-3">Gastroenterology is a high-demand specialty due to increasing cases of Gastroesophageal Reflux Disease (GERD), liver diseases (fatty liver, hepatitis), irritable bowel syndrome (IBS), and gastrointestinal infections and disorders.</p>
+              <p className="text-text-secondary leading-relaxed mb-3">Demand is rising across government hospitals, gastroenterology and endoscopy clinics, and multispecialty hospitals in Riyadh, Jeddah, and Dammam.</p>
+              <ul className="space-y-2 text-text-secondary mb-4"><li>General physician roles are becoming saturated.</li><li>GI and liver specialization is increasingly valued.</li><li>A structured Gastroenterology fellowship helps bridge this gap.</li></ul>
+              <h3 className="text-lg font-bold text-primary mb-2">Common Use Cases for This Fellowship</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Doctors managing GI clinics</li><li>Physicians treating liver and digestive disorders</li><li>Internal medicine doctors upgrading specialization</li></ul>
+            </div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">The 2026 Credentialing Gap for Gastroenterology Doctors</h2><p className="text-text-secondary leading-relaxed">With changing SCFHS classification standards, many doctors face a key challenge: MBBS or MD alone may not be sufficient for specialist or consultant progression. Hospitals increasingly prefer subspecialty gastroenterology training and documented GI case management expertise. A fellowship acts as a credential multiplier, strengthening your SCFHS profile and improving job competitiveness.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">What the MedFellow Gastroenterology Fellowship Covers</h2><p className="text-text-secondary leading-relaxed mb-4">A 12-month structured online program designed for working doctors.</p><h3 className="text-lg font-bold text-primary mb-2">Program Highlights</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-4"><li>Monthly module-based curriculum</li><li>Live gastroenterology case discussions</li><li>Recorded lectures for flexible learning</li><li>Evidence-based GI care protocols</li><li>Structured assessments</li></ul><h3 className="text-lg font-bold text-primary mb-2">Clinical Focus Areas</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>GERD, IBS, and common GI disorders</li><li>Liver diseases (NAFLD, hepatitis basics)</li><li>Gastrointestinal infections</li><li>Pancreatic and biliary disorders</li><li>Basics of endoscopy and GI procedures</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Optional Clinical Rotation (Hybrid Pathway)</h2><div className="grid md:grid-cols-2 gap-4"><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Fully Online (12 Months)</h3><p className="text-text-secondary">Ideal for working doctors. No travel required.</p></div><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Hybrid (11 Months + 1 Month India Rotation)</h3><p className="text-text-secondary">Exposure to GI case management and endoscopy settings, useful for hospital-based gastro practice.</p></div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How This Fellowship Strengthens Your SCFHS Profile</h2><ul className="space-y-2 text-text-secondary"><li>Adds structured subspecialty training</li><li>Demonstrates commitment to GI specialization</li><li>Improves consultant-level applications</li></ul><p className="mt-4 text-text-secondary">Example: A doctor with MD/Internal Medicine + Fellowship in Gastroenterology is positioned stronger than MD alone.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Who Should Enrol in This Gastroenterology Fellowship?</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>MD / DNB Internal Medicine doctors</li><li>MBBS doctors managing GI patients</li><li>General physicians in clinics/hospitals</li><li>Doctors targeting gastroenterology specialization</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Career Outcomes After Gastroenterology Fellowship</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-3"><li>Gastroenterologist / GI Specialist roles</li><li>Gastro and liver clinic expansion</li><li>Hospital gastroenterology departments</li><li>Preventive digestive health practice</li></ul><p className="text-text-secondary">The fellowship helps remove the credential barrier, enabling career growth.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Fees, EMI & Payment Options</h2><div className="card p-5"><ul className="space-y-2 text-text-secondary mb-3"><li>Fully Online: INR 1,50,000 - 1,90,000</li><li>Hybrid: INR 1,80,000 - 2,10,000</li><li>EMI options available</li></ul><p className="text-sm text-text-tertiary">Approximate conversion (April 2026): ~SAR 6,750 onwards</p></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How to Apply (Saudi Arabia Doctors)</h2><ol className="list-decimal pl-5 space-y-2 text-text-secondary mb-5"><li>Submit online application</li><li>Schedule advisor call</li><li>Upload documents</li><li>Receive decision (within 72 hours)</li><li>Confirm enrolment</li></ol><div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Chat on WhatsApp</a></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">First 30 Days After Enrolment</h2><div className="grid md:grid-cols-2 gap-3 text-text-secondary"><div className="card p-4">Week 1: Platform onboarding + faculty introduction</div><div className="card p-4">Week 2: First live gastroenterology session</div><div className="card p-4">Week 3: Case-based assignment</div><div className="card p-4">Week 4: Feedback + next module</div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Doctor Testimonials (Saudi Arabia)</h2><div className="grid md:grid-cols-2 gap-4"><blockquote className="card p-5 text-text-secondary">"This fellowship improved my confidence in managing GI disorders in my clinic."<br /><span className="font-semibold text-primary">- General Physician, Riyadh</span></blockquote><blockquote className="card p-5 text-text-secondary">"Structured training helped me handle liver cases more effectively."<br /><span className="font-semibold text-primary">- Internal Medicine Specialist, Jeddah</span></blockquote></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">MedFellow vs Other Gastroenterology Fellowships</h2><div className="overflow-x-auto card p-2 md:p-4"><table className="w-full text-sm md:text-base"><thead><tr className="text-left border-b border-slate-200"><th className="p-3">Feature</th><th className="p-3">MedFellow</th><th className="p-3">Others</th></tr></thead><tbody>{comparisonRows.map((row, idx) => (<tr key={idx} className="border-b last:border-b-0 border-slate-100"><td className="p-3 font-semibold text-primary">{row[0]}</td><td className="p-3 text-text-secondary">{row[1]}</td><td className="p-3 text-text-secondary">{row[2]}</td></tr>))}</tbody></table></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Top FAQs: Gastroenterology Fellowship for Saudi Arabia Doctors</h2><div className="space-y-3">{faqs.map((faq, idx) => (<details key={idx} className="card p-4" open={idx === 0}><summary className="font-semibold text-primary cursor-pointer">{faq.q}</summary><p className="mt-3 text-text-secondary leading-relaxed">{faq.a}</p></details>))}</div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Read More</h2><div className="grid md:grid-cols-2 gap-4">{relatedPrograms.map((item) => (<Link key={item.href} href={item.href} className="card p-5 block hover:shadow-md transition-shadow"><h3 className="font-bold text-primary mb-2">{item.title}</h3><p className="text-sm text-text-secondary">{item.desc}</p></Link>))}</div></div>
+
+            <div className="rounded-2xl bg-primary text-white p-6 md:p-8"><p className="text-sm uppercase tracking-wide text-white/80 mb-2">Ready to Advance Your Gastroenterology Career?</p><h2 className="text-2xl md:text-3xl font-heading font-bold mb-2">Apply for 2026 Intake</h2><p className="text-white/90 mb-4">MedFellow Academy. Flexible. Online. Designed for Saudi Arabia Doctors.</p><div className="flex flex-wrap gap-3"><Link href="/apply" className="px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-slate-100 transition-colors">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-white/60 text-white hover:bg-white/10 transition-colors">WhatsApp</a></div></div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
+  if (location.toLowerCase() === "saudi-arabia" && slug === "fellowship-in-reproductive-medicine") {
+    const comparisonRows = [
+      ["Fully Online", "Yes", "Limited"],
+      ["Duration", "12 Months", "1-3 Years"],
+      ["Saudi Doctor Friendly", "Yes", "Not always"],
+      ["SCFHS CV Value", "Strong", "Variable"]
+    ];
+
+    const faqs = [
+      { q: "Is a Reproductive Medicine fellowship required in Saudi Arabia?", a: "No, it is not mandatory under SCFHS. However, fertility clinics and hospitals prefer doctors with subspecialty training in reproductive medicine, improving your chances for advanced roles." },
+      { q: "Is an online Reproductive Medicine fellowship valid?", a: "Yes, it is accepted as a supplementary credential. It strengthens your profile but does not replace SCFHS licensing or classification requirements." },
+      { q: "Can I do this while working?", a: "Yes, the program is designed for working doctors. It requires around 8-12 hours per week and can be completed alongside your clinical practice." },
+      { q: "Which is better: online or hybrid?", a: "Online is best for flexibility and no career break. Hybrid is useful if you want exposure to IVF clinics and hands-on reproductive procedures." },
+      { q: "Will this increase my salary?", a: "Not directly, but it improves eligibility for higher roles. Salary growth typically comes with role upgrades and increased clinical expertise." },
+      { q: "What is the duration?", a: "The program is typically 12 months long. Hybrid options may include a 1-month clinical rotation for practical experience." },
+      { q: "What are the best subspecialties in Reproductive Medicine?", a: "High-demand areas include IVF, infertility management, PCOS treatment, and hormonal reproductive health. These align with increasing fertility care demand." },
+      { q: "Is it worth after MD/OBG?", a: "Yes, it helps you specialize further and stand out in fertility-focused roles. It supports progression toward consultant and IVF specialist positions." },
+      { q: "Do I need to travel?", a: "No travel is required for the online program. Travel is optional if you choose the hybrid pathway with clinical rotation." },
+      { q: "Who is eligible?", a: "MD/DNB Obstetrics and Gynecology doctors are preferred. MBBS doctors with experience in women's health or infertility cases can also apply." },
+      { q: "How does it help SCFHS classification?", a: "SCFHS evaluates qualifications, experience, and certifications. A fellowship adds structured reproductive medicine expertise, improving your profile strength." },
+      { q: "What are the fees?", a: "Online programs range from INR 1.5L to 1.9L, while hybrid options cost slightly higher. EMI options are available." },
+      { q: "Why choose MedFellow Academy for a Reproductive Medicine fellowship?", a: "MedFellow offers a structured, case-based fertility program tailored for working doctors. It focuses on practical infertility and hormonal case management aligned with real clinical practice." },
+      { q: "Are MedFellow programs suitable for Saudi Arabia doctors?", a: "Yes, programs are designed for doctors across Saudi Arabia and GCC. The flexible format allows you to gain specialization without interrupting your job." },
+      { q: "What other fellowship programs does MedFellow offer?", a: "MedFellow offers 40+ fellowships across specialties like Internal Medicine, Pediatrics, Cardiology, and more. These programs help doctors enhance clinical expertise and career growth." }
+    ];
+
+    const relatedPrograms = [
+      { title: "Explore Online Fellowships for Saudi Doctors", desc: "Explore a wide range of flexible fellowship programs designed to help doctors in Saudi Arabia grow.", href: "/saudi-arabia/programs" },
+      { title: "Pediatrics Fellowship for Saudi Doctors", desc: "Build confidence in child healthcare with practical pediatric training suited for Saudi clinical practice.", href: "/saudi-arabia/programs/fellowship-in-pediatrics" },
+      { title: "Endocrinology Fellowship for Saudi Doctors", desc: "Enhance your skills in diabetes and hormonal care with structured learning designed for daily practice.", href: "/saudi-arabia/programs/fellowship-in-endocrinology" },
+      { title: "Nephrology Fellowship for Saudi Doctors", desc: "Strengthen your expertise in kidney care and dialysis management with focused clinical training.", href: "/saudi-arabia/programs/fellowship-in-nephrology" },
+      { title: "Gastroenterology Fellowship for Saudi Doctors", desc: "Learn practical approaches to digestive disorders and patient care with flexible, case-based training.", href: "/saudi-arabia/programs/fellowship-in-gastroenterology" },
+      { title: "Neonatology Fellowship for Saudi Doctors", desc: "Improve newborn and NICU care skills with structured training designed for pediatric doctors.", href: "/saudi-arabia/programs/fellowship-in-neonatology" },
+      { title: "Arthroscopy Fellowship for Orthopedic Doctors", desc: "Advance your joint surgery skills with modern orthopedic training focused on real clinical cases.", href: "/saudi-arabia/programs/fellowship-in-arthroscopy-and-arthroplasty" }
+    ];
+
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+          <div className="container-custom">
+            <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
+            <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Reproductive Medicine Specialty Program</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Reproductive Medicine for Doctors in Saudi Arabia</h1>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Reproductive Medicine fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in fertility and reproductive health.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A Reproductive Medicine fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in infertility, IVF basics, and hormonal reproductive disorders while strengthening their SCFHS specialist profile.</p>
+            <div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><Link href="/contact" className="px-6 py-3 rounded-lg border border-white/40 bg-white/10 hover:bg-white/20 transition-colors">Schedule Consultation</Link></div>
+          </div>
+        </section>
+
+        <section className="py-8 border-y border-slate-200 bg-white"><div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-4"><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">46+</p><p className="text-sm text-text-secondary">Medical Fellowships</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">3,500+</p><p className="text-sm text-text-secondary">Doctors Trained</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">GCC</p><p className="text-sm text-text-secondary">Doctors Across Saudi Arabia & GCC</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">4.8/5</p><p className="text-sm text-text-secondary">Doctor Rating</p></div></div></section>
+
+        <section className="section-padding">
+          <div className="container-custom max-w-5xl space-y-10">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Why Reproductive Medicine Fellowship is High Demand in Saudi Arabia</h2>
+              <p className="text-text-secondary leading-relaxed mb-3">Saudi Arabia is witnessing a growing demand for fertility and reproductive healthcare services due to lifestyle factors, delayed parenthood, and hormonal disorders.</p>
+              <p className="text-text-secondary leading-relaxed mb-3">Reproductive Medicine is a rapidly growing specialty due to increasing cases of infertility in couples, PCOS and ovulatory disorders, hormonal imbalances, and assisted reproductive techniques (IVF awareness).</p>
+              <p className="text-text-secondary leading-relaxed mb-3">Demand is rising across government hospitals, fertility clinics and IVF centers, and multispecialty hospitals in Riyadh, Jeddah, and Dammam.</p>
+              <ul className="space-y-2 text-text-secondary mb-4"><li>General gynecology roles are becoming competitive.</li><li>Fertility specialization is increasingly valued.</li><li>A structured Reproductive Medicine fellowship helps bridge this gap.</li></ul>
+              <h3 className="text-lg font-bold text-primary mb-2">Common Use Cases for This Fellowship</h3>
+              <ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Gynecologists managing infertility cases</li><li>Doctors working in fertility or IVF clinics</li><li>Physicians upgrading into reproductive specialization</li></ul>
+            </div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">The 2026 Credentialing Gap for Reproductive Medicine Doctors</h2><p className="text-text-secondary leading-relaxed">With changing SCFHS classification standards, many doctors face a key challenge: MBBS or MD alone may not be sufficient for specialist or consultant progression. Hospitals increasingly prefer subspecialty reproductive medicine training and documented fertility case management expertise. A fellowship acts as a credential multiplier, strengthening your SCFHS profile and improving job competitiveness.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">What the MedFellow Reproductive Medicine Fellowship Covers</h2><p className="text-text-secondary leading-relaxed mb-4">A 12-month structured online program designed for working doctors.</p><h3 className="text-lg font-bold text-primary mb-2">Program Highlights</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-4"><li>Monthly module-based curriculum</li><li>Live fertility case discussions</li><li>Recorded lectures for flexible learning</li><li>Evidence-based reproductive protocols</li><li>Structured assessments</li></ul><h3 className="text-lg font-bold text-primary mb-2">Clinical Focus Areas</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Infertility evaluation and management</li><li>PCOS and ovulatory disorders</li><li>Hormonal reproductive health</li><li>Basics of IVF and assisted reproduction</li><li>Male infertility fundamentals</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Optional Clinical Rotation (Hybrid Pathway)</h2><div className="grid md:grid-cols-2 gap-4"><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Fully Online (12 Months)</h3><p className="text-text-secondary">Ideal for working doctors. No travel required.</p></div><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Hybrid (11 Months + 1 Month India Rotation)</h3><p className="text-text-secondary">Exposure to fertility clinics and IVF setups, useful for hands-on reproductive medicine experience.</p></div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How This Fellowship Strengthens Your SCFHS Profile</h2><ul className="space-y-2 text-text-secondary"><li>Adds structured subspecialty training</li><li>Demonstrates commitment to fertility care</li><li>Improves consultant-level applications</li></ul><p className="mt-4 text-text-secondary">Example: A doctor with MD/OBG + Fellowship in Reproductive Medicine is positioned stronger than MD alone.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Who Should Enrol in This Reproductive Medicine Fellowship?</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>MD / DNB Obstetrics and Gynecology doctors</li><li>MBBS doctors managing infertility patients</li><li>Gynecologists in clinics/hospitals</li><li>Doctors targeting fertility specialization</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Career Outcomes After Reproductive Medicine Fellowship</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-3"><li>Fertility Specialist / Reproductive Medicine roles</li><li>IVF clinic practice or expansion</li><li>Hospital reproductive health departments</li><li>Women's health and hormonal care clinics</li></ul><p className="text-text-secondary">The fellowship helps remove the credential barrier, enabling career growth.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Fees, EMI & Payment Options</h2><div className="card p-5"><ul className="space-y-2 text-text-secondary mb-3"><li>Fully Online: INR 1,50,000 - 1,90,000</li><li>Hybrid: INR 1,80,000 - 2,10,000</li><li>EMI options available</li></ul><p className="text-sm text-text-tertiary">Approximate conversion (April 2026): ~SAR 6,750 onwards</p></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How to Apply (Saudi Arabia Doctors)</h2><ol className="list-decimal pl-5 space-y-2 text-text-secondary mb-5"><li>Submit online application</li><li>Schedule advisor call</li><li>Upload documents</li><li>Receive decision (within 72 hours)</li><li>Confirm enrolment</li></ol><div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Chat on WhatsApp</a></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">First 30 Days After Enrolment</h2><div className="grid md:grid-cols-2 gap-3 text-text-secondary"><div className="card p-4">Week 1: Platform onboarding + faculty introduction</div><div className="card p-4">Week 2: First live reproductive medicine session</div><div className="card p-4">Week 3: Case-based assignment</div><div className="card p-4">Week 4: Feedback + next module</div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Doctor Testimonials (Saudi Arabia)</h2><div className="grid md:grid-cols-2 gap-4"><blockquote className="card p-5 text-text-secondary">"This fellowship helped me confidently manage infertility cases in my clinic."<br /><span className="font-semibold text-primary">- Gynecologist, Riyadh</span></blockquote><blockquote className="card p-5 text-text-secondary">"Structured fertility training improved my profile for IVF center roles."<br /><span className="font-semibold text-primary">- OBG Specialist, Jeddah</span></blockquote></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">MedFellow vs Other Reproductive Medicine Fellowships</h2><div className="overflow-x-auto card p-2 md:p-4"><table className="w-full text-sm md:text-base"><thead><tr className="text-left border-b border-slate-200"><th className="p-3">Feature</th><th className="p-3">MedFellow</th><th className="p-3">Others</th></tr></thead><tbody>{comparisonRows.map((row, idx) => (<tr key={idx} className="border-b last:border-b-0 border-slate-100"><td className="p-3 font-semibold text-primary">{row[0]}</td><td className="p-3 text-text-secondary">{row[1]}</td><td className="p-3 text-text-secondary">{row[2]}</td></tr>))}</tbody></table></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Top FAQs: Reproductive Medicine Fellowship for Saudi Arabia Doctors</h2><div className="space-y-3">{faqs.map((faq, idx) => (<details key={idx} className="card p-4" open={idx === 0}><summary className="font-semibold text-primary cursor-pointer">{faq.q}</summary><p className="mt-3 text-text-secondary leading-relaxed">{faq.a}</p></details>))}</div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Read More</h2><div className="grid md:grid-cols-2 gap-4">{relatedPrograms.map((item) => (<Link key={item.href} href={item.href} className="card p-5 block hover:shadow-md transition-shadow"><h3 className="font-bold text-primary mb-2">{item.title}</h3><p className="text-sm text-text-secondary">{item.desc}</p></Link>))}</div></div>
+
+            <div className="rounded-2xl bg-primary text-white p-6 md:p-8"><p className="text-sm uppercase tracking-wide text-white/80 mb-2">Ready to Advance Your Reproductive Medicine Career?</p><h2 className="text-2xl md:text-3xl font-heading font-bold mb-2">Apply for 2026 Intake</h2><p className="text-white/90 mb-4">MedFellow Academy. Flexible. Online. Designed for Saudi Arabia Doctors.</p><div className="flex flex-wrap gap-3"><Link href="/apply" className="px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-slate-100 transition-colors">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-white/60 text-white hover:bg-white/10 transition-colors">WhatsApp</a></div></div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
+  if (location.toLowerCase() === "saudi-arabia" && slug === "fellowship-in-neonatology") {
+    const comparisonRows = [
+      ["Fully Online", "Yes", "Limited"],
+      ["Duration", "12 Months", "1-3 Years"],
+      ["Saudi Doctor Friendly", "Yes", "Not always"],
+      ["SCFHS CV Value", "Strong", "Variable"]
+    ];
+
+    const faqs = [
+      { q: "Is a Neonatology fellowship required in Saudi Arabia?", a: "No, it is not mandatory under SCFHS. However, hospitals prefer doctors with NICU and neonatal specialization, improving chances for consultant roles." },
+      { q: "Is an online Neonatology fellowship valid?", a: "Yes, it is accepted as a supplementary credential. It strengthens your profile but does not replace SCFHS licensing." },
+      { q: "Can I do this while working?", a: "Yes, the program is designed for working doctors. It requires around 8-12 hours per week and can be completed alongside your practice." },
+      { q: "Which is better: online or hybrid?", a: "Online is ideal for flexibility. Hybrid is better if you want hands-on NICU exposure and hospital-based neonatal experience." },
+      { q: "Will this increase my salary?", a: "Not directly, but it improves eligibility for higher roles. Salary growth typically follows career advancement." },
+      { q: "What is the duration?", a: "The program is typically 12 months long. Hybrid options may include a 1-month clinical rotation." },
+      { q: "What are the best subspecialties in Neonatology?", a: "High-demand areas include NICU care, neonatal emergency management, and prematurity care. These align with Saudi Arabia's growing neonatal healthcare needs." },
+      { q: "Is it worth after MD Pediatrics?", a: "Yes, it helps you specialize further and stand out in NICU-focused roles. It supports progression toward consultant-level positions." },
+      { q: "Do I need to travel?", a: "No travel is required for the online program. Travel is optional if you choose the hybrid pathway." },
+      { q: "Who is eligible?", a: "MD/DNB Pediatrics doctors are preferred. MBBS doctors with experience in pediatric or neonatal care can also apply." },
+      { q: "How does it help SCFHS classification?", a: "A fellowship adds structured neonatal training, improving your overall profile during SCFHS evaluation." },
+      { q: "What are the fees?", a: "Online programs range from INR 1.5L to 1.9L, while hybrid options cost slightly higher. EMI options are available." },
+      { q: "Why choose MedFellow Academy for a Neonatology fellowship?", a: "MedFellow offers a structured, case-based NICU-focused program designed for working doctors. It emphasizes practical neonatal care aligned with real clinical scenarios." },
+      { q: "Are MedFellow programs suitable for Saudi Arabia doctors?", a: "Yes, programs are designed for doctors across Saudi Arabia and GCC. The flexible format allows you to gain specialization without interrupting your job." },
+      { q: "What other fellowship programs does MedFellow offer?", a: "MedFellow offers 40+ fellowships across specialties like Pediatrics, Internal Medicine, Cardiology, and more. These programs enhance clinical expertise and career growth." }
+    ];
+
+    const relatedPrograms = [
+      { title: "Explore Online Fellowship Programs in Saudi Arabia", desc: "Discover flexible fellowship programs designed to help doctors in Saudi Arabia build skills and grow careers.", href: "/saudi-arabia/programs" },
+      { title: "Pediatrics Fellowship for Doctors in Saudi Arabia", desc: "Gain practical pediatric training to manage child health conditions and advance toward specialist roles.", href: "/saudi-arabia/programs/fellowship-in-pediatrics" },
+      { title: "Endocrinology Fellowship for Doctors in Saudi Arabia", desc: "Develop expertise in diabetes and hormonal disorders with structured learning suited for clinical practice.", href: "/saudi-arabia/programs/fellowship-in-endocrinology" },
+      { title: "Nephrology Fellowship for Doctors in Saudi Arabia", desc: "Strengthen your knowledge of kidney diseases and dialysis care with focused, case-based training.", href: "/saudi-arabia/programs/fellowship-in-nephrology" },
+      { title: "Gastroenterology Fellowship for Doctors in Saudi Arabia", desc: "Enhance your skills in digestive health and patient care through flexible and practical training modules.", href: "/saudi-arabia/programs/fellowship-in-gastroenterology" },
+      { title: "Reproductive Medicine Fellowship for Saudi Doctors", desc: "Build expertise in fertility care and IVF practices with training tailored to modern clinical needs.", href: "/saudi-arabia/programs/fellowship-in-reproductive-medicine" },
+      { title: "Arthroscopy Fellowship for Orthopedic Doctors", desc: "Improve joint surgery and sports injury management skills with advanced orthopedic training programs.", href: "/saudi-arabia/programs/fellowship-in-arthroscopy-and-arthroplasty" }
+    ];
+
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+          <div className="container-custom">
+            <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
+            <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Neonatology Specialty Program</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Neonatology for Doctors in Saudi Arabia</h1>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Neonatology fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in neonatal and NICU care.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A Neonatology fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in newborn care, NICU management, and neonatal emergencies while strengthening their SCFHS specialist profile.</p>
+            <div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><Link href="/contact" className="px-6 py-3 rounded-lg border border-white/40 bg-white/10 hover:bg-white/20 transition-colors">Schedule Consultation</Link></div>
+          </div>
+        </section>
+
+        <section className="py-8 border-y border-slate-200 bg-white"><div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-4"><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">46+</p><p className="text-sm text-text-secondary">Medical Fellowships</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">3,500+</p><p className="text-sm text-text-secondary">Doctors Trained</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">GCC</p><p className="text-sm text-text-secondary">Doctors Across Saudi Arabia & GCC</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">4.8/5</p><p className="text-sm text-text-secondary">Doctor Rating</p></div></div></section>
+
+        <section className="section-padding">
+          <div className="container-custom max-w-5xl space-y-10">
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Why Neonatology Fellowship is High Demand in Saudi Arabia</h2><p className="text-text-secondary leading-relaxed mb-3">Saudi Arabia is expanding maternal and child healthcare infrastructure under Vision 2030, leading to increased demand for advanced neonatal care.</p><p className="text-text-secondary leading-relaxed mb-3">Neonatology is a high-demand specialty due to increasing NICU admissions, premature and low birth weight cases, neonatal infections and complications, and a growing focus on infant survival and quality care.</p><p className="text-text-secondary leading-relaxed mb-3">Demand is rising across government hospitals, NICU units in tertiary care centers, and multispecialty hospitals in Riyadh, Jeddah, and Dammam.</p><ul className="space-y-2 text-text-secondary mb-4"><li>General pediatric roles are becoming competitive.</li><li>NICU and neonatal specialization is highly valued.</li><li>A structured Neonatology fellowship helps bridge this gap.</li></ul><h3 className="text-lg font-bold text-primary mb-2">Common Use Cases for This Fellowship</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Pediatricians working in NICU units</li><li>Doctors managing newborn care</li><li>Physicians upgrading into neonatal specialization</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">The 2026 Credentialing Gap for Neonatology Doctors</h2><p className="text-text-secondary leading-relaxed">With changing SCFHS classification standards, many doctors face a key challenge: MBBS or MD Pediatrics alone may not be sufficient for consultant progression. Hospitals increasingly prefer subspecialty neonatal training and documented NICU and newborn care experience. A fellowship acts as a credential multiplier, strengthening your SCFHS profile and improving job competitiveness.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">What the MedFellow Neonatology Fellowship Covers</h2><p className="text-text-secondary leading-relaxed mb-4">A 12-month structured online program designed for working doctors.</p><h3 className="text-lg font-bold text-primary mb-2">Program Highlights</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-4"><li>Monthly module-based curriculum</li><li>Live neonatal case discussions</li><li>Recorded lectures for flexible learning</li><li>Evidence-based NICU protocols</li><li>Structured assessments</li></ul><h3 className="text-lg font-bold text-primary mb-2">Clinical Focus Areas</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Neonatal resuscitation and emergency care</li><li>NICU management basics</li><li>Prematurity and low birth weight care</li><li>Neonatal infections and sepsis</li><li>Growth and development monitoring</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Optional Clinical Rotation (Hybrid Pathway)</h2><div className="grid md:grid-cols-2 gap-4"><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Fully Online (12 Months)</h3><p className="text-text-secondary">Ideal for working doctors. No travel required.</p></div><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Hybrid (11 Months + 1 Month India Rotation)</h3><p className="text-text-secondary">Exposure to NICU and hospital-based neonatal care, useful for hands-on clinical experience.</p></div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How This Fellowship Strengthens Your SCFHS Profile</h2><ul className="space-y-2 text-text-secondary"><li>Adds structured subspecialty training</li><li>Demonstrates commitment to neonatal care</li><li>Improves consultant-level applications</li></ul><p className="mt-4 text-text-secondary">Example: A doctor with MD Pediatrics + Fellowship in Neonatology is positioned stronger than MD alone.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Who Should Enrol in This Neonatology Fellowship?</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>MD / DNB Pediatrics doctors</li><li>MBBS doctors working in pediatric or neonatal units</li><li>Pediatricians managing newborn care</li><li>Doctors targeting NICU specialization</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Career Outcomes After Neonatology Fellowship</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-3"><li>Neonatologist / NICU Specialist roles</li><li>NICU unit management</li><li>Hospital neonatal departments</li><li>Advanced pediatric care pathways</li></ul><p className="text-text-secondary">The fellowship helps remove the credential barrier, enabling career growth.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Fees, EMI & Payment Options</h2><div className="card p-5"><ul className="space-y-2 text-text-secondary mb-3"><li>Fully Online: INR 1,50,000 - 1,90,000</li><li>Hybrid: INR 1,80,000 - 2,10,000</li><li>EMI options available</li></ul><p className="text-sm text-text-tertiary">Approximate conversion (April 2026): ~SAR 6,750 onwards</p></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How to Apply (Saudi Arabia Doctors)</h2><ol className="list-decimal pl-5 space-y-2 text-text-secondary mb-5"><li>Submit online application</li><li>Schedule advisor call</li><li>Upload documents</li><li>Receive decision (within 72 hours)</li><li>Confirm enrolment</li></ol><div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Chat on WhatsApp</a></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">First 30 Days After Enrolment</h2><div className="grid md:grid-cols-2 gap-3 text-text-secondary"><div className="card p-4">Week 1: Platform onboarding + faculty introduction</div><div className="card p-4">Week 2: First live neonatology session</div><div className="card p-4">Week 3: Case-based assignment</div><div className="card p-4">Week 4: Feedback + next module</div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Doctor Testimonials (Saudi Arabia)</h2><div className="grid md:grid-cols-2 gap-4"><blockquote className="card p-5 text-text-secondary">"This fellowship helped me improve my NICU skills and confidence in newborn care."<br /><span className="font-semibold text-primary">- Pediatrician, Riyadh</span></blockquote><blockquote className="card p-5 text-text-secondary">"Structured neonatal training strengthened my hospital profile significantly."<br /><span className="font-semibold text-primary">- Pediatric Specialist, Jeddah</span></blockquote></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">MedFellow vs Other Neonatology Fellowships</h2><div className="overflow-x-auto card p-2 md:p-4"><table className="w-full text-sm md:text-base"><thead><tr className="text-left border-b border-slate-200"><th className="p-3">Feature</th><th className="p-3">MedFellow</th><th className="p-3">Others</th></tr></thead><tbody>{comparisonRows.map((row, idx) => (<tr key={idx} className="border-b last:border-b-0 border-slate-100"><td className="p-3 font-semibold text-primary">{row[0]}</td><td className="p-3 text-text-secondary">{row[1]}</td><td className="p-3 text-text-secondary">{row[2]}</td></tr>))}</tbody></table></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Top FAQs: Neonatology Fellowship for Saudi Arabia Doctors</h2><div className="space-y-3">{faqs.map((faq, idx) => (<details key={idx} className="card p-4" open={idx === 0}><summary className="font-semibold text-primary cursor-pointer">{faq.q}</summary><p className="mt-3 text-text-secondary leading-relaxed">{faq.a}</p></details>))}</div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Read More</h2><div className="grid md:grid-cols-2 gap-4">{relatedPrograms.map((item) => (<Link key={item.href} href={item.href} className="card p-5 block hover:shadow-md transition-shadow"><h3 className="font-bold text-primary mb-2">{item.title}</h3><p className="text-sm text-text-secondary">{item.desc}</p></Link>))}</div></div>
+
+            <div className="rounded-2xl bg-primary text-white p-6 md:p-8"><p className="text-sm uppercase tracking-wide text-white/80 mb-2">Ready to Advance Your Neonatology Career?</p><h2 className="text-2xl md:text-3xl font-heading font-bold mb-2">Apply for 2026 Intake</h2><p className="text-white/90 mb-4">MedFellow Academy. Flexible. Online. Designed for Saudi Arabia Doctors.</p><div className="flex flex-wrap gap-3"><Link href="/apply" className="px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-slate-100 transition-colors">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-white/60 text-white hover:bg-white/10 transition-colors">WhatsApp</a></div></div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
+  if (location.toLowerCase() === "saudi-arabia" && slug === "fellowship-in-arthroscopy-and-arthroplasty") {
+    const comparisonRows = [
+      ["Fully Online", "Yes", "Limited"],
+      ["Duration", "12 Months", "1-3 Years"],
+      ["Saudi Doctor Friendly", "Yes", "Not always"],
+      ["SCFHS CV Value", "Strong", "Variable"]
+    ];
+
+    const faqs = [
+      { q: "Is this fellowship required in Saudi Arabia?", a: "No, it is not mandatory under SCFHS. However, hospitals prefer surgeons with subspecialty training in joint surgery, improving chances for consultant roles." },
+      { q: "Is an online fellowship valid?", a: "Yes, it is accepted as a supplementary credential. It strengthens your profile but does not replace SCFHS licensing or classification requirements." },
+      { q: "Can I do this while working?", a: "Yes, the program is designed for working doctors. It requires around 8-12 hours per week and can be completed alongside your clinical practice." },
+      { q: "Which is better: online or hybrid?", a: "Online is ideal for theoretical knowledge and flexibility. Hybrid is better if you want exposure to surgical procedures and operating room experience." },
+      { q: "Will this increase my salary?", a: "Not directly, but it improves eligibility for higher roles. Salary growth typically comes with role upgrades and increased clinical expertise." },
+      { q: "What is the duration?", a: "The program is typically 12 months long. Hybrid options may include a 1-month clinical rotation for practical experience." },
+      { q: "What are the best subspecialties in Orthopedics?", a: "High-demand areas include arthroscopy, joint replacement, sports injuries, and trauma care. These align with Saudi Arabia's growing orthopedic needs." },
+      { q: "Is it worth after MS Orthopedics?", a: "Yes, it helps you specialize further and stand out in surgical roles. It supports progression toward consultant-level positions." },
+      { q: "Do I need to travel?", a: "No travel is required for the online program. Travel is optional if you choose the hybrid pathway with clinical rotation." },
+      { q: "Who is eligible?", a: "MS/DNB Orthopedics doctors are preferred. Surgeons with experience in joint or sports injury cases can also apply." },
+      { q: "How does it help SCFHS classification?", a: "A fellowship adds structured subspecialty training, improving your overall profile during SCFHS evaluation." },
+      { q: "What are the fees?", a: "Online programs range from INR 1.5L to 1.9L, while hybrid options cost slightly higher. EMI options are available." },
+      { q: "Why choose MedFellow Academy for this fellowship?", a: "MedFellow offers a structured, case-based orthopedic program tailored for working surgeons. It focuses on practical joint surgery concepts aligned with real clinical scenarios." },
+      { q: "Are MedFellow programs suitable for Saudi Arabia doctors?", a: "Yes, programs are designed for doctors across Saudi Arabia and GCC. The flexible format allows you to gain specialization without interrupting your job." },
+      { q: "What other fellowship programs does MedFellow offer?", a: "MedFellow offers 40+ fellowships across specialties like Orthopedics, Internal Medicine, Pediatrics, Cardiology, and more, supporting clinical expertise and career growth." }
+    ];
+
+    const relatedPrograms = [
+      { title: "Explore Online Fellowships for Doctors in Saudi", desc: "Browse flexible fellowship programs designed to help doctors in Saudi Arabia grow and specialize.", href: "/saudi-arabia/programs" },
+      { title: "Pediatrics Fellowship for Doctors in Saudi Arabia", desc: "Build strong pediatric skills with practical training focused on child care and clinical growth.", href: "/saudi-arabia/programs/fellowship-in-pediatrics" },
+      { title: "Endocrinology Fellowship for Doctors in Saudi Arabia", desc: "Develop expertise in diabetes and hormonal disorders with flexible, case-based clinical learning.", href: "/saudi-arabia/programs/fellowship-in-endocrinology" },
+      { title: "Nephrology Fellowship for Doctors in Saudi Arabia", desc: "Strengthen your knowledge in kidney care and dialysis with structured, real-world clinical training.", href: "/saudi-arabia/programs/fellowship-in-nephrology" },
+      { title: "Gastroenterology Fellowship for Doctors in Saudi Arabia", desc: "Enhance skills in digestive health and patient care with flexible and clinically focused training.", href: "/saudi-arabia/programs/fellowship-in-gastroenterology" },
+      { title: "Reproductive Medicine Fellowship for Saudi Doctors", desc: "Gain hands-on knowledge in fertility and IVF care with training designed for modern practice.", href: "/saudi-arabia/programs/fellowship-in-reproductive-medicine" },
+      { title: "Neonatology Fellowship for Doctors in Saudi Arabia", desc: "Improve newborn and NICU care skills with structured learning tailored for pediatric doctors.", href: "/saudi-arabia/programs/fellowship-in-neonatology" }
+    ];
+
+    return (
+      <div className="min-h-screen bg-slate-50">
+        <Navbar />
+        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+          <div className="container-custom">
+            <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
+            <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Orthopedic Surgery Specialty Program</p>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Arthroscopy & Arthroplasty for Doctors in Saudi Arabia</h1>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Orthopedic fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in joint surgery and sports injury management.</p>
+            <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A fellowship in Arthroscopy and Arthroplasty is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in minimally invasive joint procedures, joint replacement, and orthopedic surgical planning while strengthening their SCFHS specialist profile.</p>
+            <div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><Link href="/contact" className="px-6 py-3 rounded-lg border border-white/40 bg-white/10 hover:bg-white/20 transition-colors">Schedule Consultation</Link></div>
+          </div>
+        </section>
+
+        <section className="py-8 border-y border-slate-200 bg-white"><div className="container-custom grid grid-cols-2 md:grid-cols-4 gap-4"><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">46+</p><p className="text-sm text-text-secondary">Medical Fellowships</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">3,500+</p><p className="text-sm text-text-secondary">Doctors Trained</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">GCC</p><p className="text-sm text-text-secondary">Doctors Across Saudi Arabia & GCC</p></div><div className="p-4 rounded-xl bg-slate-50 border border-slate-200"><p className="text-2xl font-bold text-primary">4.8/5</p><p className="text-sm text-text-secondary">Doctor Rating</p></div></div></section>
+
+        <section className="section-padding">
+          <div className="container-custom max-w-5xl space-y-10">
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Why Arthroscopy & Arthroplasty Fellowship is High Demand in Saudi Arabia</h2><p className="text-text-secondary leading-relaxed mb-3">Saudi Arabia is seeing a rapid increase in musculoskeletal disorders due to aging population, sports injuries, and lifestyle factors under Vision 2030.</p><p className="text-text-secondary leading-relaxed mb-3">Orthopedic subspecialization is in high demand due to increasing cases of knee and shoulder arthroscopy basics, osteoarthritis and joint degeneration, sports-related ligament injuries, and joint replacement requirements.</p><p className="text-text-secondary leading-relaxed mb-3">Demand is rising across government hospitals, orthopedic and sports injury centers, and multispecialty hospitals in Riyadh, Jeddah, and Dammam.</p><ul className="space-y-2 text-text-secondary mb-4"><li>General orthopedic roles are becoming competitive.</li><li>Surgical subspecialization is highly valued.</li><li>A structured Arthroscopy and Arthroplasty fellowship helps bridge this gap.</li></ul><h3 className="text-lg font-bold text-primary mb-2">Common Use Cases for This Fellowship</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Orthopedic surgeons performing joint surgeries</li><li>Doctors managing sports injuries</li><li>Surgeons upgrading into minimally invasive techniques</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">The 2026 Credentialing Gap for Orthopedic Surgeons</h2><p className="text-text-secondary leading-relaxed">With changing SCFHS classification standards, many doctors face a key challenge: MS/MD Orthopedics alone may not be sufficient for consultant progression. Hospitals increasingly prefer subspecialty surgical training and documented experience in arthroscopy and joint replacement. A fellowship acts as a credential multiplier, strengthening your SCFHS profile and improving job competitiveness.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">What the MedFellow Arthroscopy & Arthroplasty Fellowship Covers</h2><p className="text-text-secondary leading-relaxed mb-4">A 12-month structured online program designed for working orthopedic doctors.</p><h3 className="text-lg font-bold text-primary mb-2">Program Highlights</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-4"><li>Monthly module-based curriculum</li><li>Live orthopedic case discussions</li><li>Recorded lectures for flexible learning</li><li>Evidence-based surgical protocols</li><li>Structured assessments</li></ul><h3 className="text-lg font-bold text-primary mb-2">Clinical Focus Areas</h3><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>Knee and shoulder injuries management</li><li>Joint replacement (hip and knee) principles</li><li>Ligament injury management (ACL, meniscus)</li><li>Pre- and post-operative care</li><li>Rehabilitation protocols</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Optional Clinical Rotation (Hybrid Pathway)</h2><div className="grid md:grid-cols-2 gap-4"><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Fully Online (12 Months)</h3><p className="text-text-secondary">Ideal for working surgeons. No travel required.</p></div><div className="card p-5"><h3 className="text-lg font-bold text-primary mb-2">Hybrid (11 Months + 1 Month India Rotation)</h3><p className="text-text-secondary">Exposure to orthopedic OT and surgical cases, useful for hands-on arthroscopy and joint replacement experience.</p></div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How This Fellowship Strengthens Your SCFHS Profile</h2><ul className="space-y-2 text-text-secondary"><li>Adds structured orthopedic subspecialty training</li><li>Demonstrates commitment to surgical specialization</li><li>Improves consultant-level applications</li></ul><p className="mt-4 text-text-secondary">Example: A surgeon with MS Orthopedics + Fellowship in Arthroscopy and Arthroplasty is positioned stronger than MS alone.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Who Should Enrol in This Fellowship?</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary"><li>MS / DNB Orthopedics doctors</li><li>Orthopedic surgeons performing joint procedures</li><li>Doctors managing sports injury cases</li><li>Surgeons targeting joint replacement specialization</li></ul></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Career Outcomes After Arthroscopy & Arthroplasty Fellowship</h2><ul className="grid md:grid-cols-2 gap-2 text-text-secondary mb-3"><li>Arthroscopy Specialist roles</li><li>Joint replacement surgeon pathways</li><li>Sports injury and orthopedic centers</li><li>Advanced orthopedic surgical practice</li></ul><p className="text-text-secondary">The fellowship helps remove the credential barrier, enabling career growth.</p></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Fees, EMI & Payment Options</h2><div className="card p-5"><ul className="space-y-2 text-text-secondary mb-3"><li>Fully Online: INR 1,50,000 - 1,90,000</li><li>Hybrid: INR 1,80,000 - 2,10,000</li><li>EMI options available</li></ul><p className="text-sm text-text-tertiary">Approximate conversion (April 2026): ~SAR 6,750 onwards</p></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">How to Apply (Saudi Arabia Doctors)</h2><ol className="list-decimal pl-5 space-y-2 text-text-secondary mb-5"><li>Submit online application</li><li>Schedule advisor call</li><li>Upload documents</li><li>Receive decision (within 72 hours)</li><li>Confirm enrolment</li></ol><div className="flex flex-wrap gap-3"><Link href="/apply" className="btn-primary px-6 py-3">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-primary text-primary hover:bg-primary hover:text-white transition-colors">Chat on WhatsApp</a></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">First 30 Days After Enrolment</h2><div className="grid md:grid-cols-2 gap-3 text-text-secondary"><div className="card p-4">Week 1: Platform onboarding + faculty introduction</div><div className="card p-4">Week 2: First live orthopedic session</div><div className="card p-4">Week 3: Case-based surgical assignment</div><div className="card p-4">Week 4: Feedback + next module</div></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Doctor Testimonials (Saudi Arabia)</h2><div className="grid md:grid-cols-2 gap-4"><blockquote className="card p-5 text-text-secondary">"This fellowship improved my understanding of arthroscopy techniques significantly."<br /><span className="font-semibold text-primary">- Orthopedic Surgeon, Riyadh</span></blockquote><blockquote className="card p-5 text-text-secondary">"Structured training helped me enhance my joint replacement planning skills."<br /><span className="font-semibold text-primary">- MS Orthopedics, Jeddah</span></blockquote></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">MedFellow vs Other Orthopedic Fellowships</h2><div className="overflow-x-auto card p-2 md:p-4"><table className="w-full text-sm md:text-base"><thead><tr className="text-left border-b border-slate-200"><th className="p-3">Feature</th><th className="p-3">MedFellow</th><th className="p-3">Others</th></tr></thead><tbody>{comparisonRows.map((row, idx) => (<tr key={idx} className="border-b last:border-b-0 border-slate-100"><td className="p-3 font-semibold text-primary">{row[0]}</td><td className="p-3 text-text-secondary">{row[1]}</td><td className="p-3 text-text-secondary">{row[2]}</td></tr>))}</tbody></table></div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Top FAQs: Arthroscopy & Arthroplasty Fellowship for Saudi Arabia Doctors</h2><div className="space-y-3">{faqs.map((faq, idx) => (<details key={idx} className="card p-4" open={idx === 0}><summary className="font-semibold text-primary cursor-pointer">{faq.q}</summary><p className="mt-3 text-text-secondary leading-relaxed">{faq.a}</p></details>))}</div></div>
+
+            <div><h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-4">Read More</h2><div className="grid md:grid-cols-2 gap-4">{relatedPrograms.map((item) => (<Link key={item.href} href={item.href} className="card p-5 block hover:shadow-md transition-shadow"><h3 className="font-bold text-primary mb-2">{item.title}</h3><p className="text-sm text-text-secondary">{item.desc}</p></Link>))}</div></div>
+
+            <div className="rounded-2xl bg-primary text-white p-6 md:p-8"><p className="text-sm uppercase tracking-wide text-white/80 mb-2">Ready to Advance Your Orthopedic Career?</p><h2 className="text-2xl md:text-3xl font-heading font-bold mb-2">Apply for 2026 Intake</h2><p className="text-white/90 mb-4">MedFellow Academy. Flexible. Online. Designed for Saudi Arabia Doctors.</p><div className="flex flex-wrap gap-3"><Link href="/apply" className="px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-slate-100 transition-colors">Apply Now</Link><a href="https://wa.me/919985044993" target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-white/60 text-white hover:bg-white/10 transition-colors">WhatsApp</a></div></div>
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -5748,4 +6805,80 @@ export async function generateStaticParams() {
   });
   
   return params;
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ location: string; slug: string }> }): Promise<Metadata> {
+  const { location, slug } = await params;
+  const locationLower = location.toLowerCase();
+
+  if (locationLower === "saudi-arabia" && slug === "fellowship-in-pediatrics") {
+    return {
+      title: "Online Pediatrics Fellowship Saudi Doctors | MedFellow",
+      description:
+        "MedFellow Pediatrics Fellowship helps Saudi doctors gain child healthcare expertise with online learning and improve SCFHS career opportunities. Enrol now."
+    };
+  }
+
+  if (locationLower === "saudi-arabia" && slug === "fellowship-in-endocrinology") {
+    return {
+      title: "Endocrinology Fellowship Saudi Arabia Demand | MedFellow",
+      description:
+        "MedFellow Endocrinology Fellowship helps Saudi doctors gain expertise in diabetes and hormones with online training. Improve SCFHS career growth. Enrol now."
+    };
+  }
+
+  if (locationLower === "saudi-arabia" && slug === "fellowship-in-nephrology") {
+    return {
+      title: "Advance in Nephrology Saudi Doctors | MedFellow",
+      description:
+        "Strengthen your SCFHS profile with MedFellow Nephrology Fellowship. Gain structured renal training and improve consultant-level opportunities. Start now."
+    };
+  }
+
+  if (locationLower === "saudi-arabia" && slug === "fellowship-in-gastroenterology") {
+    return {
+      title: "Gastroenterology Fellowship Saudi 2026 | MedFellow",
+      description:
+        "Build GI and endoscopy skills with MedFellow in Saudi Arabia. Learn liver and digestive care and advance your specialist career. Apply now."
+    };
+  }
+
+  if (locationLower === "saudi-arabia" && slug === "fellowship-in-reproductive-medicine") {
+    return {
+      title: "Fellowship in Reproductive Medicine in Saudi Arabia",
+      description:
+        "Join a top Reproductive Medicine fellowship in Saudi Arabia. Designed for doctors seeking advanced fertility and IVF training. Apply now."
+    };
+  }
+
+  if (locationLower === "saudi-arabia" && slug === "fellowship-in-neonatology") {
+    return {
+      title: "Neonatology Fellowship Program in Saudi Arabia for Doctors",
+      description:
+        "Step into advanced neonatal medicine with a fellowship in Saudi Arabia. Designed for doctors aiming for global clinical excellence. Join now."
+    };
+  }
+
+  if (locationLower === "saudi-arabia" && slug === "fellowship-in-arthroscopy-and-arthroplasty") {
+    return {
+      title: "Arthroscopy & Arthroplasty Fellowship in Saudi Arabia",
+      description:
+        "Specialize in joint replacement and minimally invasive care with this Arthroscopy fellowship in Saudi Arabia. Upgrade your career, apply now."
+    };
+  }
+
+  const program = programsData[slug];
+  const locationMeta = LOCATION_META[locationLower as keyof typeof LOCATION_META];
+
+  if (program && locationMeta) {
+    return {
+      title: `${program.name} for Doctors in ${locationMeta.label} | MedFellow`,
+      description: program.description
+    };
+  }
+
+  return {
+    title: "Fellowship Programs | MedFellow",
+    description: "Explore fellowship programs for doctors at MedFellow Academy."
+  };
 }
