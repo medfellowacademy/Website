@@ -1334,6 +1334,215 @@ const dubaiProgramsData: Record<string, DubaiProgram> = {
         rating: 5
       }
     ]
+  },
+  "fellowship-in-pediatrics": {
+    title: "Fellowship in Pediatrics for Doctors in Dubai",
+    name: "Pediatrics Fellowship",
+    icon: "🧒",
+    duration: "12 Months",
+    eligibility: "MD/DNB Pediatrics preferred; MBBS with pediatric experience",
+    description: "Build advanced clinical expertise in pediatric care, strengthen your pathway toward consultant-level roles in Dubai's expanding child healthcare system.",
+    overview: "A 12-month structured online Pediatrics fellowship designed for doctors in Dubai to enhance expertise in neonatal care, pediatric emergencies, and child development while continuing clinical practice.",
+    demandTag: "RISING PEDIATRIC CARE DEMAND IN DUBAI",
+    demandHeading: "Why Pediatrics Fellowship is High Demand in Dubai",
+    compareHeading: "MedFellow vs Other Pediatrics Fellowships",
+    finalCtaHeading: "Ready to Advance Your Pediatrics Career in Dubai?",
+    secondWeekPlan: "First pediatrics module session",
+    compareRows: [
+      ["Program Format", "Fully Online + Optional Hybrid", "Mostly Offline/Hybrid"],
+      ["Flexibility", "Designed for working doctors", "Often requires time off"],
+      ["Curriculum", "Case-based clinical training", "Theory-heavy"],
+      ["Clinical Relevance", "Dubai-focused cases", "General/global"],
+      ["Duration", "12 months", "1-3 years"],
+      ["DHA CV Value", "Strong", "Varies"],
+      ["Hands-on Exposure", "Optional rotation", "Often mandatory"],
+      ["Time Commitment", "8-12 hrs/week", "High/full-time"],
+      ["Fees Transparency", "Clear with EMI", "Not always transparent"],
+      ["Cost Efficiency", "Affordable", "Higher cost"]
+    ],
+    compareTakeaway: "Key takeaway: MedFellow is ideal for Dubai doctors who want flexible pediatric specialization without career interruption.",
+    highlights: [
+      "Monthly module-based learning",
+      "Live pediatric case discussions",
+      "Recorded sessions for flexibility",
+      "Evidence-based treatment protocols",
+      "Structured assessments"
+    ],
+    whyDubai: {
+      demand: "Dubai's healthcare sector is expanding rapidly, driven by medical tourism and strong investment in maternal and child healthcare infrastructure.",
+      credentialing: "With DHA's evolving licensing framework, doctors face increasing pressure to demonstrate structured specialty training for consultant pediatrics progression.",
+      opportunities: [
+        "DHA-regulated hospitals",
+        "Private pediatric clinics",
+        "Dubai Healthcare City and multispecialty centers",
+        "Child development and wellness centers"
+      ]
+    },
+    curricula: [
+      {
+        month: "Months 1-3",
+        title: "Pediatric Care Foundations",
+        modules: [
+          "Neonatal care and newborn assessment",
+          "Pediatric emergencies and acute care",
+          "Child development and growth monitoring",
+          "Common childhood infections and management"
+        ]
+      },
+      {
+        month: "Months 4-6",
+        title: "Core Clinical Pediatrics",
+        modules: [
+          "Chronic disease management in children",
+          "Nutritional disorders and feeding issues",
+          "Immunization and preventive care",
+          "Case-based pediatric problem solving"
+        ]
+      },
+      {
+        month: "Months 7-9",
+        title: "Advanced Pediatric Case Management",
+        modules: [
+          "Complex pediatric scenarios",
+          "Pediatric emergency protocols",
+          "Interdisciplinary pediatric care",
+          "Evidence-based clinical updates"
+        ]
+      },
+      {
+        month: "Months 10-12",
+        title: "Consultant Pathway Readiness",
+        modules: [
+          "Specialist pediatric positioning",
+          "Research methodology in pediatrics",
+          "DHA-aligned practice standards",
+          "Capstone assessment and certification"
+        ]
+      }
+    ],
+    careerOutcomes: [
+      {
+        role: "Consultant Pediatrician",
+        description: "Move into consultant-track pediatrics roles in DHA-regulated hospitals"
+      },
+      {
+        role: "Child Specialty Clinics",
+        description: "Lead specialized pediatric clinics and child health centers"
+      },
+      {
+        role: "Pediatric Care Leadership",
+        description: "Take advanced pediatric and child care responsibilities"
+      },
+      {
+        role: "Private Practice Expansion",
+        description: "Expand private practice scope with structured pediatric specialization"
+      }
+    ],
+    pricing: {
+      onlineFormat: {
+        price: "₹1,50,000 - ₹1,90,000",
+        aed: "~AED 6,600 onwards",
+        sar: "~SAR 6,750 onwards",
+        format: "12 months fully online"
+      },
+      hybridFormat: {
+        price: "₹1,80,000 - ₹2,10,000",
+        aed: "~AED 7,900 - 9,200",
+        sar: "~SAR 8,050 - 9,400",
+        format: "11 months online + 1 month clinical rotation"
+      }
+    },
+    applicationProcess: [
+      {
+        step: 1,
+        title: "Submit Online Application",
+        description: "Fill application with MBBS and MD/DNB certificates"
+      },
+      {
+        step: 2,
+        title: "Admission Consultation",
+        description: "Schedule a 20-minute consultation with an admissions advisor"
+      },
+      {
+        step: 3,
+        title: "Document Submission",
+        description: "Upload required documents including qualification and practice credentials"
+      },
+      {
+        step: 4,
+        title: "Admission Decision",
+        description: "Decision within 72 hours of complete document submission"
+      },
+      {
+        step: 5,
+        title: "Enrollment & Onboarding",
+        description: "Confirm seat, receive welcome pack, and start date"
+      }
+    ],
+    faqs: [
+      {
+        question: "Is a Pediatrics fellowship required in Dubai?",
+        answer: "No, it is not mandatory for DHA licensing, but it gives you a strong advantage for specialist and consultant-level pediatric roles."
+      },
+      {
+        question: "Is an online fellowship valid?",
+        answer: "Yes, it is accepted as a supplementary credential that strengthens your DHA application and clinical profile."
+      },
+      {
+        question: "Can I do it while working?",
+        answer: "Yes, the program is designed for working doctors and typically requires 8-12 hours per week."
+      },
+      {
+        question: "Which format is better?",
+        answer: "Online is ideal for flexibility, while hybrid is better if you want optional hands-on clinical exposure."
+      },
+      {
+        question: "Will it increase salary?",
+        answer: "Not directly, but it improves eligibility for higher pediatric roles, which can lead to better compensation."
+      },
+      {
+        question: "What is the duration?",
+        answer: "The fellowship runs for 12 months, with an optional 1-month clinical rotation in the hybrid pathway."
+      },
+      {
+        question: "What are high-demand areas in pediatrics?",
+        answer: "Neonatal care, child emergencies, chronic disease management, and developmental pediatrics are highly in demand in Dubai."
+      },
+      {
+        question: "Is it worth after MD Pediatrics?",
+        answer: "Yes, it helps you stand out and strengthens your pathway for specialist pediatrics opportunities in Dubai."
+      },
+      {
+        question: "Do I need to travel?",
+        answer: "No travel is needed for the online program; hybrid includes optional travel for the clinical rotation."
+      },
+      {
+        question: "Who is eligible?",
+        answer: "MD/DNB Pediatrics doctors are preferred, and MBBS doctors with relevant pediatric experience may also apply."
+      },
+      {
+        question: "How does it help DHA classification?",
+        answer: "It adds structured specialty training and continuous professional development, improving your overall DHA pediatric specialist evaluation profile."
+      },
+      {
+        question: "What are the fees?",
+        answer: "Fees range from INR 1.5L to 2.1L based on online or hybrid format, with EMI options available."
+      }
+    ],
+    testimonials: [
+      {
+        quote: "The Pediatrics fellowship helped me transition to a consultant role at a major Dubai hospital.",
+        author: "Pediatrician",
+        role: "Dubai",
+        rating: 5
+      },
+      {
+        quote: "The curriculum was highly relevant to my Dubai practice and improved my child care expertise significantly.",
+        author: "General Physician",
+        role: "Dubai",
+        rating: 5
+      }
+    ]
   }
 };
 
@@ -1386,9 +1595,20 @@ export default function DubaiProgramDetail({ params }: ProgramPageProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white mb-4 sm:mb-6 leading-tight px-2"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mb-4 sm:mb-6 leading-tight px-2"
             >
-              {program.title}
+              {(() => {
+                const title = program.title;
+                const parts = title.split(/(Pediatrics|Endocrinology|Nephrology|Gastroenterology|Reproductive Medicine|Neonatology|Arthroscopy|Dubai)/);
+                return parts.map((part, index) => {
+                  if (part === "Pediatrics" || part === "Endocrinology" || part === "Nephrology" || part === "Gastroenterology" || part === "Reproductive Medicine" || part === "Neonatology" || part === "Arthroscopy") {
+                    return <span key={index} style={{ color: '#4ade80' }}>{part}</span>;
+                  } else if (part === "Dubai") {
+                    return <span key={index} style={{ color: '#60a5fa' }}>{part}</span>;
+                  }
+                  return <span key={index} style={{ color: 'white' }}>{part}</span>;
+                });
+              })()}
             </motion.h1>
 
             <motion.p
