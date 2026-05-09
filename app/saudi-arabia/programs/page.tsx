@@ -254,7 +254,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Why Saudi Arabia Doctors Need Fellowship */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -324,7 +324,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Priority Specialties */}
       <section className="py-12 sm:py-16 md:py-20" style={{ background: '#F2F3F4' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
               <Globe className="w-4 h-4" />
@@ -342,7 +342,7 @@ export default function SaudiArabiaProgramsHub() {
             {prioritySpecialties.map((specialty, index) => (
               <Link
                 key={index}
-                href={specialty.slug === "all-programs" ? "/programs" : `/programs/${specialty.slug}`}
+                href={specialty.slug === "all-programs" ? "/saudi-arabia/programs" : `/saudi-arabia/programs/${specialty.slug}`}
                 className="group bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:shadow-xl transition-all duration-300"
                 style={{ border: '1px solid #BFC9CA' }}
               >
@@ -372,7 +372,7 @@ export default function SaudiArabiaProgramsHub() {
             <p className="text-white/90 mb-6 max-w-2xl mx-auto">
               Explore 40+ specialties designed to help doctors in Saudi Arabia build skills and grow their careers.
             </p>
-            <Link href="/programs" className="inline-flex items-center gap-2 px-8 py-4 bg-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg" style={{ color: '#1B4F72' }}>
+            <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 px-8 py-4 bg-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg" style={{ color: '#1B4F72' }}>
               Browse All 46 Specialties
               <ArrowRight className="w-5 h-5" />
             </Link>
@@ -382,7 +382,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Testimonials */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
               <Heart className="w-4 h-4" />
@@ -425,7 +425,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* FAQ Section */}
       <section className="py-20" style={{ background: '#EAF2FB' }}>
-        <div className="max-w-4xl mx-auto px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
               <Users className="w-4 h-4" />
@@ -470,7 +470,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* 7 Priority Specialties */}
       <section className="py-20" style={{ background: '#F2F3F4' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -564,7 +564,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Provider Comparison */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -661,7 +661,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Program Structure & Learning */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -759,7 +759,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* SCFHS Career Pathway */}
       <section className="py-20" style={{ background: '#F2F3F4' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -832,7 +832,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Flexible Learning Formats */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -915,7 +915,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Transparent Pricing */}
       <section className="py-20" style={{ background: '#F2F3F4' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -988,7 +988,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Application Process */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -1059,7 +1059,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* First Month Experience */}
       <section className="py-20" style={{ background: '#F2F3F4' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -1127,7 +1127,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Career Outcomes */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -1176,7 +1176,7 @@ export default function SaudiArabiaProgramsHub() {
 
       {/* Final CTA Before Footer */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="p-12 rounded-3xl text-center text-white" style={{ background: 'linear-gradient(135deg, #1B4F72 0%, #2E86C1 100%)' }}>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               Ready to Start Your Fellowship?

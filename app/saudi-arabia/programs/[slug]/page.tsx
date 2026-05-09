@@ -1712,7 +1712,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Why Specialty Demand in Saudi Arabia */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
@@ -1757,7 +1757,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Program Highlights */}
       <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
               <Sparkles className="w-4 h-4" />
@@ -1782,7 +1782,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Curriculum */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
               <BookOpen className="w-4 h-4" />
@@ -1816,7 +1816,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Career Outcomes */}
       <section className="py-16" style={{ background: '#EAF2FB' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: 'white', color: '#2E86C1' }}>
               <Target className="w-4 h-4" />
@@ -1839,7 +1839,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Pricing */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold" style={{ color: '#1B4F72' }}>
               Program Fees and Learning Format
@@ -1864,7 +1864,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Application Process */}
       <section className="py-20 bg-slate-50">
-        <div className="max-w-6xl mx-auto px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-semibold" style={{ color: '#1B4F72' }}>
               Application Process
@@ -1886,7 +1886,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Comparison */}
       <section className="py-20">
-        <div className="max-w-6xl mx-auto px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-semibold" style={{ color: '#1B4F72' }}>
               {program.compareHeading}
@@ -1918,7 +1918,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Testimonials */}
       <section className="py-20" style={{ background: '#EAF2FB' }}>
-        <div className="max-w-6xl mx-auto px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: 'white', color: '#2E86C1' }}>
               <Users className="w-4 h-4" />
@@ -1951,7 +1951,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* FAQs */}
       <section className="py-20 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <h2 className="text-3xl md:text-4xl font-semibold mb-12 text-center" style={{ color: '#1B4F72' }}>
             Frequently Asked Questions
           </h2>
@@ -1983,7 +1983,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
 
       {/* Final CTA */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="p-12 rounded-3xl text-center text-white" style={{ background: 'linear-gradient(135deg, #1B4F72 0%, #2E86C1 100%)' }}>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               {program.finalCtaHeading}

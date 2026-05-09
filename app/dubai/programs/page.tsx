@@ -320,7 +320,7 @@ export default function DubaiProgramsHub() {
             {prioritySpecialties.map((specialty, index) => (
               <Link
                 key={index}
-                href={`/programs/${specialty.slug}`}
+                href={`/dubai/programs/${specialty.slug}`}
                 className="group bg-white p-6 sm:p-8 rounded-xl sm:rounded-2xl hover:shadow-xl transition-all duration-300"
                 style={{ border: '1px solid #BFC9CA' }}
               >
@@ -350,7 +350,7 @@ export default function DubaiProgramsHub() {
             <p className="text-white/90 mb-6 max-w-2xl mx-auto">
               Explore 46+ specialties designed to help doctors in Dubai build skills and grow their careers.
             </p>
-            <Link href="/programs" className="inline-flex items-center gap-2 px-8 py-4 bg-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg" style={{ color: '#1B4F72' }}>
+            <Link href="/dubai/programs" className="inline-flex items-center gap-2 px-8 py-4 bg-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg" style={{ color: '#1B4F72' }}>
               Browse All 46 Specialties
               <ArrowRight className="w-5 h-5" />
             </Link>
