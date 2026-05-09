@@ -3,14 +3,18 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { useState } from "react";
+import { use, useState } from "react";
 import { ArrowRight, Check, Clock, Award, Star, Sparkles, Users, MapPin, BookOpen, Target } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface ProgramPageProps {
-  params: {
+  params:
+    | {
+        slug: string;
+      }
+    | Promise<{
     slug: string;
-  };
+      }>;
 }
 
 interface CurriculumBlock {
@@ -1546,8 +1550,9 @@ const dubaiProgramsData: Record<string, DubaiProgram> = {
   }
 };
 
-export default function DubaiProgramDetail({ params }: ProgramPageProps) {
+export default function DubaiProgramDetail(props: ProgramPageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const params = "then" in props.params ? use(props.params) : props.params;
   const program = dubaiProgramsData[params.slug];
 
   if (!program) {

@@ -5483,7 +5483,9 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               ← Back to All Programs in Saudi Arabia
             </Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Pediatrics Specialty Program</p>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Pediatrics for Doctors in Saudi Arabia</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">
+              Fellowship in <span style={{ color: '#4ade80' }}>Pediatrics</span> for Doctors in <span style={{ color: '#60a5fa' }}>Saudi Arabia</span>
+            </h1>
             <p className="text-base md:text-xl text-white/90 max-w-4xl mb-6">
               A structured Pediatrics fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.
               Gain case-based clinical training, recognised certification, and the credentials needed to progress toward consultant positions.
@@ -5835,7 +5837,9 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               ← Back to All Programs in Saudi Arabia
             </Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Endocrinology Specialty Program</p>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Endocrinology for Doctors in Saudi Arabia</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">
+              Fellowship in <span style={{ color: '#4ade80' }}>Endocrinology</span> for Doctors in <span style={{ color: '#60a5fa' }}>Saudi Arabia</span>
+            </h1>
             <p className="text-base md:text-xl text-white/90 max-w-4xl mb-3">
               A structured Endocrinology fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.
             </p>
@@ -5996,7 +6000,9 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Nephrology Specialty Program</p>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Nephrology for Doctors in Saudi Arabia</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">
+              Fellowship in <span style={{ color: '#4ade80' }}>Nephrology</span> for Doctors in <span style={{ color: '#60a5fa' }}>Saudi Arabia</span>
+            </h1>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Nephrology fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in renal care.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A Nephrology fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in kidney diseases, dialysis management, and chronic kidney care while strengthening their SCFHS specialist profile.</p>
@@ -6096,7 +6102,9 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Gastroenterology Specialty Program</p>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Gastroenterology for Doctors in Saudi Arabia</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">
+              Fellowship in <span style={{ color: '#4ade80' }}>Gastroenterology</span> for Doctors in <span style={{ color: '#60a5fa' }}>Saudi Arabia</span>
+            </h1>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Gastroenterology fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in digestive and liver care.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A Gastroenterology fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in gastrointestinal diseases, liver disorders, and endoscopy basics while strengthening their SCFHS specialist profile.</p>
@@ -6196,7 +6204,9 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Reproductive Medicine Specialty Program</p>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Reproductive Medicine for Doctors in Saudi Arabia</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">
+              Fellowship in <span style={{ color: '#4ade80' }}>Reproductive Medicine</span> for Doctors in <span style={{ color: '#60a5fa' }}>Saudi Arabia</span>
+            </h1>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Reproductive Medicine fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in fertility and reproductive health.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A Reproductive Medicine fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in infertility, IVF basics, and hormonal reproductive disorders while strengthening their SCFHS specialist profile.</p>
@@ -6296,7 +6306,9 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Neonatology Specialty Program</p>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Neonatology for Doctors in Saudi Arabia</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">
+              Fellowship in <span style={{ color: '#4ade80' }}>Neonatology</span> for Doctors in <span style={{ color: '#60a5fa' }}>Saudi Arabia</span>
+            </h1>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Neonatology fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in neonatal and NICU care.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A Neonatology fellowship is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in newborn care, NICU management, and neonatal emergencies while strengthening their SCFHS specialist profile.</p>
@@ -6388,7 +6400,9 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Orthopedic Surgery Specialty Program</p>
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">Fellowship in Arthroscopy & Arthroplasty for Doctors in Saudi Arabia</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-4">
+              Fellowship in <span style={{ color: '#4ade80' }}>Arthroscopy & Arthroplasty</span> for Doctors in <span style={{ color: '#60a5fa' }}>Saudi Arabia</span>
+            </h1>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">A structured Orthopedic fellowship aligned with the evolving SCFHS specialist pathway in Saudi Arabia.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-3">Gain case-based clinical expertise, recognised certification, and the credentials needed to progress toward specialist and consultant roles in joint surgery and sports injury management.</p>
             <p className="text-base md:text-lg text-white/90 max-w-4xl mb-6">A fellowship in Arthroscopy and Arthroplasty is a 12-month structured training program that helps doctors in Saudi Arabia gain subspecialty expertise in minimally invasive joint procedures, joint replacement, and orthopedic surgical planning while strengthening their SCFHS specialist profile.</p>
