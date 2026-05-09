@@ -13,8 +13,71 @@ interface ProgramPageProps {
   };
 }
 
+interface CurriculumBlock {
+  month: string;
+  title: string;
+  modules: string[];
+}
+
+interface CareerOutcome {
+  role: string;
+  description: string;
+}
+
+interface PricingTier {
+  price: string;
+  aed: string;
+  sar: string;
+  format: string;
+}
+
+interface Pricing {
+  onlineFormat: PricingTier;
+  hybridFormat: PricingTier;
+}
+
+interface ApplicationStep {
+  step: number;
+  title: string;
+  description: string;
+}
+
+interface ProgramFaq {
+  question: string;
+  answer: string;
+}
+
+interface ProgramTestimonial {
+  quote: string;
+  author: string;
+  role: string;
+  rating: number;
+}
+
+interface DubaiProgram {
+  title: string;
+  name: string;
+  icon: string;
+  duration: string;
+  eligibility: string;
+  description: string;
+  overview: string;
+  highlights: string[];
+  whyDubai: {
+    demand: string;
+    credentialing: string;
+    opportunities: string[];
+  };
+  curricula: CurriculumBlock[];
+  careerOutcomes: CareerOutcome[];
+  pricing: Pricing;
+  applicationProcess: ApplicationStep[];
+  faqs: ProgramFaq[];
+  testimonials: ProgramTestimonial[];
+}
+
 // Dubai-specific fellowship data
-const dubaiProgramsData: { [key: string]: any } = {
+const dubaiProgramsData: Record<string, DubaiProgram> = {
   "fellowship-in-pediatrics": {
     title: "Fellowship in Pediatrics for Doctors in Dubai",
     name: "Pediatrics Fellowship",

@@ -613,7 +613,7 @@ export default function DubaiProgramsHub() {
               </div>
 
               <div className="p-6 border-t" style={{ borderColor: '#BFC9CA', background: '#EAF2FB' }}>
-                <p className="text-sm" style={{ color: '#1B4F72' }} className="font-medium mb-2">Best Fit For</p>
+                <p className="text-sm font-medium mb-2" style={{ color: '#1B4F72' }}>Best Fit For</p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <p className="text-sm font-medium mb-1" style={{ color: '#2E86C1' }}>MedFellow Academy</p>
@@ -628,7 +628,7 @@ export default function DubaiProgramsHub() {
             </div>
 
             <div className="mt-8 p-6 rounded-xl" style={{ background: '#EAF2FB', border: '1px solid #AED6F1' }}>
-              <p className="text-sm" style={{ color: '#1B4F72' }} className="font-medium mb-2">The Practical Takeaway for Dubai Doctors</p>
+              <p className="text-sm font-medium mb-2" style={{ color: '#1B4F72' }}>The Practical Takeaway for Dubai Doctors</p>
               <p className="text-sm" style={{ color: '#5D6D7E' }}>
                 MedFellow suits doctors who want breadth of specialty choice and fully online flexibility. Medline Academics suits doctors with a narrow focus on IVF and embryology who can travel to Bengaluru. Both are legitimate providers. The right choice depends on your specialty focus and travel flexibility.
               </p>
@@ -727,7 +727,7 @@ export default function DubaiProgramsHub() {
               <p style={{ color: '#1B4F72' }} className="mb-2 font-medium">
                 Certification Strength
               </p>
-              <p className="text-sm" style={{ color: '#5D6D7E' }} className="leading-relaxed">
+              <p className="text-sm leading-relaxed" style={{ color: '#5D6D7E' }}>
                 The curriculum is case based. You work through the exact clinical scenarios you encounter in your Dubai practice. This is not theoretical education. It is clinical education delivered in a flexible format. At the end of the 12 months, you receive a formal fellowship certificate that strengthens your specialist CV for DHA credentialing and consultant track hospital applications.
               </p>
             </div>
@@ -1094,7 +1094,7 @@ export default function DubaiProgramsHub() {
               </div>
 
               <div className="mt-8 pt-8 border-t" style={{ borderColor: '#BFC9CA' }}>
-                <p className="text-sm" style={{ color: '#5D6D7E' }} className="leading-relaxed">
+                <p className="text-sm leading-relaxed" style={{ color: '#5D6D7E' }}>
                   <strong>The first 30 days set the tone for the full fellowship.</strong> You'll transition from orientation to active learning within the first week, and by week 3, you'll be fully integrated into the curriculum with regular faculty contact and structured assessments.
                 </p>
               </div>
