@@ -5,7 +5,7 @@ import CurriculumAccordion from "@/components/CurriculumAccordion";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
-const VALID_LOCATIONS = ["dubai", "uae", "saudi-arabia"];
+const VALID_LOCATIONS = ["uae", "saudi-arabia"];
 
 const LOCATION_META = {
   "dubai": {

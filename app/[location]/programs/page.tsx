@@ -8,7 +8,7 @@ import { useMemo, useState, use } from "react";
 import { Search, X, Clock, Stethoscope, ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 
-const VALID_LOCATIONS = ["dubai", "uae", "saudi-arabia"];
+const VALID_LOCATIONS = ["uae", "saudi-arabia"];
 
 const LOCATION_META = {
   "dubai": {
