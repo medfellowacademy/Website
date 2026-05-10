@@ -74,6 +74,8 @@ const PROGRAM_LABELS: Record<string, string> = {
   critical: 'Critical Care Medicine',
 };
 
+const APPLICATION_DOCUMENT_BUCKET = 'application-documents';
+
 function parseDocuments(msg: string | null | undefined): string[] {
   if (!msg) return [];
   
@@ -91,6 +93,69 @@ function parseDocuments(msg: string | null | undefined): string[] {
   const match = msg.match(/\[Uploaded documents: (.+?)\]/);
   if (!match) return [];
   return match[1].split(', ').filter(Boolean);
+}
+
+function isAbsoluteUrl(value: string) {
+  return /^https?:\/\//i.test(value);
+}
+
+function getDocumentFileName(pathOrUrl: string) {
+  const decoded = decodeURIComponent(pathOrUrl);
+  const fileName = decoded.split('/').pop() || decoded;
+  return fileName.replace(/^\d+_/, '');
+}
+
+async function getDocumentAccessUrl(pathOrUrl: string) {
+  if (isAbsoluteUrl(pathOrUrl)) {
+    return pathOrUrl;
+  }
+
+  const { data, error } = await supabase.storage
+    .from(APPLICATION_DOCUMENT_BUCKET)
+    .createSignedUrl(pathOrUrl, 3600);
+
+  if (error || !data?.signedUrl) {
+    throw error ?? new Error('Unable to generate signed URL');
+  }
+
+  return data.signedUrl;
+}
+
+function triggerBlobDownload(blob: Blob, fileName: string) {
+  const objectUrl = window.URL.createObjectURL(blob);
+  const link = document.createElement('a');
+
+  link.href = objectUrl;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  window.URL.revokeObjectURL(objectUrl);
+}
+
+async function downloadDocument(pathOrUrl: string) {
+  const accessUrl = await getDocumentAccessUrl(pathOrUrl);
+  const response = await fetch(accessUrl);
+
+  if (!response.ok) {
+    throw new Error(`Download failed with status ${response.status}`);
+  }
+
+  const blob = await response.blob();
+  triggerBlobDownload(blob, getDocumentFileName(pathOrUrl));
+}
+
+async function openDocument(pathOrUrl: string) {
+  const popup = window.open('', '_blank', 'noopener,noreferrer');
+  const accessUrl = await getDocumentAccessUrl(pathOrUrl);
+
+  if (popup) {
+    popup.location.href = accessUrl;
+    return;
+  }
+
+  window.open(accessUrl, '_blank', 'noopener,noreferrer');
 }
 
 function fmt(n: number) {
@@ -614,20 +679,7 @@ export default function AdminPage() {
                             const docs = parseDocuments((selected as Application).message);
                             for (const doc of docs) {
                               try {
-                                const { data, error } = await supabase.storage
-                                  .from('application-documents')
-                                  .download(doc);
-                                
-                                if (error) throw error;
-                                
-                                const url = window.URL.createObjectURL(data);
-                                const a = document.createElement('a');
-                                a.href = url;
-                                a.download = doc;
-                                document.body.appendChild(a);
-                                a.click();
-                                document.body.removeChild(a);
-                                window.URL.revokeObjectURL(url);
+                                await downloadDocument(doc);
                                 
                                 // Small delay between downloads
                                 await new Promise(resolve => setTimeout(resolve, 500));
@@ -650,15 +702,7 @@ export default function AdminPage() {
                         {parseDocuments((selected as Application).message).map(doc => {
                           const handleView = async () => {
                             try {
-                              const { data, error } = await supabase.storage
-                                .from('application-documents')
-                                .createSignedUrl(doc, 3600); // 1 hour expiry
-                              
-                              if (error) throw error;
-                              
-                              if (data?.signedUrl) {
-                                window.open(data.signedUrl, '_blank');
-                              }
+                              await openDocument(doc);
                             } catch (err) {
                               console.error('View error:', err);
                               alert('Failed to view document. Please try again.');
@@ -667,20 +711,7 @@ export default function AdminPage() {
 
                           const handleDownload = async () => {
                             try {
-                              const { data, error } = await supabase.storage
-                                .from('application-documents')
-                                .download(doc);
-                              
-                              if (error) throw error;
-                              
-                              const url = window.URL.createObjectURL(data);
-                              const a = document.createElement('a');
-                              a.href = url;
-                              a.download = doc;
-                              document.body.appendChild(a);
-                              a.click();
-                              document.body.removeChild(a);
-                              window.URL.revokeObjectURL(url);
+                              await downloadDocument(doc);
                             } catch (err) {
                               console.error('Download error:', err);
                               alert('Failed to download document. Please try again.');
@@ -691,7 +722,7 @@ export default function AdminPage() {
                             <div key={doc} className="flex items-center justify-between p-3 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 hover:bg-blue-100 transition-colors group">
                               <div className="flex items-center gap-2 flex-1 min-w-0">
                                 <span className="text-lg shrink-0">📄</span>
-                                <span className="text-xs font-medium truncate">{doc}</span>
+                                <span className="text-xs font-medium truncate">{getDocumentFileName(doc)}</span>
                               </div>
                               <div className="flex gap-2 shrink-0">
                                 <button
