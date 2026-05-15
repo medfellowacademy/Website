@@ -91,7 +91,7 @@ export default function ReproductiveMedicinePage() {
           {/* Main Heading */}
           <h1 className="text-2xl md:text-5xl lg:text-6xl font-heading font-extrabold text-white mb-3 md:mb-6 leading-tight">
             <span className="block">Fellowship in</span>
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">Reproductive Medicine</span>
+            <span className="block text-yellow-400">Reproductive Medicine</span>
           </h1>
           
           {/* Subheading */}
@@ -113,10 +113,12 @@ export default function ReproductiveMedicinePage() {
             </button>
             <a
               href="tel:+919985044993"
-              className="px-5 md:px-8 py-3 md:py-4 bg-white/95 text-primary font-bold rounded-full hover:bg-white transition-all shadow-xl text-xs md:text-base lg:text-lg flex items-center gap-2 hover:scale-105 transform justify-center w-full sm:w-auto"
+              className="w-12 h-12 md:w-14 md:h-14 bg-white/20 border-2 border-white text-white rounded-full hover:bg-white hover:text-primary transition-all shadow-xl flex items-center justify-center hover:scale-105 transform shrink-0"
+              aria-label="Call us"
             >
-              <span className="text-base md:text-xl">📞</span>
-              <span className="whitespace-nowrap">Call: +91-9985044993</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 md:w-6 md:h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.46.57 3.58a1 1 0 01-.25 1.01l-2.2 2.2z"/>
+              </svg>
             </a>
           </div>
         </div>
