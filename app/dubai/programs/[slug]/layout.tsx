@@ -9,11 +9,23 @@ interface ProgramMetadataProps {
 export async function generateMetadata({ params }: ProgramMetadataProps): Promise<Metadata> {
   const { slug } = await params;
 
+  if (slug === "fellowship-in-pediatrics") {
+    return {
+      title: "Pediatrics Fellowship for Dubai Doctors 2026 | MedFellow",
+      description:
+        "Join MedFellow Pediatrics Fellowship for Dubai doctors. Gain child care expertise, flexible online training, and boost DHA career opportunities in 2026.",
+      robots: { index: true, follow: true },
+      alternates: { canonical: "https://www.medfellowacademy.com/dubai/programs/fellowship-in-pediatrics" },
+    };
+  }
+
   if (slug === "fellowship-in-endocrinology") {
     return {
       title: "Fellowship in Endocrinology Dubai Doctors 2026 | MedFellow",
       description:
-        "MedFellow Endocrinology Fellowship helps Dubai doctors build expertise in diabetes and hormone disorders with flexible online training for DHA career growth."
+        "MedFellow Endocrinology Fellowship helps Dubai doctors build expertise in diabetes and hormone disorders with flexible online training for DHA career growth.",
+      robots: { index: true, follow: true },
+      alternates: { canonical: "https://www.medfellowacademy.com/dubai/programs/fellowship-in-endocrinology" },
     };
   }
 
@@ -21,7 +33,9 @@ export async function generateMetadata({ params }: ProgramMetadataProps): Promis
     return {
       title: "Nephrology Fellowship for Dubai Doctors | MedFellow",
       description:
-        "Advance renal care skills with MedFellow Nephrology Fellowship in Dubai. Learn CKD, dialysis & kidney care. Apply now to boost DHA career growth."
+        "Advance renal care skills with MedFellow Nephrology Fellowship in Dubai. Learn CKD, dialysis & kidney care. Apply now to boost DHA career growth.",
+      robots: { index: true, follow: true },
+      alternates: { canonical: "https://www.medfellowacademy.com/dubai/programs/fellowship-in-nephrology" },
     };
   }
 
@@ -29,7 +43,9 @@ export async function generateMetadata({ params }: ProgramMetadataProps): Promis
     return {
       title: "Fellowship in Gastroenterology Dubai | MedFellow",
       description:
-        "MedFellow Gastroenterology Fellowship helps Dubai doctors gain GI and liver care expertise with flexible training. Enrol now for 2026 intake."
+        "MedFellow Gastroenterology Fellowship helps Dubai doctors gain GI and liver care expertise with flexible training. Enrol now for 2026 intake.",
+      robots: { index: true, follow: true },
+      alternates: { canonical: "https://www.medfellowacademy.com/dubai/programs/fellowship-in-gastroenterology" },
     };
   }
 
@@ -37,7 +53,9 @@ export async function generateMetadata({ params }: ProgramMetadataProps): Promis
     return {
       title: "Reproductive Medicine Fellowship Dubai | MedFellow",
       description:
-        "Step into the IVF specialty with MedFellow. Gain fertility and reproductive care skills with flexible training. Start your Dubai career upgrade today."
+        "Step into the IVF specialty with MedFellow. Gain fertility and reproductive care skills with flexible training. Start your Dubai career upgrade today.",
+      robots: { index: true, follow: true },
+      alternates: { canonical: "https://www.medfellowacademy.com/dubai/programs/fellowship-in-reproductive-medicine" },
     };
   }
 
@@ -45,7 +63,9 @@ export async function generateMetadata({ params }: ProgramMetadataProps): Promis
     return {
       title: "Fellowship in Neonatology Dubai 2026 | MedFellow",
       description:
-        "MedFellow Neonatology Fellowship helps Dubai doctors gain NICU expertise, neonatal care skills, and flexible training. Enrol now for 2026 intake."
+        "MedFellow Neonatology Fellowship helps Dubai doctors gain NICU expertise, neonatal care skills, and flexible training. Enrol now for 2026 intake.",
+      robots: { index: true, follow: true },
+      alternates: { canonical: "https://www.medfellowacademy.com/dubai/programs/fellowship-in-neonatology" },
     };
   }
 
@@ -53,13 +73,17 @@ export async function generateMetadata({ params }: ProgramMetadataProps): Promis
     return {
       title: "Arthroscopy & Arthroplasty Fellowship for Doctors Dubai",
       description:
-        "Boost your orthopedic skills with arthroscopy and arthroplasty training in Dubai. Practical exposure and expert mentorship. Apply now."
+        "Boost your orthopedic skills with arthroscopy and arthroplasty training in Dubai. Practical exposure and expert mentorship. Apply now.",
+      robots: { index: true, follow: true },
+      alternates: { canonical: "https://www.medfellowacademy.com/dubai/programs/fellowship-in-arthroscopy-and-arthroplasty" },
     };
   }
 
   return {
     title: "Dubai Fellowship Programs | MedFellow",
-    description: "Online fellowship programs for doctors in Dubai."
+    description: "Online fellowship programs for doctors in Dubai.",
+    robots: { index: true, follow: true },
+    alternates: { canonical: `https://www.medfellowacademy.com/dubai/programs/${slug}` },
   };
 }
 

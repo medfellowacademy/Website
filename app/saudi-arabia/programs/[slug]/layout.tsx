@@ -49,14 +49,21 @@ export async function generateMetadata({ params }: ProgramMetadataProps): Promis
     title: meta.title,
     description: meta.description,
     keywords: `fellowship, ${slug.replace("-", " ")}, Saudi Arabia, SCFHS, online learning, medical training`,
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: `https://www.medfellowacademy.com/saudi-arabia/programs/${slug}`,
+    },
     openGraph: {
       title: meta.title,
       description: meta.description,
       type: "website",
-      url: `https://medfellow.com/saudi-arabia/programs/${slug}`,
+      url: `https://www.medfellowacademy.com/saudi-arabia/programs/${slug}`,
       images: [
         {
-          url: "https://medfellow.com/og-image.png",
+          url: "https://www.medfellowacademy.com/og-image.png",
           width: 1200,
           height: 630,
           alt: "MedFellow Fellowship"
@@ -68,9 +75,6 @@ export async function generateMetadata({ params }: ProgramMetadataProps): Promis
       title: meta.title,
       description: meta.description
     },
-    alternates: {
-      canonical: `https://medfellow.com/saudi-arabia/programs/${slug}`
-    }
   };
 }
 
