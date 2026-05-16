@@ -91,7 +91,7 @@ export default function ReproductiveMedicinePage() {
           {/* Main Heading */}
           <h1 className="text-2xl md:text-5xl lg:text-6xl font-heading font-extrabold text-white mb-3 md:mb-6 leading-tight">
             <span className="block">Fellowship in</span>
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">Reproductive Medicine</span>
+            <span className="block text-yellow-400">Reproductive Medicine</span>
           </h1>
           
           {/* Subheading */}
@@ -111,13 +111,6 @@ export default function ReproductiveMedicinePage() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-accent to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </button>
-            <a
-              href="tel:+919985044993"
-              className="px-5 md:px-8 py-3 md:py-4 bg-white/95 text-primary font-bold rounded-full hover:bg-white transition-all shadow-xl text-xs md:text-base lg:text-lg flex items-center gap-2 hover:scale-105 transform justify-center w-full sm:w-auto"
-            >
-              <span className="text-base md:text-xl">📞</span>
-              <span className="whitespace-nowrap">Call: +91-9985044993</span>
-            </a>
           </div>
         </div>
       </section>
