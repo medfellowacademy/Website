@@ -1,8 +1,8 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const NAV_LINKS = [
   { href: '/', label: 'Home' },
@@ -11,12 +11,30 @@ const NAV_LINKS = [
   { href: '/contact', label: 'Contact' },
 ];
 
+const COUNTRY_OPTIONS = [
+  { href: '/saudi-arabia/programs', label: 'Saudi Arabia', flag: '🇸🇦' },
+  { href: '/dubai/programs', label: 'Dubai', flag: '🇦🇪' },
+];
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [countryOpen, setCountryOpen] = useState(false);
+  const [mobileCountryOpen, setMobileCountryOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setCountryOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
-    <nav 
-      className="sticky top-0 z-50 bg-white" 
+    <nav
+      className="sticky top-0 z-50 bg-white"
       style={{ borderBottom: '0.5px solid #BFC9CA', height: '70px' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-full flex items-center justify-between">
@@ -44,6 +62,41 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+
+          {/* Country Dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setCountryOpen((v) => !v)}
+              className="flex items-center gap-1 text-xs font-normal transition-colors hover:opacity-80"
+              style={{ color: '#5D6D7E' }}
+            >
+              Country
+              <ChevronDown
+                className="w-3 h-3 transition-transform"
+                style={{ transform: countryOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+              />
+            </button>
+
+            {countryOpen && (
+              <div
+                className="absolute top-full right-0 mt-2 w-44 bg-white rounded-lg shadow-lg py-1 z-50"
+                style={{ border: '0.5px solid #BFC9CA' }}
+              >
+                {COUNTRY_OPTIONS.map((opt) => (
+                  <Link
+                    key={opt.href}
+                    href={opt.href}
+                    onClick={() => setCountryOpen(false)}
+                    className="flex items-center gap-2 px-4 py-2 text-xs hover:bg-gray-50 transition-colors"
+                    style={{ color: '#5D6D7E' }}
+                  >
+                    <span>{opt.flag}</span>
+                    {opt.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Desktop CTA */}
@@ -80,6 +133,38 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
+
+            {/* Mobile Country Toggle */}
+            <div>
+              <button
+                onClick={() => setMobileCountryOpen((v) => !v)}
+                className="flex items-center gap-1 text-xs font-normal w-full"
+                style={{ color: '#5D6D7E' }}
+              >
+                Country
+                <ChevronDown
+                  className="w-3 h-3 transition-transform"
+                  style={{ transform: mobileCountryOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                />
+              </button>
+              {mobileCountryOpen && (
+                <div className="mt-2 ml-3 space-y-2">
+                  {COUNTRY_OPTIONS.map((opt) => (
+                    <Link
+                      key={opt.href}
+                      href={opt.href}
+                      className="flex items-center gap-2 text-xs font-normal transition-colors"
+                      style={{ color: '#5D6D7E' }}
+                      onClick={() => { setIsOpen(false); setMobileCountryOpen(false); }}
+                    >
+                      <span>{opt.flag}</span>
+                      {opt.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
               href="/apply"
               className="block w-full text-center px-4 py-2 rounded-md text-xs font-medium mt-4"
