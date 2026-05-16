@@ -103,13 +103,12 @@ export default function ReproductiveMedicinePage() {
           <div className="flex flex-col sm:flex-row gap-2 md:gap-4">
             <button
               onClick={() => setShowForm(true)}
-              className="group px-5 md:px-8 py-3 md:py-4 bg-gradient-to-r from-accent via-yellow-400 to-accent text-primary font-extrabold rounded-full hover:shadow-2xl transition-all shadow-xl text-xs md:text-base lg:text-lg relative overflow-hidden transform hover:scale-105 w-full sm:w-auto"
+              className="group px-5 md:px-8 py-3 md:py-4 bg-yellow-400 hover:bg-yellow-300 text-primary font-extrabold rounded-full hover:shadow-2xl transition-all shadow-xl text-xs md:text-base lg:text-lg transform hover:scale-105 w-full sm:w-auto"
             >
-              <span className="relative z-10 flex items-center gap-2 justify-center">
+              <span className="flex items-center gap-2 justify-center">
                 <span className="text-base md:text-xl group-hover:animate-bounce">🚀</span>
-                Apply Now - Limited Seats!
+                Apply Now
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-accent to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </button>
           </div>
         </div>
