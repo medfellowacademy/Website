@@ -12,8 +12,8 @@ const NAV_LINKS = [
 ];
 
 const COUNTRY_OPTIONS = [
-  { href: '/saudi-arabia/programs', label: 'Saudi Arabia', flag: '🇸🇦' },
-  { href: '/dubai/programs', label: 'Dubai', flag: '🇦🇪' },
+  { href: '/saudi-arabia/programs', label: 'Saudi Arabia', flagCode: 'sa' },
+  { href: '/dubai/programs', label: 'Dubai', flagCode: 'ae' },
 ];
 
 export default function Navbar() {
@@ -90,7 +90,7 @@ export default function Navbar() {
                     className="flex items-center gap-2 px-4 py-2 text-xs hover:bg-gray-50 transition-colors"
                     style={{ color: '#5D6D7E' }}
                   >
-                    <span>{opt.flag}</span>
+                    <img src={`https://flagcdn.com/w20/${opt.flagCode}.png`} alt={opt.label} width={20} height={14} className="rounded-sm" />
                     {opt.label}
                   </Link>
                 ))}
@@ -157,7 +157,7 @@ export default function Navbar() {
                       style={{ color: '#5D6D7E' }}
                       onClick={() => { setIsOpen(false); setMobileCountryOpen(false); }}
                     >
-                      <span>{opt.flag}</span>
+                      <img src={`https://flagcdn.com/w20/${opt.flagCode}.png`} alt={opt.label} width={20} height={14} className="rounded-sm" />
                       {opt.label}
                     </Link>
                   ))}
