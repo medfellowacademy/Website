@@ -842,17 +842,16 @@ export default function LocationProgramsPage({ params }: { params: Promise<{ loc
                   href={`/${locationLower}/programs/${program.slug}`}
                   className="program-card overflow-hidden group"
                 >
-                  {/* Image */}
-                  <div className="relative h-36 overflow-hidden">
+                  {/* Image — full image, no crop */}
+                  <div className="relative w-full overflow-hidden bg-[#f1f5f2]" style={{ aspectRatio: '16/10' }}>
                     <Image
                       src={program.image || '/courses/internal-medicine.jpg'}
                       alt={program.name}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="object-contain transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <span className="absolute bottom-2.5 left-3 text-white text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded">
+                    <span className="absolute bottom-2.5 right-3 text-[11px] font-semibold text-[#374151] bg-white/80 backdrop-blur-sm px-2 py-0.5 rounded">
                       {program.category}
                     </span>
                   </div>

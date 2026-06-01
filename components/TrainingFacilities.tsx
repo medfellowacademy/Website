@@ -90,18 +90,19 @@ export default function TrainingFacilities() {
         {/* Content */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-10 items-start">
           {/* Image */}
-          <div className="relative rounded-lg overflow-hidden border border-[#E5E7EB] aspect-video md:aspect-auto md:h-72">
-            <Image
-              src={tab.image}
-              alt={tab.headline}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#15401E]/50 to-transparent" />
-            <span className="absolute bottom-3 left-3 text-[0.75rem] font-semibold text-white bg-[#15401E]/70 backdrop-blur-sm px-2.5 py-1 rounded">
-              {tab.tag}
-            </span>
+          <div className="rounded-lg overflow-hidden border border-[#E5E7EB]">
+            <div className="relative w-full bg-[#f1f5f2]" style={{ aspectRatio: '16/10' }}>
+              <Image
+                src={tab.image}
+                alt={tab.headline}
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+            <div className="px-3 py-2 bg-white border-t border-[#E5E7EB]">
+              <span className="text-[0.75rem] font-semibold text-[#15401E]">{tab.tag}</span>
+            </div>
           </div>
 
           {/* Text */}
