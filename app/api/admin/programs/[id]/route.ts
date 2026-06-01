@@ -12,7 +12,7 @@ export async function GET(_request: NextRequest, { params }: { params: Promise<{
       .eq('id', id)
       .maybeSingle();
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-    if (!data) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+    if (!data) return NextResponse.json({ error: 'Program not found' }, { status: 404 });
     return NextResponse.json({ data });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -23,14 +23,19 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
   try {
     const { id } = await params;
     const body = await request.json();
-    const { data, error } = await cmsClient
+
+    // Remove any accidental id/created_at from body
+    const { id: _id, created_at: _ca, ...safeBody } = body as any;
+
+    const { error } = await cmsClient
       .from('cms_programs')
-      .update({ ...body, updated_at: new Date().toISOString() })
-      .eq('id', id)
-      .select()
-      .maybeSingle();
+      .update({ ...safeBody, updated_at: new Date().toISOString() })
+      .eq('id', id);
+
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-    return NextResponse.json({ success: true, data });
+
+    // Return the known ID (no need for a SELECT round-trip)
+    return NextResponse.json({ success: true, data: { id } });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }

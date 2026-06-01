@@ -7,14 +7,13 @@ export async function PUT(request: NextRequest, { params }: { params: Promise<{ 
   try {
     const { id } = await params;
     const body = await request.json();
-    const { data, error } = await cmsClient
+    const { id: _id, created_at: _ca, ...safeBody } = body as any;
+    const { error } = await cmsClient
       .from('cms_faqs')
-      .update(body)
-      .eq('id', id)
-      .select()
-      .single();
+      .update({ ...safeBody, updated_at: new Date().toISOString() })
+      .eq('id', id);
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-    return NextResponse.json({ success: true, data });
+    return NextResponse.json({ success: true, data: { id } });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
