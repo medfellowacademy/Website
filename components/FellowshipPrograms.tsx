@@ -42,69 +42,66 @@ function ProgramCard({ program }: { program: FeaturedProgram }) {
   return (
     <Link
       href={`/programs/${slug}`}
-      className="group flex flex-col bg-white border border-[#E5E7EB] rounded-lg overflow-hidden hover:border-[#C6DFC9] hover:shadow-md transition-all duration-200"
+      className="group flex flex-col rounded-xl overflow-hidden border border-gray-100 hover:border-[#C6DFC9] hover:shadow-md transition-all duration-200 bg-white"
     >
-      {/* Image */}
-      <div className="relative h-28 overflow-hidden shrink-0">
+      {/* Image area — full image, no crop */}
+      <div className="relative w-full overflow-hidden bg-[#f1f5f2]" style={{ aspectRatio: '16/10' }}>
         <Image
           src={program.image}
           alt={program.name}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-contain transition-transform duration-300 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
         {/* Badges */}
-        <div className="absolute top-2.5 left-2.5 flex gap-1.5">
+        <div className="absolute top-3 left-3 flex gap-1.5">
           {program.isPopular && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-semibold rounded bg-[#15401E] text-white">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-semibold rounded bg-[#15401E] text-white shadow-sm">
               <Star className="w-2.5 h-2.5 fill-current" /> Popular
             </span>
           )}
           {program.isNew && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-semibold rounded bg-white text-[#15401E]">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-semibold rounded bg-white text-[#15401E] shadow-sm border border-[#C6DFC9]">
               <Sparkles className="w-2.5 h-2.5" /> New
             </span>
           )}
         </div>
-        {/* Price + icon */}
-        <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
-          <span className="text-xl leading-none">{program.icon}</span>
-          <span className="text-sm font-bold text-white bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded">₹{priceL}L+</span>
+        {/* Price badge */}
+        <div className="absolute bottom-3 right-3">
+          <span className="text-[0.8125rem] font-bold text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-md">₹{priceL}L+</span>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="flex flex-col flex-1 px-3 pt-3 pb-2 gap-1.5">
-        <h3 className="text-[0.875rem] font-semibold text-[#111827] leading-snug group-hover:text-[#15401E] transition-colors line-clamp-2">
+      {/* Text content */}
+      <div className="flex flex-col gap-2 px-4 py-3.5">
+        <h3 className="text-[0.9375rem] font-semibold text-[#111827] leading-snug line-clamp-2 group-hover:text-[#15401E] transition-colors">
           {program.name}
         </h3>
 
-        {/* Tags */}
-        <div className="flex flex-wrap gap-1">
-          <span className="inline-flex items-center gap-1 text-[10px] font-medium text-[#374151] bg-[#F9FAFB] border border-[#E5E7EB] rounded px-1.5 py-0.5">
-            <Clock className="w-2.5 h-2.5 text-[#9CA3AF]" />{program.duration}
+        {/* Duration + Eligibility */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="inline-flex items-center gap-1 text-[11px] text-[#6B7280]">
+            <Clock className="w-3 h-3" />{program.duration}
           </span>
-          <span className="inline-flex items-center gap-1 text-[10px] font-medium text-[#374151] bg-[#F9FAFB] border border-[#E5E7EB] rounded px-1.5 py-0.5">
-            <GraduationCap className="w-2.5 h-2.5 text-[#9CA3AF]" />{program.eligibility}
+          <span className="text-[#D1D5DB] text-xs">·</span>
+          <span className="inline-flex items-center gap-1 text-[11px] text-[#6B7280]">
+            <GraduationCap className="w-3 h-3" />{program.eligibility}
           </span>
         </div>
 
         {/* Highlights */}
-        <div className="flex flex-wrap gap-1">
+        <div className="flex flex-wrap gap-1.5">
           {program.highlights.slice(0, 3).map((h, i) => (
-            <span key={i} className="text-[10px] text-[#6B7280] bg-[#F9FAFB] rounded px-1.5 py-0.5 border border-[#F3F4F6]">
-              {h}
-            </span>
+            <span key={i} className="text-[10px] px-2 py-0.5 bg-[#F3F4F6] text-[#374151] rounded border border-[#E5E7EB]">{h}</span>
           ))}
         </div>
-      </div>
 
-      {/* Footer */}
-      <div className="px-3 py-2 border-t border-[#F3F4F6] flex items-center justify-end">
-        <span className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#15401E] group-hover:gap-2 transition-all">
-          View details <ArrowRight className="w-3 h-3" />
-        </span>
+        {/* View details */}
+        <div className="flex items-center justify-end pt-0.5 border-t border-gray-50 mt-0.5">
+          <span className="inline-flex items-center gap-1 text-[0.75rem] font-semibold text-[#15401E] group-hover:gap-2 transition-all">
+            View details <ArrowRight className="w-3 h-3" />
+          </span>
+        </div>
       </div>
     </Link>
   );
