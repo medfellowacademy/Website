@@ -79,7 +79,7 @@ export default function ApplicationsPage() {
     return matchSearch && matchStatus;
   });
 
-  const counts = {
+  const counts: Record<string, number> = {
     all: items.length,
     new: items.filter((i) => i.status === 'new').length,
     contacted: items.filter((i) => i.status === 'contacted').length,
@@ -150,7 +150,7 @@ export default function ApplicationsPage() {
         ) : (
           <div className="divide-y divide-gray-50">
             {filtered.map((item) => {
-              const cfg = STATUS_CONFIG[item.status];
+              const cfg = STATUS_CONFIG[item.status] ?? STATUS_CONFIG['new'];
               const StatusIcon = cfg.icon;
               const isExpanded = expanded === item.id;
               return (
