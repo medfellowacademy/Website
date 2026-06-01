@@ -95,11 +95,11 @@ export default async function FacultyPage() {
                     <img
                       src={member.photo}
                       alt={member.name}
-                      className="w-24 h-24 rounded-full object-cover mb-4 group-hover:scale-110 transition-transform"
+                      className="w-32 h-32 rounded-full object-cover object-center mb-4 group-hover:scale-110 transition-transform"
                     />
                   ) : (
                     <div
-                      className={`w-24 h-24 bg-gradient-to-br ${AVATAR_GRADIENT_CLASSES[index % AVATAR_GRADIENT_CLASSES.length]} rounded-full flex items-center justify-center text-white text-2xl font-heading mb-4 group-hover:scale-110 transition-transform`}
+                      className={`w-32 h-32 bg-gradient-to-br ${AVATAR_GRADIENT_CLASSES[index % AVATAR_GRADIENT_CLASSES.length]} rounded-full flex items-center justify-center text-white text-2xl font-heading mb-4 group-hover:scale-110 transition-transform`}
                     >
                       {member.initials}
                     </div>

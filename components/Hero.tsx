@@ -49,7 +49,7 @@ export default function Hero(_props: HeroProps = {}) {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#15401E] text-sm font-semibold rounded-md border border-[#C6DFC9] hover:border-[#15401E] transition-colors"
                 onClick={() => analytics.applyClick('hero_apply_now')}
               >
-                Apply for June 2026
+                Enroll for June 2026
               </Link>
             </div>
 

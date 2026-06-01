@@ -113,13 +113,13 @@ export default function Faculty({ members }: { members?: FacultyMember[] }) {
               className="bg-white border border-[#E5E7EB] rounded-lg overflow-hidden hover:border-[#D1D5DB] hover:shadow-sm transition-all duration-150"
             >
               {/* Photo */}
-              <div className="relative h-40 overflow-hidden bg-[#F3F4F6]">
+              <div className="relative h-56 overflow-hidden bg-[#F3F4F6]">
                 <Image
                   src={m.photo}
                   alt={m.name}
                   fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 200px"
+                  className="object-cover object-center"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 280px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <span
