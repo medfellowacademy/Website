@@ -24,8 +24,8 @@ export default function AccreditationSection() {
             >
               International Accreditation
             </span>
-            <h2 className="text-[clamp(1.375rem,3vw,1.875rem)] font-bold text-white mb-2 leading-tight tracking-tight">
-              Globally accredited by{' '}
+            <h2 className="text-[clamp(1.375rem,3vw,1.875rem)] font-bold mb-2 leading-tight tracking-tight">
+              <span style={{ color: '#FFFFFF' }}>Globally accredited by{' '}</span>
               <span style={{ color: '#FF6B00' }}>ACTD</span>
             </h2>
             <p className="text-[0.9375rem] mb-8" style={{ color: 'rgba(255,255,255,0.72)' }}>
