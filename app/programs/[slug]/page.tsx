@@ -5606,28 +5606,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               </div>
 
 
-              {/* Who is this for? */}
-              <div className="py-6 md:py-8 border-b border-[#F3F4F6]">
-                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-2">Who Is This Program For?</h2>
-                <p className="text-gray-400 text-sm mb-6">This fellowship is ideal for practicing doctors who want to level up</p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {[
-                    { icon: '🩺', title: 'General Practitioners', desc: 'Wanting to specialize in a focused clinical area' },
-                    { icon: '🏥', title: 'Hospital Doctors', desc: 'Looking for structured, recognized post-graduate training' },
-                    { icon: '📈', title: 'Career Upgraders', desc: 'Aiming for higher salaries and senior positions' },
-                    { icon: '🌍', title: 'Doctors Abroad', desc: 'Seeking Indian or international fellowship credentials' },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-[#FAFAFA] border border-[#E5E7EB]">
-                      <span className="text-2xl shrink-0">{item.icon}</span>
-                      <div>
-                        <div className="font-semibold text-[#15401E] text-sm mb-0.5">{item.title}</div>
-                        <div className="text-xs text-gray-500 leading-snug">{item.desc}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               {/* Hospital Rotations */}
               {program.hospitalRotations && (
                 <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
