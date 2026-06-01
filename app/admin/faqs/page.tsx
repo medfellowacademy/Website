@@ -44,17 +44,24 @@ export default function FaqsPage() {
   }
 
   async function handleToggle(item: CmsFaq) {
+    const newPublished = !item.is_published;
+    setItems((p) => p.map((x) => x.id === item.id ? { ...x, is_published: newPublished } : x));
     try {
       const res = await fetch(`/api/admin/faqs/${item.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ is_published: !item.is_published }),
+        body: JSON.stringify({ is_published: newPublished }),
       });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error);
-      setItems((p) => p.map((x) => x.id === item.id ? json.data : x));
-      showToast(json.data.is_published ? 'FAQ published' : 'FAQ set to draft');
-    } catch { showToast('Update failed'); }
+      if (!res.ok) {
+        setItems((p) => p.map((x) => x.id === item.id ? { ...x, is_published: item.is_published } : x));
+        showToast('Update failed');
+        return;
+      }
+      showToast(newPublished ? 'FAQ published' : 'FAQ set to draft');
+    } catch {
+      setItems((p) => p.map((x) => x.id === item.id ? { ...x, is_published: item.is_published } : x));
+      showToast('Update failed');
+    }
   }
 
   async function handleSave() {
@@ -73,8 +80,10 @@ export default function FaqsPage() {
           body: JSON.stringify(modal),
         });
         const json = await res.json();
-        if (!res.ok) throw new Error(json.error);
-        setItems((p) => p.map((x) => x.id === modal.id ? json.data : x));
+        if (!res.ok) throw new Error(json.error ?? 'Update failed');
+        // Use returned data if available, else apply our known changes
+        const updated = json.data ?? { ...modal, id: modal.id } as CmsFaq;
+        setItems((p) => p.map((x) => x.id === modal.id ? updated : x));
         showToast('FAQ updated!');
       } else {
         const res = await fetch('/api/admin/faqs', {
@@ -83,7 +92,8 @@ export default function FaqsPage() {
           body: JSON.stringify(modal),
         });
         const json = await res.json();
-        if (!res.ok) throw new Error(json.error);
+        if (!res.ok) throw new Error(json.error ?? 'Create failed');
+        if (!json.data) throw new Error('FAQ was not saved. Check Supabase service role key.');
         setItems((p) => [...p, json.data]);
         showToast('FAQ added!');
       }

@@ -84,7 +84,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
         });
         const json = await res.json();
         if (!res.ok) throw new Error(json.error ?? 'Save failed');
-        savedId = json.data.id;
+        savedId = json.data?.id ?? program.id; // fall back to known ID if data is null
       } else {
         const res = await fetch('/api/admin/programs', {
           method: 'POST',
@@ -93,6 +93,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
         });
         const json = await res.json();
         if (!res.ok) throw new Error(json.error ?? 'Create failed');
+        if (!json.data?.id) throw new Error('Program was not saved — no ID returned. Check Supabase service role key.');
         savedId = json.data.id;
       }
 

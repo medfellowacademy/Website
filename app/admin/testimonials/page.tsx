@@ -56,8 +56,9 @@ export default function TestimonialsPage() {
           body: JSON.stringify(modal),
         });
         const json = await res.json();
-        if (!res.ok) throw new Error(json.error);
-        setItems((p) => p.map((x) => x.id === modal.id ? json.data : x));
+        if (!res.ok) throw new Error(json.error ?? 'Update failed');
+        const updated = json.data ?? { ...modal, id: modal.id } as CmsTestimonial;
+        setItems((p) => p.map((x) => x.id === modal.id ? updated : x));
         showToast('Testimonial updated!');
       } else {
         const res = await fetch('/api/admin/testimonials', {
@@ -66,7 +67,8 @@ export default function TestimonialsPage() {
           body: JSON.stringify(modal),
         });
         const json = await res.json();
-        if (!res.ok) throw new Error(json.error);
+        if (!res.ok) throw new Error(json.error ?? 'Create failed');
+        if (!json.data) throw new Error('Testimonial was not saved. Check Supabase service role key.');
         setItems((p) => [json.data, ...p]);
         showToast('Testimonial added!');
       }

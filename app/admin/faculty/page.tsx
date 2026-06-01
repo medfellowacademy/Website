@@ -34,17 +34,24 @@ export default function FacultyPage() {
   }
 
   async function handleToggle(f: CmsFaculty) {
+    const newPublished = !f.is_published;
+    setFaculty((prev) => prev.map((x) => x.id === f.id ? { ...x, is_published: newPublished } : x));
     try {
       const res = await fetch(`/api/admin/faculty/${f.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ is_published: !f.is_published }),
+        body: JSON.stringify({ is_published: newPublished }),
       });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error);
-      setFaculty((prev) => prev.map((x) => x.id === f.id ? json.data : x));
-      showToast(json.data.is_published ? 'Published' : 'Set to draft');
-    } catch { showToast('Update failed'); }
+      if (!res.ok) {
+        setFaculty((prev) => prev.map((x) => x.id === f.id ? { ...x, is_published: f.is_published } : x));
+        showToast('Update failed');
+        return;
+      }
+      showToast(newPublished ? 'Published' : 'Set to draft');
+    } catch {
+      setFaculty((prev) => prev.map((x) => x.id === f.id ? { ...x, is_published: f.is_published } : x));
+      showToast('Update failed');
+    }
   }
 
   return (

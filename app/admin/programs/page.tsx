@@ -38,17 +38,26 @@ export default function ProgramsPage() {
   }
 
   async function handleToggle(p: CmsProgram) {
+    const newPublished = !p.is_published;
+    // Optimistic update
+    setPrograms((prev) => prev.map((x) => x.id === p.id ? { ...x, is_published: newPublished } : x));
     try {
       const res = await fetch(`/api/admin/programs/${p.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ is_published: !p.is_published }),
+        body: JSON.stringify({ is_published: newPublished }),
       });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error);
-      setPrograms((prev) => prev.map((x) => x.id === p.id ? json.data : x));
-      showToast(json.data.is_published ? 'Program published' : 'Program set to draft');
-    } catch { showToast('Update failed'); }
+      if (!res.ok) {
+        // Revert on failure
+        setPrograms((prev) => prev.map((x) => x.id === p.id ? { ...x, is_published: p.is_published } : x));
+        showToast('Update failed');
+        return;
+      }
+      showToast(newPublished ? 'Program published' : 'Program set to draft');
+    } catch {
+      setPrograms((prev) => prev.map((x) => x.id === p.id ? { ...x, is_published: p.is_published } : x));
+      showToast('Update failed');
+    }
   }
 
   const filtered = programs.filter((p) =>
