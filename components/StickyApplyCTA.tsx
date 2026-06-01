@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { X, ArrowRight } from 'lucide-react';
+import { X, MessageSquarePlus } from 'lucide-react';
 
 export default function StickyApplyCTA() {
   const [visible, setVisible]     = useState(false);
@@ -36,12 +35,12 @@ export default function StickyApplyCTA() {
 
         {/* Right: CTA */}
         <div className="flex items-center gap-2 flex-shrink-0">
-          <Link
-            href="/apply"
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('open-enquiry-modal'))}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-[0.875rem] font-semibold text-white bg-[#15401E] hover:bg-[#0f2e15] transition-colors"
           >
-            Apply now <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+            <MessageSquarePlus className="w-3.5 h-3.5" /> Enquire Now
+          </button>
           <button
             onClick={() => { setDismissed(true); setVisible(false); }}
             className="p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-md text-[#9CA3AF] hover:text-[#374151] hover:bg-[#F3F4F6] transition-colors"

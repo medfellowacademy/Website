@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, MessageSquarePlus } from 'lucide-react';
 
 const COURSES = [
@@ -39,6 +39,12 @@ const labelCls = 'block text-xs font-semibold text-[#374151] mb-1';
 
 export default function EnquiryModal() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener('open-enquiry-modal', handler);
+    return () => window.removeEventListener('open-enquiry-modal', handler);
+  }, []);
   const [form, setForm] = useState({ name: '', phone: '', email: '', course: '' });
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
