@@ -85,7 +85,7 @@ export default function ContactPage() {
             style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.80)' }}>
             Contact Us
           </span>
-          <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold text-white mb-3 leading-tight">
+          <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] font-bold mb-3 leading-tight" style={{ color: '#FFFFFF' }}>
             We'd love to hear from you
           </h1>
           <p className="text-[1rem] max-w-xl mx-auto" style={{ color: 'rgba(255,255,255,0.72)' }}>
