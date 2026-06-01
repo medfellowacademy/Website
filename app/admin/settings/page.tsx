@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { Save, RefreshCw } from 'lucide-react';
-import { getSettingRows, updateManySettings, CmsSetting } from '@/lib/cms';
+import { type CmsSetting } from '@/lib/cms';
 
 // Default settings to show even if DB is empty
 const DEFAULT_SETTINGS: CmsSetting[] = [
@@ -48,7 +48,9 @@ export default function SettingsPage() {
   async function load() {
     setLoading(true);
     try {
-      const dbRows = await getSettingRows();
+      const res = await fetch('/api/admin/settings');
+      const json = await res.json();
+      const dbRows: CmsSetting[] = json.data ?? [];
       // Merge DB rows over defaults
       const merged = DEFAULT_SETTINGS.map((def) => {
         const db = dbRows.find((r) => r.key === def.key);
@@ -77,7 +79,15 @@ export default function SettingsPage() {
   async function handleSave() {
     setSaving(true);
     try {
-      await updateManySettings(values);
+      const res = await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ updates: values }),
+      });
+      if (!res.ok) {
+        const json = await res.json();
+        throw new Error(json.error ?? 'Save failed');
+      }
       setToast('Settings saved!');
       setTimeout(() => setToast(''), 3000);
     } catch {
