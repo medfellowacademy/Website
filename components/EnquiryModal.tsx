@@ -120,8 +120,8 @@ export default function EnquiryModal() {
             {/* Header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-[#F3F4F6]" style={{ background: '#15401E' }}>
               <div>
-                <h2 className="text-base font-bold text-white">Enquire Now</h2>
-                <p className="text-xs text-white/70 mt-0.5">We'll get back to you within 24 hours</p>
+                <h2 className="text-base font-bold" style={{ color: '#FFFFFF' }}>Enquire Now</h2>
+                <p className="text-xs mt-0.5" style={{ color: 'rgba(255,255,255,0.75)' }}>We'll get back to you within 24 hours</p>
               </div>
               <button
                 onClick={handleClose}
