@@ -5761,47 +5761,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                       </div>
                     </div>
                   )}
-                  {program.month10_2 && (
-                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
-                      <div>
-                        <div className="font-semibold text-gray-800 text-sm">10 Online + 2 Clinical Months</div>
-                      </div>
-                      <div className="text-lg font-bold text-[#15401E]">
-                        ₹{program.month10_2.toLocaleString('en-IN')}
-                      </div>
-                    </div>
-                  )}
-                  {program.month9_3 && (
-                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
-                      <div>
-                        <div className="font-semibold text-gray-800 text-sm">9 Online + 3 Clinical Months</div>
-                      </div>
-                      <div className="text-lg font-bold text-[#15401E]">
-                        ₹{program.month9_3.toLocaleString('en-IN')}
-                      </div>
-                    </div>
-                  )}
-                  {program.month6_6 && (
-                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
-                      <div>
-                        <div className="font-semibold text-gray-800 text-sm">6 Online + 6 Clinical Months</div>
-                      </div>
-                      <div className="text-lg font-bold text-[#15401E]">
-                        ₹{program.month6_6.toLocaleString('en-IN')}
-                      </div>
-                    </div>
-                  )}
-                  {program.month12Offline && (
-                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
-                      <div>
-                        <div className="font-semibold text-gray-800 text-sm">12 Months Full Clinical</div>
-                        <div className="text-xs text-gray-400">Fully offline · maximum hands-on</div>
-                      </div>
-                      <div className="text-lg font-bold text-[#15401E]">
-                        ₹{program.month12Offline.toLocaleString('en-IN')}
-                      </div>
-                    </div>
-                  )}
                 </div>
 
                 {/* EMI banner */}
