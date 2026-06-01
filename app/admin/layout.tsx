@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard, BookOpen, Users, MessageSquare,
-  Settings, LogOut, Globe, ChevronRight, Menu, X
+  Settings, LogOut, Globe, ChevronRight, Menu, HelpCircle
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -12,8 +12,8 @@ const NAV = [
   { href: '/admin/programs', label: 'Programs', icon: BookOpen },
   { href: '/admin/faculty', label: 'Faculty', icon: Users },
   { href: '/admin/testimonials', label: 'Testimonials', icon: MessageSquare },
+  { href: '/admin/faqs', label: 'FAQs', icon: HelpCircle },
   { href: '/admin/settings', label: 'Site Settings', icon: Settings },
-  { href: '/admin/pages', label: 'Page Content', icon: Globe },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -30,7 +30,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   const Sidebar = () => (
-    <aside className="flex flex-col h-full bg-[#213F5F] text-white w-64">
+    <aside className="flex flex-col h-full bg-[#15401E] text-white w-64">
       {/* Logo */}
       <div className="p-5 border-b border-white/10">
         <div className="flex items-center gap-3">
@@ -120,7 +120,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <a
             href="/"
             target="_blank"
-            className="text-xs text-[#213F5F] font-semibold hover:underline hidden sm:block"
+            className="text-xs text-[#15401E] font-semibold hover:underline hidden sm:block"
           >
             ↗ View Site
           </a>

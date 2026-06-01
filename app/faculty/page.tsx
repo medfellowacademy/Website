@@ -19,6 +19,7 @@ const STATIC_FACULTY = [
   { name: "Dr. Kiran Vadapalli", title: "Faculty – Critical Care Medicine", credentials: "DM Critical Care Medicine", institution: "Super Speciality Hospital", experience: "10+ years in Critical Care Medicine", specialization: "Fellowship in Critical Care Medicine", initials: "KV", photo: "/faculty/dr-kiran-vadapalli.jpg" },
   { name: "Dr. Supriya Kumari", title: "Consultant – IVF & Infertility", credentials: "MBBS, MD (OBG), DNB (OBG), MNAMS, MRCOG (1), DM Reproductive Medicine (AIIMS, New Delhi)", institution: "Super Speciality Hospital", experience: "DM Reproductive Medicine from AIIMS New Delhi", specialization: "Gynecology and Obstetrics, Reproductive Medicine, Fetal Medicine", initials: "SK", photo: "/faculty/dr-supriya-kumari.jpg" },
   { name: "Dr. MD Munner Ahmed", title: "Faculty – Internal Medicine", credentials: "MBBS, MD Internal Medicine", institution: "Super Speciality Hospital", experience: "Specialist in Internal Medicine & Emergency Medicine", specialization: "Family Medicine, Emergency Medicine, Internal Medicine", initials: "MA", photo: "/faculty/dr-md-munner-ahmed.jpg" },
+  { name: "Dr. Mounika Murari", title: "Faculty – Oral & Maxillofacial Surgery", credentials: "BDS, MDS (Oral & Maxillofacial Surgery)", institution: "Super Speciality Hospital", experience: "Specialist in Oral & Maxillofacial Surgery", specialization: "Oral & Maxillofacial Surgery, Dental Surgery, Facial Trauma", initials: "MM", photo: "/faculty/dr-mounika-murari.jpg" },
 ];
 
 interface FacultyDisplayItem {

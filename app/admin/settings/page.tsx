@@ -5,37 +5,37 @@ import { getSettingRows, updateManySettings, CmsSetting } from '@/lib/cms';
 
 // Default settings to show even if DB is empty
 const DEFAULT_SETTINGS: CmsSetting[] = [
-  // General
-  { key: 'site_name', value: 'MedFellow Academy', label: 'Site Name', description: 'Name shown in header and browser tab', category: 'general', updated_at: '' },
-  { key: 'site_tagline', value: 'India\'s Premier Medical Fellowship Programs', label: 'Site Tagline', description: 'Subtitle shown in the hero section', category: 'general', updated_at: '' },
-  { key: 'contact_email', value: 'info@medfellowacademy.com', label: 'Contact Email', description: 'Email shown on contact page', category: 'general', updated_at: '' },
-  { key: 'contact_phone', value: '+91 98765 43210', label: 'Contact Phone', description: 'Phone shown on contact page', category: 'general', updated_at: '' },
-  { key: 'contact_address', value: 'New Delhi, India', label: 'Office Address', description: 'Address shown in footer', category: 'general', updated_at: '' },
-  // Hero
-  { key: 'hero_title', value: 'Transform Your Medical Career', label: 'Hero Title', description: 'Main title in the homepage hero', category: 'hero', updated_at: '' },
-  { key: 'hero_subtitle', value: 'Join India\'s most comprehensive medical fellowship programs. Learn from AIIMS-trained specialists.', label: 'Hero Subtitle', description: 'Subtitle paragraph in hero section', category: 'hero', updated_at: '' },
-  { key: 'hero_cta_text', value: 'Explore Programs', label: 'Hero CTA Button Text', description: 'Primary call-to-action button text', category: 'hero', updated_at: '' },
-  // Stats
-  { key: 'stat_doctors', value: '2,500+', label: 'Doctors Trained', description: 'Number shown in stats bar', category: 'stats', updated_at: '' },
-  { key: 'stat_programs', value: '15+', label: 'Programs', description: 'Number of programs in stats bar', category: 'stats', updated_at: '' },
-  { key: 'stat_hospitals', value: '50+', label: 'Hospital Partners', description: 'Hospital partners count', category: 'stats', updated_at: '' },
-  { key: 'stat_placement', value: '98%', label: 'Placement Rate', description: 'Placement rate stat', category: 'stats', updated_at: '' },
-  // Social
-  { key: 'social_facebook', value: '', label: 'Facebook URL', description: 'Facebook page link', category: 'social', updated_at: '' },
+  // Contact & General
+  { key: 'contact_email', value: 'info@medfellow.in', label: 'Contact Email', description: 'Email shown on contact page and footer', category: 'contact', updated_at: '' },
+  { key: 'contact_phone', value: '+91 99850 44993', label: 'Contact Phone', description: 'Phone number shown on contact page', category: 'contact', updated_at: '' },
+  { key: 'whatsapp_number', value: '919985044993', label: 'WhatsApp Number', description: 'WhatsApp number with country code, no + or spaces (e.g. 919985044993)', category: 'contact', updated_at: '' },
+  { key: 'contact_address', value: 'Hyderabad, Telangana, India', label: 'Office Address', description: 'Address shown in footer and contact page', category: 'contact', updated_at: '' },
+  { key: 'site_name', value: 'MedFellow Academy', label: 'Site Name', description: 'Name shown in browser tab and emails', category: 'contact', updated_at: '' },
+  // Hero / Homepage
+  { key: 'hero_heading', value: 'MedFellow Academy Where Doctors Evolve', label: 'Hero Heading', description: 'Main heading on the homepage hero', category: 'homepage', updated_at: '' },
+  { key: 'hero_rating_text', value: '4.9 · Trusted by 500+ doctors', label: 'Hero Rating Text', description: 'Rating pill text below the heading', category: 'homepage', updated_at: '' },
+  { key: 'apply_batch_text', value: 'Apply for June 2026', label: 'Apply Button Text', description: 'Text on the Apply CTA button in hero', category: 'homepage', updated_at: '' },
+  // Stats Bar
+  { key: 'stat_specialties', value: '60+', label: 'Specialties Count', description: 'Shown in hero stats bar', category: 'stats', updated_at: '' },
+  { key: 'stat_doctors', value: '500+', label: 'Doctors Trained', description: 'Shown in hero stats bar', category: 'stats', updated_at: '' },
+  { key: 'stat_hospitals', value: '20+', label: 'Hospital Partners', description: 'Shown in hero stats bar', category: 'stats', updated_at: '' },
+  { key: 'stat_placement', value: '98%', label: 'Placement Rate', description: 'Shown in hero stats bar', category: 'stats', updated_at: '' },
+  // Social Media
+  { key: 'social_facebook', value: '', label: 'Facebook URL', description: 'Facebook page link (shown in footer)', category: 'social', updated_at: '' },
   { key: 'social_instagram', value: '', label: 'Instagram URL', description: 'Instagram profile link', category: 'social', updated_at: '' },
   { key: 'social_linkedin', value: '', label: 'LinkedIn URL', description: 'LinkedIn page link', category: 'social', updated_at: '' },
   { key: 'social_youtube', value: '', label: 'YouTube URL', description: 'YouTube channel link', category: 'social', updated_at: '' },
   // SEO
-  { key: 'meta_title', value: 'MedFellow Academy | Medical Fellowship Programs', label: 'Default Meta Title', description: 'Default SEO title for all pages', category: 'seo', updated_at: '' },
-  { key: 'meta_description', value: 'India\'s premier medical fellowship programs. Learn from top specialists and advance your medical career.', label: 'Default Meta Description', description: 'Default SEO description', category: 'seo', updated_at: '' },
+  { key: 'meta_title', value: 'MedFellow Academy | Medical Fellowship Programs', label: 'Default Meta Title', description: 'Default browser tab title for all pages', category: 'seo', updated_at: '' },
+  { key: 'meta_description', value: 'India\'s premier medical fellowship programs. Learn from top specialists and advance your medical career.', label: 'Default Meta Description', description: 'Default description for Google search', category: 'seo', updated_at: '' },
 ];
 
 const CATEGORY_LABELS: Record<string, string> = {
-  general: '🏢 General',
-  hero: '🦸 Hero Section',
+  contact: '📞 Contact & General',
+  homepage: '🏠 Homepage',
   stats: '📊 Stats Bar',
   social: '📱 Social Media',
-  seo: '🔍 SEO',
+  seo: '🔍 SEO / Google',
 };
 
 export default function SettingsPage() {
@@ -91,7 +91,7 @@ export default function SettingsPage() {
   // Group by category
   const categories = Array.from(new Set(rows.map((r) => r.category))).filter(Boolean);
 
-  const inputCls = 'w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#213F5F]/20 focus:border-[#213F5F] bg-white transition-all';
+  const inputCls = 'w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#15401E]/20 focus:border-[#15401E] bg-white transition-all';
 
   if (loading) return <div className="p-12 text-center text-gray-400">Loading settings…</div>;
 
@@ -116,7 +116,7 @@ export default function SettingsPage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="flex items-center gap-2 px-5 py-2.5 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl text-sm font-semibold disabled:opacity-60 transition-all"
+            className="flex items-center gap-2 px-5 py-2.5 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl text-sm font-semibold disabled:opacity-60 transition-all"
           >
             <Save className="w-4 h-4" />
             {saving ? 'Saving…' : 'Save All'}
@@ -164,7 +164,7 @@ export default function SettingsPage() {
         <button
           onClick={handleSave}
           disabled={saving}
-          className="flex items-center gap-2 px-6 py-3 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl font-semibold disabled:opacity-60 transition-all"
+          className="flex items-center gap-2 px-6 py-3 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl font-semibold disabled:opacity-60 transition-all"
         >
           <Save className="w-4 h-4" />
           {saving ? 'Saving…' : 'Save All Settings'}

@@ -45,7 +45,7 @@ export default function FacultyPage() {
           <h1 className="text-2xl font-bold text-gray-900">Faculty</h1>
           <p className="text-gray-400 text-sm mt-0.5">{faculty.length} faculty members</p>
         </div>
-        <Link href="/admin/faculty/new" className="flex items-center gap-2 px-4 py-2.5 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl text-sm font-semibold transition-all">
+        <Link href="/admin/faculty/new" className="flex items-center gap-2 px-4 py-2.5 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl text-sm font-semibold transition-all">
           <PlusCircle className="w-4 h-4" /> Add Faculty
         </Link>
       </div>
@@ -57,7 +57,7 @@ export default function FacultyPage() {
           <div className="p-12 text-center">
             <div className="text-4xl mb-3">👩‍⚕️</div>
             <div className="text-gray-500 font-semibold mb-2">No faculty members yet</div>
-            <Link href="/admin/faculty/new" className="text-[#213F5F] font-semibold text-sm hover:underline">+ Add Faculty Member</Link>
+            <Link href="/admin/faculty/new" className="text-[#15401E] font-semibold text-sm hover:underline">+ Add Faculty Member</Link>
           </div>
         ) : (
           <div className="divide-y divide-gray-50">
@@ -97,7 +97,7 @@ export default function FacultyPage() {
 
                 {/* Actions */}
                 <div className="flex items-center gap-1 shrink-0">
-                  <Link href={`/admin/faculty/${f.id}`} className="p-1.5 text-gray-400 hover:text-[#213F5F] hover:bg-gray-100 rounded-lg transition-all">
+                  <Link href={`/admin/faculty/${f.id}`} className="p-1.5 text-gray-400 hover:text-[#15401E] hover:bg-gray-100 rounded-lg transition-all">
                     <Edit2 className="w-3.5 h-3.5" />
                   </Link>
                   <button onClick={() => handleDelete(f.id, f.name)} className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all">

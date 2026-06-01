@@ -14,7 +14,7 @@ export default function WhatsAppWidget() {
     return () => clearTimeout(timer);
   }, []);
 
-  const whatsappNumber = "919985044993";
+  const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "919985044993");
   const predefinedMessages = [
     {
       emoji: "📚",

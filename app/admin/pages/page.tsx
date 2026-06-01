@@ -80,7 +80,7 @@ export default function PagesPage() {
   // Group by page
   const pages = Array.from(new Set(PAGE_SECTIONS.map((s) => s.page)));
 
-  const inputCls = 'w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#213F5F]/20 focus:border-[#213F5F] bg-white transition-all';
+  const inputCls = 'w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#15401E]/20 focus:border-[#15401E] bg-white transition-all';
   const labelCls = 'block text-sm font-semibold text-gray-700 mb-1.5';
 
   return (
@@ -145,7 +145,7 @@ export default function PagesPage() {
                         <button
                           onClick={() => handleSectionSave(section.id, section.fields.map((f) => f.key))}
                           disabled={saving[section.id]}
-                          className="flex items-center gap-2 px-4 py-2 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl text-sm font-semibold disabled:opacity-60 transition-all"
+                          className="flex items-center gap-2 px-4 py-2 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl text-sm font-semibold disabled:opacity-60 transition-all"
                         >
                           <Save className="w-3.5 h-3.5" />
                           {saving[section.id] ? 'Saving…' : 'Save Section'}

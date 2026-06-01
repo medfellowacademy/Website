@@ -67,7 +67,7 @@ export default function TestimonialsPage() {
     }
   }
 
-  const inputCls = 'w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#213F5F]/20 focus:border-[#213F5F] bg-white transition-all';
+  const inputCls = 'w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#15401E]/20 focus:border-[#15401E] bg-white transition-all';
   const labelCls = 'block text-sm font-semibold text-gray-700 mb-1.5';
 
   return (
@@ -81,7 +81,7 @@ export default function TestimonialsPage() {
         </div>
         <button
           onClick={() => { setModal({ ...BLANK }); setError(''); }}
-          className="flex items-center gap-2 px-4 py-2.5 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl text-sm font-semibold transition-all"
+          className="flex items-center gap-2 px-4 py-2.5 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl text-sm font-semibold transition-all"
         >
           <PlusCircle className="w-4 h-4" /> Add Testimonial
         </button>
@@ -95,14 +95,14 @@ export default function TestimonialsPage() {
           <div className="p-12 text-center">
             <div className="text-4xl mb-3">💬</div>
             <div className="text-gray-500 font-semibold mb-2">No testimonials yet</div>
-            <button onClick={() => setModal({ ...BLANK })} className="text-[#213F5F] font-semibold text-sm hover:underline">+ Add Testimonial</button>
+            <button onClick={() => setModal({ ...BLANK })} className="text-[#15401E] font-semibold text-sm hover:underline">+ Add Testimonial</button>
           </div>
         ) : (
           <div className="divide-y divide-gray-50">
             {items.map((t) => (
               <div key={t.id} className="flex items-start gap-4 px-5 py-4 hover:bg-gray-50 transition-colors">
                 {/* Avatar */}
-                <div className="w-11 h-11 rounded-full bg-[#213F5F] flex items-center justify-center text-white font-bold text-sm shrink-0">
+                <div className="w-11 h-11 rounded-full bg-[#15401E] flex items-center justify-center text-white font-bold text-sm shrink-0">
                   {t.author_name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
                 </div>
 
@@ -127,7 +127,7 @@ export default function TestimonialsPage() {
 
                 {/* Actions */}
                 <div className="flex items-center gap-1 shrink-0">
-                  <button onClick={() => { setModal({ ...t }); setError(''); }} className="p-1.5 text-gray-400 hover:text-[#213F5F] hover:bg-gray-100 rounded-lg transition-all">
+                  <button onClick={() => { setModal({ ...t }); setError(''); }} className="p-1.5 text-gray-400 hover:text-[#15401E] hover:bg-gray-100 rounded-lg transition-all">
                     <Edit2 className="w-3.5 h-3.5" />
                   </button>
                   <button onClick={() => handleDelete(t.id, t.author_name)} className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all">
@@ -204,7 +204,7 @@ export default function TestimonialsPage() {
 
             <div className="flex justify-end gap-2 p-5 border-t border-gray-100">
               <button onClick={() => setModal(null)} className="px-4 py-2 text-sm text-gray-500 hover:text-gray-700 font-medium">Cancel</button>
-              <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-5 py-2 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl text-sm font-semibold disabled:opacity-60 transition-all">
+              <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 px-5 py-2 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl text-sm font-semibold disabled:opacity-60 transition-all">
                 <Save className="w-3.5 h-3.5" />
                 {saving ? 'Saving…' : 'Save'}
               </button>

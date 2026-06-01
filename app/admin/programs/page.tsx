@@ -61,7 +61,7 @@ export default function ProgramsPage() {
         </div>
         <Link
           href="/admin/programs/new"
-          className="flex items-center gap-2 px-4 py-2.5 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl text-sm font-semibold transition-all"
+          className="flex items-center gap-2 px-4 py-2.5 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl text-sm font-semibold transition-all"
         >
           <PlusCircle className="w-4 h-4" />
           Add Program
@@ -75,7 +75,7 @@ export default function ProgramsPage() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search programs…"
-          className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#213F5F]/20 focus:border-[#213F5F] bg-white"
+          className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#15401E]/20 focus:border-[#15401E] bg-white"
         />
       </div>
 
@@ -91,7 +91,7 @@ export default function ProgramsPage() {
               {search ? 'Try a different search term' : 'Create your first fellowship program'}
             </p>
             {!search && (
-              <Link href="/admin/programs/new" className="text-[#213F5F] font-semibold text-sm hover:underline">
+              <Link href="/admin/programs/new" className="text-[#15401E] font-semibold text-sm hover:underline">
                 + Add New Program
               </Link>
             )}
@@ -143,13 +143,13 @@ export default function ProgramsPage() {
                           href={`/programs/${p.slug}`}
                           target="_blank"
                           title="Preview"
-                          className="p-1.5 text-gray-400 hover:text-[#213F5F] hover:bg-gray-100 rounded-lg transition-all"
+                          className="p-1.5 text-gray-400 hover:text-[#15401E] hover:bg-gray-100 rounded-lg transition-all"
                         >
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>
                         <Link
                           href={`/admin/programs/${p.id}`}
-                          className="p-1.5 text-gray-400 hover:text-[#213F5F] hover:bg-gray-100 rounded-lg transition-all"
+                          className="p-1.5 text-gray-400 hover:text-[#15401E] hover:bg-gray-100 rounded-lg transition-all"
                         >
                           <Edit2 className="w-3.5 h-3.5" />
                         </Link>

@@ -97,7 +97,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
     }
   }
 
-  const inputCls = 'w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#213F5F]/20 focus:border-[#213F5F] bg-white transition-all';
+  const inputCls = 'w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#15401E]/20 focus:border-[#15401E] bg-white transition-all';
   const labelCls = 'block text-sm font-semibold text-gray-700 mb-1.5';
 
   return (
@@ -122,7 +122,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
         <button
           type="submit"
           disabled={saving}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl text-sm font-semibold disabled:opacity-60 transition-all"
+          className="flex items-center gap-2 px-5 py-2.5 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl text-sm font-semibold disabled:opacity-60 transition-all"
         >
           <Save className="w-4 h-4" />
           {saving ? 'Saving…' : 'Save Program'}
@@ -208,7 +208,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-gray-100">
           <h2 className="text-base font-bold text-gray-800">Key Highlights</h2>
-          <button type="button" onClick={() => setHighlights([...highlights, ''])} className="flex items-center gap-1 text-xs text-[#213F5F] font-semibold hover:underline">
+          <button type="button" onClick={() => setHighlights([...highlights, ''])} className="flex items-center gap-1 text-xs text-[#15401E] font-semibold hover:underline">
             <PlusCircle className="w-3.5 h-3.5" /> Add
           </button>
         </div>
@@ -233,7 +233,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4">
         <div className="flex items-center justify-between pb-3 border-b border-gray-100">
           <h2 className="text-base font-bold text-gray-800">Career Opportunities</h2>
-          <button type="button" onClick={() => setCareers([...careers, ''])} className="flex items-center gap-1 text-xs text-[#213F5F] font-semibold hover:underline">
+          <button type="button" onClick={() => setCareers([...careers, ''])} className="flex items-center gap-1 text-xs text-[#15401E] font-semibold hover:underline">
             <PlusCircle className="w-3.5 h-3.5" /> Add
           </button>
         </div>
@@ -261,7 +261,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
             <h2 className="text-base font-bold text-gray-800">Curriculum Modules</h2>
             <p className="text-xs text-gray-400 mt-0.5">Each module has a title and topics (one per line)</p>
           </div>
-          <button type="button" onClick={() => setModules([...modules, { title: '', topics: '' }])} className="flex items-center gap-1 text-xs text-[#213F5F] font-semibold hover:underline">
+          <button type="button" onClick={() => setModules([...modules, { title: '', topics: '' }])} className="flex items-center gap-1 text-xs text-[#15401E] font-semibold hover:underline">
             <PlusCircle className="w-3.5 h-3.5" /> Add Module
           </button>
         </div>
@@ -296,7 +296,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
 
       {/* Save button */}
       <div className="flex justify-end pb-8">
-        <button type="submit" disabled={saving} className="flex items-center gap-2 px-6 py-3 bg-[#213F5F] hover:bg-[#1a3250] text-white rounded-xl font-semibold disabled:opacity-60 transition-all">
+        <button type="submit" disabled={saving} className="flex items-center gap-2 px-6 py-3 bg-[#15401E] hover:bg-[#0f2e15] text-white rounded-xl font-semibold disabled:opacity-60 transition-all">
           <Save className="w-4 h-4" />
           {saving ? 'Saving…' : (isEdit ? 'Save Changes' : 'Create Program')}
         </button>

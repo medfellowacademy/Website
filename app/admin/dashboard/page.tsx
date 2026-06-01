@@ -27,7 +27,7 @@ export default async function DashboardPage() {
   const QUICK_ACTIONS = [
     { label: 'Add New Program', href: '/admin/programs/new', icon: PlusCircle, color: 'text-blue-600 bg-blue-50 hover:bg-blue-100' },
     { label: 'Add Faculty', href: '/admin/faculty/new', icon: PlusCircle, color: 'text-emerald-600 bg-emerald-50 hover:bg-emerald-100' },
-    { label: 'View Website', href: '/', icon: Eye, color: 'text-[#213F5F] bg-slate-50 hover:bg-slate-100', external: true },
+    { label: 'View Website', href: '/', icon: Eye, color: 'text-[#15401E] bg-slate-50 hover:bg-slate-100', external: true },
   ];
 
   return (
@@ -85,13 +85,13 @@ export default async function DashboardPage() {
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="flex items-center justify-between p-5 border-b border-gray-100">
             <h2 className="text-base font-bold text-gray-800">Recent Programs</h2>
-            <Link href="/admin/programs" className="text-xs text-[#213F5F] font-semibold hover:underline">View all →</Link>
+            <Link href="/admin/programs" className="text-xs text-[#15401E] font-semibold hover:underline">View all →</Link>
           </div>
           <div className="divide-y divide-gray-50">
             {recentPrograms.length === 0 ? (
               <div className="p-5 text-center text-gray-400 text-sm">
                 No programs yet.{' '}
-                <Link href="/admin/programs/new" className="text-[#213F5F] font-semibold hover:underline">Create one →</Link>
+                <Link href="/admin/programs/new" className="text-[#15401E] font-semibold hover:underline">Create one →</Link>
               </div>
             ) : recentPrograms.map((p) => (
               <div key={p.id} className="flex items-center gap-3 px-5 py-3 hover:bg-gray-50">
@@ -103,7 +103,7 @@ export default async function DashboardPage() {
                 <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${p.is_published ? 'bg-emerald-100 text-emerald-700' : 'bg-gray-100 text-gray-500'}`}>
                   {p.is_published ? 'Live' : 'Draft'}
                 </span>
-                <Link href={`/admin/programs/${p.id}`} className="text-xs text-[#213F5F] hover:underline ml-1">Edit</Link>
+                <Link href={`/admin/programs/${p.id}`} className="text-xs text-[#15401E] hover:underline ml-1">Edit</Link>
               </div>
             ))}
           </div>
@@ -113,24 +113,24 @@ export default async function DashboardPage() {
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="flex items-center justify-between p-5 border-b border-gray-100">
             <h2 className="text-base font-bold text-gray-800">Faculty</h2>
-            <Link href="/admin/faculty" className="text-xs text-[#213F5F] font-semibold hover:underline">View all →</Link>
+            <Link href="/admin/faculty" className="text-xs text-[#15401E] font-semibold hover:underline">View all →</Link>
           </div>
           <div className="divide-y divide-gray-50">
             {recentFaculty.length === 0 ? (
               <div className="p-5 text-center text-gray-400 text-sm">
                 No faculty yet.{' '}
-                <Link href="/admin/faculty/new" className="text-[#213F5F] font-semibold hover:underline">Add one →</Link>
+                <Link href="/admin/faculty/new" className="text-[#15401E] font-semibold hover:underline">Add one →</Link>
               </div>
             ) : recentFaculty.map((f) => (
               <div key={f.id} className="flex items-center gap-3 px-5 py-3 hover:bg-gray-50">
-                <div className="w-8 h-8 rounded-full bg-[#213F5F] flex items-center justify-center text-white text-xs font-bold shrink-0">
+                <div className="w-8 h-8 rounded-full bg-[#15401E] flex items-center justify-center text-white text-xs font-bold shrink-0">
                   {f.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-semibold text-gray-800 truncate">{f.name}</div>
                   <div className="text-xs text-gray-400 truncate">{f.specialty}</div>
                 </div>
-                <Link href={`/admin/faculty/${f.id}`} className="text-xs text-[#213F5F] hover:underline">Edit</Link>
+                <Link href={`/admin/faculty/${f.id}`} className="text-xs text-[#15401E] hover:underline">Edit</Link>
               </div>
             ))}
           </div>

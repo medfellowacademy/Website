@@ -34,7 +34,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#213F5F] to-[#0f2a45] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-[#15401E] to-[#0f2a45] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="admin@medfellow.in"
                 required
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#213F5F]/30 focus:border-[#213F5F] transition-all"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#15401E]/30 focus:border-[#15401E] transition-all"
               />
             </div>
             <div>
@@ -76,13 +76,13 @@ export default function AdminLoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 required
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#213F5F]/30 focus:border-[#213F5F] transition-all"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#15401E]/30 focus:border-[#15401E] transition-all"
               />
             </div>
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-[#213F5F] hover:bg-[#1a3250] text-white font-bold rounded-xl transition-all disabled:opacity-60 disabled:cursor-not-allowed mt-2"
+              className="w-full py-3 bg-[#15401E] hover:bg-[#0f2e15] text-white font-bold rounded-xl transition-all disabled:opacity-60 disabled:cursor-not-allowed mt-2"
             >
               {loading ? 'Signing in…' : 'Sign In →'}
             </button>

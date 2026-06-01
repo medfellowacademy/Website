@@ -69,6 +69,22 @@ const FACULTY_DATA: FacultyMember[] = [
     accentColor: '#1E40AF',
     accentLight: '#DBEAFE',
   },
+  {
+    name: 'Dr. Mounika Murari',
+    title: 'Faculty – Oral & Maxillofacial Surgery',
+    credentials: 'BDS, MDS (Oral & Maxillofacial Surgery)',
+    experience: '8+ Years',
+    specialty: 'Oral Surgery',
+    bio: 'Specialist in oral and maxillofacial surgery with expertise in facial trauma, orthognathic surgery and oral oncology, guiding fellows through advanced surgical techniques.',
+    quote: 'Precision in surgery begins with thorough understanding of anatomy.',
+    specialties: ['Oral Surgery', 'Facial Trauma', 'Dental Surgery'],
+    studentRating: 4.9,
+    fellowsTrained: '50+',
+    highlights: ['MDS Oral & Maxillofacial Surgery', 'Surgical Specialist'],
+    photo: '/faculty/dr-mounika-murari.jpg',
+    accentColor: '#0F766E',
+    accentLight: '#CCFBF1',
+  },
 ];
 
 export default function Faculty({ members }: { members?: FacultyMember[] }) {
