@@ -38,7 +38,7 @@ export const PROGRAM_IMAGES: Record<string, string> = {
   'fellowship-in-gynecology-obstetrics':               '/courses/gynecology-obstetrics.jpg',
   'fellowship-in-gynecology-and-obstetrics':           '/courses/gynecology-obstetrics.jpg',
   'fellowship-in-high-risk-pregnancy':                 '/courses/high-risk-pregnancy.jpg',
-  'fellowship-in-fetal-medicine':                      '/courses/fetal-medicine.jpg',
+  'fellowship-in-fetal-medicine':                      '/courses/Fellowship in Fetal Medicine.jpeg',
   'fellowship-in-cosmetic-gynecology':                 '/courses/cosmetic-gynecology.jpg',
   'fellowship-in-laparoscopy-hysteroscopy':            '/courses/laparoscopy-hysteroscopy.jpg',
   'fellowship-in-laparoscopy-and-hysteroscopy':        '/courses/laparoscopy-hysteroscopy.jpg',
