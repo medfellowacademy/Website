@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getFaculty } from '@/lib/cms';
-import { FACULTY_DATA, toFacultySlug, FacultyMember } from '@/components/Faculty';
+import { FACULTY_DATA, toFacultySlug, cmsToFacultyMember, type FacultyMember } from '@/lib/faculty-data';
 import { ArrowLeft, Star, Users, Award } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
@@ -14,22 +14,7 @@ async function getAllFaculty(): Promise<FacultyMember[]> {
     const cmsData = await getFaculty();
     const published = cmsData.filter(f => f.is_published);
     if (published.length > 0) {
-      return published.map(f => ({
-        name:          f.name,
-        title:         f.title ?? '',
-        credentials:   f.credentials ?? '',
-        experience:    f.experience ?? '',
-        specialty:     f.specialty ?? '',
-        bio:           f.bio ?? '',
-        quote:         f.quote ?? '',
-        specialties:   f.specialties ?? [],
-        studentRating: f.student_rating ?? 4.8,
-        fellowsTrained: f.fellows_trained ?? '',
-        highlights:    f.highlights ?? [],
-        photo:         f.photo_url ?? '',
-        accentColor:   f.accent_color ?? '#15401E',
-        accentLight:   f.accent_light ?? '#e8f2ea',
-      }));
+      return published.map(cmsToFacultyMember);
     }
   } catch {}
   return FACULTY_DATA;
