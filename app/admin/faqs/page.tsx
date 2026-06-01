@@ -22,7 +22,7 @@ export default function FaqsPage() {
 
   async function load() {
     setLoading(true);
-    try { setItems(await getFaqs()); } catch {}
+    try { setItems(await getFaqs(false)); } catch {}
     setLoading(false);
   }
   useEffect(() => { load(); }, []);

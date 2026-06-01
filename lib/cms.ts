@@ -307,18 +307,20 @@ export interface CmsFaq {
   id: string;
   question: string;
   answer: string;
+  category: string;
   is_published: boolean;
   sort_order: number;
   created_at: string;
 }
 
-export async function getFaqs() {
-  const { data, error } = await cmsClient
+export async function getFaqs(publishedOnly = true) {
+  let query = cmsClient
     .from('cms_faqs')
     .select('*')
-    .eq('is_published', true)
     .order('sort_order', { ascending: true })
     .order('created_at', { ascending: false });
+  if (publishedOnly) query = query.eq('is_published', true);
+  const { data, error } = await query;
   if (error) throw error;
   return data as CmsFaq[];
 }
