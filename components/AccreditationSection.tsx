@@ -26,7 +26,7 @@ export default function AccreditationSection() {
             </span>
             <h2 className="text-[clamp(1.375rem,3vw,1.875rem)] font-bold text-white mb-2 leading-tight tracking-tight">
               Globally accredited by{' '}
-              <span style={{ color: '#FFFFFF' }}>ACTD</span>
+              <span style={{ color: '#FF6B00' }}>ACTD</span>
             </h2>
             <p className="text-[0.9375rem] mb-8" style={{ color: 'rgba(255,255,255,0.72)' }}>
               MedFellow Academy programs are internationally accredited by the American Council of Training and Development — your gateway to a globally recognised fellowship certificate.
