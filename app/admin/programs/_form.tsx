@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { PlusCircle, Trash2, GripVertical, Save, ArrowLeft } from 'lucide-react';
-import { createProgram, updateProgram, upsertCurriculumModules, CmsProgram } from '@/lib/cms';
+import { type CmsProgram } from '@/lib/cms';
 
 interface Module { title: string; topics: string }
 
@@ -74,16 +74,42 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
         career_opportunities: careers.filter(Boolean),
       };
 
-      const saved = isEdit
-        ? await updateProgram(program.id, payload)
-        : await createProgram(payload);
+      // Use server API routes (avoids anon-key RLS issues)
+      let savedId: string;
+      if (isEdit) {
+        const res = await fetch(`/api/admin/programs/${program.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error ?? 'Save failed');
+        savedId = json.data.id;
+      } else {
+        const res = await fetch('/api/admin/programs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error ?? 'Create failed');
+        savedId = json.data.id;
+      }
 
-      // Save curriculum
+      // Save curriculum modules
       const mods = modules.filter((m) => m.title.trim()).map((m) => ({
         title: m.title,
-        topics: m.topics.split('\n').map((t) => t.trim()).filter(Boolean),
+        topics: m.topics.split('\n').map((t: string) => t.trim()).filter(Boolean),
       }));
-      await upsertCurriculumModules(saved.id, mods);
+      const modRes = await fetch(`/api/admin/programs/${savedId}/modules`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ modules: mods }),
+      });
+      if (!modRes.ok) {
+        const modJson = await modRes.json();
+        throw new Error(modJson.error ?? 'Module save failed');
+      }
 
       setToast(isEdit ? 'Program saved!' : 'Program created!');
       setTimeout(() => {

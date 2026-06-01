@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { PlusCircle, Edit2, Trash2, Eye, EyeOff, Search, ExternalLink } from 'lucide-react';
-import { getPrograms, deleteProgram, toggleProgramPublish, CmsProgram } from '@/lib/cms';
+import { type CmsProgram } from '@/lib/cms';
 
 export default function ProgramsPage() {
   const [programs, setPrograms] = useState<CmsProgram[]>([]);
@@ -12,7 +12,11 @@ export default function ProgramsPage() {
 
   async function load() {
     setLoading(true);
-    try { setPrograms(await getPrograms()); } catch {}
+    try {
+      const res = await fetch('/api/admin/programs');
+      const json = await res.json();
+      if (json.data) setPrograms(json.data);
+    } catch {}
     setLoading(false);
   }
 
@@ -26,7 +30,8 @@ export default function ProgramsPage() {
   async function handleDelete(id: string, name: string) {
     if (!confirm(`Delete "${name}"? This cannot be undone.`)) return;
     try {
-      await deleteProgram(id);
+      const res = await fetch(`/api/admin/programs/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error();
       setPrograms((p) => p.filter((x) => x.id !== id));
       showToast('Program deleted');
     } catch { showToast('Delete failed'); }
@@ -34,9 +39,15 @@ export default function ProgramsPage() {
 
   async function handleToggle(p: CmsProgram) {
     try {
-      const updated = await toggleProgramPublish(p.id, p.is_published);
-      setPrograms((prev) => prev.map((x) => x.id === p.id ? updated : x));
-      showToast(updated.is_published ? 'Program published' : 'Program set to draft');
+      const res = await fetch(`/api/admin/programs/${p.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ is_published: !p.is_published }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setPrograms((prev) => prev.map((x) => x.id === p.id ? json.data : x));
+      showToast(json.data.is_published ? 'Program published' : 'Program set to draft');
     } catch { showToast('Update failed'); }
   }
 

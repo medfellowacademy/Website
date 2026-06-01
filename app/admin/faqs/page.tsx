@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { PlusCircle, Edit2, Trash2, Eye, EyeOff, X, Save, ChevronDown, ChevronUp } from 'lucide-react';
-import { getFaqs, createFaq, updateFaq, deleteFaq, CmsFaq } from '@/lib/cms';
+import { type CmsFaq } from '@/lib/cms';
 
 const BLANK: Partial<CmsFaq> = {
   question: '',
@@ -22,7 +22,11 @@ export default function FaqsPage() {
 
   async function load() {
     setLoading(true);
-    try { setItems(await getFaqs(false)); } catch {}
+    try {
+      const res = await fetch('/api/admin/faqs');
+      const json = await res.json();
+      if (json.data) setItems(json.data);
+    } catch {}
     setLoading(false);
   }
   useEffect(() => { load(); }, []);
@@ -32,7 +36,8 @@ export default function FaqsPage() {
   async function handleDelete(id: string, q: string) {
     if (!confirm(`Delete this FAQ?\n"${q}"`)) return;
     try {
-      await deleteFaq(id);
+      const res = await fetch(`/api/admin/faqs/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error();
       setItems((p) => p.filter((x) => x.id !== id));
       showToast('FAQ deleted');
     } catch { showToast('Delete failed'); }
@@ -40,9 +45,15 @@ export default function FaqsPage() {
 
   async function handleToggle(item: CmsFaq) {
     try {
-      const updated = await updateFaq(item.id, { is_published: !item.is_published });
-      setItems((p) => p.map((x) => x.id === item.id ? updated : x));
-      showToast(updated.is_published ? 'FAQ published' : 'FAQ set to draft');
+      const res = await fetch(`/api/admin/faqs/${item.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ is_published: !item.is_published }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setItems((p) => p.map((x) => x.id === item.id ? json.data : x));
+      showToast(json.data.is_published ? 'FAQ published' : 'FAQ set to draft');
     } catch { showToast('Update failed'); }
   }
 
@@ -56,12 +67,24 @@ export default function FaqsPage() {
     setError('');
     try {
       if (modal.id) {
-        const updated = await updateFaq(modal.id, modal);
-        setItems((p) => p.map((x) => x.id === modal.id ? updated : x));
+        const res = await fetch(`/api/admin/faqs/${modal.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(modal),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error);
+        setItems((p) => p.map((x) => x.id === modal.id ? json.data : x));
         showToast('FAQ updated!');
       } else {
-        const created = await createFaq(modal);
-        setItems((p) => [...p, created]);
+        const res = await fetch('/api/admin/faqs', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(modal),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error);
+        setItems((p) => [...p, json.data]);
         showToast('FAQ added!');
       }
       setModal(null);

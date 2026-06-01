@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlusCircle, Edit2, Trash2, Eye, EyeOff } from 'lucide-react';
-import { getFaculty, deleteFaculty, updateFaculty, CmsFaculty } from '@/lib/cms';
+import { type CmsFaculty } from '@/lib/cms';
 
 export default function FacultyPage() {
   const [faculty, setFaculty] = useState<CmsFaculty[]>([]);
@@ -12,7 +12,11 @@ export default function FacultyPage() {
 
   async function load() {
     setLoading(true);
-    try { setFaculty(await getFaculty()); } catch {}
+    try {
+      const res = await fetch('/api/admin/faculty');
+      const json = await res.json();
+      if (json.data) setFaculty(json.data);
+    } catch {}
     setLoading(false);
   }
   useEffect(() => { load(); }, []);
@@ -22,7 +26,8 @@ export default function FacultyPage() {
   async function handleDelete(id: string, name: string) {
     if (!confirm(`Delete "${name}"?`)) return;
     try {
-      await deleteFaculty(id);
+      const res = await fetch(`/api/admin/faculty/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error();
       setFaculty((f) => f.filter((x) => x.id !== id));
       showToast('Faculty member deleted');
     } catch { showToast('Delete failed'); }
@@ -30,9 +35,15 @@ export default function FacultyPage() {
 
   async function handleToggle(f: CmsFaculty) {
     try {
-      const updated = await updateFaculty(f.id, { is_published: !f.is_published });
-      setFaculty((prev) => prev.map((x) => x.id === f.id ? updated : x));
-      showToast(updated.is_published ? 'Published' : 'Set to draft');
+      const res = await fetch(`/api/admin/faculty/${f.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ is_published: !f.is_published }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error);
+      setFaculty((prev) => prev.map((x) => x.id === f.id ? json.data : x));
+      showToast(json.data.is_published ? 'Published' : 'Set to draft');
     } catch { showToast('Update failed'); }
   }
 
@@ -80,11 +91,9 @@ export default function FacultyPage() {
                   <div className="text-sm text-gray-400 truncate">{f.title} · {f.specialty}</div>
                 </div>
 
-                {/* Credentials */}
                 <div className="hidden md:block text-sm text-gray-400 shrink-0">{f.credentials}</div>
                 <div className="hidden lg:block text-sm text-gray-400 shrink-0">⭐ {f.student_rating}</div>
 
-                {/* Status toggle */}
                 <button
                   onClick={() => handleToggle(f)}
                   className={`flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full transition-all shrink-0 ${
@@ -95,7 +104,6 @@ export default function FacultyPage() {
                   {f.is_published ? 'Live' : 'Draft'}
                 </button>
 
-                {/* Actions */}
                 <div className="flex items-center gap-1 shrink-0">
                   <Link href={`/admin/faculty/${f.id}`} className="p-1.5 text-gray-400 hover:text-[#15401E] hover:bg-gray-100 rounded-lg transition-all">
                     <Edit2 className="w-3.5 h-3.5" />

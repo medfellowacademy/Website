@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { PlusCircle, Trash2, Save, ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
-import { createFaculty, updateFaculty, CmsFaculty } from '@/lib/cms';
+import { type CmsFaculty } from '@/lib/cms';
 
 export default function FacultyForm({ faculty }: { faculty?: CmsFaculty }) {
   const router = useRouter();
@@ -41,7 +41,15 @@ export default function FacultyForm({ faculty }: { faculty?: CmsFaculty }) {
         specialties: specialties.filter(Boolean),
         highlights: highlights.filter(Boolean),
       };
-      isEdit ? await updateFaculty(faculty.id, payload) : await createFaculty(payload);
+      const url = isEdit ? `/api/admin/faculty/${faculty.id}` : '/api/admin/faculty';
+      const method = isEdit ? 'PUT' : 'POST';
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? 'Save failed');
       setToast(isEdit ? 'Faculty updated!' : 'Faculty created!');
       setTimeout(() => { router.push('/admin/faculty'); router.refresh(); }, 800);
     } catch (err: any) {

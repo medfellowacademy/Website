@@ -1,13 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { PlusCircle, Edit2, Trash2, Star, X, Save } from 'lucide-react';
-import {
-  getTestimonials,
-  createTestimonial,
-  updateTestimonial,
-  deleteTestimonial,
-  CmsTestimonial,
-} from '@/lib/cms';
+import { type CmsTestimonial } from '@/lib/cms';
 
 const BLANK: Partial<CmsTestimonial> = {
   author_name: '',
@@ -29,7 +23,11 @@ export default function TestimonialsPage() {
 
   async function load() {
     setLoading(true);
-    try { setItems(await getTestimonials()); } catch {}
+    try {
+      const res = await fetch('/api/admin/testimonials');
+      const json = await res.json();
+      if (json.data) setItems(json.data);
+    } catch {}
     setLoading(false);
   }
   useEffect(() => { load(); }, []);
@@ -39,7 +37,8 @@ export default function TestimonialsPage() {
   async function handleDelete(id: string, name: string) {
     if (!confirm(`Delete testimonial from "${name}"?`)) return;
     try {
-      await deleteTestimonial(id);
+      const res = await fetch(`/api/admin/testimonials/${id}`, { method: 'DELETE' });
+      if (!res.ok) throw new Error();
       setItems((p) => p.filter((x) => x.id !== id));
       showToast('Testimonial deleted');
     } catch { showToast('Delete failed'); }
@@ -51,12 +50,24 @@ export default function TestimonialsPage() {
     setError('');
     try {
       if (modal.id) {
-        const updated = await updateTestimonial(modal.id, modal);
-        setItems((p) => p.map((x) => x.id === modal.id ? updated : x));
+        const res = await fetch(`/api/admin/testimonials/${modal.id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(modal),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error);
+        setItems((p) => p.map((x) => x.id === modal.id ? json.data : x));
         showToast('Testimonial updated!');
       } else {
-        const created = await createTestimonial(modal);
-        setItems((p) => [created, ...p]);
+        const res = await fetch('/api/admin/testimonials', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(modal),
+        });
+        const json = await res.json();
+        if (!res.ok) throw new Error(json.error);
+        setItems((p) => [json.data, ...p]);
         showToast('Testimonial added!');
       }
       setModal(null);
