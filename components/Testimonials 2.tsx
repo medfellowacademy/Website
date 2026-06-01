@@ -46,7 +46,7 @@ export default function Testimonials() {
 
               {/* Author Details */}
               <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                <div className="shrink-0 w-14 h-14 bg-linear-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-heading text-lg">
+                <div className="shrink-0 w-14 h-14 bg-[#15401E] rounded-full flex items-center justify-center text-white font-heading text-lg">
                   {testimonial.name.split(' ')[1][0]}
                 </div>
                 <div>

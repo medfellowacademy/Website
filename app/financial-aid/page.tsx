@@ -62,7 +62,7 @@ export default function FinancialAid() {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-16">
+      <section className="bg-[#15401E] text-white py-16">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Financial Aid & Support</h1>
           <p className="text-xl opacity-90 max-w-3xl">
@@ -366,7 +366,7 @@ export default function FinancialAid() {
       {/* CTA */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="bg-linear-to-br from-primary to-primary-dark text-white rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-[#15401E] text-white rounded-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
               Need Help with Financial Planning?
             </h2>

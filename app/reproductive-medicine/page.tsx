@@ -125,7 +125,7 @@ export default function ReproductiveMedicinePage() {
       {/* Lead Form Above Fold - Enhanced */}
       <section className="py-8 md:py-16 relative overflow-hidden">
         {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5"></div>
+        <div className="absolute inset-0 bg-[#fafafa]"></div>
         <div className="absolute top-0 left-0 w-full h-full opacity-30">
           <div className="absolute top-10 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 left-10 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
@@ -299,7 +299,7 @@ export default function ReproductiveMedicinePage() {
           </div>
           
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="bg-gradient-to-br from-primary to-secondary rounded-3xl p-10 text-white shadow-2xl transform hover:scale-105 transition-transform">
+            <div className="bg-[#15401E] rounded-3xl p-10 text-white shadow-2xl transform hover:scale-105 transition-transform">
               <div className="text-6xl mb-6">📈</div>
               <h3 className="text-3xl font-bold mb-4">Rising Global Demand</h3>
               <p className="text-white/90 text-lg leading-relaxed">
@@ -499,7 +499,7 @@ export default function ReproductiveMedicinePage() {
               'Career & IVF clinic setup support'
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-lg p-4 shadow-sm flex items-center gap-3 hover:shadow-md transition-shadow">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold shrink-0">
+                <div className="w-8 h-8 bg-[#15401E] rounded-full flex items-center justify-center text-white font-bold shrink-0">
                   ✓
                 </div>
                 <p className="text-text-primary font-medium">{item}</p>
@@ -568,7 +568,7 @@ export default function ReproductiveMedicinePage() {
               'Build and grow a fertility practice'
             ].map((outcome, i) => (
               <div key={i} className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-6 flex items-center gap-4 border-l-4 border-primary">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-xl shrink-0">
+                <div className="w-10 h-10 bg-[#15401E] rounded-full flex items-center justify-center text-white font-bold text-xl shrink-0">
                   {i + 1}
                 </div>
                 <p className="text-text-primary font-medium text-lg">{outcome}</p>
@@ -593,7 +593,7 @@ export default function ReproductiveMedicinePage() {
                 <div className="text-4xl text-primary mb-4">💬</div>
                 <p className="text-text-primary italic mb-6 text-lg">"{testimonial.quote}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="w-12 h-12 bg-[#15401E] rounded-full flex items-center justify-center text-white font-bold">
                     {testimonial.author.split(' ')[1][0]}
                   </div>
                   <div>
@@ -629,7 +629,7 @@ export default function ReproductiveMedicinePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary-dark to-secondary text-white">
+      <section className="py-20 bg-[#15401E] text-white">
         <div className="container-custom max-w-4xl text-center">
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">
             📣 Start Your Journey in Reproductive Medicine Today

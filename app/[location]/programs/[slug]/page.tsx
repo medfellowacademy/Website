@@ -5477,7 +5477,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
       <div className="min-h-screen bg-slate-50">
         <Navbar />
 
-        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+        <section className="bg-[#15401E] text-white py-12 md:py-16">
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
               ← Back to All Programs in Saudi Arabia
@@ -5831,7 +5831,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
       <div className="min-h-screen bg-slate-50">
         <Navbar />
 
-        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+        <section className="bg-[#15401E] text-white py-12 md:py-16">
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">
               ← Back to All Programs in Saudi Arabia
@@ -5996,7 +5996,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     return (
       <div className="min-h-screen bg-slate-50">
         <Navbar />
-        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+        <section className="bg-[#15401E] text-white py-12 md:py-16">
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Nephrology Specialty Program</p>
@@ -6098,7 +6098,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     return (
       <div className="min-h-screen bg-slate-50">
         <Navbar />
-        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+        <section className="bg-[#15401E] text-white py-12 md:py-16">
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Gastroenterology Specialty Program</p>
@@ -6200,7 +6200,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     return (
       <div className="min-h-screen bg-slate-50">
         <Navbar />
-        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+        <section className="bg-[#15401E] text-white py-12 md:py-16">
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Reproductive Medicine Specialty Program</p>
@@ -6302,7 +6302,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     return (
       <div className="min-h-screen bg-slate-50">
         <Navbar />
-        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+        <section className="bg-[#15401E] text-white py-12 md:py-16">
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Neonatology Specialty Program</p>
@@ -6396,7 +6396,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     return (
       <div className="min-h-screen bg-slate-50">
         <Navbar />
-        <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-16">
+        <section className="bg-[#15401E] text-white py-12 md:py-16">
           <div className="container-custom">
             <Link href="/saudi-arabia/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-6 transition-colors">← Back to All Programs in Saudi Arabia</Link>
             <p className="text-sm md:text-base uppercase tracking-wide text-white/80 mb-2">MedFellow Academy | Orthopedic Surgery Specialty Program</p>
@@ -6456,7 +6456,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
       <Navbar />
       
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-10 md:py-16">
+      <section className="bg-[#15401E] text-white py-10 md:py-16">
         <div className="container-custom">
           <Link href={`/${location}/programs`} className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-5 md:mb-6 transition-colors text-sm md:text-base">
             ← Back to All Programs in {locationMeta.label}

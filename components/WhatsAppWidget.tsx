@@ -52,7 +52,7 @@ export default function WhatsAppWidget() {
       <div className="fixed bottom-6 right-6 z-50">
         {/* Message Popup */}
         {isOpen && (
-          <div className="absolute bottom-20 right-0 w-80 bg-white rounded-2xl shadow-2xl overflow-hidden mb-4 animate-slide-up">
+          <div className="absolute bottom-20 right-0 w-[min(320px,90vw)] bg-white rounded-2xl shadow-2xl overflow-hidden mb-4 animate-slide-up">
             <div className="bg-linear-to-br from-green-600 to-green-700 text-white p-4">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl">

@@ -1,141 +1,86 @@
 'use client';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { ArrowRight, Star } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
 
-export default function Hero() {
+interface HeroProps {
+  heading?: string;
+  subheading?: string;
+  stats?: { value: string; label: string }[];
+}
+
+export default function Hero(_props: HeroProps = {}) {
   return (
-    <section className="relative overflow-hidden min-h-[75vh] sm:min-h-[80vh] md:min-h-[85vh]" style={{ background: '#EAF2FB' }}>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-16 sm:pt-20 pb-16 sm:pb-20 md:pb-24">
-        
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-4"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium uppercase tracking-wider" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
-            EXPERT-LED FELLOWSHIP PROGRAMS
-          </span>
-        </motion.div>
+    <section className="bg-white border-b border-[#E5E7EB]">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-0 lg:min-h-[400px]">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-          {/* Left Column - Text Content */}
-          <div>
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium mb-4 sm:mb-6"
-              style={{ color: '#1B4F72', lineHeight: 1.2 }}
-            >
-              Transform Your Medical Career
-            </motion.h1>
+          {/* ── Left: Content ── */}
+          <div className="flex flex-col justify-center py-6 lg:py-8 lg:pr-10 order-2 lg:order-1">
 
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm sm:text-base mb-6 sm:mb-8"
-              style={{ color: '#5D6D7E', lineHeight: 1.7, maxWidth: '520px' }}
-            >
-              Internationally accredited fellowship programs combining academic excellence, 
-              hands-on hospital training, and specialist certification designed for practicing doctors.
-            </motion.p>
+            {/* Rating pill */}
+            <div className="flex items-center gap-2 mb-3">
+              <span className="flex items-center gap-0.5">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-3.5 h-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+                ))}
+              </span>
+              <span className="text-[0.8125rem] font-medium text-[#374151]">4.9 · Trusted by 500+ doctors</span>
+            </div>
 
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8"
-            >
+            {/* Heading */}
+            <h1 className="text-[clamp(1.5rem,3.5vw,2.375rem)] font-bold text-[#111827] leading-[1.2] tracking-tight mb-4">
+              MedFellow Academy<br />
+              <span className="text-[#15401E]">Where Doctors Evolve</span>
+            </h1>
+
+            {/* CTA */}
+            <div className="flex flex-wrap gap-3 mb-5">
               <Link
                 href="/programs"
-                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 text-white text-xs sm:text-sm font-medium rounded-lg transition-opacity hover:opacity-90 shadow-lg"
-                style={{ background: '#1B4F72' }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#15401E] text-white text-sm font-semibold rounded-md hover:bg-[#0f2e15] transition-colors"
+                onClick={() => analytics.ctaClick('hero_explore_programs', '/programs', 'hero')}
               >
-                Explore Programs
-                <ArrowRight className="w-5 h-5" />
+                Explore programs <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/apply"
-                className="inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3 bg-white text-xs sm:text-sm font-medium rounded-lg transition-opacity hover:opacity-90 shadow-md"
-                style={{ border: '1px solid #1B4F72', color: '#1B4F72' }}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#15401E] text-sm font-semibold rounded-md border border-[#C6DFC9] hover:border-[#15401E] transition-colors"
+                onClick={() => analytics.applyClick('hero_apply_now')}
               >
-                Apply Now
+                Apply for June 2026
               </Link>
-            </motion.div>
-
-            {/* Trust Pills */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap gap-3"
-            >
-              {[
-                '7-day refund guarantee',
-                'Expert faculty',
-                'Verified certificate'
-              ].map((text, i) => (
-                <span
-                  key={i}
-                  className="px-4 py-2 text-sm font-medium rounded-full"
-                  style={{ background: '#D6EAF8', color: '#2E86C1' }}
-                >
-                  {text}
-                </span>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right Column - Hero Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="relative h-full"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl h-full min-h-[500px]">
-              <Image
-                src="/herosection.png"
-                alt="Medical Fellowship Programs"
-                width={800}
-                height={600}
-                className="w-full h-full object-cover"
-                priority
-              />
             </div>
 
-            {/* Stats Overlay */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-11/12 grid grid-cols-4 gap-3"
-            >
+            {/* Social proof micro-bar */}
+            <div className="pt-6 border-t border-[#F3F4F6] flex flex-wrap gap-x-8 gap-y-2">
               {[
-                { value: '60+', label: 'Programs' },
-                { value: '500+', label: 'Doctors' },
-                { value: '20+', label: 'Hospitals' },
-                { value: '4.9/5', label: 'Rating' },
-              ].map((stat, i) => (
-                <div key={i} className="bg-white rounded-lg p-4 text-center shadow-xl" style={{ border: '0.5px solid #BFC9CA' }}>
-                  <div className="text-xl font-medium mb-1" style={{ color: '#1B4F72' }}>
-                    {stat.value}
-                  </div>
-                  <div className="text-xs" style={{ color: '#5D6D7E' }}>
-                    {stat.label}
-                  </div>
+                { v: '60+', l: 'Specialties' },
+                { v: '500+', l: 'Doctors trained' },
+                { v: '20+', l: 'Hospital partners' },
+                { v: '98%', l: 'Placement rate' },
+              ].map(({ v, l }) => (
+                <div key={l} className="flex items-baseline gap-1.5">
+                  <span className="text-[1.125rem] font-bold text-[#111827]">{v}</span>
+                  <span className="text-[0.8125rem] text-[#9CA3AF]">{l}</span>
                 </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
+
+          {/* ── Right: Image ── */}
+          <div className="relative order-1 lg:order-2 flex items-end justify-center bg-white min-h-[180px] lg:min-h-0 overflow-hidden">
+            <Image
+              src="/hero-team.png"
+              alt="MedFellow Academy — Expert Medical Team"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 520px"
+              className="object-contain object-bottom"
+            />
+          </div>
+
         </div>
       </div>
     </section>

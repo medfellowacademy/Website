@@ -1,73 +1,55 @@
 'use client';
-import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { BookOpen, CreditCard, Award, Briefcase, ArrowRight } from 'lucide-react';
 
 const STEPS = [
-  {
-    step: '1',
-    title: 'Browse Freely',
-    description: 'Read full syllabus and explore program details before deciding.',
-  },
-  {
-    step: '2',
-    title: 'Enroll & Learn',
-    description: 'Pay securely, get instant access, learn at your own pace.',
-  },
-  {
-    step: '3',
-    title: 'Complete & Certify',
-    description: 'Finish the program and receive your verified fellowship certificate.',
-  },
+  { step: '01', icon: BookOpen,  title: 'Browse programs',    desc: 'Explore full syllabi, faculty profiles and hospital partners before committing.' },
+  { step: '02', icon: CreditCard,title: 'Enroll & learn',     desc: 'Secure your seat, get instant access and study at your own pace with live weekend sessions.' },
+  { step: '03', icon: Award,     title: 'Complete & certify', desc: 'Finish rotations and receive your internationally accredited fellowship certificate.' },
+  { step: '04', icon: Briefcase, title: 'Get placed',         desc: 'Leverage our placement network at 20+ hospitals and our 500+ alumni community.' },
 ];
 
 export default function HowItWorks() {
   return (
-    <section className="py-10 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
-        
-        {/* Section header */}
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-medium mb-2" style={{ color: '#1B4F72' }}>
-            How It Works
-          </h2>
-          <p className="text-xs" style={{ color: '#5D6D7E' }}>
-            A clear path from application to fellowship certification
-          </p>
+    <section className="section-padding bg-white border-b border-[#E5E7EB]">
+      <div className="container-custom">
+
+        <div className="mb-8">
+          <span className="section-label">Your journey</span>
+          <h2 className="section-title mt-1 mb-1.5">How it works</h2>
+          <p className="section-subtitle">A clear four-step path from application to career placement.</p>
         </div>
 
-        {/* Steps */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-center gap-6 md:gap-8">
-          {STEPS.map((step, index) => (
-            <div key={index} className="flex-1 flex flex-col md:flex-row items-center gap-4">
-              <div className="flex flex-col items-center text-center md:flex-row md:text-left gap-3 flex-1">
-                {/* Step number */}
-                <div 
-                  className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 text-sm font-medium"
-                  style={{ background: '#1B4F72', color: '#FFFFFF' }}
-                >
-                  {step.step}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {STEPS.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={i}
+                className="bg-white border border-[#E5E7EB] rounded-lg p-5 hover:border-[#C6DFC9] hover:shadow-sm transition-all duration-150"
+              >
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-8 h-8 rounded-md bg-[#e8f2ea] flex items-center justify-center">
+                    <Icon className="w-4 h-4 text-[#15401E]" />
+                  </div>
+                  <span className="text-[0.75rem] font-bold text-[#9CA3AF] tracking-wider">STEP {s.step}</span>
                 </div>
-
-                {/* Content */}
-                <div>
-                  <h3 className="text-xs font-medium mb-1" style={{ color: '#1B4F72' }}>
-                    {step.title}
-                  </h3>
-                  <p className="text-xs" style={{ color: '#5D6D7E', lineHeight: 1.6 }}>
-                    {step.description}
-                  </p>
-                </div>
+                <h3 className="text-[0.9375rem] font-semibold text-[#111827] mb-1.5">{s.title}</h3>
+                <p className="text-[0.8125rem] text-[#6B7280] leading-relaxed">{s.desc}</p>
               </div>
-
-              {/* Arrow connector */}
-              {index < STEPS.length - 1 && (
-                <ArrowRight 
-                  className="hidden md:block w-5 h-5 flex-shrink-0" 
-                  style={{ color: '#AED6F1' }}
-                />
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
+
+        <div className="mt-6 text-center">
+          <Link
+            href="/apply"
+            className="btn-primary"
+          >
+            Apply in 10 minutes <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
       </div>
     </section>
   );

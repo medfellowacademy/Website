@@ -2,16 +2,16 @@
 import { motion } from 'framer-motion';
 
 const HOSPITALS = [
-  'AIIMS Delhi',
-  'Apollo Hospitals',
-  'Fortis Healthcare',
-  'Max Healthcare',
-  'Medanta',
-  'Manipal Hospitals',
+  'Super Speciality Hospital',
+  'Super Speciality Hospital',
+  'Super Speciality Hospital',
+  'Super Speciality Hospital',
+  'Super Speciality Hospital',
+  'Super Speciality Hospital',
   'Narayana Health',
-  'Kokilaben Hospital',
+  'Super Speciality Hospital',
   'KIMS Hospitals',
-  'Cloudnine',
+  'Super Speciality Hospital',
   'Columbia Asia',
   'Amrita Hospitals',
 ];

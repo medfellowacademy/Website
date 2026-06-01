@@ -2,6 +2,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import CurriculumAccordion from "@/components/CurriculumAccordion";
+import { getProgramBySlug, getCurriculumModules } from "@/lib/cms";
+import { getProgramImage } from "@/lib/course-images";
+
+export const dynamic = 'force-dynamic';
 
 // Program data
 const programsData: { [key: string]: any } = {
@@ -5351,17 +5355,56 @@ const programsData: { [key: string]: any } = {
 
 export default async function ProgramDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const program = programsData[slug];
+
+  // ── Try CMS first, fall back to static data ──────────────────────────────
+  let program: any = programsData[slug] ?? null;
+  try {
+    const cmsProgram = await getProgramBySlug(slug);
+    if (cmsProgram) {
+      // Fetch curriculum modules from CMS if available
+      let cmsCurriculum: any[] = [];
+      try {
+        const modules = await getCurriculumModules(cmsProgram.id);
+        if (modules && modules.length > 0) {
+          cmsCurriculum = modules.map((m) => ({ module: m.title, topics: m.topics }));
+        }
+      } catch {}
+
+      // Merge: CMS data wins over static, keep static curriculum if CMS has none
+      program = {
+        ...(program ?? {}),
+        name: cmsProgram.name,
+        icon: cmsProgram.icon,
+        duration: cmsProgram.duration,
+        eligibility: cmsProgram.eligibility,
+        description: cmsProgram.description,
+        overview: cmsProgram.overview || program?.overview || '',
+        highlights: cmsProgram.highlights?.length ? cmsProgram.highlights : (program?.highlights ?? []),
+        careerOpportunities: cmsProgram.career_opportunities?.length ? cmsProgram.career_opportunities : (program?.careerOpportunities ?? []),
+        onlinePrice: cmsProgram.online_price ?? program?.onlinePrice,
+        month11_1: cmsProgram.month_11_1 ?? program?.month11_1,
+        month10_2: cmsProgram.month_10_2 ?? program?.month10_2,
+        month9_3: cmsProgram.month_9_3 ?? program?.month9_3,
+        month6_6: cmsProgram.month_6_6 ?? program?.month6_6,
+        month12Offline: cmsProgram.month_12_offline ?? program?.month12Offline,
+        applicationDeadline: cmsProgram.application_deadline || program?.applicationDeadline || 'Rolling Admissions',
+        curriculum: cmsCurriculum.length > 0 ? cmsCurriculum : (program?.curriculum ?? []),
+      };
+    }
+  } catch {
+    // DB unavailable — use static data as-is
+  }
 
   if (!program) {
     return (
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-gray-50">
         <Navbar />
         <div className="container-custom py-20 text-center">
-          <h1 className="text-4xl font-heading font-bold text-primary mb-4">Program Not Found</h1>
-          <p className="text-lg text-text-secondary mb-8">The program you're looking for doesn't exist.</p>
-          <Link href="/programs" className="btn-primary px-8 py-3">
-            View All Programs
+          <div className="text-6xl mb-6">🔍</div>
+          <h1 className="text-3xl font-bold text-[#15401E] mb-4">Program Not Found</h1>
+          <p className="text-gray-500 mb-8">The program you&apos;re looking for doesn&apos;t exist.</p>
+          <Link href="/programs" className="inline-flex items-center gap-2 px-6 py-3 bg-[#15401E] text-white font-semibold rounded-xl hover:bg-[#0f2e15] transition-all">
+            ← View All Programs
           </Link>
         </div>
         <Footer />
@@ -5369,349 +5412,633 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     );
   }
 
+  const programBgImage = getProgramImage(slug);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-10 md:py-16">
-        <div className="container-custom">
-          <Link href="/programs" className="inline-flex items-center gap-2 text-white/80 hover:text-white mb-5 md:mb-6 transition-colors text-sm md:text-base">
-            ← Back to All Programs
+
+      {/* ── Hero Banner ── */}
+      <section className="relative text-white overflow-hidden" style={{ minHeight: '220px' }}>
+        {/* Background image with dark overlay */}
+        <div className="absolute inset-0">
+          <img
+            src={programBgImage}
+            alt=""
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#15401E]/85 via-[#15401E]/70 to-[#15401E]/40" />
+        </div>
+
+        {/* Content — centered */}
+        <div className="relative z-10 container-custom py-8 md:py-10 flex flex-col items-center text-center">
+
+          {/* Breadcrumb */}
+          <Link href="/programs"
+            className="self-start inline-flex items-center gap-1.5 text-white/50 hover:text-white mb-6 text-xs transition-colors">
+            ← All Programs
           </Link>
-          <div className="flex flex-col sm:flex-row items-start gap-4 md:gap-6">
-            <div className="w-14 h-14 md:w-20 md:h-20 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center text-3xl md:text-4xl shrink-0">
-              {program.icon}
-            </div>
-            <div className="flex-1">
-              <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold mb-3 md:mb-4">{program.name}</h1>
-              <div className="flex flex-wrap gap-2 md:gap-4 mb-3 md:mb-4">
-                <span className="px-3 py-1.5 md:px-4 md:py-2 bg-white/20 backdrop-blur rounded-full font-semibold text-sm md:text-base">
-                  ⏱️ {program.duration}
-                </span>
-                <span className="px-3 py-1.5 md:px-4 md:py-2 bg-white/20 backdrop-blur rounded-full font-semibold text-sm md:text-base">
-                  📋 {program.eligibility}
-                </span>
-                {program.onlinePrice && (
-                  <span className="px-3 py-1.5 md:px-4 md:py-2 bg-accent/90 backdrop-blur rounded-full font-semibold text-sm md:text-base">
-                    💰 From ₹{(program.onlinePrice / 100000).toFixed(2)}L
-                  </span>
-                )}
-              </div>
-              <p className="text-base md:text-xl opacity-90">{program.description}</p>
-            </div>
+
+          {/* Category label */}
+          <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">Fellowship Program</p>
+
+          {/* Course name — center */}
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-4 max-w-3xl">
+            {program.name}
+          </h1>
+
+          {/* Short description */}
+          <p className="text-white/65 text-sm md:text-base max-w-2xl leading-relaxed mb-6">
+            {program.description}
+          </p>
+
+          {/* Meta chips — centered */}
+          <div className="flex flex-wrap justify-center gap-2">
+            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 border border-white/15 rounded-full text-xs font-medium text-white/80">
+              ⏱ {program.duration}
+            </span>
+            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 border border-white/15 rounded-full text-xs font-medium text-white/80">
+              🎓 {program.eligibility}
+            </span>
+            <span className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/20 border border-emerald-400/30 rounded-full text-xs font-medium text-emerald-300">
+              ✓ Rolling Admissions
+            </span>
+            {program.onlinePrice && (
+              <span className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-400/15 border border-amber-400/30 rounded-full text-xs font-semibold text-amber-300">
+                From ₹{program.onlinePrice.toLocaleString('en-IN')}
+              </span>
+            )}
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-3 gap-6 md:gap-12">
-            {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8 md:space-y-12">
-              {/* Overview */}
-              <div>
-                <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Program Overview</h2>
-                <p className="text-base md:text-lg text-text-secondary leading-relaxed">{program.overview}</p>
-              </div>
+      {/* ── Section Tabs (non-sticky, like Medvarsity) ── */}
+      <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="container-custom overflow-x-auto scrollbar-hide">
+          <nav className="flex justify-center gap-0 min-w-max mx-auto">
+            {[
+              { label: 'Overview', anchor: '#overview' },
+              { label: 'Curriculum', anchor: '#curriculum' },
+              { label: 'Career Outcomes', anchor: '#career' },
+              { label: 'Fees & Admission', anchor: '#fees' },
+              { label: 'How to Apply', anchor: '#how-to-apply' },
+              { label: 'FAQs', anchor: '#faqs' },
+            ].map((tab, i) => (
+              <a key={i} href={tab.anchor}
+                className="px-5 py-3.5 text-sm font-semibold text-gray-500 hover:text-[#15401E] border-b-2 border-transparent hover:border-[#15401E] transition-all whitespace-nowrap">
+                {tab.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
 
-              {/* Key Highlights */}
-              <div>
-                <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Key Highlights</h2>
-                <div className="grid grid-cols-2 gap-3">
-                  {program.highlights.map((highlight: string, index: number) => (
-                    <div key={index} className="flex items-center gap-2 p-3 bg-background rounded-lg border border-gray-100">
-                      <div className="w-7 h-7 shrink-0 bg-linear-to-br from-secondary to-primary rounded-md flex items-center justify-center text-white text-sm font-bold">
-                        ✓
+      {/* ── Main content ── */}
+      <section className="py-8 md:py-12">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-[230px_1fr_300px] gap-6 items-start">
+
+            {/* ── LEFT SIDEBAR ── */}
+            <aside className="hidden lg:block space-y-4 sticky top-[76px] self-start max-h-[calc(100vh-84px)] overflow-y-auto scrollbar-hide">
+
+              {/* Quick info card */}
+              <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-gray-100">
+                  <span className="text-2xl">{program.icon}</span>
+                  <div>
+                    <div className="text-xs font-bold text-[#15401E] leading-tight line-clamp-2">{program.name}</div>
+                    <div className="text-xs text-gray-400 mt-0.5">Fellowship Program</div>
+                  </div>
+                </div>
+                <div className="space-y-2.5 text-xs">
+                  {[
+                    { icon: '⏱', label: 'Duration', value: program.duration },
+                    { icon: '🎓', label: 'Eligibility', value: program.eligibility },
+                    { icon: '🏥', label: 'Mode', value: 'Online + Clinical' },
+                    { icon: '🏆', label: 'Certificate', value: 'Fellowship Cert.' },
+                  ].map((r, i) => (
+                    <div key={i} className="flex items-center gap-2">
+                      <span>{r.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-gray-400">{r.label}: </span>
+                        <span className="font-semibold text-[#15401E]">{r.value}</span>
                       </div>
-                      <span className="font-semibold text-primary text-sm md:text-base leading-tight">{highlight}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Curriculum */}
-              <div>
-                <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Month-by-Month Curriculum</h2>
-                <CurriculumAccordion curriculum={program.curriculum} />
+              {/* Sections nav */}
+              <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Jump to Section</p>
+                <nav className="space-y-1">
+                  {[
+                    { label: 'Overview', anchor: '#overview', icon: '📖' },
+                    { label: 'Curriculum', anchor: '#curriculum', icon: '📋' },
+                    { label: 'Career Outcomes', anchor: '#career', icon: '💼' },
+                    { label: 'Fees & Admission', anchor: '#fees', icon: '💰' },
+                    { label: 'How to Apply', anchor: '#how-to-apply', icon: '📝' },
+                    { label: 'FAQs', anchor: '#faqs', icon: '❓' },
+                  ].map((s, i) => (
+                    <a key={i} href={s.anchor}
+                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-gray-600 hover:bg-[#f0f9f1] hover:text-[#15401E] transition-colors">
+                      <span>{s.icon}</span>
+                      {s.label}
+                    </a>
+                  ))}
+                </nav>
               </div>
 
-              {/* Fee Breakdown */}
-              {program.feeBreakdown && (
-                <div>
-                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Complete Fee Breakdown</h2>
-                  <div className="card p-5 md:p-8">
-                    <div className="space-y-4 mb-6">
-                      <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                        <span className="text-sm md:text-lg text-text-secondary">Tuition Fee</span>
-                        <span className="text-base md:text-xl font-bold text-primary">{program.feeBreakdown.tuition}</span>
+              {/* Specialties */}
+              <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Specialties</p>
+                <div className="space-y-1">
+                  {[
+                    { label: 'Emergency Medicine', slug: 'fellowship-in-emergency-medicine', icon: '🚑' },
+                    { label: 'Critical Care', slug: 'fellowship-in-critical-care-medicine', icon: '🏥' },
+                    { label: 'Cardiology', slug: 'fellowship-in-interventional-cardiology', icon: '🫀' },
+                    { label: 'Diabetes', slug: 'fellowship-in-diabetes-mellitus', icon: '🩺' },
+                    { label: 'Gynecology', slug: 'fellowship-in-gynecology-obstetrics', icon: '🤰' },
+                    { label: 'Orthopedics', slug: 'fellowship-in-orthopedics', icon: '🦴' },
+                    { label: 'Neurosurgery', slug: 'fellowship-in-neurosurgery', icon: '🧠' },
+                    { label: 'Urology', slug: 'fellowship-in-urology', icon: '🔬' },
+                  ].map((sp, i) => (
+                    <Link key={i} href={`/programs/${sp.slug}`}
+                      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${slug === sp.slug ? 'bg-[#15401E] text-white' : 'text-gray-600 hover:bg-[#f0f9f1] hover:text-[#15401E]'}`}>
+                      <span>{sp.icon}</span>
+                      {sp.label}
+                    </Link>
+                  ))}
+                  <Link href="/programs"
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-[#15401E] hover:bg-[#f0f9f1] transition-colors mt-1 border border-[#15401E]/20">
+                    View All Programs →
+                  </Link>
+                </div>
+              </div>
+            </aside>
+
+            {/* ── CENTER MAIN CONTENT ── */}
+            <div className="space-y-6">
+
+              {/* Overview */}
+              <div id="overview" className="scroll-mt-6 py-6 md:py-8 border-b border-[#F3F4F6]">
+                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-4">About This Program</h2>
+                <div className="section-prose">
+                  <p className="leading-relaxed text-sm md:text-base">{program.overview}</p>
+                </div>
+
+                {/* What you'll learn */}
+                <div className="mt-6">
+                  <h3 className="text-base font-bold text-[#15401E] mb-3">What You&apos;ll Gain</h3>
+                  <div className="grid sm:grid-cols-2 gap-3">
+                    {program.highlights.map((h: string, i: number) => (
+                      <div key={i} className="flex items-start gap-3 p-3 bg-[#e8f2ea]/60 rounded-xl border border-[#C6DFC9]/50">
+                        <div className="w-5 h-5 bg-[#15401E] rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                          <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                          </svg>
+                        </div>
+                        <span className="text-sm font-medium text-[#15401E] leading-snug">{h}</span>
                       </div>
-                      <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                        <span className="text-sm md:text-lg text-text-secondary">Learning Materials &amp; Books</span>
-                        <span className="text-base md:text-xl font-bold text-primary">{program.feeBreakdown.materials}</span>
-                      </div>
-                      <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                        <span className="text-sm md:text-lg text-text-secondary">Examination Fees</span>
-                        <span className="text-base md:text-xl font-bold text-primary">{program.feeBreakdown.examFees}</span>
-                      </div>
-                      <div className="flex justify-between items-center pb-3 border-b border-gray-200">
-                        <span className="text-sm md:text-lg text-text-secondary">Registration &amp; Admin</span>
-                        <span className="text-base md:text-xl font-bold text-primary">{program.feeBreakdown.registration}</span>
-                      </div>
-                      <div className="flex justify-between items-center pt-3">
-                        <span className="text-lg md:text-2xl font-heading font-bold text-primary">Total Program Fee</span>
-                        <span className="text-xl md:text-3xl font-bold text-accent">{program.fees}</span>
-                      </div>
-                    </div>
-                    <div className="bg-secondary/10 border border-secondary/30 rounded-lg p-4">
-                      <h4 className="font-bold text-primary mb-2">💳 Flexible Payment Options</h4>
-                      <ul className="space-y-2 text-sm text-text-secondary">
-                        <li className="flex items-center gap-2">
-                          <span className="text-secondary">✓</span>
-                          <span>Interest-free EMI for 6-12 months</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <span className="text-secondary">✓</span>
-                          <span>Bank loan partnerships (80% financing)</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <span className="text-secondary">✓</span>
-                          <span>Early bird discount: 10% off (if paid 2 months before)</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <span className="text-secondary">✓</span>
-                          <span>Full refund within 30 days if not satisfied</span>
-                        </li>
-                      </ul>
-                    </div>
+                    ))}
                   </div>
                 </div>
-              )}
+              </div>
+
+
+              {/* Who is this for? */}
+              <div className="py-6 md:py-8 border-b border-[#F3F4F6]">
+                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-2">Who Is This Program For?</h2>
+                <p className="text-gray-400 text-sm mb-6">This fellowship is ideal for practicing doctors who want to level up</p>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {[
+                    { icon: '🩺', title: 'General Practitioners', desc: 'Wanting to specialize in a focused clinical area' },
+                    { icon: '🏥', title: 'Hospital Doctors', desc: 'Looking for structured, recognized post-graduate training' },
+                    { icon: '📈', title: 'Career Upgraders', desc: 'Aiming for higher salaries and senior positions' },
+                    { icon: '🌍', title: 'Doctors Abroad', desc: 'Seeking Indian or international fellowship credentials' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3 p-4 rounded-lg bg-[#FAFAFA] border border-[#E5E7EB]">
+                      <span className="text-2xl shrink-0">{item.icon}</span>
+                      <div>
+                        <div className="font-semibold text-[#15401E] text-sm mb-0.5">{item.title}</div>
+                        <div className="text-xs text-gray-500 leading-snug">{item.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               {/* Hospital Rotations */}
               {program.hospitalRotations && (
-                <div>
-                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Hospital Rotation Schedule</h2>
-                  <p className="text-text-secondary mb-6">
-                    Our fellows train at India's premier hospitals, gaining real-world experience across multiple specialties and patient populations.
+                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
+                  <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-2">Hospital Rotation Schedule</h2>
+                  <p className="text-gray-400 text-sm mb-5">
+                    Real-world clinical exposure across India&apos;s premier institutions
                   </p>
-                  <div className="space-y-4">
-                    {program.hospitalRotations.map((rotation: any, index: number) => (
-                      <div key={index} className="card p-4 md:p-6 hover:shadow-lg transition-shadow">
-                        <div className="flex items-start gap-3 md:gap-4">
-                          <div className="w-10 h-10 md:w-12 md:h-12 bg-linear-to-br from-secondary to-primary rounded-lg flex items-center justify-center text-white font-bold text-base md:text-xl shrink-0">
-                            {index + 1}
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-start justify-between mb-2">
-                              <h3 className="text-xl font-heading font-bold text-primary">{rotation.hospital}</h3>
-                              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-semibold">
-                                {rotation.duration}
-                              </span>
-                            </div>
-                            <p className="text-text-secondary">
-                              <span className="font-semibold text-primary">Focus Area:</span> {rotation.focus}
-                            </p>
-                          </div>
+                  <div className="space-y-3">
+                    {program.hospitalRotations.map((r: any, i: number) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-4 p-4 rounded-xl border border-gray-100 hover:border-[#15401E]/20 hover:bg-[#f0f9f1]/30 transition-all"
+                      >
+                        <div className="w-9 h-9 bg-[#15401E] rounded-lg flex items-center justify-center text-white text-sm font-bold shrink-0">
+                          {i + 1}
                         </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="font-semibold text-[#15401E] text-sm">{r.hospital}</div>
+                          <div className="text-xs text-gray-400 truncate">{r.focus}</div>
+                        </div>
+                        <span className="text-xs font-semibold text-amber-700 bg-amber-50 border border-amber-100 px-3 py-1 rounded-full shrink-0">
+                          {r.duration}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
 
-              {/* Examination Pattern */}
+              {/* Curriculum */}
+              <div id="curriculum" className="scroll-mt-6 py-6 md:py-8 border-b border-[#F3F4F6]">
+                <div className="flex items-center justify-between mb-2">
+                  <h2 className="text-xl md:text-2xl font-bold text-[#15401E]">Course Curriculum</h2>
+                  <span className="text-xs font-semibold text-[#15401E] bg-[#e8f2ea] px-3 py-1 rounded-full border border-[#C6DFC9]">
+                    {program.curriculum.length} Modules
+                  </span>
+                </div>
+                <p className="text-gray-400 text-sm mb-6">{program.duration} program · Hybrid delivery</p>
+                <CurriculumAccordion curriculum={program.curriculum} />
+              </div>
+
+              {/* Exam Pattern */}
               {program.examPattern && (
-                <div>
-                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Examination &amp; Assessment</h2>
-                  <div className="card p-5 md:p-8">
-                    <h3 className="text-lg md:text-xl font-heading font-bold text-primary mb-4">Evaluation Breakdown</h3>
-                    <div className="grid grid-cols-3 gap-3 md:gap-6 mb-6">
-                      <div className="text-center p-3 md:p-4 bg-background rounded-lg">
-                        <div className="text-2xl md:text-4xl font-bold text-secondary mb-1 md:mb-2">{program.examPattern.theory}</div>
-                        <div className="text-xs md:text-sm text-text-secondary">Theory</div>
+                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100">
+                  <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-6">Examination & Assessment</h2>
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    {[
+                      { label: 'Theory', value: program.examPattern.theory, color: 'bg-[#e8f2ea] text-blue-800' },
+                      { label: 'Practical', value: program.examPattern.practical, color: 'bg-amber-50 text-amber-800' },
+                      { label: 'Viva Voce', value: program.examPattern.viva, color: 'bg-emerald-50 text-emerald-800' },
+                    ].map((e, i) => (
+                      <div key={i} className={`text-center p-4 rounded-xl ${e.color}`}>
+                        <div className="text-2xl md:text-3xl font-extrabold mb-1">{e.value}</div>
+                        <div className="text-xs font-medium opacity-70">{e.label}</div>
                       </div>
-                      <div className="text-center p-3 md:p-4 bg-background rounded-lg">
-                        <div className="text-2xl md:text-4xl font-bold text-accent mb-1 md:mb-2">{program.examPattern.practical}</div>
-                        <div className="text-xs md:text-sm text-text-secondary">Practical</div>
-                      </div>
-                      <div className="text-center p-3 md:p-4 bg-background rounded-lg">
-                        <div className="text-2xl md:text-4xl font-bold text-primary mb-1 md:mb-2">{program.examPattern.viva}</div>
-                        <div className="text-xs md:text-sm text-text-secondary">Viva Voce</div>
-                      </div>
-                    </div>
-                    <div className="bg-primary/5 border border-primary/10 rounded-lg p-4">
-                      <p className="text-text-secondary">{program.examPattern.details}</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Hands-on Training */}
-              {program.procedureCount && (
-                <div>
-                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Guaranteed Hands-On Experience</h2>
-                  <div className="card p-5 md:p-8 bg-linear-to-br from-accent/5 to-secondary/5">
-                    <div className="flex items-start gap-3 md:gap-4">
-                      <div className="text-3xl md:text-5xl">🔧</div>
-                      <div>
-                        <h3 className="text-lg md:text-2xl font-heading font-bold text-primary mb-2 md:mb-3">
-                          Minimum Procedure Requirements
-                        </h3>
-                        <p className="text-lg text-text-primary font-semibold mb-2">{program.procedureCount}</p>
-                        <p className="text-text-secondary">
-                          Every fellow is guaranteed to perform this minimum number of procedures under expert supervision. 
-                          This ensures you graduate with real-world competency, not just theoretical knowledge.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Faculty Ratio */}
-              {program.facultyRatio && (
-                <div>
-                  <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Personalized Mentorship</h2>
-                  <div className="card p-5 md:p-8">
-                    <div className="flex items-center gap-4 md:gap-6 mb-4 md:mb-6">
-                      <div className="text-4xl md:text-6xl">👥</div>
-                      <div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-accent mb-1 md:mb-2">{program.facultyRatio}</h3>
-                        <p className="text-base md:text-xl text-text-secondary">Faculty-to-Student Ratio</p>
-                      </div>
-                    </div>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div className="flex items-start gap-2">
-                        <span className="text-secondary text-xl">✓</span>
-                        <span className="text-text-secondary">Individual attention and personalized guidance</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-secondary text-xl">✓</span>
-                        <span className="text-text-secondary">Direct access to senior consultants</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-secondary text-xl">✓</span>
-                        <span className="text-text-secondary">Dedicated mentor for career counseling</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-secondary text-xl">✓</span>
-                        <span className="text-text-secondary">24/7 faculty support for clinical queries</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Career Opportunities */}
-              <div>
-                <h2 className="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">Career Opportunities</h2>
-                <div className="card p-5 md:p-8">
-                  <ul className="space-y-4">
-                    {program.careerOpportunities.map((opportunity: string, index: number) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <div className="w-6 h-6 bg-linear-to-br from-accent to-secondary rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0 mt-0.5">
-                          {index + 1}
-                        </div>
-                        <span className="text-text-secondary">{opportunity}</span>
-                      </li>
                     ))}
-                  </ul>
+                  </div>
+                  {program.examPattern.details && (
+                    <p className="text-sm text-gray-500 bg-gray-50 rounded-xl p-4 leading-relaxed">
+                      {program.examPattern.details}
+                    </p>
+                  )}
+                </div>
+              )}
+
+              {/* Procedure Count */}
+              {program.procedureCount && (
+                <div className="bg-[#15401E] rounded-2xl p-6 md:p-8 text-white">
+                  <div className="flex items-start gap-4">
+                    <div className="text-4xl shrink-0">🔬</div>
+                    <div>
+                      <h3 className="text-lg font-bold mb-2">Guaranteed Hands-On Experience</h3>
+                      <div className="text-2xl font-extrabold text-amber-300 mb-2">{program.procedureCount}</div>
+                      <p className="text-white/70 text-sm leading-relaxed">
+                        Every fellow performs this minimum number of supervised procedures — ensuring real-world competency, not just theoretical knowledge.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Career Outcomes */}
+              <div id="career" className="scroll-mt-6 py-6 md:py-8 border-b border-[#F3F4F6]">
+                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-2">Career Opportunities</h2>
+                <p className="text-gray-400 text-sm mb-5">Roles our fellows pursue after completing this program</p>
+                <ol className="grid sm:grid-cols-2 gap-x-6">
+                  {program.careerOpportunities.map((opp: string, i: number) => (
+                    <li
+                      key={i}
+                      className="flex items-center gap-3 py-3 border-b border-[#F3F4F6] last:border-0"
+                    >
+                      <span className="w-6 h-6 bg-[#e8f2ea] rounded-full flex items-center justify-center text-[#15401E] text-xs font-bold shrink-0">
+                        {i + 1}
+                      </span>
+                      <span className="text-sm text-gray-700">{opp}</span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              {/* Fees Section */}
+              <div id="fees" className="scroll-mt-6 py-6 md:py-8 border-b border-[#F3F4F6]">
+                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-2">Fees & Admission</h2>
+                <p className="text-gray-400 text-sm mb-6">
+                  Choose the training mode that fits your schedule
+                </p>
+
+                <div className="space-y-3 mb-6">
+                  {program.onlinePrice && (
+                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                      <div>
+                        <div className="font-semibold text-gray-800 text-sm">Fully Online</div>
+                        <div className="text-xs text-gray-400">12 months · all live sessions recorded</div>
+                      </div>
+                      <div className="text-lg font-bold text-[#15401E]">
+                        ₹{program.onlinePrice.toLocaleString('en-IN')}
+                      </div>
+                    </div>
+                  )}
+                  {program.month11_1 && (
+                    <div className="flex justify-between items-center p-4 bg-[#e8f2ea] rounded-xl border border-[#C6DFC9] relative">
+                      <span className="absolute -top-2.5 left-4 text-xs font-bold bg-[#15401E] text-white px-2.5 py-0.5 rounded-full">
+                        Most Popular
+                      </span>
+                      <div>
+                        <div className="font-semibold text-[#15401E] text-sm">11 Online + 1 Clinical Month</div>
+                        <div className="text-xs text-gray-400">Online learning + hospital attachment</div>
+                      </div>
+                      <div className="text-lg font-bold text-[#15401E]">
+                        ₹{program.month11_1.toLocaleString('en-IN')}
+                      </div>
+                    </div>
+                  )}
+                  {program.month10_2 && (
+                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                      <div>
+                        <div className="font-semibold text-gray-800 text-sm">10 Online + 2 Clinical Months</div>
+                      </div>
+                      <div className="text-lg font-bold text-[#15401E]">
+                        ₹{program.month10_2.toLocaleString('en-IN')}
+                      </div>
+                    </div>
+                  )}
+                  {program.month9_3 && (
+                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                      <div>
+                        <div className="font-semibold text-gray-800 text-sm">9 Online + 3 Clinical Months</div>
+                      </div>
+                      <div className="text-lg font-bold text-[#15401E]">
+                        ₹{program.month9_3.toLocaleString('en-IN')}
+                      </div>
+                    </div>
+                  )}
+                  {program.month6_6 && (
+                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                      <div>
+                        <div className="font-semibold text-gray-800 text-sm">6 Online + 6 Clinical Months</div>
+                      </div>
+                      <div className="text-lg font-bold text-[#15401E]">
+                        ₹{program.month6_6.toLocaleString('en-IN')}
+                      </div>
+                    </div>
+                  )}
+                  {program.month12Offline && (
+                    <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
+                      <div>
+                        <div className="font-semibold text-gray-800 text-sm">12 Months Full Clinical</div>
+                        <div className="text-xs text-gray-400">Fully offline · maximum hands-on</div>
+                      </div>
+                      <div className="text-lg font-bold text-[#15401E]">
+                        ₹{program.month12Offline.toLocaleString('en-IN')}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* EMI banner */}
+                <div className="flex items-center gap-3 bg-emerald-50 border border-emerald-100 rounded-xl p-4 mb-5">
+                  <span className="text-2xl">💳</span>
+                  <div>
+                    <div className="font-semibold text-emerald-800 text-sm">Easy EMI Options Available</div>
+                    <div className="text-xs text-emerald-600">0% interest for 6–12 months · Bank loan partnerships</div>
+                  </div>
+                </div>
+
+                <Link
+                  href="/apply"
+                  className="block w-full text-center py-4 bg-[#15401E] hover:bg-[#0f2e15] text-white font-bold rounded-xl transition-all text-base"
+                >
+                  Apply Now →
+                </Link>
+              </div>
+
+              {/* How to Apply */}
+              <div id="how-to-apply" className="py-6 md:py-8 border-b border-[#F3F4F6]">
+                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-6">How to Apply</h2>
+                <div className="space-y-0">
+                  {[
+                    { step: '01', title: 'Submit Application', desc: 'Fill out the online application form with your basic details and medical degree information.' },
+                    { step: '02', title: 'Eligibility Review', desc: 'Our admissions team reviews your qualifications and contacts you within 48 hours.' },
+                    { step: '03', title: 'Counselling Call', desc: 'Speak with a program advisor to choose the right training mode and fee plan.' },
+                    { step: '04', title: 'Enroll & Begin', desc: 'Complete payment, receive your login credentials, and start your fellowship journey.' },
+                  ].map((item, i, arr) => (
+                    <div key={i} className="flex gap-4 relative">
+                      <div className="flex flex-col items-center">
+                        <div className="w-9 h-9 bg-[#15401E] rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">
+                          {item.step}
+                        </div>
+                        {i < arr.length - 1 && <div className="w-0.5 flex-1 bg-gray-200 my-1" />}
+                      </div>
+                      <div className={`pb-6 ${i === arr.length - 1 ? '' : ''}`}>
+                        <div className="font-bold text-[#15401E] text-sm mb-1">{item.title}</div>
+                        <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="/apply"
+                  className="block w-full text-center py-3.5 bg-[#15401E] hover:bg-[#0f2e15] text-white font-bold rounded-xl transition-all mt-2"
+                >
+                  Start Your Application →
+                </Link>
+              </div>
+
+              {/* FAQ */}
+              <div id="faqs" className="scroll-mt-6 py-6 md:py-8">
+                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-6">Frequently Asked Questions</h2>
+                <div className="space-y-4">
+                  {[
+                    {
+                      q: 'Can I study while working full-time?',
+                      a: 'Yes — the online modules are self-paced with recorded sessions. Live classes are held on weekends so you can continue working without interruption.',
+                    },
+                    {
+                      q: 'Is the certificate recognised internationally?',
+                      a: 'Our fellowship certificates are issued by partner hospitals and accredited institutions, accepted across India, the Gulf, and other regions.',
+                    },
+                    {
+                      q: 'What happens if I need to pause the program?',
+                      a: 'We offer a pause facility for up to 3 months. Your access to recorded content remains active during the pause.',
+                    },
+                    {
+                      q: 'Are EMI options available?',
+                      a: 'Yes, we offer 0% interest EMI for up to 12 months through our banking partners. You can also opt for bank education loans covering up to 80% of the fee.',
+                    },
+                    {
+                      q: 'Do I get placement assistance?',
+                      a: 'All fellows get access to our placement cell, which includes job postings, resume workshops, and referrals to partner hospitals.',
+                    },
+                  ].map((item, i) => (
+                    <details key={i} className="group border border-gray-100 rounded-xl overflow-hidden">
+                      <summary className="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-gray-50 transition-colors">
+                        <span className="font-semibold text-[#15401E] text-sm pr-4">{item.q}</span>
+                        <span className="text-[#15401E] shrink-0 text-lg group-open:rotate-45 transition-transform">+</span>
+                      </summary>
+                      <div className="px-4 pb-4 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-3">
+                        {item.a}
+                      </div>
+                    </details>
+                  ))}
                 </div>
               </div>
+
             </div>
 
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Apply Card */}
-              <div className="card p-5 md:p-6 lg:sticky lg:top-6">
-                <h3 className="text-2xl font-heading font-bold text-primary mb-4">Program Details</h3>
-                <div className="space-y-4 mb-6">
-                  <div className="flex items-center gap-3 text-text-secondary">
-                    <span className="text-secondary">📅</span>
-                    <div>
-                      <p className="text-xs text-text-tertiary">Duration</p>
-                      <p className="font-semibold text-primary">{program.duration}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-3 text-text-secondary">
-                    <span className="text-secondary mt-1">💰</span>
-                    <div className="flex-1">
-                      <p className="text-xs text-text-tertiary mb-2">Program Fee</p>
-                      {program.onlinePrice && (
-                        <div className="space-y-1 text-sm">
-                          <div className="flex justify-between items-center py-1 border-b border-gray-100">
-                            <span className="text-text-secondary">Fully Online</span>
-                            <span className="font-semibold text-primary">₹{program.onlinePrice.toLocaleString('en-IN')}</span>
-                          </div>
-                          <div className="flex justify-between items-center py-1">
-                            <span className="text-text-secondary">11 Months(online) + 1 month (clinical)</span>
-                            <span className="font-semibold text-primary">₹{program.month11_1.toLocaleString('en-IN')}</span>
-                          </div>
-                        </div>
-                      )}
-                      <p className="text-xs text-accent mt-2">EMI options available</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3 text-text-secondary">
-                    <span className="text-secondary">📋</span>
-                    <div>
-                      <p className="text-xs text-text-tertiary">Eligibility</p>
-                      <p className="font-semibold text-primary">{program.eligibility}</p>
-                    </div>
-                  </div>
+            {/* ── Sidebar ── */}
+            <div className="space-y-5 sticky top-[76px] self-start max-h-[calc(100vh-84px)] overflow-y-auto scrollbar-hide">
+
+              {/* Enrollment card */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                <div className="text-center pb-5 mb-5 border-b border-gray-100">
+                  {program.onlinePrice && (
+                    <>
+                      <div className="text-3xl font-extrabold text-[#15401E]">
+                        ₹{program.onlinePrice.toLocaleString('en-IN')}
+                      </div>
+                      <div className="text-xs text-gray-400 mt-1">Starting price · fully online</div>
+                    </>
+                  )}
                 </div>
-                <Link href="/apply" className="btn-primary w-full text-center py-4 text-lg">
+
+                <div className="space-y-4 mb-5 text-sm">
+                  {[
+                    { icon: '📅', label: 'Duration', value: program.duration },
+                    { icon: '🎓', label: 'Eligibility', value: program.eligibility },
+                    { icon: '🏆', label: 'Certificate', value: 'Fellowship Certificate' },
+                    { icon: '🗓️', label: 'Admission', value: program.applicationDeadline, green: true },
+                  ].map((row, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="text-base w-5 text-center">{row.icon}</span>
+                      <div className="flex-1">
+                        <div className="text-gray-400 text-xs">{row.label}</div>
+                        <div className={`font-semibold text-xs leading-tight ${row.green ? 'text-emerald-600' : 'text-[#15401E]'}`}>
+                          {row.value}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <Link
+                  href="/apply"
+                  className="block w-full text-center py-3.5 bg-[#15401E] hover:bg-[#0f2e15] text-white font-bold rounded-xl transition-all mb-3"
+                >
                   Apply Now
                 </Link>
-                <Link href="/contact" className="block w-full text-center px-6 py-3 mt-3 border-2 border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition-all">
+                <Link
+                  href="/contact"
+                  className="block w-full text-center py-3 border-2 border-[#15401E] text-[#15401E] hover:bg-[#15401E] hover:text-white font-semibold rounded-xl transition-all"
+                >
                   Schedule Consultation
                 </Link>
+
+                {program.onlinePrice && (
+                  <p className="text-center text-xs text-gray-400 mt-3">
+                    💳 EMI from ₹{Math.round(program.onlinePrice / 12).toLocaleString('en-IN')}/month
+                  </p>
+                )}
               </div>
 
-              {/* Why Choose This Program */}
-              <div className="bg-linear-to-br from-background to-white rounded-xl p-6 border border-gray-100">
-                <h3 className="text-xl font-heading font-bold text-primary mb-4">Why Choose This Program?</h3>
-                <ul className="space-y-3 text-sm text-text-secondary">
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✓</span>
-                    <span>Expert faculty from premier institutions</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✓</span>
-                    <span>Hands-on training at top hospitals</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✓</span>
-                    <span>Internationally recognized certification</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✓</span>
-                    <span>Structured curriculum with research</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-secondary">✓</span>
-                    <span>Career support & placement assistance</span>
-                  </li>
+              {/* Why choose */}
+              <div className="bg-white rounded-lg p-5 border border-[#E5E7EB]" style={{ borderLeft: '4px solid #15401E' }}>
+                <h3 className="font-bold text-sm text-[#15401E] mb-4 uppercase tracking-wide">Why Choose This Program?</h3>
+                <ul className="space-y-3">
+                  {[
+                    'Expert faculty from premier institutions',
+                    'Hands-on hospital training',
+                    'Internationally recognised certification',
+                    'Structured, evidence-based curriculum',
+                    'Career support & placement guidance',
+                    '24/7 learning platform access',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2.5 text-sm text-gray-700">
+                      <svg className="w-4 h-4 text-[#15401E] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* Contact Info */}
-              <div className="bg-primary text-white rounded-xl p-6">
-                <h3 className="text-xl font-heading font-bold mb-4">Need More Information?</h3>
-                <p className="text-sm opacity-90 mb-4">Contact our admissions team for detailed program information</p>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <span>📧</span>
-                    <span>info@medfellow.in</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span>📞</span>
-                    <span>+91 99850 44993</span>
-                  </div>
+              {/* Resources */}
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <h3 className="font-bold text-[#15401E] text-sm mb-3 uppercase tracking-wide">Resources</h3>
+                <div className="space-y-2">
+                  {[
+                    { icon: '📄', label: 'View Sample Certificate', href: '/contact' },
+                    { icon: '📥', label: 'Download Brochure', href: '/contact' },
+                    { icon: '📋', label: 'Curriculum PDF', href: '/contact' },
+                  ].map((r, i) => (
+                    <Link key={i} href={r.href}
+                      className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#f0f9f1] transition-colors group">
+                      <span className="w-8 h-8 bg-[#e8f2ea] group-hover:bg-white rounded-lg flex items-center justify-center text-base shrink-0">{r.icon}</span>
+                      <span className="text-sm text-[#15401E] font-medium">{r.label}</span>
+                    </Link>
+                  ))}
                 </div>
               </div>
+
+              {/* Contact */}
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <h3 className="font-bold text-[#15401E] text-sm mb-1 uppercase tracking-wide">Have Questions?</h3>
+                <p className="text-xs text-gray-400 mb-3">Our admissions team is here to help</p>
+                <div className="space-y-2.5">
+                  <a href="mailto:info@medfellow.in"
+                    className="flex items-center gap-3 text-sm text-[#15401E] hover:underline">
+                    <span className="w-8 h-8 bg-[#e8f2ea] rounded-lg flex items-center justify-center text-base shrink-0">📧</span>
+                    info@medfellow.in
+                  </a>
+                  <a href="tel:+919985044993"
+                    className="flex items-center gap-3 text-sm text-[#15401E] hover:underline">
+                    <span className="w-8 h-8 bg-[#e8f2ea] rounded-lg flex items-center justify-center text-base shrink-0">📞</span>
+                    +91 99850 44993
+                  </a>
+                </div>
+              </div>
+
+              {/* Recommended Courses */}
+              <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+                <h3 className="font-bold text-[#15401E] text-sm mb-4 uppercase tracking-wide">Recommended Courses</h3>
+                <div className="space-y-3">
+                  {[
+                    { name: 'Fellowship in Emergency Medicine', slug: 'fellowship-in-emergency-medicine', icon: '🚑', duration: '12 Months', price: 160000 },
+                    { name: 'Fellowship in Critical Care Medicine', slug: 'fellowship-in-critical-care-medicine', icon: '🏥', duration: '12 Months', price: 155000 },
+                    { name: 'Fellowship in Interventional Cardiology', slug: 'fellowship-in-interventional-cardiology', icon: '🫀', duration: '12 Months', price: 180000 },
+                    { name: 'Fellowship in Diabetes Mellitus', slug: 'fellowship-in-diabetes-mellitus', icon: '🩺', duration: '12 Months', price: 150000 },
+                    { name: 'Fellowship in Gynecology & Obstetrics', slug: 'fellowship-in-gynecology-obstetrics', icon: '🤰', duration: '12 Months', price: 145000 },
+                  ].filter(r => r.slug !== slug).slice(0, 4).map((rec, i) => (
+                    <Link key={i} href={`/programs/${rec.slug}`}
+                      className="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:border-[#15401E]/20 hover:bg-[#f0f9f1]/30 transition-all group">
+                      <div className="w-10 h-10 rounded-xl bg-[#15401E] flex items-center justify-center text-lg shrink-0">
+                        {rec.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-bold text-[#15401E] leading-tight line-clamp-2 group-hover:underline">{rec.name}</p>
+                        <div className="flex items-center justify-between mt-1.5">
+                          <span className="text-xs text-gray-400">{rec.duration}</span>
+                          <span className="text-xs font-bold text-[#15401E]">₹{(rec.price / 1000).toFixed(0)}K</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+                <Link href="/programs"
+                  className="flex items-center justify-center gap-1.5 w-full mt-4 py-2.5 rounded-xl text-xs font-semibold text-[#15401E] border border-[#15401E]/20 hover:bg-[#15401E] hover:text-white transition-all">
+                  View All Programs →
+                </Link>
+              </div>
+
             </div>
           </div>
         </div>
@@ -5723,7 +6050,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 }
 
 export async function generateStaticParams() {
-  return Object.keys(programsData).map((slug) => ({
-    slug: slug,
-  }));
+  // Include all static slugs; CMS-only programs are handled at runtime via force-dynamic
+  return Object.keys(programsData).map((slug) => ({ slug }));
 }

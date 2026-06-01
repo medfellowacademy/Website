@@ -118,7 +118,7 @@ export default function Blog() {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-16">
+      <section className="bg-[#15401E] text-white py-16">
         <div className="container-custom">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur rounded-full mb-4">
             <span className="text-sm font-semibold">📰 KNOWLEDGE HUB</span>
@@ -226,7 +226,7 @@ export default function Blog() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               {/* Newsletter */}
-              <div className="card p-6 mb-6 bg-linear-to-br from-primary to-primary-dark text-white">
+              <div className="card p-6 mb-6 bg-[#15401E] text-white">
                 <h3 className="text-xl font-heading font-bold mb-3">Subscribe to Our Newsletter</h3>
                 <p className="text-sm opacity-90 mb-4">
                   Get weekly insights on fellowship training, career tips, and medical education trends.
@@ -300,7 +300,7 @@ export default function Blog() {
       {/* CTA */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="bg-linear-to-br from-secondary to-primary text-white rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-linear-to-br from-secondary to-primary text-white rounded-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
               Ready to Take the Next Step?
             </h2>

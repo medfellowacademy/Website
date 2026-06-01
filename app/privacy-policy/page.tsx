@@ -153,7 +153,7 @@ export default function PrivacyPolicyPage() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      <section className="bg-linear-to-br from-primary to-primary-dark py-12 text-white md:py-20">
+      <section className="bg-[#15401E] py-12 text-white md:py-20">
         <div className="container-custom">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-white/70">
             Legal

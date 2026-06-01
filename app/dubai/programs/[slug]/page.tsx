@@ -1577,13 +1577,13 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #1B4F72 0%, #2E86C1 100%)' }}>
+      <section className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #15401E 0%, #15401E 100%)' }}>
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 right-20 w-96 h-96 rounded-full" style={{ background: '#D6EAF8' }}></div>
-          <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full" style={{ background: '#AED6F1' }}></div>
+          <div className="absolute top-20 right-20 w-96 h-96 rounded-full" style={{ background: '#e8f2ea' }}></div>
+          <div className="absolute bottom-20 left-20 w-72 h-72 rounded-full" style={{ background: '#C8E6D0' }}></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-16 sm:py-20 md:py-24 lg:py-32 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 py-16 sm:py-20 md:py-24 lg:py-32 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1631,11 +1631,11 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 sm:mb-8 px-4"
             >
-              <Link href="/apply" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg text-lg" style={{ color: '#1B4F72' }}>
+              <Link href="/apply" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg text-lg" style={{ color: '#15401E' }}>
                 Apply Now
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-medium hover:bg-white transition-all text-lg hover:text-[#1B4F72]">
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-medium hover:bg-white transition-all text-lg hover:text-[#15401E]">
                 Schedule Consultation
               </Link>
             </motion.div>
@@ -1664,24 +1664,24 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-8 sm:py-10 md:py-12" style={{ background: '#EAF2FB' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <section className="py-8 sm:py-10 md:py-12" style={{ background: '#e8f2ea' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-semibold mb-1" style={{ color: '#1B4F72' }}>52+</div>
-              <div className="text-xs md:text-sm" style={{ color: '#5D6D7E' }}>Specialty Fellowships</div>
+              <div className="text-2xl md:text-3xl font-semibold mb-1" style={{ color: '#15401E' }}>52+</div>
+              <div className="text-xs md:text-sm" style={{ color: '#6B7280' }}>Specialty Fellowships</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-semibold mb-1" style={{ color: '#1B4F72' }}>4,200+</div>
-              <div className="text-xs md:text-sm" style={{ color: '#5D6D7E' }}>Doctors Trained Globally</div>
+              <div className="text-2xl md:text-3xl font-semibold mb-1" style={{ color: '#15401E' }}>4,200+</div>
+              <div className="text-xs md:text-sm" style={{ color: '#6B7280' }}>Doctors Trained Globally</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-semibold mb-1" style={{ color: '#1B4F72' }}>22+</div>
-              <div className="text-xs md:text-sm" style={{ color: '#5D6D7E' }}>Countries</div>
+              <div className="text-2xl md:text-3xl font-semibold mb-1" style={{ color: '#15401E' }}>22+</div>
+              <div className="text-xs md:text-sm" style={{ color: '#6B7280' }}>Countries</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-semibold mb-1" style={{ color: '#1B4F72' }}>4.8/5</div>
-              <div className="text-xs md:text-sm" style={{ color: '#5D6D7E' }}>Rated by Doctors</div>
+              <div className="text-2xl md:text-3xl font-semibold mb-1" style={{ color: '#15401E' }}>4.8/5</div>
+              <div className="text-xs md:text-sm" style={{ color: '#6B7280' }}>Rated by Doctors</div>
             </div>
           </div>
         </div>
@@ -1692,38 +1692,38 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
                 <MapPin className="w-4 h-4" />
                 {program.demandTag}
               </span>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
                 {program.demandHeading.includes(" for ") ? program.demandHeading : `${program.demandHeading}`}
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white p-8 rounded-2xl" style={{ border: '1px solid #BFC9CA' }}>
-                <h3 className="text-2xl font-semibold mb-4" style={{ color: '#1B4F72' }}>Market Growth</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#5D6D7E' }}>
+              <div className="bg-white p-8 rounded-2xl" style={{ border: '1px solid #E5E7EB' }}>
+                <h3 className="text-2xl font-semibold mb-4" style={{ color: '#15401E' }}>Market Growth</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
                   {program.whyDubai.demand}
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-2xl" style={{ border: '1px solid #BFC9CA' }}>
-                <h3 className="text-2xl font-semibold mb-4" style={{ color: '#1B4F72' }}>Credentialing Advantage</h3>
-                <p className="text-sm leading-relaxed" style={{ color: '#5D6D7E' }}>
+              <div className="bg-white p-8 rounded-2xl" style={{ border: '1px solid #E5E7EB' }}>
+                <h3 className="text-2xl font-semibold mb-4" style={{ color: '#15401E' }}>Credentialing Advantage</h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
                   {program.whyDubai.credentialing}
                 </p>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-2xl" style={{ border: '1px solid #BFC9CA' }}>
-              <h3 className="text-xl font-semibold mb-6" style={{ color: '#1B4F72' }}>Career Opportunities in Dubai</h3>
+            <div className="bg-white p-8 rounded-2xl" style={{ border: '1px solid #E5E7EB' }}>
+              <h3 className="text-xl font-semibold mb-6" style={{ color: '#15401E' }}>Career Opportunities in Dubai</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 {program.whyDubai.opportunities.map((opportunity, index) => (
                   <div key={index} className="flex gap-3">
                     <Check className="w-5 h-5 shrink-0" style={{ color: '#52BE80' }} />
-                    <p className="text-sm" style={{ color: '#5D6D7E' }}>{opportunity}</p>
+                    <p className="text-sm" style={{ color: '#6B7280' }}>{opportunity}</p>
                   </div>
                 ))}
               </div>
@@ -1737,32 +1737,32 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
                 <BookOpen className="w-4 h-4" />
                 CURRICULUM
               </span>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
                 12-Month Curriculum<br/>Overview
               </h2>
             </div>
 
             <div className="space-y-6">
               {program.curricula.map((curriculum, index) => (
-                <div key={index} className="bg-white p-6 md:p-8 rounded-xl" style={{ border: '1px solid #BFC9CA' }}>
+                <div key={index} className="bg-white p-6 md:p-8 rounded-xl" style={{ border: '1px solid #E5E7EB' }}>
                   <div className="flex gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold" style={{ background: '#2E86C1' }}>
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold" style={{ background: '#15401E' }}>
                       {index + 1}
                     </div>
                     <div>
-                      <p className="text-sm font-semibold" style={{ color: '#2E86C1' }}>{curriculum.month}</p>
-                      <h3 className="text-lg font-semibold" style={{ color: '#1B4F72' }}>{curriculum.title}</h3>
+                      <p className="text-sm font-semibold" style={{ color: '#15401E' }}>{curriculum.month}</p>
+                      <h3 className="text-lg font-semibold" style={{ color: '#15401E' }}>{curriculum.title}</h3>
                     </div>
                   </div>
                   <ul className="ml-16 space-y-2">
                     {curriculum.modules.map((module, idx) => (
                       <li key={idx} className="flex gap-2">
                         <span style={{ color: '#52BE80' }}>•</span>
-                        <span className="text-sm" style={{ color: '#5D6D7E' }}>{module}</span>
+                        <span className="text-sm" style={{ color: '#6B7280' }}>{module}</span>
                       </li>
                     ))}
                   </ul>
@@ -1778,20 +1778,20 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
                 <Target className="w-4 h-4" />
                 CAREER PATHS
               </span>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
                 Where Graduates Work<br/>in Dubai
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {program.careerOutcomes.map((outcome, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl" style={{ border: '1px solid #BFC9CA' }}>
-                  <h3 className="font-semibold mb-2" style={{ color: '#1B4F72' }}>{outcome.role}</h3>
-                  <p className="text-sm" style={{ color: '#5D6D7E' }}>{outcome.description}</p>
+                <div key={index} className="bg-white p-6 rounded-xl" style={{ border: '1px solid #E5E7EB' }}>
+                  <h3 className="font-semibold mb-2" style={{ color: '#15401E' }}>{outcome.role}</h3>
+                  <p className="text-sm" style={{ color: '#6B7280' }}>{outcome.description}</p>
                 </div>
               ))}
             </div>
@@ -1800,62 +1800,62 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
       </section>
 
       {/* Pricing */}
-      <section className="py-20" style={{ background: '#EAF2FB' }}>
+      <section className="py-20" style={{ background: '#e8f2ea' }}>
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
                 <Award className="w-4 h-4" />
                 INVESTMENT
               </span>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
                 Transparent Pricing
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white p-8 rounded-2xl" style={{ border: '2px solid #2E86C1' }}>
-                <h3 className="text-xl font-semibold mb-4" style={{ color: '#1B4F72' }}>Fully Online Format</h3>
-                <div className="mb-4 pb-4 border-b" style={{ borderColor: '#BFC9CA' }}>
-                  <p className="text-sm mb-1" style={{ color: '#5D6D7E' }}>INR</p>
-                  <p className="text-2xl font-bold" style={{ color: '#2E86C1' }}>{program.pricing.onlineFormat.price}</p>
+              <div className="bg-white p-8 rounded-2xl" style={{ border: '2px solid #15401E' }}>
+                <h3 className="text-xl font-semibold mb-4" style={{ color: '#15401E' }}>Fully Online Format</h3>
+                <div className="mb-4 pb-4 border-b" style={{ borderColor: '#E5E7EB' }}>
+                  <p className="text-sm mb-1" style={{ color: '#6B7280' }}>INR</p>
+                  <p className="text-2xl font-bold" style={{ color: '#15401E' }}>{program.pricing.onlineFormat.price}</p>
                 </div>
                 <div className="space-y-2">
                   <div>
-                    <p className="text-xs" style={{ color: '#5D6D7E' }}>AED</p>
-                    <p className="font-semibold" style={{ color: '#1B4F72' }}>{program.pricing.onlineFormat.aed}</p>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>AED</p>
+                    <p className="font-semibold" style={{ color: '#15401E' }}>{program.pricing.onlineFormat.aed}</p>
                   </div>
                   <div>
-                    <p className="text-xs" style={{ color: '#5D6D7E' }}>SAR</p>
-                    <p className="font-semibold" style={{ color: '#1B4F72' }}>{program.pricing.onlineFormat.sar}</p>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>SAR</p>
+                    <p className="font-semibold" style={{ color: '#15401E' }}>{program.pricing.onlineFormat.sar}</p>
                   </div>
-                  <p className="text-xs pt-2" style={{ color: '#5D6D7E' }}>{program.pricing.onlineFormat.format}</p>
+                  <p className="text-xs pt-2" style={{ color: '#6B7280' }}>{program.pricing.onlineFormat.format}</p>
                 </div>
               </div>
 
-              <div className="bg-white p-8 rounded-2xl" style={{ border: '2px solid #AED6F1' }}>
-                <h3 className="text-xl font-semibold mb-4" style={{ color: '#1B4F72' }}>Hybrid Format</h3>
-                <div className="mb-4 pb-4 border-b" style={{ borderColor: '#BFC9CA' }}>
-                  <p className="text-sm mb-1" style={{ color: '#5D6D7E' }}>INR</p>
-                  <p className="text-2xl font-bold" style={{ color: '#2E86C1' }}>{program.pricing.hybridFormat.price}</p>
+              <div className="bg-white p-8 rounded-2xl" style={{ border: '2px solid #C8E6D0' }}>
+                <h3 className="text-xl font-semibold mb-4" style={{ color: '#15401E' }}>Hybrid Format</h3>
+                <div className="mb-4 pb-4 border-b" style={{ borderColor: '#E5E7EB' }}>
+                  <p className="text-sm mb-1" style={{ color: '#6B7280' }}>INR</p>
+                  <p className="text-2xl font-bold" style={{ color: '#15401E' }}>{program.pricing.hybridFormat.price}</p>
                 </div>
                 <div className="space-y-2">
                   <div>
-                    <p className="text-xs" style={{ color: '#5D6D7E' }}>AED</p>
-                    <p className="font-semibold" style={{ color: '#1B4F72' }}>{program.pricing.hybridFormat.aed}</p>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>AED</p>
+                    <p className="font-semibold" style={{ color: '#15401E' }}>{program.pricing.hybridFormat.aed}</p>
                   </div>
                   <div>
-                    <p className="text-xs" style={{ color: '#5D6D7E' }}>SAR</p>
-                    <p className="font-semibold" style={{ color: '#1B4F72' }}>{program.pricing.hybridFormat.sar}</p>
+                    <p className="text-xs" style={{ color: '#6B7280' }}>SAR</p>
+                    <p className="font-semibold" style={{ color: '#15401E' }}>{program.pricing.hybridFormat.sar}</p>
                   </div>
-                  <p className="text-xs pt-2" style={{ color: '#5D6D7E' }}>{program.pricing.hybridFormat.format}</p>
+                  <p className="text-xs pt-2" style={{ color: '#6B7280' }}>{program.pricing.hybridFormat.format}</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 bg-white rounded-2xl text-center" style={{ border: '1px solid #BFC9CA' }}>
-              <p className="text-sm mb-1" style={{ color: '#5D6D7E' }}>EMI options available on all programs</p>
-              <p className="text-xs" style={{ color: '#5D6D7E' }}>Exchange rates as of April 2026. Contact admissions for current rates.</p>
+            <div className="p-6 bg-white rounded-2xl text-center" style={{ border: '1px solid #E5E7EB' }}>
+              <p className="text-sm mb-1" style={{ color: '#6B7280' }}>EMI options available on all programs</p>
+              <p className="text-xs" style={{ color: '#6B7280' }}>Exchange rates as of April 2026. Contact admissions for current rates.</p>
             </div>
           </div>
         </div>
@@ -1866,14 +1866,14 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
                 <Check className="w-4 h-4" />
                 HOW TO APPLY
               </span>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
                 5-Step Application<br/>Process
               </h2>
-              <p className="text-lg leading-relaxed" style={{ color: '#5D6D7E' }}>
+              <p className="text-lg leading-relaxed" style={{ color: '#6B7280' }}>
                 From enquiry to admission decision in under 7 days
               </p>
             </div>
@@ -1882,24 +1882,24 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
               {program.applicationProcess.map((item) => (
                 <div key={item.step} className="flex gap-6">
                   <div className="shrink-0">
-                    <div className="flex items-center justify-center h-12 w-12 rounded-xl text-white font-bold" style={{ background: '#2E86C1' }}>
+                    <div className="flex items-center justify-center h-12 w-12 rounded-xl text-white font-bold" style={{ background: '#15401E' }}>
                       {item.step}
                     </div>
                   </div>
                   <div className="flex-1 pt-1">
-                    <h3 className="font-semibold" style={{ color: '#1B4F72' }}>{item.title}</h3>
-                    <p className="text-sm mt-1" style={{ color: '#5D6D7E' }}>{item.description}</p>
+                    <h3 className="font-semibold" style={{ color: '#15401E' }}>{item.title}</h3>
+                    <p className="text-sm mt-1" style={{ color: '#6B7280' }}>{item.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/apply" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-white" style={{ background: '#1B4F72' }}>
+              <Link href="/apply" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-white" style={{ background: '#15401E' }}>
                 Apply Now
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="https://wa.me/919985044993" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium" style={{ border: '2px solid #1B4F72', color: '#1B4F72', background: '#fff' }}>
+              <Link href="https://wa.me/919985044993" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium" style={{ border: '2px solid #15401E', color: '#15401E', background: '#fff' }}>
                 Chat on WhatsApp
               </Link>
             </div>
@@ -1912,11 +1912,11 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
                 <Clock className="w-4 h-4" />
                 WHAT HAPPENS AFTER YOU JOIN
               </span>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
                 First 30 Days After Enrolment
               </h2>
             </div>
@@ -1928,9 +1928,9 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
                 { week: "Week 3", detail: "Case-based assignment" },
                 { week: "Week 4", detail: "Faculty feedback and next module planning" }
               ].map((item, index) => (
-                <div key={index} className="bg-white p-6 rounded-xl" style={{ border: '1px solid #BFC9CA' }}>
-                  <p className="text-sm font-semibold mb-2" style={{ color: '#2E86C1' }}>{item.week}</p>
-                  <p className="text-sm" style={{ color: '#5D6D7E' }}>{item.detail}</p>
+                <div key={index} className="bg-white p-6 rounded-xl" style={{ border: '1px solid #E5E7EB' }}>
+                  <p className="text-sm font-semibold mb-2" style={{ color: '#15401E' }}>{item.week}</p>
+                  <p className="text-sm" style={{ color: '#6B7280' }}>{item.detail}</p>
                 </div>
               ))}
             </div>
@@ -1943,31 +1943,31 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
                 <Award className="w-4 h-4" />
                 COMPARE BEFORE YOU CHOOSE
               </span>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
                 {program.compareHeading}
               </h2>
             </div>
 
-            <div className="bg-white rounded-xl overflow-hidden" style={{ border: '1px solid #BFC9CA' }}>
+            <div className="bg-white rounded-xl overflow-hidden" style={{ border: '1px solid #E5E7EB' }}>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr style={{ background: '#EAF2FB', borderBottom: '1px solid #BFC9CA' }}>
-                      <th className="px-4 py-3 text-left text-sm" style={{ color: '#1B4F72' }}>Feature</th>
-                      <th className="px-4 py-3 text-left text-sm" style={{ color: '#1B4F72' }}>MedFellow Academy</th>
-                      <th className="px-4 py-3 text-left text-sm" style={{ color: '#1B4F72' }}>Other Fellowships</th>
+                    <tr style={{ background: '#e8f2ea', borderBottom: '1px solid #E5E7EB' }}>
+                      <th className="px-4 py-3 text-left text-sm" style={{ color: '#15401E' }}>Feature</th>
+                      <th className="px-4 py-3 text-left text-sm" style={{ color: '#15401E' }}>MedFellow Academy</th>
+                      <th className="px-4 py-3 text-left text-sm" style={{ color: '#15401E' }}>Other Fellowships</th>
                     </tr>
                   </thead>
                   <tbody>
                     {program.compareRows.map((row, idx) => (
                       <tr key={idx} style={{ borderBottom: idx === program.compareRows.length - 1 ? 'none' : '1px solid #E5E7EB' }}>
-                        <td className="px-4 py-3 text-sm" style={{ color: '#1B4F72' }}>{row[0]}</td>
-                        <td className="px-4 py-3 text-sm" style={{ color: '#5D6D7E' }}>{row[1]}</td>
-                        <td className="px-4 py-3 text-sm" style={{ color: '#5D6D7E' }}>{row[2]}</td>
+                        <td className="px-4 py-3 text-sm" style={{ color: '#15401E' }}>{row[0]}</td>
+                        <td className="px-4 py-3 text-sm" style={{ color: '#6B7280' }}>{row[1]}</td>
+                        <td className="px-4 py-3 text-sm" style={{ color: '#6B7280' }}>{row[2]}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -1975,20 +1975,20 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
               </div>
             </div>
 
-            <p className="text-sm mt-4" style={{ color: '#5D6D7E' }}>{program.compareTakeaway}</p>
+            <p className="text-sm mt-4" style={{ color: '#6B7280' }}>{program.compareTakeaway}</p>
           </div>
         </div>
       </section>
 
       {/* Explore Programs */}
-      <section className="py-20" style={{ background: '#EAF2FB' }}>
+      <section className="py-20" style={{ background: '#e8f2ea' }}>
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-3" style={{ color: '#1B4F72' }}>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-3" style={{ color: '#15401E' }}>
                 Explore Fellowship Programs for Dubai Doctors
               </h2>
-              <p className="text-sm" style={{ color: '#5D6D7E' }}>
+              <p className="text-sm" style={{ color: '#6B7280' }}>
                 Discover 40+ online fellowships designed for Dubai doctors to build specialization and advance careers.
               </p>
             </div>
@@ -2031,9 +2031,9 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
                       ["Neonatology Fellowship for Dubai Doctors", "/programs/fellowship-in-neonatology"]
                     ]
               ).map((card, idx) => (
-                <Link key={idx} href={card[1]} className="bg-white p-5 rounded-xl hover:shadow-md transition-all" style={{ border: '1px solid #BFC9CA' }}>
-                  <p className="text-sm font-medium" style={{ color: '#1B4F72' }}>{card[0]}</p>
-                  <p className="text-xs mt-2" style={{ color: '#2E86C1' }}>Read More</p>
+                <Link key={idx} href={card[1]} className="bg-white p-5 rounded-xl hover:shadow-md transition-all" style={{ border: '1px solid #E5E7EB' }}>
+                  <p className="text-sm font-medium" style={{ color: '#15401E' }}>{card[0]}</p>
+                  <p className="text-xs mt-2" style={{ color: '#15401E' }}>Read More</p>
                 </Link>
               ))}
             </div>
@@ -2046,29 +2046,29 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
         <div className="max-w-7xl mx-auto px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
                 <Star className="w-4 h-4" />
                 DOCTOR STORIES
               </span>
-              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
                 What Dubai Doctors Say
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {program.testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white p-8 rounded-2xl" style={{ border: '1px solid #BFC9CA' }}>
+                <div key={index} className="bg-white p-8 rounded-2xl" style={{ border: '1px solid #E5E7EB' }}>
                   <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" style={{ color: '#F39C12' }} />
                     ))}
                   </div>
-                  <p className="text-sm mb-6 leading-relaxed italic" style={{ color: '#5D6D7E' }}>
+                  <p className="text-sm mb-6 leading-relaxed italic" style={{ color: '#6B7280' }}>
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <div className="font-medium" style={{ color: '#1B4F72' }}>{testimonial.author}</div>
-                    <div className="text-xs" style={{ color: '#5D6D7E' }}>{testimonial.role}</div>
+                    <div className="font-medium" style={{ color: '#15401E' }}>{testimonial.author}</div>
+                    <div className="text-xs" style={{ color: '#6B7280' }}>{testimonial.role}</div>
                   </div>
                 </div>
               ))}
@@ -2078,34 +2078,34 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
       </section>
 
       {/* FAQs */}
-      <section className="py-20" style={{ background: '#EAF2FB' }}>
+      <section className="py-20" style={{ background: '#e8f2ea' }}>
         <div className="max-w-4xl mx-auto px-8">
           <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#D6EAF8', color: '#2E86C1' }}>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
               <Users className="w-4 h-4" />
               FREQUENTLY ASKED
             </span>
-            <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#1B4F72' }}>
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4" style={{ color: '#15401E' }}>
               Common Questions
             </h2>
           </div>
 
           <div className="space-y-4">
             {program.faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden" style={{ border: '1px solid #BFC9CA' }}>
+              <div key={index} className="bg-white rounded-xl overflow-hidden" style={{ border: '1px solid #E5E7EB' }}>
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
                   className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <span className="font-medium pr-8" style={{ color: '#1B4F72' }}>{faq.question}</span>
+                  <span className="font-medium pr-8" style={{ color: '#15401E' }}>{faq.question}</span>
                   <ArrowRight
                     className={`w-5 h-5 shrink-0 transition-transform ${openFaq === index ? 'rotate-90' : ''}`}
-                    style={{ color: '#2E86C1' }}
+                    style={{ color: '#15401E' }}
                   />
                 </button>
                 {openFaq === index && (
                   <div className="px-6 pb-6">
-                    <p className="text-sm leading-relaxed" style={{ color: '#5D6D7E' }}>
+                    <p className="text-sm leading-relaxed" style={{ color: '#6B7280' }}>
                       {faq.answer}
                     </p>
                   </div>
@@ -2119,7 +2119,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
       {/* Final CTA */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-8">
-          <div className="p-12 rounded-3xl text-center text-white" style={{ background: 'linear-gradient(135deg, #1B4F72 0%, #2E86C1 100%)' }}>
+          <div className="p-12 rounded-3xl text-center text-white" style={{ background: 'linear-gradient(135deg, #15401E 0%, #15401E 100%)' }}>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               {program.finalCtaHeading}
             </h2>
@@ -2127,11 +2127,11 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
               Apply now and get your admission decision within 72 hours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/apply" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg text-lg" style={{ color: '#1B4F72' }}>
+              <Link href="/apply" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white rounded-lg font-medium hover:opacity-90 transition-all shadow-lg text-lg" style={{ color: '#15401E' }}>
                 Apply Now
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-medium hover:bg-white transition-all text-lg hover:text-[#1B4F72]">
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-medium hover:bg-white transition-all text-lg hover:text-[#15401E]">
                 Schedule Consultation
               </Link>
             </div>

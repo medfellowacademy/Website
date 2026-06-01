@@ -160,7 +160,7 @@ export default function FellowshipMatcher() {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-16">
+      <section className="bg-[#15401E] text-white py-16">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">AI-Powered Fellowship Matcher</h1>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">

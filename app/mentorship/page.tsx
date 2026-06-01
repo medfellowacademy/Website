@@ -12,7 +12,7 @@ export default function MentorshipMarketplace() {
       name: "Dr. Ramesh Kumar",
       specialty: "Gastroenterology",
       experience: "25+ years",
-      hospital: "AIIMS Delhi",
+      hospital: "Super Speciality Hospital",
       achievements: "500+ ERCP procedures, Published 40+ papers",
       availability: "2 slots available",
       rating: 4.9,
@@ -23,7 +23,7 @@ export default function MentorshipMarketplace() {
       name: "Dr. Priya Shah",
       specialty: "Critical Care",
       experience: "18+ years",
-      hospital: "Apollo Hospitals",
+      hospital: "Super Speciality Hospital",
       achievements: "ICU Director, ECMO Expert",
       availability: "1 slot available",
       rating: 5.0,
@@ -34,7 +34,7 @@ export default function MentorshipMarketplace() {
       name: "Dr. Anil Mehta",
       specialty: "Orthopedics",
       experience: "22+ years",
-      hospital: "Fortis Memorial",
+      hospital: "Super Speciality Hospital",
       achievements: "3000+ joint replacements",
       availability: "3 slots available",
       rating: 4.8,
@@ -45,7 +45,7 @@ export default function MentorshipMarketplace() {
       name: "Dr. Sneha Gupta",
       specialty: "Reproductive Medicine",
       experience: "15+ years",
-      hospital: "Cloudnine",
+      hospital: "Super Speciality Hospital",
       achievements: "IVF success rate >55%",
       availability: "2 slots available",
       rating: 4.9,
@@ -56,7 +56,7 @@ export default function MentorshipMarketplace() {
       name: "Dr. Suresh Kumar",
       specialty: "Pain Management",
       experience: "20+ years",
-      hospital: "Max Super Specialty",
+      hospital: "Super Speciality Hospital Super Specialty",
       achievements: "Advanced interventional procedures",
       availability: "Full",
       rating: 4.7,
@@ -67,7 +67,7 @@ export default function MentorshipMarketplace() {
       name: "Dr. Kavita Singh",
       specialty: "Neurology",
       experience: "17+ years",
-      hospital: "Medanta Gurugram",
+      hospital: "Super Speciality Hospital",
       achievements: "Stroke specialist, 200+ publications",
       availability: "1 slot available",
       rating: 5.0,
@@ -126,7 +126,7 @@ export default function MentorshipMarketplace() {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-16">
+      <section className="bg-[#15401E] text-white py-16">
         <div className="container-custom">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur rounded-full mb-4">
             <span className="text-sm font-semibold">🤝 EXCLUSIVE MENTORSHIP</span>
@@ -368,7 +368,7 @@ export default function MentorshipMarketplace() {
       {/* CTA */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="bg-linear-to-br from-primary to-primary-dark text-white rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-[#15401E] text-white rounded-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
               Get Matched with Your Ideal Mentor
             </h2>

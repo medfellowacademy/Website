@@ -2,92 +2,211 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Menu, X } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { analytics } from '@/lib/analytics';
+
+const SPECIALTIES = [
+  { label: 'Emergency Medicine',      href: '/programs/emergency-medicine' },
+  { label: 'Gastroenterology',        href: '/programs/gastroenterology' },
+  { label: 'Nephrology',              href: '/programs/nephrology' },
+  { label: 'Endocrinology',           href: '/programs/endocrinology' },
+  { label: 'Paediatrics',             href: '/programs/paediatrics' },
+  { label: 'Neonatology',             href: '/programs/neonatology' },
+  { label: 'Reproductive Medicine',   href: '/programs/reproductive-medicine' },
+  { label: 'Arthroscopy & Sports',    href: '/programs/arthroscopy' },
+];
 
 const NAV_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/programs', label: 'Programs' },
+  { href: '/',        label: 'Home' },
+  { href: '/about',   label: 'About' },
+  { href: '/programs',label: 'Programs', hasDropdown: true },
   { href: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen]               = useState(false);
+  const [isProgramsOpen, setIsProgramsOpen] = useState(false);
+  const [scrolled, setScrolled]           = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
-    <nav 
-      className="sticky top-0 z-50 bg-white" 
-      style={{ borderBottom: '0.5px solid #BFC9CA', height: '70px' }}
+    <nav
+      className="sticky top-0 z-50 bg-white"
+      style={{
+        borderBottom: '1px solid #E5E7EB',
+        height: '60px',
+        boxShadow: scrolled ? '0 1px 8px rgba(0,0,0,0.06)' : 'none',
+        transition: 'box-shadow 0.2s ease',
+      }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-full flex items-center justify-between">
+      <div className="container-custom h-full flex items-center justify-between">
+
         {/* Logo */}
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center flex-shrink-0">
           <Image
             src="/logo.png"
             alt="MedFellow Academy"
-            width={280}
-            height={70}
-            className="h-12 sm:h-14 md:h-16 w-auto"
+            width={220}
+            height={56}
+            className="h-8 sm:h-9 w-auto"
             priority
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center gap-5 xl:gap-7">
-          {NAV_LINKS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-xs transition-colors hover:opacity-80 font-normal"
-              style={{ color: '#5D6D7E' }}
-            >
-              {item.label}
-            </Link>
-          ))}
+        {/* Desktop nav */}
+        <div className="hidden lg:flex items-center gap-1">
+          {NAV_LINKS.map((item) =>
+            item.hasDropdown ? (
+              <div
+                key={item.href}
+                className="relative"
+                onMouseEnter={() => setIsProgramsOpen(true)}
+                onMouseLeave={() => setIsProgramsOpen(false)}
+              >
+                <button
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-md text-[0.875rem] font-medium transition-colors hover:bg-[#F9FAFB]"
+                  style={{ color: isActive(item.href) ? '#15401E' : '#374151' }}
+                >
+                  {item.label}
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform duration-150 ${isProgramsOpen ? 'rotate-180' : ''}`}
+                    style={{ color: '#9CA3AF' }}
+                  />
+                </button>
+                {isActive(item.href) && (
+                  <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[#15401E]" />
+                )}
+
+                {isProgramsOpen && (
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-white rounded-lg border border-[#E5E7EB] py-1.5 z-50"
+                    style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
+                  >
+                    <p className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#9CA3AF]">
+                      Browse by specialty
+                    </p>
+                    {SPECIALTIES.map((s) => (
+                      <Link
+                        key={s.href}
+                        href={s.href}
+                        className="block px-3 py-2 text-[0.875rem] text-[#374151] hover:bg-[#F9FAFB] hover:text-[#15401E] transition-colors"
+                        onClick={() => {
+                          setIsProgramsOpen(false);
+                          analytics.ctaClick('nav_program_' + s.label, s.href, 'navbar');
+                        }}
+                      >
+                        {s.label}
+                      </Link>
+                    ))}
+                    <div className="mx-3 mt-1 pt-1 border-t border-[#F3F4F6]">
+                      <Link
+                        href="/programs"
+                        className="block px-2 py-2 text-[0.8125rem] font-semibold text-[#15401E] hover:bg-[#e8f2ea] rounded-md transition-colors"
+                        onClick={() => setIsProgramsOpen(false)}
+                      >
+                        View all programs →
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="relative px-3 py-1.5 rounded-md text-[0.875rem] font-medium transition-colors hover:bg-[#F9FAFB]"
+                style={{ color: isActive(item.href) ? '#15401E' : '#374151' }}
+              >
+                {item.label}
+                {isActive(item.href) && (
+                  <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[#15401E]" />
+                )}
+              </Link>
+            )
+          )}
+          <Link
+            href="/free-guide"
+            className="px-3 py-1.5 rounded-md text-[0.875rem] font-medium text-[#15401E] hover:bg-[#e8f2ea] transition-colors"
+            onClick={() => analytics.guideDownload('navbar_link')}
+          >
+            Free Guide
+          </Link>
         </div>
 
-        {/* Desktop CTA */}
-        <Link
-          href="/apply"
-          className="hidden lg:inline-flex items-center justify-center px-4 py-2 rounded-md text-xs font-medium transition-opacity hover:opacity-90"
-          style={{ background: '#1B4F72', color: '#FFFFFF' }}
-        >
-          Enroll Now
-        </Link>
+        {/* Desktop right actions */}
+        <div className="hidden lg:flex items-center gap-2">
+          <Link
+            href="/apply"
+            className="px-4 py-2 text-[0.875rem] font-medium text-[#374151] hover:text-[#111827] transition-colors"
+          >
+            Log in
+          </Link>
+          <Link
+            href="/apply"
+            className="inline-flex items-center px-4 py-2 text-[0.875rem] font-semibold text-white bg-[#15401E] rounded-md hover:bg-[#0f2e15] transition-colors"
+            onClick={() => analytics.applyClick('navbar_enroll_now')}
+          >
+            Enroll now
+          </Link>
+        </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile hamburger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden p-2"
-          style={{ color: '#1B4F72' }}
+          className="lg:hidden p-2 rounded-md text-[#374151] hover:bg-[#F9FAFB] transition-colors"
+          aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white" style={{ borderBottom: '0.5px solid #BFC9CA' }}>
-          <div className="px-4 sm:px-6 md:px-8 py-4 space-y-3">
+        <div className="lg:hidden bg-white border-t border-[#E5E7EB]">
+          <div className="container-custom py-3 space-y-0.5">
             {NAV_LINKS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="block text-xs font-normal transition-colors"
-                style={{ color: '#5D6D7E' }}
+                className="flex items-center px-3 py-2.5 rounded-md text-[0.9375rem] font-medium transition-colors"
+                style={{ color: isActive(item.href) ? '#15401E' : '#374151', background: isActive(item.href) ? '#F7FAF8' : 'transparent' }}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
             <Link
-              href="/apply"
-              className="block w-full text-center px-4 py-2 rounded-md text-xs font-medium mt-4"
-              style={{ background: '#1B4F72', color: '#FFFFFF' }}
+              href="/free-guide"
+              className="flex items-center px-3 py-2.5 rounded-md text-[0.9375rem] font-medium text-[#15401E]"
               onClick={() => setIsOpen(false)}
             >
-              Enroll Now
+              Free Guide
             </Link>
+            <div className="pt-3 flex flex-col gap-2">
+              <Link
+                href="/apply"
+                className="flex items-center justify-center py-3 rounded-md text-[0.9375rem] font-semibold text-white bg-[#15401E]"
+                onClick={() => { analytics.applyClick('navbar_mobile_enroll_now'); setIsOpen(false); }}
+              >
+                Apply for June 2026 Batch
+              </Link>
+              <Link
+                href="/programs"
+                className="flex items-center justify-center py-2.5 rounded-md text-[0.9375rem] font-medium border border-[#E5E7EB] text-[#374151]"
+                onClick={() => setIsOpen(false)}
+              >
+                Browse Programs
+              </Link>
+            </div>
           </div>
         </div>
       )}

@@ -20,8 +20,8 @@ export default function LiveDashboard() {
 
   const grandRounds = [
     { topic: "Advanced ERCP Techniques", speaker: "Dr. Ramesh Patel", date: "Today, 2:00 PM", location: "Virtual Hall A" },
-    { topic: "Managing Difficult Airways", speaker: "Dr. Kavita Singh", date: "Tomorrow, 10:00 AM", location: "Apollo ICU Conference Room" },
-    { topic: "Joint Preservation in Young Athletes", speaker: "Dr. Suresh Kumar", date: "Jan 23, 3:00 PM", location: "Fortis Lecture Hall" },
+    { topic: "Managing Difficult Airways", speaker: "Dr. Kavita Singh", date: "Tomorrow, 10:00 AM", location: "Super Speciality Hospital ICU Conference Room" },
+    { topic: "Joint Preservation in Young Athletes", speaker: "Dr. Suresh Kumar", date: "Jan 23, 3:00 PM", location: "Super Speciality Hospital Lecture Hall" },
     { topic: "IVF Success Rate Optimization", speaker: "Dr. Anjali Sharma", date: "Jan 24, 11:00 AM", location: "Virtual Hall B" }
   ];
 
@@ -36,7 +36,7 @@ export default function LiveDashboard() {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-16">
+      <section className="bg-[#15401E] text-white py-16">
         <div className="container-custom">
           <div className="flex items-center justify-between">
             <div>
@@ -190,7 +190,7 @@ export default function LiveDashboard() {
           </div>
 
           {/* CTA */}
-          <div className="mt-12 bg-linear-to-br from-primary to-primary-dark text-white rounded-2xl p-8 text-center">
+          <div className="mt-12 bg-[#15401E] text-white rounded-2xl p-8 text-center">
             <h3 className="text-3xl font-heading font-bold mb-4">Join Our Next Batch</h3>
             <p className="text-lg opacity-90 mb-6">
               Be part of this vibrant learning community. Applications open for April 2026 batch.

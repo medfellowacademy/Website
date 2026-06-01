@@ -85,7 +85,7 @@ const PROGRAMS = [
   { value: 'psychiatry', label: 'Fellowship in Psychiatry' },
   { value: 'ophthalmology', label: 'Fellowship in Ophthalmology' },
   { value: 'oral-implantology-laser-dentistry', label: 'Fellowship in Oral Implantology and Laser Dentistry' },
-  { value: 'maxillofacial-surgery', label: 'Fellowship in Maxillofacial Surgery' },
+  { value: 'maxillofacial-surgery', label: 'Fellowship in Super Speciality Hospitalillofacial Surgery' },
   { value: 'epidemiology', label: 'Fellowship in Epidemiology' },
   { value: 'sexology', label: 'Fellowship in Sexology' },
 ];
@@ -243,16 +243,16 @@ export default function ApplyPage() {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <div className="flex-1 flex items-center justify-center bg-gradient-to-br from-primary via-primary-dark to-secondary px-4 py-20">
-          <div className="text-center text-white max-w-lg">
-            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-8">
-              <svg className="w-12 h-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="flex-1 flex items-center justify-center bg-white px-4 py-20">
+          <div className="text-center max-w-lg">
+            <div className="w-20 h-20 bg-[#e8f2ea] rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-10 h-10 text-[#15401E]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">Application Submitted!</h2>
-            <p className="text-white/80 text-lg mb-8">Our admissions team will contact you within 48 hours to discuss next steps.</p>
-            <a href="/" className="inline-block px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-accent hover:text-white transition-colors">Back to Home</a>
+            <h2 className="text-[1.75rem] font-bold text-[#111827] mb-3">Application Submitted!</h2>
+            <p className="text-[0.9375rem] text-[#6B7280] mb-8">Our admissions team will contact you within 48 hours to discuss next steps.</p>
+            <a href="/" className="btn-primary">Back to Home</a>
           </div>
         </div>
         <Footer />
@@ -261,7 +261,7 @@ export default function ApplyPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Body */}
@@ -304,7 +304,7 @@ export default function ApplyPage() {
                   </div>
                   <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-primary to-secondary rounded-full transition-all duration-500"
+                      className="h-full bg-[#15401E] rounded-full transition-all duration-500"
                       style={{ width: `${((step - 1) / STEPS.length) * 100}%` }}
                     />
                   </div>
@@ -317,7 +317,7 @@ export default function ApplyPage() {
               {/* Step header */}
               <div className="px-6 md:px-10 pt-8 pb-6 border-b border-gray-100">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white font-bold text-sm">{step}</div>
+                  <div className="w-10 h-10 bg-[#15401E] rounded-lg flex items-center justify-center text-white font-bold text-sm">{step}</div>
                   <div>
                     <h2 className="text-xl md:text-2xl font-heading font-bold text-primary">{STEPS[step - 1].title}</h2>
                     <p className="text-sm text-text-secondary">{STEPS[step - 1].desc}</p>
@@ -410,7 +410,7 @@ export default function ApplyPage() {
                         <p className="text-xs font-semibold text-text-secondary uppercase tracking-wide mb-3">Current Workplace</p>
                         <div className="grid md:grid-cols-3 gap-5">
                           <FL label="Hospital Name">
-                            <input type="text" placeholder="e.g. Apollo Hospitals" className="field-input"
+                            <input type="text" placeholder="e.g. Super Speciality Hospital" className="field-input"
                               value={formData.hospitalName} onChange={e => u('hospitalName', e.target.value)} />
                           </FL>
                           <FL label="Clinic Name">
@@ -501,7 +501,7 @@ export default function ApplyPage() {
                                   const file = e.target.files?.[0] || null;
                                   // Validate file size (max 5MB)
                                   if (file && file.size > 5 * 1024 * 1024) {
-                                    setError(`File "${file.name}" is too large. Maximum size is 5MB.`);
+                                    setError(`File "${file.name}" is too large. Super Speciality Hospitalimum size is 5MB.`);
                                     e.target.value = ''; // Reset input
                                     return;
                                   }
@@ -600,14 +600,14 @@ export default function ApplyPage() {
 
                   {step < STEPS.length ? (
                     <button type="button" disabled={!canAdvance} onClick={() => setStep(s => s + 1)}
-                      className="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl text-sm font-bold shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none">
+                      className="btn-primary disabled:opacity-40 disabled:cursor-not-allowed px-8 py-3">
                       Continue
                     </button>
                   ) : (
                     <button type="submit" disabled={submitting || !canSubmit}
-                      className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-secondary to-primary text-white rounded-xl text-sm font-bold shadow-lg shadow-secondary/25 hover:shadow-secondary/40 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none">
+                      className="btn-primary disabled:opacity-40 disabled:cursor-not-allowed px-8 py-3 flex items-center gap-2">
                       {submitting ? (
-                        <><span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" /> Submitting...</>
+                        <><span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" /> Submitting…</>
                       ) : 'Submit Application'}
                     </button>
                   )}

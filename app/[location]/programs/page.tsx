@@ -3,9 +3,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
 import { useMemo, useState, use } from "react";
-import { Search, X, Clock, Stethoscope, ArrowRight } from "lucide-react";
+import { Search, X, ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 
 const VALID_LOCATIONS = ["uae", "saudi-arabia"];
@@ -767,16 +767,12 @@ export default function LocationProgramsPage({ params }: { params: Promise<{ loc
     <div className="min-h-screen">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-20">
-        <div className="container-custom text-center">
-          <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur rounded-full mb-4">
-            <span className="font-semibold">{allPrograms.length} Specialized Programs in {locationLower === "saudi-arabia" ? "Saudi Arabia" : locationLower.toUpperCase()}</span>
-          </div>
-          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">{locationMeta.heroText}</h1>
-          <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90 leading-relaxed">
-            {locationMeta.description}
-          </p>
+      {/* Page header */}
+      <section className="border-b border-[#E5E7EB] py-10 md:py-14">
+        <div className="container-custom">
+          <span className="section-label">{allPrograms.length} Programs · {locationLower === "saudi-arabia" ? "Saudi Arabia" : locationLower.toUpperCase()}</span>
+          <h1 className="section-title mt-2 mb-3">{locationMeta.heroText}</h1>
+          <p className="section-subtitle">{locationMeta.description}</p>
         </div>
       </section>
 
@@ -795,8 +791,8 @@ export default function LocationProgramsPage({ params }: { params: Promise<{ loc
                   onClick={() => handleCategoryClick(category.name)}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
                     isActive
-                      ? "bg-[#2B6CB0] text-white border-[#2B6CB0] shadow-md shadow-blue-500/20"
-                      : "bg-white text-gray-700 border-gray-200 hover:border-[#2B6CB0] hover:text-[#2B6CB0]"
+                      ? "bg-[#15401E] text-white border-[#15401E] shadow-md shadow-[#15401E]/20"
+                      : "bg-white text-gray-700 border-gray-200 hover:border-[#15401E] hover:text-[#15401E]"
                   }`}
                 >
                   {category.name}
@@ -812,20 +808,16 @@ export default function LocationProgramsPage({ params }: { params: Promise<{ loc
           <div className="mb-8 md:mb-12">
             <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-5 md:mb-8">All Fellowship Programs</h2>
 
-            <div className="mb-6 md:mb-8 rounded-2xl border border-primary/10 bg-linear-to-br from-white to-primary/5 p-4 md:p-6 shadow-xs">
-              <label htmlFor="program-search" className="block text-sm font-semibold text-primary mb-2">
-                Search Programs
-              </label>
-
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+            <div className="mb-6 md:mb-8">
+              <div className="relative max-w-xl">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
                 <input
                   id="program-search"
                   type="text"
                   value={searchQuery}
                   onChange={(e) => handleSearchChange(e.target.value)}
                   placeholder="Search by course name, specialty, or keyword…"
-                  className="w-full rounded-xl border border-gray-200 bg-white pl-11 pr-24 py-3 text-text-primary placeholder:text-text-tertiary focus:outline-none focus:ring-2 focus:ring-[#2B6CB0]/40 focus:border-[#2B6CB0] transition-all"
+                  className="w-full rounded-md border border-[#D1D5DB] bg-white pl-10 pr-10 py-2.5 text-[0.875rem] text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#15401E]/20 focus:border-[#15401E] transition-all"
                 />
                 {searchQuery && (
                   <button
@@ -838,89 +830,65 @@ export default function LocationProgramsPage({ params }: { params: Promise<{ loc
                   </button>
                 )}
               </div>
-
-              <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
-                {selectedCategory !== "All" && (
-                  <>
-                    <span className="text-text-secondary">Active specialty:</span>
-                    <span className="px-2.5 py-1 rounded-full bg-secondary/10 text-secondary font-semibold border border-secondary/20">
-                      {selectedCategory}
-                    </span>
-                    <button type="button" onClick={() => handleCategoryClick("All")} className="text-primary underline">
-                      Reset specialty
-                    </button>
-                  </>
-                )}
-              </div>
-
-              <p className="mt-3 text-sm text-text-secondary">
-                Showing {filteredPrograms.length === 0 ? 0 : startIndex + 1} to {Math.min(startIndex + COURSES_PER_PAGE, filteredPrograms.length)} of {filteredPrograms.length} programs
+              <p className="mt-2 text-xs text-text-secondary">
+                Showing {filteredPrograms.length === 0 ? 0 : startIndex + 1}–{Math.min(startIndex + COURSES_PER_PAGE, filteredPrograms.length)} of {filteredPrograms.length} programs
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {visiblePrograms.map((program, index) => (
-                <Link 
-                  key={index} 
+                <Link
+                  key={index}
                   href={`/${locationLower}/programs/${program.slug}`}
-                  className="card overflow-hidden hover:shadow-2xl hover:border-secondary transition-all group cursor-pointer transform hover:-translate-y-1 flex flex-col"
+                  className="program-card overflow-hidden group"
                 >
-                  {/* Program Image */}
-                  <div className="relative h-48 overflow-hidden">
+                  {/* Image */}
+                  <div className="relative h-36 overflow-hidden">
                     <Image
-                      src={program.image}
+                      src={program.image || '/courses/internal-medicine.jpg'}
                       alt={program.name}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-primary/80 to-transparent" />
-                    {/* Icon Badge */}
-                    <div className="absolute bottom-4 left-4 w-14 h-14 bg-white/95 rounded-xl flex items-center justify-center text-3xl shadow-lg">
-                      {program.icon}
-                    </div>
-                    <span className="absolute top-4 right-4 px-3 py-1 bg-secondary text-white rounded-full text-xs font-bold shadow-lg">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <span className="absolute bottom-2.5 left-3 text-white text-xs font-semibold bg-black/30 backdrop-blur-sm px-2 py-0.5 rounded">
                       {program.category}
                     </span>
                   </div>
 
-                  <div className="p-6 flex flex-col grow">
-                    {/* Program Name */}
-                    <h3 className="text-xl font-heading font-bold text-primary mb-3 group-hover:text-secondary transition-colors line-clamp-2">
-                      {program.name}
-                    </h3>
-
-                    {/* Duration & Eligibility */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="px-3 py-1 bg-primary/5 text-primary rounded-full text-sm font-medium flex items-center gap-1">
-                        <span>⏱️</span> {program.duration}
-                      </span>
-                      <span className="px-3 py-1 bg-gray-100 text-text-secondary rounded-full text-sm flex items-center gap-1">
-                        <span>📋</span> {program.eligibility}
-                      </span>
+                  {/* Content */}
+                  <div className="p-4 flex flex-col grow">
+                    <div className="flex items-start gap-2 mb-2">
+                      <span className="text-xl leading-none shrink-0 mt-0.5">{program.icon}</span>
+                      <h3 className="text-[0.9375rem] font-semibold text-[#111827] leading-snug line-clamp-2">
+                        {program.name}
+                      </h3>
                     </div>
 
-                    {/* Description */}
-                    <p className="text-text-secondary mb-4 leading-relaxed line-clamp-2">
-                      {program.description}
-                    </p>
-
-                    {/* Highlights */}
-                    <div className="mb-6 grow">
-                      <div className="flex flex-wrap gap-2">
-                        {program.highlights.slice(0, 3).map((highlight, idx) => (
-                          <span key={idx} className="text-xs px-2 py-1 bg-accent/10 text-accent rounded border border-accent/20">
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#6B7280] mb-3">
+                      <span>{program.eligibility}</span>
+                      <span className="text-[#D1D5DB]">·</span>
+                      <span>{program.duration}</span>
+                      {program.onlinePrice && (
+                        <>
+                          <span className="text-[#D1D5DB]">·</span>
+                          <span className="font-medium text-[#15401E]">From ₹{(program.onlinePrice / 100000).toFixed(2)}L</span>
+                        </>
+                      )}
                     </div>
 
-                    {/* CTA */}
-                    <div className="pt-4 border-t border-gray-100 flex items-center justify-between mt-auto">
-                      <span className="text-[#2B6CB0] font-semibold text-sm group-hover:underline">
-                        View Full Details
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-[#2B6CB0] group-hover:translate-x-1 transition-transform" />
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {program.highlights.slice(0, 3).map((highlight, idx) => (
+                        <span key={idx} className="text-[0.6875rem] px-2 py-0.5 bg-[#F3F4F6] text-[#374151] rounded border border-[#E5E7EB]">
+                          {highlight}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-auto flex items-center justify-between pt-3 border-t border-[#F3F4F6]">
+                      <span className="text-xs text-[#15401E] font-medium">View Program</span>
+                      <ArrowRight className="w-4 h-4 text-[#15401E]" />
                     </div>
                   </div>
                 </Link>
@@ -969,12 +937,11 @@ export default function LocationProgramsPage({ params }: { params: Promise<{ loc
           </div>
 
           {/* CTA */}
-          <div className="mt-10 md:mt-16 text-center bg-linear-to-br from-primary to-primary-dark rounded-2xl p-6 md:p-12 text-white">
+          <div className="mt-10 md:mt-16 text-center bg-[#15401E] rounded-lg p-8 md:p-12 text-white">
             <div className="max-w-3xl mx-auto">
-              <div className="text-4xl md:text-5xl mb-4 md:mb-6">🎓</div>
-              <h3 className="text-xl md:text-3xl font-heading font-bold mb-3 md:mb-4">Ready to Start Your Fellowship Journey?</h3>
-              <p className="text-sm md:text-lg mb-6 md:mb-8 opacity-90 leading-relaxed">
-                Join hundreds of doctors who have advanced their careers through our world-class fellowship programs. Apply now or schedule a consultation with our admissions team.
+              <h3 className="text-xl md:text-2xl font-bold mb-3">Ready to Start Your Fellowship Journey?</h3>
+              <p className="text-sm text-white/70 mb-6 max-w-xl mx-auto">
+                Join hundreds of doctors who have advanced their careers through our fellowship programs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/apply" className="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-accent hover:text-white transition-all text-lg">

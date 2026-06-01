@@ -5,22 +5,22 @@ export default function TrustProof() {
     {
       name: "Dr. Rajiv Kumar",
       program: "Fellowship in Cardiology",
-      placement: "Senior Consultant, Apollo Hospitals",
+      placement: "Senior Consultant, Super Speciality Hospital",
     },
     {
       name: "Dr. Priya Sharma",
       program: "Fellowship in Critical Care",
-      placement: "ICU Head, Fortis Memorial",
+      placement: "ICU Head, Super Speciality Hospital",
     },
     {
       name: "Dr. Arun Mehta",
       program: "Fellowship in Gastroenterology",
-      placement: "Consultant, Max Super Specialty",
+      placement: "Consultant, Super Speciality Hospital Super Specialty",
     },
     {
       name: "Dr. Kavita Singh",
       program: "Fellowship in Reproductive Medicine",
-      placement: "IVF Specialist, Cloudnine",
+      placement: "IVF Specialist, Super Speciality Hospital",
     }
   ];
 
@@ -30,10 +30,10 @@ export default function TrustProof() {
         
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-medium mb-2" style={{ color: '#1B4F72' }}>
+          <h2 className="text-2xl font-medium mb-2" style={{ color: '#15401E' }}>
             Alumni Success Stories
           </h2>
-          <p className="text-xs" style={{ color: '#5D6D7E' }}>
+          <p className="text-xs" style={{ color: '#6B7280' }}>
             Our fellows secure top positions across leading healthcare organizations
           </p>
         </div>
@@ -41,14 +41,14 @@ export default function TrustProof() {
         {/* Placements Grid */}
         <div className="grid md:grid-cols-2 gap-4">
           {alumniPlacements.map((alumni, i) => (
-            <div key={i} className="bg-white rounded-lg p-5" style={{ border: '0.5px solid #BFC9CA' }}>
-              <div className="text-xs font-medium mb-1" style={{ color: '#1B4F72' }}>
+            <div key={i} className="bg-white rounded-lg p-5" style={{ border: '0.5px solid #E5E7EB' }}>
+              <div className="text-xs font-medium mb-1" style={{ color: '#15401E' }}>
                 {alumni.name}
               </div>
-              <div className="text-xs mb-1" style={{ color: '#2E86C1' }}>
+              <div className="text-xs mb-1" style={{ color: '#15401E' }}>
                 {alumni.program}
               </div>
-              <div className="text-xs" style={{ color: '#5D6D7E' }}>
+              <div className="text-xs" style={{ color: '#6B7280' }}>
                 {alumni.placement}
               </div>
             </div>

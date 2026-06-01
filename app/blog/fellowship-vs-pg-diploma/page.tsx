@@ -99,7 +99,7 @@ export default function BlogArticle() {
                 <li className="flex items-start gap-3">
                   <span className="text-secondary text-xl mt-1">✓</span>
                   <div>
-                    <strong className="text-primary">Hospital Recognition:</strong> Top hospitals (AIIMS, Apollo, Fortis) recognize fellowship credentials for consultant positions
+                    <strong className="text-primary">Hospital Recognition:</strong> Top hospitals (super speciality hospitals) recognize fellowship credentials for consultant positions
                   </div>
                 </li>
               </ul>

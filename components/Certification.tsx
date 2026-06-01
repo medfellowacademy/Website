@@ -3,15 +3,15 @@ import { Award, Globe, Building2, Shield } from 'lucide-react';
 
 export default function Certification() {
   return (
-    <section className="py-10" style={{ background: '#EAF2FB' }}>
+    <section className="py-10" style={{ background: '#F7FAF8' }}>
       <div className="max-w-7xl mx-auto px-8">
         
         {/* Header */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-medium mb-2" style={{ color: '#1B4F72' }}>
+          <h2 className="text-2xl font-medium mb-2" style={{ color: '#15401E' }}>
             Internationally Accredited Certification
           </h2>
-          <p className="text-xs" style={{ color: '#5D6D7E' }}>
+          <p className="text-xs" style={{ color: '#6B7280' }}>
             Recognized by leading medical bodies worldwide
           </p>
         </div>
@@ -23,17 +23,17 @@ export default function Certification() {
             { Icon: Building2, title: 'Hospital Validated', desc: 'Recognized by premier hospital networks' },
             { Icon: Shield, title: 'Career Advancement', desc: 'Opens doors to specialist positions' },
           ].map((item, i) => (
-            <div key={i} className="bg-white rounded-lg p-5 text-center" style={{ border: '0.5px solid #BFC9CA' }}>
+            <div key={i} className="bg-white rounded-lg p-5 text-center" style={{ border: '0.5px solid #E5E7EB' }}>
               <div 
                 className="w-10 h-10 rounded-md mx-auto mb-3 flex items-center justify-center"
-                style={{ background: '#1B4F72' }}
+                style={{ background: '#15401E' }}
               >
                 <item.Icon className="w-5 h-5 text-white" />
               </div>
-              <h3 className="text-xs font-medium mb-1" style={{ color: '#1B4F72' }}>
+              <h3 className="text-xs font-medium mb-1" style={{ color: '#15401E' }}>
                 {item.title}
               </h3>
-              <p className="text-xs" style={{ color: '#5D6D7E', lineHeight: 1.6 }}>
+              <p className="text-xs" style={{ color: '#6B7280', lineHeight: 1.6 }}>
                 {item.desc}
               </p>
             </div>

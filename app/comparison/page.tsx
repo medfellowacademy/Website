@@ -27,7 +27,7 @@ export default function Comparison() {
         avgSalary: "₹42 LPA",
         fees: "₹7.5 Lakhs",
         emiAvailable: "Yes (Interest-free)",
-        hospitals: "8 premier hospitals (AIIMS, Apollo, Fortis, Max)",
+        hospitals: "8 premier hospitals (super speciality hospitals)",
         research: "Publication support included",
         jobAssist: "Dedicated placement team",
         flexibility: "Full-time, Weekend, Hybrid tracks"
@@ -220,7 +220,7 @@ export default function Comparison() {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-16">
+      <section className="bg-[#15401E] text-white py-16">
         <div className="container-custom">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur rounded-full mb-4">
             <span className="text-sm font-semibold">⚖️ HONEST COMPARISON</span>
@@ -345,7 +345,7 @@ export default function Comparison() {
                 8 Premier Hospital Partners
               </h3>
               <p className="text-text-secondary">
-                Rotate through AIIMS, Apollo, Fortis, Max, and more. Competitors usually have 1-3 hospitals with limited access.
+                Rotate through super speciality hospitals, and more. Competitors usually have 1-3 hospitals with limited access.
               </p>
             </div>
 
@@ -440,7 +440,7 @@ export default function Comparison() {
       {/* CTA */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          <div className="bg-linear-to-br from-primary to-primary-dark text-white rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-[#15401E] text-white rounded-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
               The Choice is Clear
             </h2>

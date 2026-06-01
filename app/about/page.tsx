@@ -15,15 +15,16 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Navbar />
-      
-      {/* Hero */}
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-12 md:py-20">
-        <div className="container-custom text-center">
-          <h1 className="text-3xl md:text-5xl font-heading font-bold mb-4 md:mb-6">About MedFellow Academy</h1>
-          <p className="text-base md:text-xl max-w-3xl mx-auto opacity-90">
-          Advancing the future of medical fellowship education
+
+      {/* Page header */}
+      <section className="border-b border-[#E5E7EB] py-10 md:py-14">
+        <div className="container-custom">
+          <span className="section-label">About Us</span>
+          <h1 className="section-title mt-2 mb-3">About MedFellow Academy</h1>
+          <p className="section-subtitle">
+            Advancing the future of medical fellowship education in India and beyond.
           </p>
         </div>
       </section>
@@ -31,90 +32,78 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-6 md:gap-12 mb-10 md:mb-16">
-            <div className="card p-6 md:p-8">
-              <div className="w-14 h-14 md:w-16 md:h-16 bg-linear-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white text-2xl mb-5 md:mb-6">
-                🎯
-              </div>
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 md:mb-4">Our Mission</h2>
-              <p className="text-lg text-text-secondary leading-relaxed">
-                To provide world-class fellowship training that combines academic excellence with hands-on clinical experience, 
+          <div className="grid md:grid-cols-2 gap-5 mb-12">
+            <div className="card p-6">
+              <div className="w-10 h-10 bg-[#e8f2ea] rounded-md flex items-center justify-center text-xl mb-4">🎯</div>
+              <h2 className="text-[1.0625rem] font-semibold text-[#15401E] mb-2">Our Mission</h2>
+              <p className="text-[0.9rem] text-[#374151] leading-relaxed">
+                To provide world-class fellowship training that combines academic excellence with hands-on clinical experience,
                 empowering doctors to achieve their highest potential and deliver exceptional patient care.
               </p>
             </div>
-            <div className="card p-6 md:p-8">
-              <div className="w-14 h-14 md:w-16 md:h-16 bg-linear-to-br from-secondary to-accent rounded-2xl flex items-center justify-center text-white text-2xl mb-5 md:mb-6">
-                👁️
-              </div>
-              <h2 className="text-2xl md:text-3xl font-heading font-bold text-primary mb-3 md:mb-4">Our Vision</h2>
-              <p className="text-lg text-text-secondary leading-relaxed">
-                To be the premier destination for medical fellowship programs in India, recognized globally for excellence in 
+            <div className="card p-6">
+              <div className="w-10 h-10 bg-[#e8f2ea] rounded-md flex items-center justify-center text-xl mb-4">👁️</div>
+              <h2 className="text-[1.0625rem] font-semibold text-[#15401E] mb-2">Our Vision</h2>
+              <p className="text-[0.9rem] text-[#374151] leading-relaxed">
+                To be the premier destination for medical fellowship programs in India, recognized globally for excellence in
                 medical education, innovation in training methodologies, and commitment to advancing healthcare.
               </p>
             </div>
           </div>
 
           {/* Our Story */}
-          <div className="mb-10 md:mb-16">
-            <h2 className="text-2xl md:text-4xl font-heading font-bold text-primary mb-5 md:mb-6 text-center">Our Story</h2>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-              MedFellow Academy was founded with a clear vision to bridge the gap between medical education and real-world clinical practice. The academy was started by a team of professionals who bring over 10 years of experience in the healthcare and medical education industry.
+          <div className="mb-12 border-t border-[#E5E7EB] pt-10">
+            <h2 className="section-title mb-6">Our Story</h2>
+            <div className="max-w-3xl space-y-4 text-[0.9rem] text-[#374151] leading-relaxed">
+              <p>
+                MedFellow Academy was founded with a clear vision to bridge the gap between medical education and real-world
+                clinical practice. The academy was started by a team of professionals who bring over 10 years of experience
+                in the healthcare and medical education industry.
               </p>
-              <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-                Recognizing the need for practical, skill-based training, we focus on delivering specialized fellowship programs that go beyond traditional learning. Our approach emphasizes real-time exposure, industry relevance, and hands-on training to help doctors build confidence in their practice.
+              <p>
+                Recognizing the need for practical, skill-based training, we focus on delivering specialized fellowship
+                programs that go beyond traditional learning. Our approach emphasizes real-time exposure, industry relevance,
+                and hands-on training to help doctors build confidence in their practice.
               </p>
-              <p className="text-lg text-text-secondary leading-relaxed">
-                As a growing institution, MedFellow Academy is committed to creating meaningful learning opportunities and supporting medical professionals in advancing their careers with the right knowledge and skills.
+              <p>
+                As a growing institution, MedFellow Academy is committed to creating meaningful learning opportunities and
+                supporting medical professionals in advancing their careers with the right knowledge and skills.
               </p>
             </div>
           </div>
 
           {/* Why Choose Us */}
-          <div className="bg-background rounded-2xl p-6 md:p-12">
-            <h2 className="text-2xl md:text-4xl font-heading font-bold text-primary mb-8 md:mb-12 text-center">Why Choose MedFellow Academy</h2>
-            <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-white text-2xl">
-                  🎓
+          <div className="border-t border-[#E5E7EB] pt-10">
+            <h2 className="section-title mb-8">Why Choose MedFellow Academy</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { icon: '🎓', title: 'Expert Faculty', desc: 'Learn from renowned specialists and academic leaders' },
+                { icon: '🏥', title: 'Clinical Excellence', desc: 'Hands-on training at premier healthcare institutions' },
+                { icon: '📜', title: 'Global Recognition', desc: 'Internationally accredited certifications' },
+                { icon: '💼', title: 'Career Growth', desc: '98% placement rate with career advancement support' },
+              ].map((item, i) => (
+                <div key={i} className="card p-5 text-center">
+                  <div className="w-10 h-10 bg-[#e8f2ea] rounded-md flex items-center justify-center text-xl mx-auto mb-3">{item.icon}</div>
+                  <h3 className="text-[0.875rem] font-semibold text-[#111827] mb-1.5">{item.title}</h3>
+                  <p className="text-[0.8125rem] text-[#6B7280] leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="font-heading font-bold text-primary mb-2">Expert Faculty</h3>
-                <p className="text-text-secondary">Learn from renowned specialists and academic leaders</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-secondary to-accent rounded-2xl flex items-center justify-center text-white text-2xl">
-                  🏥
-                </div>
-                <h3 className="font-heading font-bold text-primary mb-2">Clinical Excellence</h3>
-                <p className="text-text-secondary">Hands-on training at premier healthcare institutions</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-accent to-primary rounded-2xl flex items-center justify-center text-white text-2xl">
-                  📜
-                </div>
-                <h3 className="font-heading font-bold text-primary mb-2">Global Recognition</h3>
-                <p className="text-text-secondary">Internationally accredited certifications</p>
-              </div>
-              <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 bg-linear-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white text-2xl">
-                  💼
-                </div>
-                <h3 className="font-heading font-bold text-primary mb-2">Career Growth</h3>
-                <p className="text-text-secondary">98% placement rate with career advancement support</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-linear-to-br from-primary to-primary-dark text-white">
+      <section className="section-padding bg-[#15401E]">
         <div className="container-custom text-center">
-          <h2 className="text-2xl md:text-4xl font-heading font-bold mb-4 md:mb-6">Join Our Community of Excellence</h2>
-          <p className="text-base md:text-xl mb-6 md:mb-8 opacity-90 max-w-2xl mx-auto">
-            Take the next step in your medical career with MedFellow Academy
+          <h2 className="text-[1.5rem] md:text-[1.875rem] font-bold text-white mb-3">Join Our Community of Excellence</h2>
+          <p className="text-[0.9375rem] text-white/70 mb-6 max-w-xl mx-auto">
+            Take the next step in your medical career with MedFellow Academy.
           </p>
-          <Link href="/apply" className="inline-block px-8 py-4 bg-white text-primary rounded-lg font-semibold text-lg hover:bg-accent hover:text-white transition-all shadow-lg">
+          <Link
+            href="/apply"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#15401E] rounded-md font-semibold text-[0.875rem] hover:bg-[#f0f9f1] transition-colors"
+          >
             Apply for Fellowship
           </Link>
         </div>

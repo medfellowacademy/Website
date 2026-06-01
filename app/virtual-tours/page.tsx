@@ -5,25 +5,25 @@ import Image from 'next/image';
 export default function VirtualTours() {
   const hospitalTours = [
     {
-      name: "AIIMS Delhi",
+      name: "Super Speciality Hospital",
       facilities: ["Advanced ICU", "Cardiac Cath Lab", "Endoscopy Suite", "Research Lab"],
       tourUrl: "#aiims-tour",
       image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&q=80"
     },
     {
-      name: "Apollo Hospitals",
+      name: "Super Speciality Hospital",
       facilities: ["Robotic Surgery OT", "IVF Laboratory", "Critical Care Units", "Emergency Department"],
       tourUrl: "#apollo-tour",
       image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?w=800&q=80"
     },
     {
-      name: "Fortis Memorial",
+      name: "Super Speciality Hospital",
       facilities: ["Joint Replacement OT", "Pain Management Clinic", "Radiology Suite", "Training Center"],
       tourUrl: "#fortis-tour",
       image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&q=80"
     },
     {
-      name: "Medanta Gurugram",
+      name: "Super Speciality Hospital",
       facilities: ["Heart & Lung Institute", "Neurosciences Center", "Transplant ICU", "Skills Lab"],
       tourUrl: "#medanta-tour",
       image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?w=800&q=80"
@@ -31,10 +31,10 @@ export default function VirtualTours() {
   ];
 
   const facultyVideos = [
-    { name: "Dr. Ramesh Kumar", specialty: "Gastroenterology", experience: "25+ years", hospital: "AIIMS Delhi", videoUrl: "#video-ramesh" },
-    { name: "Dr. Priya Shah", specialty: "Critical Care", experience: "18+ years", hospital: "Apollo Hospitals", videoUrl: "#video-priya" },
-    { name: "Dr. Anil Mehta", specialty: "Orthopedics", experience: "22+ years", hospital: "Fortis Memorial", videoUrl: "#video-anil" },
-    { name: "Dr. Sneha Gupta", specialty: "Reproductive Medicine", experience: "15+ years", hospital: "Cloudnine", videoUrl: "#video-sneha" }
+    { name: "Dr. Ramesh Kumar", specialty: "Gastroenterology", experience: "25+ years", hospital: "Super Speciality Hospital", videoUrl: "#video-ramesh" },
+    { name: "Dr. Priya Shah", specialty: "Critical Care", experience: "18+ years", hospital: "Super Speciality Hospital", videoUrl: "#video-priya" },
+    { name: "Dr. Anil Mehta", specialty: "Orthopedics", experience: "22+ years", hospital: "Super Speciality Hospital", videoUrl: "#video-anil" },
+    { name: "Dr. Sneha Gupta", specialty: "Reproductive Medicine", experience: "15+ years", hospital: "Super Speciality Hospital", videoUrl: "#video-sneha" }
   ];
 
   const dayInLifeVideos = [
@@ -48,7 +48,7 @@ export default function VirtualTours() {
     <div className="min-h-screen">
       <Navbar />
       
-      <section className="bg-linear-to-br from-primary to-primary-dark text-white py-16">
+      <section className="bg-[#15401E] text-white py-16">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-heading font-bold mb-4">Virtual Hospital Tours</h1>
           <p className="text-xl opacity-90 max-w-3xl">
@@ -182,7 +182,7 @@ export default function VirtualTours() {
       {/* CTA */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="bg-linear-to-br from-primary to-primary-dark text-white rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-[#15401E] text-white rounded-lg p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
               Ready to Experience It in Person?
             </h2>

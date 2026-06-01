@@ -12,8 +12,8 @@ export default function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-[oklch(0.26_0.06_252)] via-[oklch(0.62_0.11_196)] to-[oklch(0.76_0.12_70)] z-9999 origin-left"
-      style={{ scaleX }}
+      className="fixed top-0 left-0 right-0 z-[9999] origin-left"
+      style={{ height: '2px', background: '#15401E', scaleX }}
     />
   );
 }
