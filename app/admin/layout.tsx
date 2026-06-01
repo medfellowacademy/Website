@@ -3,17 +3,20 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard, BookOpen, Users, MessageSquare,
-  Settings, LogOut, Globe, ChevronRight, Menu, HelpCircle
+  Settings, LogOut, Globe, ChevronRight, Menu, HelpCircle,
+  ClipboardList, Inbox
 } from 'lucide-react';
 import { useState } from 'react';
 
 const NAV = [
-  { href: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '/admin/programs', label: 'Programs', icon: BookOpen },
-  { href: '/admin/faculty', label: 'Faculty', icon: Users },
-  { href: '/admin/testimonials', label: 'Testimonials', icon: MessageSquare },
-  { href: '/admin/faqs', label: 'FAQs', icon: HelpCircle },
-  { href: '/admin/settings', label: 'Site Settings', icon: Settings },
+  { href: '/admin/dashboard',     label: 'Dashboard',     icon: LayoutDashboard },
+  { href: '/admin/applications',  label: 'Applications',  icon: ClipboardList },
+  { href: '/admin/enquiries',     label: 'Enquiries',     icon: Inbox },
+  { href: '/admin/programs',      label: 'Programs',      icon: BookOpen },
+  { href: '/admin/faculty',       label: 'Faculty',       icon: Users },
+  { href: '/admin/testimonials',  label: 'Testimonials',  icon: MessageSquare },
+  { href: '/admin/faqs',          label: 'FAQs',          icon: HelpCircle },
+  { href: '/admin/settings',      label: 'Site Settings', icon: Settings },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {

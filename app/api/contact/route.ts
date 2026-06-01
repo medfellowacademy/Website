@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { cmsClient } from '@/lib/cms';
+
+export const dynamic = 'force-dynamic';
 
 export async function POST(request: NextRequest) {
   try {
@@ -10,7 +12,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Name, email and message are required' }, { status: 400 });
     }
 
-    const { data, error } = await supabase
+    const { data, error } = await cmsClient
       .from('contact_enquiries')
       .insert([{ name, email, phone, subject, message, status: 'new' }])
       .select()
@@ -29,7 +31,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
-  const { data, error } = await supabase
+  const { data, error } = await cmsClient
     .from('contact_enquiries')
     .select('*')
     .order('created_at', { ascending: false });

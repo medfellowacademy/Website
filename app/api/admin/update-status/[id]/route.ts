@@ -1,14 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { cmsClient } from '@/lib/cms';
+
+export const dynamic = 'force-dynamic';
 
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const body = await request.json();
-  const { status, table } = body;
+  const { table, status, notes } = body;
 
-  const { data, error } = await supabase
+  if (!table) return NextResponse.json({ error: 'table is required' }, { status: 400 });
+
+  const updatePayload: Record<string, any> = {};
+  if (status !== undefined) updatePayload.status = status;
+  if (notes !== undefined) updatePayload.notes = notes;
+
+  if (Object.keys(updatePayload).length === 0) {
+    return NextResponse.json({ error: 'Nothing to update' }, { status: 400 });
+  }
+
+  const { data, error } = await cmsClient
     .from(table)
-    .update({ status })
+    .update(updatePayload)
     .eq('id', id)
     .select()
     .single();

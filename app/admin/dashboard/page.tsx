@@ -1,33 +1,56 @@
 import { getCmsStats, getPrograms, getFaculty } from '@/lib/cms';
+import { cmsClient } from '@/lib/cms';
 import Link from 'next/link';
-import { BookOpen, Users, MessageSquare, Settings, PlusCircle, Eye } from 'lucide-react';
+import { BookOpen, Users, MessageSquare, Settings, PlusCircle, Eye, ClipboardList, Inbox } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
 export default async function DashboardPage() {
-  let stats = { programs: { total: 0, published: 0 }, faculty: { total: 0, published: 0 }, testimonials: { total: 0, published: 0 } };
+  let stats = {
+    programs: { total: 0, published: 0 },
+    faculty: { total: 0, published: 0 },
+    testimonials: { total: 0, published: 0 },
+  };
   let recentPrograms: any[] = [];
   let recentFaculty: any[] = [];
+  let appStats = { total: 0, new: 0 };
+  let enquiryStats = { total: 0, new: 0 };
 
   try {
-    [stats, recentPrograms, recentFaculty] = await Promise.all([
+    const [cmsStats, programs, faculty, apps, enquiries] = await Promise.all([
       getCmsStats(),
       getPrograms().then((p) => p.slice(0, 5)),
       getFaculty().then((f) => f.slice(0, 4)),
+      cmsClient.from('applications').select('id, status'),
+      cmsClient.from('contact_enquiries').select('id, status'),
     ]);
+    stats = cmsStats;
+    recentPrograms = programs;
+    recentFaculty = faculty;
+    if (apps.data) {
+      appStats.total = apps.data.length;
+      appStats.new = apps.data.filter((a: any) => a.status === 'new').length;
+    }
+    if (enquiries.data) {
+      enquiryStats.total = enquiries.data.length;
+      enquiryStats.new = enquiries.data.filter((e: any) => e.status === 'new').length;
+    }
   } catch {}
 
   const STAT_CARDS = [
-    { label: 'Total Programs', value: stats.programs.total, sub: `${stats.programs.published} published`, icon: BookOpen, href: '/admin/programs', color: 'bg-blue-500' },
-    { label: 'Faculty Members', value: stats.faculty.total, sub: `${stats.faculty.published} published`, icon: Users, href: '/admin/faculty', color: 'bg-emerald-500' },
-    { label: 'Testimonials', value: stats.testimonials.total, sub: `${stats.testimonials.published} published`, icon: MessageSquare, href: '/admin/testimonials', color: 'bg-amber-500' },
-    { label: 'Site Settings', value: '—', sub: 'Manage all settings', icon: Settings, href: '/admin/settings', color: 'bg-purple-500' },
+    { label: 'Applications',   value: appStats.total,           sub: `${appStats.new} new`,               icon: ClipboardList, href: '/admin/applications', color: 'bg-[#15401E]' },
+    { label: 'Enquiries',      value: enquiryStats.total,       sub: `${enquiryStats.new} new`,            icon: Inbox,         href: '/admin/enquiries',    color: 'bg-blue-500' },
+    { label: 'Programs',       value: stats.programs.total,     sub: `${stats.programs.published} live`,   icon: BookOpen,      href: '/admin/programs',     color: 'bg-indigo-500' },
+    { label: 'Faculty',        value: stats.faculty.total,      sub: `${stats.faculty.published} live`,    icon: Users,         href: '/admin/faculty',      color: 'bg-emerald-500' },
+    { label: 'Testimonials',   value: stats.testimonials.total, sub: `${stats.testimonials.published} live`, icon: MessageSquare, href: '/admin/testimonials', color: 'bg-amber-500' },
+    { label: 'Site Settings',  value: '—',                      sub: 'Manage content',                     icon: Settings,      href: '/admin/settings',     color: 'bg-purple-500' },
   ];
 
   const QUICK_ACTIONS = [
-    { label: 'Add New Program', href: '/admin/programs/new', icon: PlusCircle, color: 'text-blue-600 bg-blue-50 hover:bg-blue-100' },
-    { label: 'Add Faculty', href: '/admin/faculty/new', icon: PlusCircle, color: 'text-emerald-600 bg-emerald-50 hover:bg-emerald-100' },
-    { label: 'View Website', href: '/', icon: Eye, color: 'text-[#15401E] bg-slate-50 hover:bg-slate-100', external: true },
+    { label: 'View Applications', href: '/admin/applications', icon: ClipboardList, color: 'text-[#15401E] bg-[#e8f2ea] hover:bg-[#d4ebd7]' },
+    { label: 'Add New Program',   href: '/admin/programs/new', icon: PlusCircle,    color: 'text-indigo-600 bg-indigo-50 hover:bg-indigo-100' },
+    { label: 'Add Faculty',       href: '/admin/faculty/new',  icon: PlusCircle,    color: 'text-emerald-600 bg-emerald-50 hover:bg-emerald-100' },
+    { label: 'View Website',      href: '/',                   icon: Eye,           color: 'text-gray-600 bg-slate-50 hover:bg-slate-100', external: true },
   ];
 
   return (
@@ -35,11 +58,11 @@ export default async function DashboardPage() {
       {/* Header */}
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-400 text-sm mt-1">Welcome back — here&apos;s an overview of your content</p>
+        <p className="text-gray-400 text-sm mt-1">Welcome back — here&apos;s an overview of your content and leads</p>
       </div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
         {STAT_CARDS.map((s) => {
           const Icon = s.icon;
           return (
