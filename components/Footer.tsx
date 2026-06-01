@@ -25,7 +25,6 @@ const DEFAULTS: FooterSettings = {
   social_instagram:  'https://www.instagram.com/medfellow_academy/',
 };
 
-const HOSPITAL_PARTNERS = ['Super Speciality Hospital', 'Super Speciality Hospital', 'Super Speciality Hospital', 'Super Speciality Hospital', 'Super Speciality Hospital', 'KIMS Hospitals', 'CARE Fertility'];
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -60,17 +59,6 @@ export default function Footer() {
   return (
     <footer style={{ background: '#15401E', borderTop: '3px solid #0f2e15' }}>
 
-      {/* Hospital partner strip */}
-      <div style={{ borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
-        <div className="container-custom py-2.5">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span className="text-[0.75rem] font-semibold" style={{ color: 'rgba(255,255,255,0.45)' }}>Partners:</span>
-            {HOSPITAL_PARTNERS.map((h, i) => (
-              <span key={i} className="text-[0.75rem]" style={{ color: 'rgba(255,255,255,0.65)' }}>{h}</span>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* Main footer */}
       <div className="container-custom py-10">
