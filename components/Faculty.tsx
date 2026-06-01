@@ -1,9 +1,9 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Star, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
-interface FacultyMember {
+export interface FacultyMember {
   name: string;
   title: string;
   credentials: string;
@@ -20,12 +20,12 @@ interface FacultyMember {
   accentLight: string;
 }
 
-const FACULTY_DATA: FacultyMember[] = [
+export const FACULTY_DATA: FacultyMember[] = [
   {
     name: 'Dr. Kiran Vadapalli',
     title: 'Faculty – Critical Care Medicine',
     credentials: 'DM Critical Care Medicine',
-    experience: '10+ Years',
+    experience: '10+ Years in Critical Care Medicine',
     specialty: 'Critical Care',
     bio: 'Specialist in critical care with extensive ICU experience, training fellows in ventilator management and hemodynamic monitoring.',
     quote: 'Mastering critical care means mastering every second.',
@@ -41,7 +41,7 @@ const FACULTY_DATA: FacultyMember[] = [
     name: 'Dr. Supriya Kumari',
     title: 'Consultant – IVF & Infertility',
     credentials: 'MBBS, MD (OBG), DNB (OBG), DM Reproductive Medicine',
-    experience: '10+ Years',
+    experience: 'DM Reproductive Medicine from AIIMS New Delhi',
     specialty: 'Reproductive Medicine',
     bio: 'DM in Reproductive Medicine from AIIMS New Delhi. Expert in IVF, ICSI, and advanced infertility treatments guiding fellows through hands-on ART procedures.',
     quote: 'Every IVF cycle is a story of hope and science.',
@@ -57,7 +57,7 @@ const FACULTY_DATA: FacultyMember[] = [
     name: 'Dr. MD Munner Ahmed',
     title: 'Faculty – Internal Medicine',
     credentials: 'MBBS, MD Internal Medicine',
-    experience: '10+ Years',
+    experience: 'Specialist in Internal Medicine & Emergency Medicine',
     specialty: 'Internal Medicine',
     bio: 'Experienced internist with expertise spanning family medicine and emergency care, bringing real-world clinical insight to fellowship training.',
     quote: 'Internal medicine is the foundation of all clinical practice.',
@@ -73,7 +73,7 @@ const FACULTY_DATA: FacultyMember[] = [
     name: 'Dr. Mounika Murari',
     title: 'Faculty – Oral & Maxillofacial Surgery',
     credentials: 'BDS, MDS (Oral & Maxillofacial Surgery)',
-    experience: '8+ Years',
+    experience: 'Specialist in Oral & Maxillofacial Surgery',
     specialty: 'Oral Surgery',
     bio: 'Specialist in oral and maxillofacial surgery with expertise in facial trauma, orthognathic surgery and oral oncology, guiding fellows through advanced surgical techniques.',
     quote: 'Precision in surgery begins with thorough understanding of anatomy.',
@@ -86,6 +86,14 @@ const FACULTY_DATA: FacultyMember[] = [
     accentLight: '#CCFBF1',
   },
 ];
+
+export function toFacultySlug(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/\./g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
 
 export default function Faculty({ members }: { members?: FacultyMember[] }) {
   const data = members && members.length > 0 ? members : FACULTY_DATA;
@@ -100,82 +108,73 @@ export default function Faculty({ members }: { members?: FacultyMember[] }) {
             <span className="section-label">Our Faculty</span>
             <h2 className="section-title mt-1">Learn from practicing specialists</h2>
           </div>
-          <p className="text-[0.875rem] text-[#6B7280] max-w-xs sm:text-right">
-            Senior specialists with proven clinical expertise.
-          </p>
+          <Link
+            href="/faculty"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#15401E] hover:text-[#0f2e15] transition-colors flex-shrink-0"
+          >
+            View all faculty <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {data.map((m, i) => (
-            <div
-              key={i}
-              className="bg-white border border-[#E5E7EB] rounded-lg overflow-hidden hover:border-[#D1D5DB] hover:shadow-sm transition-all duration-150"
-            >
-              {/* Photo */}
-              <div className="relative h-56 overflow-hidden bg-[#F3F4F6]">
-                <Image
-                  src={m.photo}
-                  alt={m.name}
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 280px"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <span
-                  className="absolute top-2.5 left-2.5 px-2 py-0.5 text-[11px] font-semibold rounded"
-                  style={{ background: m.accentColor, color: '#fff' }}
-                >
-                  {m.specialty}
-                </span>
-              </div>
-
-              {/* Content */}
-              <div className="p-4">
-                <div className="flex items-start justify-between gap-2 mb-1">
-                  <h3 className="text-[0.9375rem] font-semibold text-[#111827] leading-tight">{m.name}</h3>
-                  <div className="flex items-center gap-0.5 flex-shrink-0">
-                    <Star className="w-3 h-3 fill-[#F59E0B] text-[#F59E0B]" />
-                    <span className="text-[0.75rem] font-semibold text-[#374151]">{m.studentRating}</span>
-                  </div>
+        {/* Cards — full image, name + title only */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          {data.map((m, i) => {
+            const slug = toFacultySlug(m.name);
+            return (
+              <Link
+                key={i}
+                href={`/faculty/${slug}`}
+                className="group block bg-white border border-[#E5E7EB] rounded-xl overflow-hidden hover:border-[#C6DFC9] hover:shadow-md transition-all duration-200"
+              >
+                {/* Full image */}
+                <div className="relative w-full bg-[#F9FAFB]" style={{ aspectRatio: '3/4' }}>
+                  <Image
+                    src={m.photo}
+                    alt={m.name}
+                    fill
+                    className="object-contain object-bottom group-hover:scale-[1.02] transition-transform duration-300"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 280px"
+                  />
+                  {/* Specialty badge */}
+                  <span
+                    className="absolute top-2.5 left-2.5 px-2 py-0.5 text-[10px] font-bold rounded-md text-white"
+                    style={{ background: m.accentColor }}
+                  >
+                    {m.specialty}
+                  </span>
                 </div>
-                <p className="text-[0.75rem] text-[#6B7280] mb-0.5">{m.title}</p>
-                <p className="text-[0.75rem] text-[#9CA3AF] mb-3">{m.credentials} · {m.experience}</p>
 
-                <p className="text-[0.8125rem] text-[#4B5563] leading-relaxed mb-3 line-clamp-2">{m.bio}</p>
-
-                {/* Specialties */}
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {m.specialties.map((s, j) => (
+                {/* Name + title + arrow */}
+                <div className="p-3.5">
+                  <h3 className="text-[0.9rem] font-bold text-[#111827] leading-tight mb-0.5 group-hover:text-[#15401E] transition-colors">
+                    {m.name}
+                  </h3>
+                  <p className="text-[0.75rem] text-[#6B7280] leading-snug mb-2">{m.title}</p>
+                  <div className="flex items-center justify-between">
                     <span
-                      key={j}
-                      className="text-[11px] font-medium px-2 py-0.5 rounded"
+                      className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                       style={{ background: m.accentLight, color: m.accentColor }}
                     >
-                      {s}
+                      {m.fellowsTrained} fellows
                     </span>
-                  ))}
+                    <ArrowRight className="w-3.5 h-3.5 text-[#9CA3AF] group-hover:text-[#15401E] group-hover:translate-x-0.5 transition-all" />
+                  </div>
                 </div>
-
-                <div className="pt-2.5 border-t border-[#F3F4F6] flex items-center justify-between">
-                  <span className="text-[0.75rem] text-[#9CA3AF]">{m.fellowsTrained} fellows</span>
-                  <span className="text-[0.75rem] font-medium" style={{ color: m.accentColor }}>{m.highlights[0]}</span>
-                </div>
-              </div>
-            </div>
-          ))}
+              </Link>
+            );
+          })}
         </div>
 
-        {/* CTA */}
+        {/* Bottom CTA */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 px-5 py-4 bg-[#FAFAFA] border border-[#E5E7EB] rounded-lg">
           <p className="text-[0.9375rem] text-[#374151]">
             <span className="font-semibold text-[#111827]">Every fellow gets a dedicated faculty mentor</span> — assigned on Day 1.
           </p>
           <Link
-            href="/programs"
+            href="/faculty"
             className="inline-flex items-center gap-1.5 text-[0.875rem] font-semibold text-[#15401E] hover:text-[#0f2e15] flex-shrink-0 transition-colors"
           >
-            Browse programs <ArrowRight className="w-4 h-4" />
+            Meet all faculty <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
 
