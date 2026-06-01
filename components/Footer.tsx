@@ -58,15 +58,15 @@ export default function Footer() {
   };
 
   return (
-    <footer style={{ background: '#111827', borderTop: '3px solid #15401E' }}>
+    <footer style={{ background: '#15401E', borderTop: '3px solid #0f2e15' }}>
 
       {/* Hospital partner strip */}
-      <div style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ borderBottom: '1px solid rgba(255,255,255,0.10)' }}>
         <div className="container-custom py-2.5">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span className="text-[0.75rem] font-semibold" style={{ color: 'rgba(255,255,255,0.35)' }}>Partners:</span>
+            <span className="text-[0.75rem] font-semibold" style={{ color: 'rgba(255,255,255,0.45)' }}>Partners:</span>
             {HOSPITAL_PARTNERS.map((h, i) => (
-              <span key={i} className="text-[0.75rem]" style={{ color: 'rgba(255,255,255,0.55)' }}>{h}</span>
+              <span key={i} className="text-[0.75rem]" style={{ color: 'rgba(255,255,255,0.65)' }}>{h}</span>
             ))}
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={s.label}
                   className="w-7 h-7 rounded-md flex items-center justify-center hover:opacity-80 transition-opacity"
-                  style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.65)' }}
+                  style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.80)' }}
                 >
                   {s.icon}
                 </a>
@@ -120,13 +120,13 @@ export default function Footer() {
                   onChange={e => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   className="flex-1 min-w-0 px-3 py-2 rounded-md text-[0.8125rem] outline-none"
-                  style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', color: '#FFFFFF' }}
+                  style={{ background: 'rgba(255,255,255,0.10)', border: '1px solid rgba(255,255,255,0.18)', color: '#FFFFFF' }}
                 />
                 <button
                   type="submit"
                   aria-label="Subscribe"
                   className="px-2.5 py-2 rounded-md hover:opacity-80 transition-opacity"
-                  style={{ background: 'rgba(255,255,255,0.10)', color: 'rgba(255,255,255,0.70)' }}
+                  style={{ background: 'rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.80)' }}
                 >
                   <Send className="w-3.5 h-3.5" />
                 </button>
@@ -205,7 +205,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-2" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+        <div className="pt-5 flex flex-col sm:flex-row items-center justify-between gap-2" style={{ borderTop: '1px solid rgba(255,255,255,0.12)' }}>
           <p className="text-[0.75rem]" style={{ color: 'rgba(255,255,255,0.40)' }}>© {year} MedFellow Academy. All rights reserved.</p>
           <p className="text-[0.75rem]" style={{ color: 'rgba(255,255,255,0.25)' }}>Designed for India&apos;s specialist doctors</p>
         </div>
