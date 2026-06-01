@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Inter, Poppins } from 'next/font/google';
 import './globals.css';
 import WhatsAppWidget from '@/components/WhatsAppWidget';
+import EnquiryModal from '@/components/EnquiryModal';
 import ScrollProgress from '@/components/effects/ScrollProgress';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import AnalyticsProvider from '@/components/effects/AnalyticsProvider';
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <ScrollProgress />
           {children}
           <WhatsAppWidget />
+          <EnquiryModal />
         </ThemeProvider>
       </body>
     </html>
