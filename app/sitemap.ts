@@ -14,7 +14,6 @@ const staticRoutes = [
   "/faculty",
   "/fellowship-matcher",
   "/financial-aid",
-  "/free-guide",
   "/learning-model",
   "/mentorship",
   "/privacy-policy",

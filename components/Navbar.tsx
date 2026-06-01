@@ -65,13 +65,6 @@ export default function Navbar() {
               )}
             </Link>
           ))}
-          <Link
-            href="/free-guide"
-            className="px-3 py-1.5 rounded-md text-[0.875rem] font-medium text-[#15401E] hover:bg-[#e8f2ea] transition-colors"
-            onClick={() => analytics.guideDownload('navbar_link')}
-          >
-            Free Guide
-          </Link>
         </div>
 
         {/* Desktop right actions */}
@@ -116,13 +109,6 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/free-guide"
-              className="flex items-center px-3 py-2.5 rounded-md text-[0.9375rem] font-medium text-[#15401E]"
-              onClick={() => setIsOpen(false)}
-            >
-              Free Guide
-            </Link>
             <div className="pt-3 flex flex-col gap-2">
               <Link
                 href="/apply"

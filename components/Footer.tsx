@@ -130,7 +130,6 @@ export default function Footer() {
                 { href: '/',            label: 'Home' },
                 { href: '/about',       label: 'About Us' },
                 { href: '/programs',    label: 'Programs' },
-                { href: '/free-guide',  label: 'Free Guide' },
                 { href: '/contact',     label: 'Contact' },
               ].map((l, i) => (
                 <li key={i}>

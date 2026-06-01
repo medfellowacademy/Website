@@ -7,7 +7,6 @@ import TrainingFacilities from "@/components/TrainingFacilities";
 import Faculty from "@/components/Faculty";
 import Testimonials from "@/components/Testimonials";
 import AccreditationSection from "@/components/AccreditationSection";
-import LeadMagnetBanner from "@/components/LeadMagnetBanner";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyApplyCTA from "@/components/StickyApplyCTA";
@@ -125,7 +124,6 @@ export default async function Home() {
       <Faculty members={facultyProps.length > 0 ? facultyProps : undefined} />
       <Testimonials testimonials={testimonialProps.length > 0 ? testimonialProps : undefined} />
       <AccreditationSection />
-      <LeadMagnetBanner />
       <FAQ faqs={faqProps.length > 0 ? faqProps : undefined} />
       <Footer />
       <StickyApplyCTA />
