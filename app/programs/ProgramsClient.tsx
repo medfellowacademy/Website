@@ -281,7 +281,7 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
 
       {/* CTA */}
       <div className="mt-10 md:mt-14 text-center bg-[#15401E] rounded-lg p-8 md:p-12 text-white">
-        <h3 className="text-[1.25rem] md:text-[1.5rem] font-bold mb-2">
+        <h3 className="text-[1.25rem] md:text-[1.5rem] font-bold mb-2" style={{ color: '#FFFFFF' }}>
           Ready to Start Your Fellowship Journey?
         </h3>
         <p className="text-[0.9rem] text-white/70 mb-6 max-w-xl mx-auto">

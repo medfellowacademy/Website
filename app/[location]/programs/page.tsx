@@ -938,7 +938,7 @@ export default function LocationProgramsPage({ params }: { params: Promise<{ loc
           {/* CTA */}
           <div className="mt-10 md:mt-16 text-center bg-[#15401E] rounded-lg p-8 md:p-12 text-white">
             <div className="max-w-3xl mx-auto">
-              <h3 className="text-xl md:text-2xl font-bold mb-3">Ready to Start Your Fellowship Journey?</h3>
+              <h3 className="text-xl md:text-2xl font-bold mb-3" style={{ color: '#FFFFFF' }}>Ready to Start Your Fellowship Journey?</h3>
               <p className="text-sm text-white/70 mb-6 max-w-xl mx-auto">
                 Join hundreds of doctors who have advanced their careers through our fellowship programs.
               </p>
