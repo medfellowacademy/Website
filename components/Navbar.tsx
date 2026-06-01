@@ -3,31 +3,19 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { analytics } from '@/lib/analytics';
-
-const SPECIALTIES = [
-  { label: 'Emergency Medicine',      href: '/programs/emergency-medicine' },
-  { label: 'Gastroenterology',        href: '/programs/gastroenterology' },
-  { label: 'Nephrology',              href: '/programs/nephrology' },
-  { label: 'Endocrinology',           href: '/programs/endocrinology' },
-  { label: 'Paediatrics',             href: '/programs/paediatrics' },
-  { label: 'Neonatology',             href: '/programs/neonatology' },
-  { label: 'Reproductive Medicine',   href: '/programs/reproductive-medicine' },
-  { label: 'Arthroscopy & Sports',    href: '/programs/arthroscopy' },
-];
 
 const NAV_LINKS = [
   { href: '/',        label: 'Home' },
   { href: '/about',   label: 'About' },
-  { href: '/programs',label: 'Programs', hasDropdown: true },
+  { href: '/programs',label: 'Programs' },
   { href: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen]               = useState(false);
-  const [isProgramsOpen, setIsProgramsOpen] = useState(false);
-  const [scrolled, setScrolled]           = useState(false);
+  const [isOpen, setIsOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -64,75 +52,19 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-1">
-          {NAV_LINKS.map((item) =>
-            item.hasDropdown ? (
-              <div
-                key={item.href}
-                className="relative"
-                onMouseEnter={() => setIsProgramsOpen(true)}
-                onMouseLeave={() => setIsProgramsOpen(false)}
-              >
-                <button
-                  className="flex items-center gap-1 px-3 py-1.5 rounded-md text-[0.875rem] font-medium transition-colors hover:bg-[#F9FAFB]"
-                  style={{ color: isActive(item.href) ? '#15401E' : '#374151' }}
-                >
-                  {item.label}
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-150 ${isProgramsOpen ? 'rotate-180' : ''}`}
-                    style={{ color: '#9CA3AF' }}
-                  />
-                </button>
-                {isActive(item.href) && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[#15401E]" />
-                )}
-
-                {isProgramsOpen && (
-                  <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-white rounded-lg border border-[#E5E7EB] py-1.5 z-50"
-                    style={{ boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }}
-                  >
-                    <p className="px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#9CA3AF]">
-                      Browse by specialty
-                    </p>
-                    {SPECIALTIES.map((s) => (
-                      <Link
-                        key={s.href}
-                        href={s.href}
-                        className="block px-3 py-2 text-[0.875rem] text-[#374151] hover:bg-[#F9FAFB] hover:text-[#15401E] transition-colors"
-                        onClick={() => {
-                          setIsProgramsOpen(false);
-                          analytics.ctaClick('nav_program_' + s.label, s.href, 'navbar');
-                        }}
-                      >
-                        {s.label}
-                      </Link>
-                    ))}
-                    <div className="mx-3 mt-1 pt-1 border-t border-[#F3F4F6]">
-                      <Link
-                        href="/programs"
-                        className="block px-2 py-2 text-[0.8125rem] font-semibold text-[#15401E] hover:bg-[#e8f2ea] rounded-md transition-colors"
-                        onClick={() => setIsProgramsOpen(false)}
-                      >
-                        View all programs →
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="relative px-3 py-1.5 rounded-md text-[0.875rem] font-medium transition-colors hover:bg-[#F9FAFB]"
-                style={{ color: isActive(item.href) ? '#15401E' : '#374151' }}
-              >
-                {item.label}
-                {isActive(item.href) && (
-                  <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[#15401E]" />
-                )}
-              </Link>
-            )
-          )}
+          {NAV_LINKS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="relative px-3 py-1.5 rounded-md text-[0.875rem] font-medium transition-colors hover:bg-[#F9FAFB]"
+              style={{ color: isActive(item.href) ? '#15401E' : '#374151' }}
+            >
+              {item.label}
+              {isActive(item.href) && (
+                <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-[#15401E]" />
+              )}
+            </Link>
+          ))}
           <Link
             href="/free-guide"
             className="px-3 py-1.5 rounded-md text-[0.875rem] font-medium text-[#15401E] hover:bg-[#e8f2ea] transition-colors"
