@@ -73,7 +73,7 @@ export default function AccreditationSection() {
               style={{ background: 'linear-gradient(135deg, #FFF8E1 0%, #FEF3C7 100%)', border: '2px solid rgba(240,192,64,0.50)' }}
             >
               <Image
-                src="/accreditations/actd.png"
+                src="/accreditations/ACTD.png"
                 alt="ACTD Accreditation"
                 fill
                 className="object-contain p-4 relative z-10"
