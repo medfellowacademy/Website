@@ -10,7 +10,7 @@ const TABS = [
     Icon: Hospital,
     headline: 'Clinical rotations at premier hospitals',
     description: 'Supervised practice at super speciality hospitals across India. Fellows rotate through OTs, ICUs and specialty departments with direct patient exposure.',
-    image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=900&q=80',
+    image: '/Hospital Training.jpeg',
     points: [
       'OT, ICU & emergency department rotations',
       'Supervised patient management & case presentations',
@@ -25,7 +25,7 @@ const TABS = [
     Icon: Monitor,
     headline: '24/7 online learning platform',
     description: 'Structured digital curriculum built for working doctors. Live weekly sessions, recorded lectures, case-based modules, journal access and peer forums — on any device.',
-    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=900&q=80',
+    image: '/Digital Learning.jpeg',
     points: [
       'Live weekend sessions with senior specialists',
       'On-demand lecture library',
@@ -40,7 +40,7 @@ const TABS = [
     Icon: UserRound,
     headline: 'One-on-one senior specialist mentorship',
     description: 'Every fellow is paired with a dedicated senior faculty mentor. Small batches ensure personal attention, career guidance and access to your mentor\'s professional network.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=80',
+    image: '/Expert Mentorship.jpg',
     points: [
       'Dedicated faculty mentor assigned on Day 1',
       'Monthly 1:1 progress review sessions',
