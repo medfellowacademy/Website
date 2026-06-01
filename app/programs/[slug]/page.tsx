@@ -5293,7 +5293,7 @@ const programsData: { [key: string]: any } = {
       "Utilise advanced modalities, including 3D echocardiography, for precise imaging"
     ],
     onlinePrice: 185000,
-    month11_1: 220000,
+    month11_1: 210000,
     month10_2: 250000,
     month9_3: 290000,
     month6_6: 490000,

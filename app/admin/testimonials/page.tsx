@@ -57,7 +57,7 @@ export default function TestimonialsPage() {
         });
         const json = await res.json();
         if (!res.ok) throw new Error(json.error ?? 'Update failed');
-        const updated = json.data ?? { ...modal, id: modal.id } as CmsTestimonial;
+        const updated = { ...modal, id: modal.id! } as CmsTestimonial;
         setItems((p) => p.map((x) => x.id === modal.id ? updated : x));
         showToast('Testimonial updated!');
       } else {

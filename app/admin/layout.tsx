@@ -24,7 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  if (pathname === '/admin/login') return <>{children}</>;
+  if (pathname.startsWith('/admin/login')) return <>{children}</>;
 
   async function handleLogout() {
     await fetch('/api/cms/logout', { method: 'POST' });

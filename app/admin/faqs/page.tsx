@@ -81,8 +81,7 @@ export default function FaqsPage() {
         });
         const json = await res.json();
         if (!res.ok) throw new Error(json.error ?? 'Update failed');
-        // Use returned data if available, else apply our known changes
-        const updated = json.data ?? { ...modal, id: modal.id } as CmsFaq;
+        const updated = { ...modal, id: modal.id! } as CmsFaq;
         setItems((p) => p.map((x) => x.id === modal.id ? updated : x));
         showToast('FAQ updated!');
       } else {
