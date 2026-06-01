@@ -5443,7 +5443,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">Fellowship Program</p>
 
           {/* Course name — center */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-4 max-w-3xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4 max-w-3xl" style={{ color: '#FF6B00' }}>
             {program.name}
           </h1>
 

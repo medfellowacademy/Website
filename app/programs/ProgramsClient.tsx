@@ -198,7 +198,7 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
                 {/* Title row */}
                 <div className="flex items-start gap-2 mb-2">
                   <span className="text-xl leading-none shrink-0 mt-0.5">{program.icon}</span>
-                  <h3 className="text-[0.9375rem] font-semibold text-[#111827] leading-snug line-clamp-2">
+                  <h3 className="text-[0.9375rem] font-semibold leading-snug line-clamp-2" style={{ color: '#FF6B00' }}>
                     {program.name}
                   </h3>
                 </div>

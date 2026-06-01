@@ -74,7 +74,7 @@ function ProgramCard({ program }: { program: FeaturedProgram }) {
 
       {/* Text content */}
       <div className="flex flex-col gap-2 px-4 py-3.5">
-        <h3 className="text-[0.9375rem] font-semibold text-[#111827] leading-snug line-clamp-2 group-hover:text-[#15401E] transition-colors">
+        <h3 className="text-[0.9375rem] font-semibold leading-snug line-clamp-2" style={{ color: '#FF6B00' }}>
           {program.name}
         </h3>
 
