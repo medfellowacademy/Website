@@ -103,8 +103,8 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
 
   return (
     <div className="container-custom max-w-screen-2xl">
-      {/* Category pills */}
-      <div className="flex flex-wrap gap-2 mb-6 sm:mb-8 justify-center px-2">
+      {/* Category pills — horizontally scrollable on mobile */}
+      <div className="flex gap-2 mb-6 sm:mb-8 overflow-x-auto scrollbar-hide pb-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:justify-start">
         {CATEGORIES.map((cat) => {
           const count =
             cat === "All"
@@ -118,7 +118,7 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
                 setSelectedCategory(cat);
                 setCurrentPage(1);
               }}
-              className={`inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold border transition-all duration-200 ${
+              className={`inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
                 active
                   ? "bg-[#15401E] text-white border-[#15401E]"
                   : "bg-white text-gray-700 border-gray-200 hover:border-[#15401E] hover:text-[#15401E]"
