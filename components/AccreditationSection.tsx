@@ -25,8 +25,10 @@ export default function AccreditationSection() {
               <Image
                 src="/accreditations/ACTD.png"
                 alt="ACTD Accreditation"
-                width={160}
-                height={160}
+                width={400}
+                height={400}
+                quality={100}
+                sizes="(max-width: 640px) 176px, 208px"
                 className="w-32 h-32 sm:w-44 sm:h-44 object-contain"
               />
             </div>
