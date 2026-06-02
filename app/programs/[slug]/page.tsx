@@ -4873,36 +4873,6 @@ const programsData: { [key: string]: any } = {
     ],
     applicationDeadline: "Rolling Admissions"
   },
-  "fellowship-in-cardiology": {
-    name: "Fellowship in Cardiology",
-    icon: "❤️",
-    duration: "12 Months",
-    eligibility: "MD Medicine/DNB",
-    description: "Advanced training in cardiovascular disease management and cardiac diagnostics.",
-    overview: "This fellowship provides comprehensive training in clinical cardiology, non-invasive cardiology procedures, and cardiovascular disease management.",
-    highlights: ["ECG Interpretation", "Echocardiography", "Cardiac Care", "Preventive Cardiology"],
-    onlinePrice: 190000,
-    month11_1: 210000,
-    month10_2: 240000,
-    month9_3: 280000,
-    month6_6: 480000,
-    month12Offline: 650000,
-    curriculum: [
-      { module: "Clinical Cardiology", duration: "3 Months", topics: ["IHD", "Heart Failure", "Valvular Heart Disease", "Arrhythmias"] },
-      { module: "Echocardiography", duration: "3 Months", topics: ["Transthoracic Echo", "Doppler Studies", "Stress Echo"] },
-      { module: "ECG & Holter", duration: "2 Months", topics: ["ECG Interpretation", "Arrhythmia Recognition", "Holter Analysis"] },
-      { module: "Cardiac Emergencies", duration: "2 Months", topics: ["ACS Management", "Acute Heart Failure", "Cardiac Arrest"] },
-      { module: "Preventive Cardiology", duration: "2 Months", topics: ["Risk Assessment", "Lipid Management", "Lifestyle Modification"] }
-    ],
-    careerOpportunities: [
-      "Consultant Cardiologist",
-      "Echocardiography Specialist",
-      "Cardiac Intensive Care Specialist",
-      "Preventive Cardiology Expert",
-      "Academic Cardiologist"
-    ],
-    applicationDeadline: "Rolling Admissions"
-  },
   "fellowship-in-anesthesia": {
     name: "Fellowship in Anesthesia",
     icon: "💉",

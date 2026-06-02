@@ -671,23 +671,6 @@ export default function LocationProgramsPage({ params }: { params: Promise<{ loc
       month12Offline: 700000
     },
     {
-      name: "Fellowship in Cardiology",
-      slug: "fellowship-in-cardiology",
-      category: "Medical Specialties",
-      icon: "❤️",
-      duration: "12 Months",
-      eligibility: "MD Medicine/DNB",
-      description: "Advanced training in cardiovascular disease management and cardiac diagnostics",
-      highlights: ["ECG Interpretation", "Echocardiography", "Cardiac Care"],
-      image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?w=800&q=80",
-      onlinePrice: 160000,
-      month11_1: 190000,
-      month10_2: 240000,
-      month9_3: 280000,
-      month6_6: 480000,
-      month12Offline: 650000
-    },
-    {
       name: "Fellowship in Arthroscopy",
       slug: "fellowship-in-arthroscopy",
       category: "Surgical Specialties",

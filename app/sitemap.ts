@@ -28,7 +28,6 @@ const programSlugs = [
   "fellowship-in-anesthesia",
   "fellowship-in-arthroscopy",
   "fellowship-in-arthroscopy-and-arthroplasty",
-  "fellowship-in-cardiology",
   "fellowship-in-cardiothoracic-surgery",
   "fellowship-in-clinical-cardiology",
   "fellowship-in-clinical-hematology",

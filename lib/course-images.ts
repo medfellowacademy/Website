@@ -26,7 +26,6 @@ export const PROGRAM_IMAGES: Record<string, string> = {
 
   // ── Cardiology ───────────────────────────────────────────────────────────
   'fellowship-in-clinical-cardiology':                 '/courses/cardiology.jpg',
-  'fellowship-in-cardiology':                          '/courses/cardiology.jpg',
   'fellowship-in-interventional-cardiology':           '/courses/interventional-cardiology.jpg',
   'fellowship-in-2d-echocardiography':                 '/courses/2d-echo.jpg',
   'fellowship-in-2d-echo':                             '/courses/2d-echo.jpg',
