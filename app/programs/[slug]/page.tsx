@@ -4,6 +4,13 @@ import Link from "next/link";
 import CurriculumAccordion from "@/components/CurriculumAccordion";
 import { getProgramBySlug, getCurriculumModules } from "@/lib/cms";
 import { getProgramImage } from "@/lib/course-images";
+import { notFound } from "next/navigation";
+
+// Slugs that have been removed and must always 404
+const REMOVED_SLUGS = new Set([
+  "fellowship-in-cardiology",
+  "fellowship-in-clinical-cardiology",
+]);
 
 export const dynamic = 'force-dynamic';
 
@@ -5325,6 +5332,8 @@ const programsData: { [key: string]: any } = {
 
 export default async function ProgramDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+
+  if (REMOVED_SLUGS.has(slug)) notFound();
 
   // ── Try CMS first, fall back to static data ──────────────────────────────
   let program: any = programsData[slug] ?? null;

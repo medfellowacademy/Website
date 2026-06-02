@@ -5331,7 +5331,11 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
   if (!VALID_LOCATIONS.includes(location.toLowerCase())) {
     notFound();
   }
-  
+
+  // Removed programs — always 404
+  const REMOVED_SLUGS = new Set(["fellowship-in-cardiology", "fellowship-in-clinical-cardiology"]);
+  if (REMOVED_SLUGS.has(slug)) notFound();
+
   const program = programsData[slug];
   const locationMeta = LOCATION_META[location as keyof typeof LOCATION_META];
 
