@@ -12,12 +12,12 @@ interface HeroProps {
 
 export default function Hero(_props: HeroProps = {}) {
   return (
-    <section className="bg-white border-b border-[#E5E7EB]">
+    <section className="bg-white border-b border-[#E5E7EB] overflow-hidden">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_460px] xl:grid-cols-[1fr_520px] gap-0 lg:min-h-[400px]">
 
-          {/* ── Left: Content ── */}
-          <div className="flex flex-col justify-center py-6 lg:py-8 lg:pr-10 order-2 lg:order-1">
+          {/* ── Left: Content — always first on mobile ── */}
+          <div className="flex flex-col justify-center pt-8 pb-6 lg:py-8 lg:pr-10">
 
             {/* Rating pill */}
             <div className="flex items-center gap-2 mb-3">
@@ -30,23 +30,23 @@ export default function Hero(_props: HeroProps = {}) {
             </div>
 
             {/* Heading */}
-            <h1 className="text-[clamp(1.5rem,3.5vw,2.375rem)] font-bold text-[#111827] leading-[1.2] tracking-tight mb-4">
+            <h1 className="text-[clamp(1.625rem,5vw,2.375rem)] font-bold text-[#111827] leading-[1.2] tracking-tight mb-4">
               MedFellow Academy<br />
               <span className="text-[#15401E]">Where Doctors Evolve</span>
             </h1>
 
             {/* CTA */}
-            <div className="flex flex-wrap gap-3 mb-5">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
               <Link
                 href="/programs"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-[#15401E] text-white text-sm font-semibold rounded-md hover:bg-[#0f2e15] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#15401E] text-white text-sm font-semibold rounded-md hover:bg-[#0f2e15] transition-colors"
                 onClick={() => analytics.ctaClick('hero_explore_programs', '/programs', 'hero')}
               >
                 Explore programs <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/apply"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#15401E] text-sm font-semibold rounded-md border border-[#C6DFC9] hover:border-[#15401E] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#15401E] text-sm font-semibold rounded-md border border-[#C6DFC9] hover:border-[#15401E] transition-colors"
                 onClick={() => analytics.applyClick('hero_apply_now')}
               >
                 Enroll for June 2026
@@ -54,7 +54,7 @@ export default function Hero(_props: HeroProps = {}) {
             </div>
 
             {/* Social proof micro-bar */}
-            <div className="pt-6 border-t border-[#F3F4F6] flex flex-wrap gap-x-8 gap-y-2">
+            <div className="pt-5 border-t border-[#F3F4F6] grid grid-cols-2 sm:flex sm:flex-wrap gap-x-6 gap-y-3">
               {[
                 { v: '60+', l: 'Specialties' },
                 { v: '500+', l: 'Doctors trained' },
@@ -69,15 +69,15 @@ export default function Hero(_props: HeroProps = {}) {
             </div>
           </div>
 
-          {/* ── Right: Image ── */}
-          <div className="relative order-1 lg:order-2 flex items-end justify-center bg-white min-h-[180px] lg:min-h-0 overflow-hidden">
+          {/* ── Right: Image — below content on mobile ── */}
+          <div className="flex items-end justify-center bg-white h-56 sm:h-72 lg:h-auto">
             <Image
               src="/hero-team.png"
               alt="MedFellow Academy — Expert Medical Team"
-              fill
+              width={520}
+              height={420}
               priority
-              sizes="(max-width: 1024px) 100vw, 520px"
-              className="object-contain object-bottom"
+              className="w-full h-full object-contain object-bottom"
             />
           </div>
 

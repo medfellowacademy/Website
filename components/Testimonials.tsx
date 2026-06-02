@@ -33,7 +33,7 @@ export default function Testimonials({ testimonials }: { testimonials?: Testimon
   }, []);
 
   return (
-    <section className="section-padding bg-[#FAFAFA] border-b border-[#E5E7EB]">
+    <section className="section-padding bg-[#FAFAFA] border-b border-[#E5E7EB] overflow-hidden">
       <div className="container-custom">
 
         {/* Header */}
@@ -58,11 +58,11 @@ export default function Testimonials({ testimonials }: { testimonials?: Testimon
         </div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {data.map((t, i) => (
             <div
               key={i}
-              className="bg-white border border-[#E5E7EB] rounded-lg p-5 hover:border-[#C6DFC9] hover:shadow-sm transition-all duration-150"
+              className="bg-white border border-[#E5E7EB] rounded-lg p-5 hover:border-[#C6DFC9] hover:shadow-sm transition-all duration-150 w-full min-w-0"
             >
               {/* Stars */}
               <div className="flex gap-0.5 mb-3">
@@ -72,7 +72,7 @@ export default function Testimonials({ testimonials }: { testimonials?: Testimon
               </div>
 
               {/* Quote */}
-              <p className="text-[0.875rem] text-[#374151] leading-relaxed mb-4">
+              <p className="text-[0.875rem] text-[#374151] leading-relaxed mb-4 break-words">
                 &ldquo;{t.text}&rdquo;
               </p>
 

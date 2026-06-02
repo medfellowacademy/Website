@@ -11,7 +11,7 @@ const TRUST_POINTS = [
 
 export default function AccreditationSection() {
   return (
-    <section className="section-padding bg-[#15401E]">
+    <section className="section-padding bg-[#15401E] overflow-hidden">
       <div className="container-custom">
 
         <div className="grid lg:grid-cols-[1fr_360px] gap-8 lg:gap-16 items-center">
@@ -19,21 +19,16 @@ export default function AccreditationSection() {
           {/* Right: ACTD badge — shown first on mobile, last on desktop */}
           <div className="flex flex-col items-center gap-3 order-first lg:order-last">
             <div
-              className="w-40 h-40 sm:w-52 sm:h-52 rounded-xl flex flex-col items-center justify-center relative overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, #FFF8E1 0%, #FEF3C7 100%)', border: '2px solid rgba(240,192,64,0.50)' }}
+              className="w-40 h-40 sm:w-52 sm:h-52 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ background: '#FFFFFF', border: '2px solid rgba(240,192,64,0.50)' }}
             >
               <Image
                 src="/accreditations/ACTD.png"
                 alt="ACTD Accreditation"
-                fill
-                className="object-contain p-4 relative z-10"
-                sizes="(max-width: 640px) 160px, (max-width: 1024px) 208px, 208px"
+                width={160}
+                height={160}
+                className="w-32 h-32 sm:w-44 sm:h-44 object-contain"
               />
-              {/* fallback */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center z-0">
-                <span className="text-5xl">🦅</span>
-                <span className="font-black text-xl tracking-widest mt-1" style={{ color: '#B8860B' }}>ACTD</span>
-              </div>
             </div>
             <div
               className="flex items-center gap-2 px-4 py-2 rounded-md text-[0.8125rem] font-semibold"
