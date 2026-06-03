@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { Eye, CheckCircle, Phone, XCircle, Clock, ChevronDown, ChevronUp, Search } from 'lucide-react';
+import { CheckCircle, Phone, XCircle, Clock, ChevronDown, ChevronUp, Search, Download } from 'lucide-react';
 
 interface Application {
   id: string;
@@ -11,6 +11,21 @@ interface Application {
   status: 'new' | 'contacted' | 'enrolled' | 'rejected';
   notes: string | null;
   created_at: string;
+  // extended fields from apply form
+  dob: string | null;
+  gender: string | null;
+  qualification: string | null;
+  experience: string | null;
+  reg_number: string | null;
+  state_council: string | null;
+  year_of_reg: string | null;
+  practice_type: string | null;
+  hospital_name: string | null;
+  clinic_name: string | null;
+  city: string | null;
+  mode_preference: string | null;
+  reason: string | null;
+  documents: string[] | null;
 }
 
 const STATUS_CONFIG = {
@@ -166,7 +181,7 @@ export default function ApplicationsPage() {
 
                     {/* Avatar */}
                     <div className="w-9 h-9 rounded-full bg-[#e8f2ea] flex items-center justify-center text-[#15401E] font-bold text-sm shrink-0">
-                      {item.full_name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase()}
+                      {(item.full_name ?? '?').split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase()}
                     </div>
 
                     {/* Info */}
@@ -182,10 +197,51 @@ export default function ApplicationsPage() {
                       <div className="text-xs text-[#15401E] font-medium mt-0.5">{item.program_interest}</div>
 
                       {isExpanded && (
-                        <div className="mt-3 space-y-3">
+                        <div className="mt-3 space-y-4">
                           <div className="text-xs text-gray-400">
                             Submitted: {new Date(item.created_at).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}
                           </div>
+
+                          {/* Full details grid */}
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-2.5 bg-gray-50 rounded-xl p-4 text-xs">
+                            {[
+                              { label: 'Date of Birth',        value: item.dob },
+                              { label: 'Gender',               value: item.gender },
+                              { label: 'Qualification',        value: item.qualification },
+                              { label: 'Experience',           value: item.experience },
+                              { label: 'Reg. Number',          value: item.reg_number },
+                              { label: 'State Council',        value: item.state_council },
+                              { label: 'Year of Reg.',         value: item.year_of_reg },
+                              { label: 'Practice Type',        value: item.practice_type },
+                              { label: 'Hospital',             value: item.hospital_name },
+                              { label: 'Clinic',               value: item.clinic_name },
+                              { label: 'City',                 value: item.city },
+                              { label: 'Mode Preference',      value: item.mode_preference },
+                            ].map(({ label, value }) => value ? (
+                              <div key={label}>
+                                <span className="text-gray-400 font-medium block">{label}</span>
+                                <span className="text-gray-700 font-semibold">{value}</span>
+                              </div>
+                            ) : null)}
+                          </div>
+
+                          {item.reason && (
+                            <div>
+                              <div className="text-xs font-semibold text-gray-600 mb-1">Reason for Joining</div>
+                              <p className="text-xs text-gray-600 bg-gray-50 rounded-xl px-4 py-3 leading-relaxed">{item.reason}</p>
+                            </div>
+                          )}
+
+                          {item.documents && item.documents.length > 0 && (
+                            <div>
+                              <div className="text-xs font-semibold text-gray-600 mb-1.5">Uploaded Documents</div>
+                              <div className="flex flex-wrap gap-1.5">
+                                {item.documents.map((docPath) => (
+                                  <DocDownloadButton key={docPath} path={docPath} />
+                                ))}
+                              </div>
+                            </div>
+                          )}
 
                           {/* Status change */}
                           <div>
@@ -248,6 +304,58 @@ export default function ApplicationsPage() {
           </div>
         )}
       </div>
+    </div>
+  );
+}
+
+const DOC_KEY_LABELS: Record<string, string> = {
+  degree: 'Degree Certificate',
+  registration: 'Registration Cert.',
+  govtId: 'Govt ID',
+  photo: 'Photograph',
+};
+
+function DocDownloadButton({ path }: { path: string }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  // Nested format: applications/{folderId}/{docKey}/{filename}
+  // Flat (legacy) format: {timestamp}_{filename}
+  const parts = path.split('/');
+  const isNested = parts.length >= 4 && parts[0] === 'applications';
+  const docKey = isNested ? (parts[2] ?? '') : '';
+  const rawFilename = parts[parts.length - 1] ?? 'document';
+  // Strip leading timestamp prefix from legacy flat filenames (e.g. "1778313904187_cert.pdf" → "cert.pdf")
+  const cleanFilename = rawFilename.replace(/^\d{13}_/, '');
+  const label = DOC_KEY_LABELS[docKey] ?? cleanFilename;
+
+  async function download() {
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch(`/api/admin/document-url?path=${encodeURIComponent(path)}`);
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Failed to get URL');
+      window.open(json.url, '_blank', 'noopener');
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : 'Error');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div>
+      <button
+        onClick={download}
+        disabled={loading}
+        className="flex items-center gap-1.5 text-xs bg-gray-100 hover:bg-[#e8f2ea] text-gray-700 hover:text-[#15401E] px-2.5 py-1.5 rounded-lg font-medium transition-all disabled:opacity-50"
+        title={cleanFilename}
+      >
+        <Download className="w-3 h-3" />
+        {loading ? 'Loading…' : label}
+      </button>
+      {error && <p className="text-[10px] text-red-500 mt-0.5">{error}</p>}
     </div>
   );
 }

@@ -29,12 +29,29 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: 'Required fields missing' }, { status: 400 });
       }
 
-      // Collect uploaded document filenames (upload skipped — just record names)
-      const docKeys = ['doc_degree', 'doc_registration', 'doc_govtId', 'doc_photo'];
-      const docNames: string[] = [];
-      for (const key of docKeys) {
-        const file = fd.get(key) as File | null;
-        if (file && file.size > 0) docNames.push(file.name);
+      // Upload documents to Supabase Storage
+      const BUCKET = 'application-documents';
+      const folderId = crypto.randomUUID();
+      const docPaths: string[] = [];
+
+      const docKeyMap: Record<string, string> = {
+        doc_degree: 'degree',
+        doc_registration: 'registration',
+        doc_govtId: 'govtId',
+        doc_photo: 'photo',
+      };
+
+      for (const [formKey, docKey] of Object.entries(docKeyMap)) {
+        const file = fd.get(formKey) as File | null;
+        if (!file || file.size === 0) continue;
+        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+        const storagePath = `applications/${folderId}/${docKey}/${safeName}`;
+        const buffer = Buffer.from(await file.arrayBuffer());
+        const { error: uploadError } = await cmsClient.storage
+          .from(BUCKET)
+          .upload(storagePath, buffer, { contentType: file.type, upsert: true });
+        if (!uploadError) docPaths.push(storagePath);
+        else console.error(`Upload failed for ${docKey}:`, uploadError.message);
       }
 
       const { data, error } = await cmsClient
@@ -58,7 +75,7 @@ export async function POST(request: NextRequest) {
           city:            extra.city          || null,
           mode_preference: extra.modePreference || null,
           reason:          extra.reason        || null,
-          documents:       docNames.length > 0 ? docNames : null,
+          documents:       docPaths.length > 0 ? docPaths : null,
         }])
         .select()
         .single();
