@@ -11,21 +11,21 @@ export async function POST(request: NextRequest) {
     // ── Multi-step apply form (FormData) ─────────────────────────────────────
     if (contentType.includes('multipart/form-data')) {
       const fd = await request.formData();
-      const first_name   = fd.get('first_name')    as string;
-      const last_name    = fd.get('last_name')     as string;
-      const email        = fd.get('email')         as string;
-      const phone        = fd.get('phone')         as string;
-      const program      = fd.get('program')       as string;
-      const qualification = fd.get('qualification') as string;
-      const experience   = fd.get('experience')    as string;
-      const rawMessage   = fd.get('message')       as string;
+      const first_name   = (fd.get('first_name')    as string | null) ?? '';
+      const last_name    = (fd.get('last_name')     as string | null) ?? '';
+      const email        = (fd.get('email')         as string | null) ?? '';
+      const phone        = (fd.get('phone')         as string | null) ?? '';
+      const program      = (fd.get('program')       as string | null) ?? '';
+      const qualification = (fd.get('qualification') as string | null) ?? '';
+      const experience   = (fd.get('experience')    as string | null) ?? '';
+      const rawMessage   = (fd.get('message')       as string | null) ?? '';
 
       let extra: Record<string, string> = {};
       try { extra = JSON.parse(rawMessage || '{}'); } catch {}
 
       const full_name = [first_name, last_name].filter(Boolean).join(' ');
 
-      if (!first_name || !email || !phone || !program || !qualification) {
+      if (!full_name || !email || !phone || !program || !qualification) {
         return NextResponse.json({ error: 'Required fields missing' }, { status: 400 });
       }
 
@@ -57,9 +57,12 @@ export async function POST(request: NextRequest) {
       const { data, error } = await cmsClient
         .from('applications')
         .insert([{
+          first_name,
+          last_name,
           full_name,
           email,
           phone,
+          program,
           program_interest: program,
           status: 'new',
           qualification,
