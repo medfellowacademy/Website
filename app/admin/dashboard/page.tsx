@@ -1,5 +1,4 @@
-import { getCmsStats, getPrograms, getFaculty } from '@/lib/cms';
-import { cmsClient } from '@/lib/cms';
+import { getCmsStats, getPrograms, getFaculty, cmsClient } from '@/lib/cms';
 import Link from 'next/link';
 import { BookOpen, Users, MessageSquare, Settings, PlusCircle, Eye, ClipboardList, Inbox } from 'lucide-react';
 
