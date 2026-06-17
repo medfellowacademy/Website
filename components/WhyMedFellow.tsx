@@ -1,12 +1,29 @@
 'use client';
+import { useState } from 'react';
+import { CheckCircle, Loader2 } from 'lucide-react';
 
-const DEFAULT_STATS = [
-  { value: '156%',  label: 'Average income increase', sub: 'Reported within 18 months' },
-  { value: '500+',  label: 'Doctors trained',          sub: 'Across 12 specialties' },
-  { value: '98%',   label: 'Placement success',        sub: 'Within 6 months of completion' },
-  { value: '60+',   label: 'Fellowship programs',      sub: 'Online, hybrid and offline' },
-  { value: '20+',   label: 'Hospital partners',        sub: 'Super speciality hospitals' },
-  { value: '4.9',   label: 'Average rating',           sub: 'From 340 verified reviews' },
+const COURSES = [
+  'Cardiology Fellowship',
+  'Dermatology Fellowship',
+  'Diabetology Fellowship',
+  'Emergency Medicine Fellowship',
+  'Endocrinology Fellowship',
+  'Gastroenterology Fellowship',
+  'Gynaecology & Obstetrics Fellowship',
+  'Internal Medicine Fellowship',
+  'Nephrology Fellowship',
+  'Neurology Fellowship',
+  'Oncology Fellowship',
+  'Ophthalmology Fellowship',
+  'Orthopaedics Fellowship',
+  'Paediatrics Fellowship',
+  'Psychiatry Fellowship',
+  'Pulmonology Fellowship',
+  'Radiology Fellowship',
+  'Reproductive Medicine Fellowship',
+  'Sports Medicine Fellowship',
+  'Urology Fellowship',
+  'Other',
 ];
 
 const DEFAULT_WHY_POINTS = [
@@ -23,9 +40,36 @@ interface WhyMedFellowProps {
   stats?: { value: string; label: string; sub: string }[];
 }
 
-export default function WhyMedFellow({ heading, subtitle, whyPoints, stats }: WhyMedFellowProps = {}) {
+export default function WhyMedFellow({ heading, subtitle, whyPoints }: WhyMedFellowProps = {}) {
   const displayPoints = (whyPoints && whyPoints.length > 0) ? whyPoints : DEFAULT_WHY_POINTS;
-  const displayStats  = (stats && stats.length > 0) ? stats : DEFAULT_STATS;
+
+  const [form, setForm]       = useState({ name: '', email: '', course: '' });
+  const [status, setStatus]   = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errMsg, setErrMsg]   = useState('');
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.course) return;
+    setStatus('loading');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.course,
+          message: `Course enquiry from homepage: ${form.course}`,
+        }),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setStatus('success');
+    } catch {
+      setErrMsg('Something went wrong. Please try again.');
+      setStatus('error');
+    }
+  }
+
   return (
     <section className="section-padding bg-white border-b border-[#E5E7EB]">
       <div className="container-custom">
@@ -50,21 +94,83 @@ export default function WhyMedFellow({ heading, subtitle, whyPoints, stats }: Wh
             </div>
           </div>
 
-          {/* Right: stats */}
+          {/* Right: enquiry form */}
           <div className="lg:sticky lg:top-24">
-            <div className="bg-[#FAFAFA] border border-[#E5E7EB] rounded-lg overflow-hidden divide-y divide-[#E5E7EB]">
-              <div className="px-5 py-3 bg-white">
-                <p className="text-[0.75rem] font-semibold uppercase tracking-wider text-[#9CA3AF]">By the numbers</p>
+            <div className="bg-white border border-[#E5E7EB] rounded-2xl shadow-sm overflow-hidden">
+              {/* Header */}
+              <div className="px-6 py-5 bg-[#15401E]">
+                <p className="text-white font-bold text-lg leading-snug">Get Free Counselling</p>
+                <p className="text-white/70 text-sm mt-0.5">Talk to a program advisor today</p>
               </div>
-              {displayStats.map((s, i) => (
-                <div key={i} className="flex items-center justify-between px-5 py-3.5 bg-white hover:bg-[#FAFAFA] transition-colors">
-                  <div>
-                    <p className="text-[0.875rem] font-medium text-[#374151]">{s.label}</p>
-                    <p className="text-[0.75rem] text-[#9CA3AF]">{s.sub}</p>
-                  </div>
-                  <span className="text-[1.25rem] font-bold text-[#15401E] tabular-nums">{s.value}</span>
+
+              {status === 'success' ? (
+                <div className="px-6 py-12 flex flex-col items-center text-center gap-3">
+                  <CheckCircle className="w-12 h-12 text-[#15401E]" />
+                  <p className="font-semibold text-[#111827] text-lg">Thank you, {form.name}!</p>
+                  <p className="text-sm text-[#6B7280]">Our team will reach out to you shortly.</p>
                 </div>
-              ))}
+              ) : (
+                <form onSubmit={handleSubmit} className="px-6 py-6 space-y-4">
+                  {/* Name */}
+                  <div>
+                    <label className="block text-xs font-semibold text-[#374151] mb-1.5 uppercase tracking-wide">Full Name</label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Dr. John Smith"
+                      value={form.name}
+                      onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+                      className="w-full border border-[#D1D5DB] rounded-lg px-4 py-2.5 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#15401E] focus:ring-1 focus:ring-[#15401E] transition"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div>
+                    <label className="block text-xs font-semibold text-[#374151] mb-1.5 uppercase tracking-wide">Email Address</label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="you@example.com"
+                      value={form.email}
+                      onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                      className="w-full border border-[#D1D5DB] rounded-lg px-4 py-2.5 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#15401E] focus:ring-1 focus:ring-[#15401E] transition"
+                    />
+                  </div>
+
+                  {/* Course */}
+                  <div>
+                    <label className="block text-xs font-semibold text-[#374151] mb-1.5 uppercase tracking-wide">Course Interested</label>
+                    <select
+                      required
+                      value={form.course}
+                      onChange={e => setForm(f => ({ ...f, course: e.target.value }))}
+                      className="w-full border border-[#D1D5DB] rounded-lg px-4 py-2.5 text-sm text-[#111827] bg-white focus:outline-none focus:border-[#15401E] focus:ring-1 focus:ring-[#15401E] transition appearance-none"
+                    >
+                      <option value="">Select a course…</option>
+                      {COURSES.map(c => (
+                        <option key={c} value={c}>{c}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {status === 'error' && (
+                    <p className="text-xs text-red-500">{errMsg}</p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="w-full flex items-center justify-center gap-2 bg-[#15401E] hover:bg-[#0f2e14] text-white font-semibold py-3 rounded-lg text-sm transition disabled:opacity-60"
+                  >
+                    {status === 'loading' && <Loader2 className="w-4 h-4 animate-spin" />}
+                    {status === 'loading' ? 'Submitting…' : 'Request Free Counselling'}
+                  </button>
+
+                  <p className="text-[0.7rem] text-center text-[#9CA3AF]">
+                    No spam. We respect your privacy.
+                  </p>
+                </form>
+              )}
             </div>
           </div>
 
