@@ -16,12 +16,24 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isOpen, setIsOpen]   = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [enrollText, setEnrollText] = useState('Apply for June 2026 Batch');
+  const [enrollTextDesktop, setEnrollTextDesktop] = useState('Enroll now');
   const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    fetch('/api/settings')
+      .then(r => r.json())
+      .then((data: Record<string, string>) => {
+        if (data.apply_batch_text) setEnrollText(data.apply_batch_text + ' Batch');
+        if (data.navbar_enroll_text) setEnrollTextDesktop(data.navbar_enroll_text);
+      })
+      .catch(() => {});
   }, []);
 
   const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
@@ -80,7 +92,7 @@ export default function Navbar() {
             className="inline-flex items-center px-4 py-2 text-[0.875rem] font-semibold text-white bg-[#15401E] rounded-md hover:bg-[#0f2e15] transition-colors"
             onClick={() => analytics.applyClick('navbar_enroll_now')}
           >
-            Enroll now
+            {enrollTextDesktop}
           </Link>
         </div>
 
@@ -115,7 +127,7 @@ export default function Navbar() {
                 className="flex items-center justify-center py-3 rounded-md text-[0.9375rem] font-semibold text-white bg-[#15401E]"
                 onClick={() => { analytics.applyClick('navbar_mobile_enroll_now'); setIsOpen(false); }}
               >
-                Apply for June 2026 Batch
+                {enrollText}
               </Link>
               <Link
                 href="/programs"

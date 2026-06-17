@@ -2,14 +2,25 @@ import Link from "next/link";
 import Image from "next/image";
 import { ShieldCheck, Award, Globe, CheckCircle2 } from "lucide-react";
 
-const TRUST_POINTS = [
-  { icon: Globe,        title: "40+ countries",       desc: "Certificates accepted globally" },
-  { icon: ShieldCheck,  title: "Quality assured",     desc: "Rigorous curriculum by ACTD" },
-  { icon: Award,        title: "Career validated",    desc: "Recognised by top hospitals" },
-  { icon: CheckCircle2, title: "Annually audited",    desc: "Highest international standards" },
+const TRUST_ICONS = [Globe, ShieldCheck, Award, CheckCircle2];
+
+const DEFAULT_TRUST_POINTS = [
+  { title: "40+ countries",    desc: "Certificates accepted globally" },
+  { title: "Quality assured",  desc: "Rigorous curriculum by ACTD" },
+  { title: "Career validated", desc: "Recognised by top hospitals" },
+  { title: "Annually audited", desc: "Highest international standards" },
 ];
 
-export default function AccreditationSection() {
+interface AccreditationProps {
+  heading?: string;
+  body?: string;
+  ctaText?: string;
+  badgeCaption?: string;
+  trustPoints?: { title: string; desc: string }[];
+}
+
+export default function AccreditationSection({ heading, body, ctaText, badgeCaption, trustPoints }: AccreditationProps = {}) {
+  const displayPoints = (trustPoints && trustPoints.length > 0) ? trustPoints : DEFAULT_TRUST_POINTS;
   return (
     <section className="section-padding bg-[#15401E] overflow-hidden">
       <div className="container-custom">
@@ -39,7 +50,7 @@ export default function AccreditationSection() {
               <ShieldCheck className="w-4 h-4" /> Officially Accredited
             </div>
             <p className="text-[0.75rem] text-center w-full max-w-xs" style={{ color: 'rgba(255,255,255,0.50)' }}>
-              American Council of Training and Development — recognised in 40+ countries
+              {badgeCaption || 'American Council of Training and Development — recognised in 40+ countries'}
             </p>
           </div>
 
@@ -52,17 +63,17 @@ export default function AccreditationSection() {
               International Accreditation
             </span>
             <h2 className="text-[clamp(1.375rem,3vw,1.875rem)] font-bold mb-2 leading-tight tracking-tight">
-              <span style={{ color: '#FFFFFF' }}>Globally accredited by{' '}</span>
-              <span style={{ color: '#FF6B00' }}>ACTD</span>
+              <span style={{ color: '#FFFFFF' }}>{(heading || 'Globally accredited by ACTD').replace('ACTD', '').trim()}{' '}</span>
+              <span style={{ color: '#FF6B00' }}>{(heading || 'Globally accredited by ACTD').includes('ACTD') ? 'ACTD' : ''}</span>
             </h2>
             <p className="text-[0.9375rem] mb-6" style={{ color: 'rgba(255,255,255,0.72)' }}>
-              MedFellow Academy programs are internationally accredited by the American Council of Training and Development — your gateway to a globally recognised fellowship certificate.
+              {body || 'MedFellow Academy programs are internationally accredited by the American Council of Training and Development — your gateway to a globally recognised fellowship certificate.'}
             </p>
 
             {/* Trust grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {TRUST_POINTS.map((pt, i) => {
-                const Icon = pt.icon;
+              {displayPoints.map((pt, i) => {
+                const Icon = TRUST_ICONS[i % TRUST_ICONS.length];
                 return (
                   <div
                     key={i}
@@ -88,7 +99,7 @@ export default function AccreditationSection() {
                 style={{ background: '#F0C040', color: '#1A1400' }}
               >
                 <Award className="w-4 h-4" />
-                Enroll &amp; get accredited
+                {ctaText || 'Enroll & get accredited'}
               </Link>
             </div>
           </div>

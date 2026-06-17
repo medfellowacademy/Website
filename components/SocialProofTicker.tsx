@@ -1,22 +1,23 @@
 'use client';
 
-const ITEMS = [
-  'Super Speciality Hospital — Certified Partner',
+const DEFAULT_ITEMS = [
+  'ACTD Accredited — Recognised in 40+ countries',
   '4.9 / 5 from 340 verified reviews',
-  'Dr. Sneha Verma — 3.2× salary uplift, Super Speciality Hospital',
-  'Super Speciality Hospital — Certified Partner',
+  'Dr. Sneha Verma — 3.2× salary uplift after fellowship',
+  'Yashoda Hospital — Certified Training Partner',
   'Internationally accredited certificates',
   'Dr. Rajan Nair — 2 hospital offers in 6 months',
-  'Super Speciality Hospital — Certified Partner',
+  'Kamineni Hospital — Certified Training Partner',
   '98% placement success rate',
-  'Super Speciality Hospital Faculty',
+  'Continental Hospital — Expert Faculty',
   'Flexible — learn while you practice',
   'Dr. Kavita Singh — own clinic in 14 months',
 ];
 
-const DOUBLED = [...ITEMS, ...ITEMS];
+export default function SocialProofTicker({ items }: { items?: string[] }) {
+  const display = (items && items.length > 0) ? items : DEFAULT_ITEMS;
+  const DOUBLED = [...display, ...display];
 
-export default function SocialProofTicker() {
   return (
     <div
       className="relative overflow-hidden"

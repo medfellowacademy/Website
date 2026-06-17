@@ -3,11 +3,20 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { CheckCircle, Hospital, Monitor, UserRound } from 'lucide-react';
 
-const TABS = [
+const TAB_ICONS = [Hospital, Monitor, UserRound];
+
+interface TrainingTab {
+  label: string;
+  headline: string;
+  description: string;
+  image: string;
+  points: string[];
+  tag: string;
+}
+
+const DEFAULT_TABS: TrainingTab[] = [
   {
-    id: 'hospital',
     label: 'Hospital Training',
-    Icon: Hospital,
     headline: 'Clinical rotations at premier hospitals',
     description: 'Supervised practice at super speciality hospitals across India. Fellows rotate through OTs, ICUs and specialty departments with direct patient exposure.',
     image: '/Hospital Training.jpeg',
@@ -20,9 +29,7 @@ const TABS = [
     tag: '20+ Hospital Partners',
   },
   {
-    id: 'digital',
     label: 'Digital Learning',
-    Icon: Monitor,
     headline: '24/7 online learning platform',
     description: 'Structured digital curriculum built for working doctors. Live weekly sessions, recorded lectures, case-based modules, journal access and peer forums — on any device.',
     image: '/Digital Learning.jpeg',
@@ -35,11 +42,9 @@ const TABS = [
     tag: 'Learn anytime, anywhere',
   },
   {
-    id: 'mentorship',
     label: 'Expert Mentorship',
-    Icon: UserRound,
     headline: 'One-on-one senior specialist mentorship',
-    description: 'Every fellow is paired with a dedicated senior faculty mentor. Small batches ensure personal attention, career guidance and access to your mentor\'s professional network.',
+    description: "Every fellow is paired with a dedicated senior faculty mentor. Small batches ensure personal attention, career guidance and access to your mentor's professional network.",
     image: '/Expert Mentorship.jpg',
     points: [
       'Dedicated faculty mentor assigned on Day 1',
@@ -51,9 +56,16 @@ const TABS = [
   },
 ];
 
-export default function TrainingFacilities() {
+interface TrainingFacilitiesProps {
+  heading?: string;
+  subtitle?: string;
+  tabs?: TrainingTab[];
+}
+
+export default function TrainingFacilities({ heading, subtitle, tabs }: TrainingFacilitiesProps = {}) {
   const [activeTab, setActiveTab] = useState(0);
-  const tab = TABS[activeTab];
+  const displayTabs = (tabs && tabs.length > 0) ? tabs : DEFAULT_TABS;
+  const tab = displayTabs[activeTab] ?? displayTabs[0];
 
   return (
     <section className="section-padding bg-[#FAFAFA] border-b border-[#E5E7EB]">
@@ -61,18 +73,18 @@ export default function TrainingFacilities() {
 
         <div className="mb-8">
           <span className="section-label">Infrastructure</span>
-          <h2 className="section-title mt-1 mb-1.5">Training that matches global standards</h2>
-          <p className="section-subtitle">Three pillars designed to build confident, competent specialists.</p>
+          <h2 className="section-title mt-1 mb-1.5">{heading || 'Training that matches global standards'}</h2>
+          <p className="section-subtitle">{subtitle || 'Three pillars designed to build confident, competent specialists.'}</p>
         </div>
 
         {/* Tab strip */}
         <div className="flex gap-1 mb-7 bg-white border border-[#E5E7EB] rounded-lg p-1 w-fit">
-          {TABS.map((t, i) => {
-            const Icon = t.Icon;
+          {displayTabs.map((t, i) => {
+            const Icon = TAB_ICONS[i % TAB_ICONS.length];
             const active = i === activeTab;
             return (
               <button
-                key={t.id}
+                key={i}
                 onClick={() => setActiveTab(i)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-md text-[0.875rem] font-medium transition-all duration-150 ${
                   active
