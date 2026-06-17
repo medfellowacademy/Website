@@ -351,6 +351,168 @@ export async function deleteFaq(id: string) {
   if (error) throw error;
 }
 
+// ─── Country Pages ────────────────────────────────────────────────────────────
+
+export interface CmsCountryPage {
+  id: string;
+  slug: string;
+  country_name: string;
+  is_published: boolean;
+  hero_badge: string;
+  hero_heading: string;
+  hero_subheading: string;
+  hero_checks: string[];
+  stats: { value: string; label: string }[];
+  why_heading: string;
+  why_points: { icon: string; title: string; desc: string }[];
+  featured_specialties: { number: string; icon: string; name: string; slug: string; description: string; demandDriver: string }[];
+  testimonials: { quote: string; author: string; role: string; rating: number }[];
+  faqs: { question: string; answer: string }[];
+  meta_title: string;
+  meta_description: string;
+  sort_order: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export async function getCountryPages(publishedOnly = true) {
+  let q = cmsClient.from('cms_country_pages').select('*').order('sort_order', { ascending: true });
+  if (publishedOnly) q = q.eq('is_published', true);
+  const { data, error } = await q;
+  if (error) throw error;
+  return data as CmsCountryPage[];
+}
+
+export async function getCountryPage(slug: string) {
+  const { data, error } = await cmsClient
+    .from('cms_country_pages')
+    .select('*')
+    .eq('slug', slug)
+    .single();
+  if (error) return null;
+  return data as CmsCountryPage;
+}
+
+export async function getCountryPageById(id: string) {
+  const { data, error } = await cmsClient
+    .from('cms_country_pages')
+    .select('*')
+    .eq('id', id)
+    .single();
+  if (error) throw error;
+  return data as CmsCountryPage;
+}
+
+export async function createCountryPage(input: Partial<CmsCountryPage>) {
+  const { data, error } = await cmsClient
+    .from('cms_country_pages')
+    .insert({ ...input, updated_at: new Date().toISOString() })
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsCountryPage;
+}
+
+export async function updateCountryPage(id: string, input: Partial<CmsCountryPage>) {
+  const { data, error } = await cmsClient
+    .from('cms_country_pages')
+    .update({ ...input, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsCountryPage;
+}
+
+export async function deleteCountryPage(id: string) {
+  const { error } = await cmsClient.from('cms_country_pages').delete().eq('id', id);
+  if (error) throw error;
+}
+
+// ─── Custom Pages ─────────────────────────────────────────────────────────────
+
+export interface CmsPageSection {
+  type: 'text' | 'features' | 'stats' | 'cta' | 'testimonials' | 'faq';
+  heading?: string;
+  body?: string;
+  items?: Record<string, string>[];
+  cta_text?: string;
+  cta_url?: string;
+  bg?: string;
+}
+
+export interface CmsCustomPage {
+  id: string;
+  slug: string;
+  title: string;
+  is_published: boolean;
+  hero_heading: string;
+  hero_subheading: string;
+  hero_cta_text: string;
+  hero_cta_url: string;
+  hero_bg_color: string;
+  sections: CmsPageSection[];
+  meta_title: string;
+  meta_description: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export async function getCustomPages(publishedOnly = false) {
+  let q = cmsClient.from('cms_custom_pages').select('*').order('created_at', { ascending: false });
+  if (publishedOnly) q = q.eq('is_published', true);
+  const { data, error } = await q;
+  if (error) throw error;
+  return data as CmsCustomPage[];
+}
+
+export async function getCustomPage(slug: string) {
+  const { data, error } = await cmsClient
+    .from('cms_custom_pages')
+    .select('*')
+    .eq('slug', slug)
+    .eq('is_published', true)
+    .single();
+  if (error) return null;
+  return data as CmsCustomPage;
+}
+
+export async function getCustomPageById(id: string) {
+  const { data, error } = await cmsClient
+    .from('cms_custom_pages')
+    .select('*')
+    .eq('id', id)
+    .single();
+  if (error) throw error;
+  return data as CmsCustomPage;
+}
+
+export async function createCustomPage(input: Partial<CmsCustomPage>) {
+  const { data, error } = await cmsClient
+    .from('cms_custom_pages')
+    .insert({ ...input, updated_at: new Date().toISOString() })
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsCustomPage;
+}
+
+export async function updateCustomPage(id: string, input: Partial<CmsCustomPage>) {
+  const { data, error } = await cmsClient
+    .from('cms_custom_pages')
+    .update({ ...input, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsCustomPage;
+}
+
+export async function deleteCustomPage(id: string) {
+  const { error } = await cmsClient.from('cms_custom_pages').delete().eq('id', id);
+  if (error) throw error;
+}
+
 // ─── Stats (for dashboard) ────────────────────────────────────────────────────
 
 export async function getCmsStats() {
