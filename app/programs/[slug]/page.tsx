@@ -5480,33 +5480,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             {/* ── LEFT SIDEBAR ── */}
             <aside className="hidden lg:block space-y-4 sticky top-[76px] self-start max-h-[calc(100vh-84px)] overflow-y-auto scrollbar-hide">
 
-              {/* Quick info card */}
-              <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-                <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-gray-100">
-                  <span className="text-2xl">{program.icon}</span>
-                  <div>
-                    <div className="text-xs font-bold text-[#15401E] leading-tight line-clamp-2">{program.name}</div>
-                    <div className="text-xs text-gray-400 mt-0.5">Fellowship Program</div>
-                  </div>
-                </div>
-                <div className="space-y-2.5 text-xs">
-                  {[
-                    { icon: '⏱', label: 'Duration', value: program.duration },
-                    { icon: '🎓', label: 'Eligibility', value: program.eligibility },
-                    { icon: '🏥', label: 'Mode', value: 'Online + Clinical' },
-                    { icon: '🏆', label: 'Certificate', value: 'Fellowship Cert.' },
-                  ].map((r, i) => (
-                    <div key={i} className="flex items-center gap-2">
-                      <span>{r.icon}</span>
-                      <div className="flex-1 min-w-0">
-                        <span className="text-gray-400">{r.label}: </span>
-                        <span className="font-semibold text-[#15401E]">{r.value}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               {/* Sections nav */}
               <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
                 <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Jump to Section</p>
