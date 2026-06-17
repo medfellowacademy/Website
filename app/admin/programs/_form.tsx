@@ -6,6 +6,9 @@ import { type CmsProgram } from '@/lib/cms';
 
 interface Module { title: string; topics: string }
 
+interface Faq { question: string; answer: string }
+interface HowToApplyStep { title: string; desc: string }
+
 interface Props {
   program?: CmsProgram;
   modules?: { title: string; topics: string[] }[];
@@ -26,6 +29,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
   const [eligibility, setEligibility] = useState(program?.eligibility ?? '');
   const [description, setDescription] = useState(program?.description ?? '');
   const [overview, setOverview] = useState(program?.overview ?? '');
+  const [applicationDeadline, setApplicationDeadline] = useState(program?.application_deadline ?? 'Rolling Admissions');
   const [isPublished, setIsPublished] = useState(program?.is_published ?? true);
 
   // Pricing
@@ -37,8 +41,24 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
   const [month12Offline, setMonth12Offline] = useState(program?.month_12_offline?.toString() ?? '');
 
   // Arrays
-  const [highlights, setHighlights] = useState<string[]>(program?.highlights ?? ['']);
-  const [careers, setCareers] = useState<string[]>(program?.career_opportunities ?? ['']);
+  const [highlights, setHighlights] = useState<string[]>(program?.highlights?.length ? program.highlights : ['']);
+  const [careers, setCareers] = useState<string[]>(program?.career_opportunities?.length ? program.career_opportunities : ['']);
+
+  // FAQs
+  const [faqs, setFaqs] = useState<Faq[]>(
+    program?.faqs?.length ? program.faqs : [{ question: '', answer: '' }]
+  );
+
+  // How to Apply
+  const DEFAULT_STEPS: HowToApplyStep[] = [
+    { title: 'Submit Application', desc: 'Fill out the online application form with your basic details and medical degree information.' },
+    { title: 'Eligibility Review', desc: 'Our admissions team reviews your qualifications and contacts you within 48 hours.' },
+    { title: 'Counselling Call', desc: 'Speak with a program advisor to choose the right training mode and fee plan.' },
+    { title: 'Enroll & Begin', desc: 'Complete payment, receive your login credentials, and start your fellowship journey.' },
+  ];
+  const [howToApplySteps, setHowToApplySteps] = useState<HowToApplyStep[]>(
+    program?.how_to_apply_steps?.length ? program.how_to_apply_steps : DEFAULT_STEPS
+  );
 
   // Curriculum modules
   const [modules, setModules] = useState<Module[]>(
@@ -63,6 +83,7 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
     try {
       const payload = {
         name, slug, icon, duration, eligibility, description, overview,
+        application_deadline: applicationDeadline,
         is_published: isPublished,
         online_price: onlinePrice ? parseInt(onlinePrice) : null,
         month_11_1: month11_1 ? parseInt(month11_1) : null,
@@ -72,6 +93,8 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
         month_12_offline: month12Offline ? parseInt(month12Offline) : null,
         highlights: highlights.filter(Boolean),
         career_opportunities: careers.filter(Boolean),
+        faqs: faqs.filter(f => f.question.trim()),
+        how_to_apply_steps: howToApplySteps.filter(s => s.title.trim()),
       };
 
       // Use server API routes (avoids anon-key RLS issues)
@@ -198,6 +221,10 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
           <label className={labelCls}>Full Overview</label>
           <textarea value={overview} onChange={(e) => setOverview(e.target.value)} rows={5} className={inputCls} placeholder="Detailed program overview paragraph shown on program page..." />
         </div>
+        <div>
+          <label className={labelCls}>Application Deadline / Admission Status</label>
+          <input value={applicationDeadline} onChange={(e) => setApplicationDeadline(e.target.value)} className={inputCls} placeholder="Rolling Admissions" />
+        </div>
 
         <div className="flex items-center gap-3 pt-2">
           <button
@@ -315,6 +342,83 @@ export default function ProgramForm({ program, modules: initialModules = [] }: P
                 rows={4}
                 className={inputCls}
                 placeholder="Topics — one per line:&#10;Topic 1&#10;Topic 2&#10;Topic 3"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* How to Apply Steps */}
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4">
+        <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+          <div>
+            <h2 className="text-base font-bold text-gray-800">How to Apply Steps</h2>
+            <p className="text-xs text-gray-400 mt-0.5">Steps shown in the "How to Apply" section on the program page</p>
+          </div>
+          <button type="button" onClick={() => setHowToApplySteps([...howToApplySteps, { title: '', desc: '' }])} className="flex items-center gap-1 text-xs text-[#15401E] font-semibold hover:underline">
+            <PlusCircle className="w-3.5 h-3.5" /> Add Step
+          </button>
+        </div>
+        <div className="space-y-4">
+          {howToApplySteps.map((step, i) => (
+            <div key={i} className="border border-gray-100 rounded-xl p-4 bg-gray-50/50">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-6 h-6 bg-[#15401E] text-white rounded-full flex items-center justify-center text-xs font-bold shrink-0">{i + 1}</span>
+                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide flex-1">Step {i + 1}</span>
+                <button type="button" onClick={() => setHowToApplySteps(howToApplySteps.filter((_, idx) => idx !== i))} className="p-1 text-gray-400 hover:text-red-500 transition-colors">
+                  <Trash2 className="w-3.5 h-3.5" />
+                </button>
+              </div>
+              <input
+                value={step.title}
+                onChange={(e) => { const a = [...howToApplySteps]; a[i] = { ...a[i], title: e.target.value }; setHowToApplySteps(a); }}
+                className={`${inputCls} mb-2`}
+                placeholder="Step title (e.g. Submit Application)"
+              />
+              <textarea
+                value={step.desc}
+                onChange={(e) => { const a = [...howToApplySteps]; a[i] = { ...a[i], desc: e.target.value }; setHowToApplySteps(a); }}
+                rows={2}
+                className={inputCls}
+                placeholder="Step description..."
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* FAQs */}
+      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 space-y-4">
+        <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+          <div>
+            <h2 className="text-base font-bold text-gray-800">FAQs</h2>
+            <p className="text-xs text-gray-400 mt-0.5">Frequently asked questions shown at the bottom of the program page</p>
+          </div>
+          <button type="button" onClick={() => setFaqs([...faqs, { question: '', answer: '' }])} className="flex items-center gap-1 text-xs text-[#15401E] font-semibold hover:underline">
+            <PlusCircle className="w-3.5 h-3.5" /> Add FAQ
+          </button>
+        </div>
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="border border-gray-100 rounded-xl p-4 bg-gray-50/50">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide">FAQ {i + 1}</span>
+                <button type="button" onClick={() => setFaqs(faqs.filter((_, idx) => idx !== i))} className="p-1 text-gray-400 hover:text-red-500 transition-colors">
+                  <Trash2 className="w-3.5 h-3.5" />
+                </button>
+              </div>
+              <input
+                value={faq.question}
+                onChange={(e) => { const a = [...faqs]; a[i] = { ...a[i], question: e.target.value }; setFaqs(a); }}
+                className={`${inputCls} mb-2`}
+                placeholder="Question (e.g. Can I study while working full-time?)"
+              />
+              <textarea
+                value={faq.answer}
+                onChange={(e) => { const a = [...faqs]; a[i] = { ...a[i], answer: e.target.value }; setFaqs(a); }}
+                rows={3}
+                className={inputCls}
+                placeholder="Answer..."
               />
             </div>
           ))}

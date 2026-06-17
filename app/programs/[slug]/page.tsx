@@ -5367,6 +5367,9 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
         month6_6: cmsProgram.month_6_6 ?? program?.month6_6,
         month12Offline: cmsProgram.month_12_offline ?? program?.month12Offline,
         applicationDeadline: cmsProgram.application_deadline || program?.applicationDeadline || 'Rolling Admissions',
+        application_deadline: cmsProgram.application_deadline || 'Rolling Admissions',
+        faqs: cmsProgram.faqs ?? [],
+        how_to_apply_steps: cmsProgram.how_to_apply_steps ?? [],
         curriculum: cmsCurriculum.length > 0 ? cmsCurriculum : (program?.curriculum ?? []),
       };
     }
@@ -5440,7 +5443,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               🎓 {program.eligibility}
             </span>
             <span className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/20 border border-emerald-400/30 rounded-full text-xs font-medium text-emerald-300">
-              ✓ Rolling Admissions
+              ✓ {program.applicationDeadline || program.application_deadline || 'Rolling Admissions'}
             </span>
             {program.onlinePrice && (
               <span className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-400/15 border border-amber-400/30 rounded-full text-xs font-semibold text-amber-300">
@@ -5714,12 +5717,15 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               <div id="how-to-apply" className="py-6 md:py-8 border-b border-[#F3F4F6]">
                 <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-6">How to Apply</h2>
                 <div className="space-y-0">
-                  {[
-                    { step: '01', title: 'Submit Application', desc: 'Fill out the online application form with your basic details and medical degree information.' },
-                    { step: '02', title: 'Eligibility Review', desc: 'Our admissions team reviews your qualifications and contacts you within 48 hours.' },
-                    { step: '03', title: 'Counselling Call', desc: 'Speak with a program advisor to choose the right training mode and fee plan.' },
-                    { step: '04', title: 'Enroll & Begin', desc: 'Complete payment, receive your login credentials, and start your fellowship journey.' },
-                  ].map((item, i, arr) => (
+                  {(program.how_to_apply_steps?.length
+                    ? program.how_to_apply_steps.map((s: any, idx: number) => ({ step: String(idx + 1).padStart(2, '0'), title: s.title, desc: s.desc }))
+                    : [
+                        { step: '01', title: 'Submit Application', desc: 'Fill out the online application form with your basic details and medical degree information.' },
+                        { step: '02', title: 'Eligibility Review', desc: 'Our admissions team reviews your qualifications and contacts you within 48 hours.' },
+                        { step: '03', title: 'Counselling Call', desc: 'Speak with a program advisor to choose the right training mode and fee plan.' },
+                        { step: '04', title: 'Enroll & Begin', desc: 'Complete payment, receive your login credentials, and start your fellowship journey.' },
+                      ]
+                  ).map((item, i, arr) => (
                     <div key={i} className="flex gap-4 relative">
                       <div className="flex flex-col items-center">
                         <div className="w-9 h-9 bg-[#15401E] rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">
@@ -5746,28 +5752,16 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               <div id="faqs" className="scroll-mt-6 py-6 md:py-8">
                 <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-6">Frequently Asked Questions</h2>
                 <div className="space-y-4">
-                  {[
-                    {
-                      q: 'Can I study while working full-time?',
-                      a: 'Yes — the online modules are self-paced with recorded sessions. Live classes are held on weekends so you can continue working without interruption.',
-                    },
-                    {
-                      q: 'Is the certificate recognised internationally?',
-                      a: 'Our fellowship certificates are issued by partner hospitals and accredited institutions, accepted across India, the Gulf, and other regions.',
-                    },
-                    {
-                      q: 'What happens if I need to pause the program?',
-                      a: 'We offer a pause facility for up to 3 months. Your access to recorded content remains active during the pause.',
-                    },
-                    {
-                      q: 'Are EMI options available?',
-                      a: 'Yes, we offer 0% interest EMI for up to 12 months through our banking partners. You can also opt for bank education loans covering up to 80% of the fee.',
-                    },
-                    {
-                      q: 'Do I get placement assistance?',
-                      a: 'All fellows get access to our placement cell, which includes job postings, resume workshops, and referrals to partner hospitals.',
-                    },
-                  ].map((item, i) => (
+                  {(program.faqs?.length
+                    ? program.faqs.map((f: any) => ({ q: f.question, a: f.answer }))
+                    : [
+                        { q: 'Can I study while working full-time?', a: 'Yes — the online modules are self-paced with recorded sessions. Live classes are held on weekends so you can continue working without interruption.' },
+                        { q: 'Is the certificate recognised internationally?', a: 'Our fellowship certificates are issued by partner hospitals and accredited institutions, accepted across India, the Gulf, and other regions.' },
+                        { q: 'What happens if I need to pause the program?', a: 'We offer a pause facility for up to 3 months. Your access to recorded content remains active during the pause.' },
+                        { q: 'Are EMI options available?', a: 'Yes, we offer 0% interest EMI for up to 12 months through our banking partners. You can also opt for bank education loans covering up to 80% of the fee.' },
+                        { q: 'Do I get placement assistance?', a: 'All fellows get access to our placement cell, which includes job postings, resume workshops, and referrals to partner hospitals.' },
+                      ]
+                  ).map((item, i) => (
                     <details key={i} className="group border border-gray-100 rounded-xl overflow-hidden">
                       <summary className="flex items-center justify-between p-4 cursor-pointer list-none hover:bg-gray-50 transition-colors">
                         <span className="font-semibold text-[#15401E] text-sm pr-4">{item.q}</span>

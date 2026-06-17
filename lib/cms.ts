@@ -30,6 +30,8 @@ export interface CmsProgram {
   month_12_offline: number | null;
   career_opportunities: string[];
   application_deadline: string;
+  faqs: { question: string; answer: string }[];
+  how_to_apply_steps: { title: string; desc: string }[];
   is_published: boolean;
   sort_order: number;
   created_at: string;
