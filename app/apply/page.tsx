@@ -49,6 +49,8 @@ const PROGRAMS = [
   { value: 'microsurgery', label: 'Fellowship in Microsurgery' },
   { value: 'vascular-surgery', label: 'Fellowship in Vascular Surgery' },
   { value: 'paediatric-surgery', label: 'Fellowship in Paediatric Surgery' },
+  { value: 'orthognathic-surgery-maxillofacial-trauma', label: 'Fellowship in Orthognathic Surgery & Maxillofacial Trauma' },
+  { value: 'orthodontics', label: 'Fellowship in Orthodontics' },
   // Oncology
   { value: 'surgical-oncology', label: 'Fellowship in Surgical Oncology' },
   { value: 'medical-oncology', label: 'Fellowship in Medical Oncology' },
