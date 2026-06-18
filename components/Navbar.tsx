@@ -1,10 +1,15 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { analytics } from '@/lib/analytics';
+
+const COUNTRIES = [
+  { label: 'UAE – Dubai', flag: '🇦🇪', href: '/dubai/programs' },
+  { label: 'Saudi Arabia', flag: '🇸🇦', href: '/saudi-arabia/programs' },
+];
 
 const NAV_LINKS = [
   { href: '/',        label: 'Home' },
@@ -18,7 +23,20 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [enrollText, setEnrollText] = useState('Apply for June 2026 Batch');
   const [enrollTextDesktop, setEnrollTextDesktop] = useState('Enroll now');
+  const [countryOpen, setCountryOpen] = useState(false);
+  const [mobileCountryOpen, setMobileCountryOpen] = useState(false);
+  const countryRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (countryRef.current && !countryRef.current.contains(e.target as Node)) {
+        setCountryOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -77,6 +95,32 @@ export default function Navbar() {
               )}
             </Link>
           ))}
+
+          {/* Country dropdown */}
+          <div className="relative" ref={countryRef}>
+            <button
+              onClick={() => setCountryOpen(!countryOpen)}
+              className="flex items-center gap-1 px-3 py-1.5 rounded-md text-[0.875rem] font-medium text-[#374151] hover:bg-[#F9FAFB] transition-colors"
+            >
+              🌍 Country
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${countryOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {countryOpen && (
+              <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg border border-[#E5E7EB] shadow-lg py-1 z-50">
+                {COUNTRIES.map((c) => (
+                  <Link
+                    key={c.href}
+                    href={c.href}
+                    onClick={() => setCountryOpen(false)}
+                    className="flex items-center gap-2.5 px-4 py-2.5 text-[0.875rem] text-[#374151] hover:bg-[#F9FAFB] hover:text-[#15401E] transition-colors"
+                  >
+                    <span className="text-base">{c.flag}</span>
+                    {c.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Desktop right actions */}
@@ -121,7 +165,33 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <div className="pt-3 flex flex-col gap-2">
+              {/* Mobile country section */}
+            <div>
+              <button
+                onClick={() => setMobileCountryOpen(!mobileCountryOpen)}
+                className="flex items-center justify-between w-full px-3 py-2.5 rounded-md text-[0.9375rem] font-medium text-[#374151]"
+              >
+                <span>🌍 Country</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${mobileCountryOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {mobileCountryOpen && (
+                <div className="ml-3 mt-0.5 space-y-0.5">
+                  {COUNTRIES.map((c) => (
+                    <Link
+                      key={c.href}
+                      href={c.href}
+                      onClick={() => { setIsOpen(false); setMobileCountryOpen(false); }}
+                      className="flex items-center gap-2.5 px-3 py-2 rounded-md text-[0.9rem] text-[#374151] hover:bg-[#F7FAF8] hover:text-[#15401E] transition-colors"
+                    >
+                      <span>{c.flag}</span>
+                      {c.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+          <div className="pt-3 flex flex-col gap-2">
               <Link
                 href="/apply"
                 className="flex items-center justify-center py-3 rounded-md text-[0.9375rem] font-semibold text-white bg-[#15401E]"
