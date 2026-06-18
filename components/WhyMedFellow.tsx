@@ -43,13 +43,13 @@ interface WhyMedFellowProps {
 export default function WhyMedFellow({ heading, subtitle, whyPoints }: WhyMedFellowProps = {}) {
   const displayPoints = (whyPoints && whyPoints.length > 0) ? whyPoints : DEFAULT_WHY_POINTS;
 
-  const [form, setForm]       = useState({ name: '', email: '', course: '' });
+  const [form, setForm]       = useState({ name: '', email: '', phone: '', course: '' });
   const [status, setStatus]   = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errMsg, setErrMsg]   = useState('');
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!form.name || !form.email || !form.course) return;
+    if (!form.name || !form.email || !form.phone || !form.course) return;
     setStatus('loading');
     try {
       const res = await fetch('/api/contact', {
@@ -58,8 +58,9 @@ export default function WhyMedFellow({ heading, subtitle, whyPoints }: WhyMedFel
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          phone: form.phone,
           subject: form.course,
-          message: `Course enquiry from homepage: ${form.course}`,
+          message: `Course enquiry from homepage: ${form.course} | Phone: ${form.phone}`,
         }),
       });
       if (!res.ok) throw new Error('Failed');
@@ -133,6 +134,19 @@ export default function WhyMedFellow({ heading, subtitle, whyPoints }: WhyMedFel
                       placeholder="you@example.com"
                       value={form.email}
                       onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
+                      className="w-full border border-[#D1D5DB] rounded-lg px-4 py-2.5 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#15401E] focus:ring-1 focus:ring-[#15401E] transition"
+                    />
+                  </div>
+
+                  {/* Phone */}
+                  <div>
+                    <label className="block text-xs font-semibold text-[#374151] mb-1.5 uppercase tracking-wide">Phone Number</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+91 98765 43210"
+                      value={form.phone}
+                      onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
                       className="w-full border border-[#D1D5DB] rounded-lg px-4 py-2.5 text-sm text-[#111827] placeholder:text-[#9CA3AF] focus:outline-none focus:border-[#15401E] focus:ring-1 focus:ring-[#15401E] transition"
                     />
                   </div>
