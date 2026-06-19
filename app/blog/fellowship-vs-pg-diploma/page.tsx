@@ -318,7 +318,7 @@ export default function BlogArticle() {
                     India&apos;s leading medical fellowship institution with 500+ successful graduates, 98% placement rate, and partnerships with 8 premier hospitals. We provide MCI-recognized fellowships with guaranteed hands-on training and career support.
                   </p>
                   <div className="flex gap-4">
-                    <Link href="/programs" className="text-secondary font-semibold hover:text-primary">
+                    <Link href="/courses" className="text-secondary font-semibold hover:text-primary">
                       View Our Programs →
                     </Link>
                     <Link href="/blog" className="text-secondary font-semibold hover:text-primary">

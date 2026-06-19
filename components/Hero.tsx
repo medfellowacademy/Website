@@ -63,9 +63,9 @@ export default function Hero({
             {/* CTA */}
             <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6">
               <Link
-                href="/programs"
+                href="/courses"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#15401E] text-white text-sm font-semibold rounded-md hover:bg-[#0f2e15] transition-colors"
-                onClick={() => analytics.ctaClick('hero_explore_programs', '/programs', 'hero')}
+                onClick={() => analytics.ctaClick('hero_explore_programs', '/courses', 'hero')}
               >
                 Explore programs <ArrowRight className="w-4 h-4" />
               </Link>

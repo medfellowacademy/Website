@@ -7,9 +7,9 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: [
           "/",
-          "/programs",
-          "/programs/",
-          "/programs?page=",
+          "/courses",
+          "/courses/",
+          "/courses?page=",
           "*.css",
           "*.js",
           "*.jpg",

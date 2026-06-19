@@ -173,7 +173,7 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
           return (
             <Link
               key={program.slug}
-              href={`/programs/${program.slug}`}
+              href={`/courses/${program.slug}`}
               className="program-card overflow-hidden group"
             >
               {/* Image — full image, no crop */}

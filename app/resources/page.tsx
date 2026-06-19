@@ -266,7 +266,7 @@ export default function ResourceLibrary() {
               Enroll in a fellowship program to unlock advanced procedure videos, exclusive case studies, and premium CME courses.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/programs" className="px-8 py-4 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition-all text-lg">
+              <a href="/courses" className="px-8 py-4 bg-accent text-white rounded-lg font-semibold hover:bg-accent/90 transition-all text-lg">
                 Browse Programs
               </a>
               <a href="/apply" className="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-gray-100 transition-all text-lg">

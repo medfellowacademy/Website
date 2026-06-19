@@ -124,7 +124,7 @@ export default function FellowshipPrograms({ programs: propPrograms }: { program
               <p className="section-subtitle mt-1.5">12-month programs designed for practicing doctors — online, hybrid, and offline formats.</p>
             </div>
             <Link
-              href="/programs"
+              href="/courses"
               className="flex-shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-[#15401E] hover:text-[#0f2e15] transition-colors"
             >
               All {programs.length} programs <ArrowRight className="w-4 h-4" />
@@ -147,7 +147,7 @@ export default function FellowshipPrograms({ programs: propPrograms }: { program
           </div>
           <div className="flex gap-3 flex-shrink-0">
             <Link href="/contact" className="btn-outline text-sm">Talk to an advisor</Link>
-            <Link href="/programs" className="btn-primary text-sm">
+            <Link href="/courses" className="btn-primary text-sm">
               Browse all programs <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

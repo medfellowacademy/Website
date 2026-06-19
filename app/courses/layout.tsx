@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fellowship Programs at MedFellow Academy",
     description: "60+ internationally accredited fellowship programs for practicing doctors across all major medical specialties.",
-    url: "https://medfellowacademy.com/programs",
+    url: "https://medfellowacademy.com/courses",
   },
 };
 

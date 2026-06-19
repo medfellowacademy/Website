@@ -4,6 +4,12 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      { source: '/programs', destination: '/courses', permanent: true },
+      { source: '/programs/:slug*', destination: '/courses/:slug*', permanent: true },
+    ];
+  },
   reactCompiler: true,
   images: {
     remotePatterns: [

@@ -129,7 +129,7 @@ export default function Footer() {
               {[
                 { href: '/',            label: 'Home' },
                 { href: '/about',       label: 'About Us' },
-                { href: '/programs',    label: 'Programs' },
+                { href: '/courses',     label: 'Courses' },
                 { href: '/contact',     label: 'Contact' },
               ].map((l, i) => (
                 <li key={i}>

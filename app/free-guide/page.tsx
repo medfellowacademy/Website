@@ -77,7 +77,7 @@ export default function FreeGuide() {
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/programs" className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-accent transition-all">
+                <a href="/courses" className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-accent transition-all">
                   Browse Programs
                 </a>
                 <a href="/fellowship-matcher" className="px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all">

@@ -6,7 +6,7 @@ const staticRoutes = [
   "",
   "/about",
   "/contact",
-  "/programs",
+  "/courses",
   "/apply",
   "/blog",
   "/blog/fellowship-vs-pg-diploma",
@@ -78,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const urls = [
     ...staticRoutes.map((route) => `${SITE_URL}${route}`),
-    ...programSlugs.map((slug) => `${SITE_URL}/programs/${slug}`),
+    ...programSlugs.map((slug) => `${SITE_URL}/courses/${slug}`),
   ];
 
   return [...new Set(urls)].map((url) => ({

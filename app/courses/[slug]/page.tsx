@@ -5385,7 +5385,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           <div className="text-6xl mb-6">🔍</div>
           <h1 className="text-3xl font-bold text-[#15401E] mb-4">Program Not Found</h1>
           <p className="text-gray-500 mb-8">The program you&apos;re looking for doesn&apos;t exist.</p>
-          <Link href="/programs" className="inline-flex items-center gap-2 px-6 py-3 bg-[#15401E] text-white font-semibold rounded-xl hover:bg-[#0f2e15] transition-all">
+          <Link href="/courses" className="inline-flex items-center gap-2 px-6 py-3 bg-[#15401E] text-white font-semibold rounded-xl hover:bg-[#0f2e15] transition-all">
             ← View All Programs
           </Link>
         </div>
@@ -5416,7 +5416,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
         <div className="relative z-10 container-custom py-8 md:py-10 flex flex-col items-center text-center">
 
           {/* Breadcrumb */}
-          <Link href="/programs"
+          <Link href="/courses"
             className="self-start inline-flex items-center gap-1.5 text-white/50 hover:text-white mb-6 text-xs transition-colors">
             ← All Programs
           </Link>
@@ -5518,13 +5518,13 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     { label: 'Neurosurgery', slug: 'fellowship-in-neurosurgery', icon: '🧠' },
                     { label: 'Urology', slug: 'fellowship-in-urology', icon: '🔬' },
                   ].map((sp, i) => (
-                    <Link key={i} href={`/programs/${sp.slug}`}
+                    <Link key={i} href={`/courses/${sp.slug}`}
                       className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${slug === sp.slug ? 'bg-[#15401E] text-white' : 'text-gray-600 hover:bg-[#f0f9f1] hover:text-[#15401E]'}`}>
                       <span>{sp.icon}</span>
                       {sp.label}
                     </Link>
                   ))}
-                  <Link href="/programs"
+                  <Link href="/courses"
                     className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-[#15401E] hover:bg-[#f0f9f1] transition-colors mt-1 border border-[#15401E]/20">
                     View All Programs →
                   </Link>
@@ -5901,7 +5901,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     { name: 'Fellowship in Diabetes Mellitus', slug: 'fellowship-in-diabetes-mellitus', icon: '🩺', duration: '12 Months', price: 150000 },
                     { name: 'Fellowship in Gynecology & Obstetrics', slug: 'fellowship-in-gynecology-obstetrics', icon: '🤰', duration: '12 Months', price: 145000 },
                   ].filter(r => r.slug !== slug).slice(0, 4).map((rec, i) => (
-                    <Link key={i} href={`/programs/${rec.slug}`}
+                    <Link key={i} href={`/courses/${rec.slug}`}
                       className="flex items-start gap-3 p-3 rounded-xl border border-gray-100 hover:border-[#15401E]/20 hover:bg-[#f0f9f1]/30 transition-all group">
                       <div className="w-10 h-10 rounded-xl bg-[#15401E] flex items-center justify-center text-lg shrink-0">
                         {rec.icon}
@@ -5916,7 +5916,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     </Link>
                   ))}
                 </div>
-                <Link href="/programs"
+                <Link href="/courses"
                   className="flex items-center justify-center gap-1.5 w-full mt-4 py-2.5 rounded-xl text-xs font-semibold text-[#15401E] border border-[#15401E]/20 hover:bg-[#15401E] hover:text-white transition-all">
                   View All Programs →
                 </Link>
