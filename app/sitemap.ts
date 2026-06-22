@@ -23,6 +23,16 @@ const staticRoutes = [
   "/virtual-tours",
 ] as const;
 
+const countryProgramSlugs = [
+  "fellowship-in-pediatrics",
+  "fellowship-in-endocrinology",
+  "fellowship-in-nephrology",
+  "fellowship-in-gastroenterology",
+  "fellowship-in-reproductive-medicine",
+  "fellowship-in-neonatology",
+  "fellowship-in-arthroscopy-and-arthroplasty",
+] as const;
+
 const programSlugs = [
   "fellowship-in-2d-echocardiography",
   "fellowship-in-anesthesia",
@@ -79,6 +89,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const urls = [
     ...staticRoutes.map((route) => `${SITE_URL}${route}`),
     ...programSlugs.map((slug) => `${SITE_URL}/courses/${slug}`),
+    `${SITE_URL}/dubai/programs`,
+    ...countryProgramSlugs.map((slug) => `${SITE_URL}/dubai/programs/${slug}`),
+    `${SITE_URL}/saudi-arabia/programs`,
+    ...countryProgramSlugs.map((slug) => `${SITE_URL}/saudi-arabia/programs/${slug}`),
   ];
 
   return [...new Set(urls)].map((url) => ({
