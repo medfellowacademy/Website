@@ -31,7 +31,8 @@ export const metadata: Metadata = {
   creator: 'Med Fellow Academy',
   publisher: 'Med Fellow Academy',
   metadataBase: new URL('https://www.medfellowacademy.com'),
-  alternates: { canonical: '/' },
+  robots: { index: true, follow: true },
+  alternates: { canonical: 'https://www.medfellowacademy.com/' },
   openGraph: {
     type: 'website',
     locale: 'en_US',

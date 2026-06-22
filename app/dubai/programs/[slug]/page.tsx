@@ -1689,7 +1689,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Why Specialty Demand in Dubai */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
@@ -1734,7 +1734,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Curriculum */}
       <section className="py-20" style={{ background: '#F2F3F4' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
@@ -1775,7 +1775,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Career Outcomes */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
@@ -1801,7 +1801,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Pricing */}
       <section className="py-20" style={{ background: '#e8f2ea' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
@@ -1863,7 +1863,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Application Process */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
@@ -1909,7 +1909,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* First 30 Days */}
       <section className="py-20" style={{ background: '#F2F3F4' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
@@ -1940,7 +1940,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Compare Section */}
       <section className="py-20">
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
@@ -1982,7 +1982,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Explore Programs */}
       <section className="py-20" style={{ background: '#e8f2ea' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-semibold mb-3" style={{ color: '#15401E' }}>
@@ -2043,7 +2043,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Testimonials */}
       <section className="py-20" style={{ background: '#F2F3F4' }}>
-        <div className="max-w-7xl mx-auto px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
@@ -2079,7 +2079,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* FAQs */}
       <section className="py-20" style={{ background: '#e8f2ea' }}>
-        <div className="max-w-4xl mx-auto px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4" style={{ background: '#e8f2ea', color: '#15401E' }}>
               <Users className="w-4 h-4" />
@@ -2118,7 +2118,7 @@ export default function DubaiProgramDetail(props: ProgramPageProps) {
 
       {/* Final CTA */}
       <section className="py-20">
-        <div className="max-w-4xl mx-auto px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="p-12 rounded-3xl text-center text-white" style={{ background: 'linear-gradient(135deg, #15401E 0%, #15401E 100%)' }}>
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               {program.finalCtaHeading}
