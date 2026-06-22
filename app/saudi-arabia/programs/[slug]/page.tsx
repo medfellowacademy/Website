@@ -1870,7 +1870,7 @@ export default function SaudiProgramDetail(props: ProgramPageProps) {
               Application Process
             </h2>
           </div>
-          <div className="grid md:grid-cols-5 gap-4">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {program.applicationProcess.map((step) => (
               <div key={step.step} className="bg-white rounded-xl p-5" style={{ border: '1px solid #D5DBDB' }}>
                 <div className="w-8 h-8 rounded-full mb-3 flex items-center justify-center text-sm font-semibold text-white" style={{ background: '#2E86C1' }}>
