@@ -5732,7 +5732,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             </div>
 
             {/* ── Sidebar ── */}
-            <div className="space-y-5 sticky top-[76px] self-start max-h-[calc(100vh-84px)] overflow-y-auto scrollbar-hide">
+            <div className="space-y-5 sticky top-[76px] self-start">
 
               {/* Enrollment card */}
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
