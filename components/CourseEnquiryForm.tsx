@@ -25,11 +25,16 @@ export default function CourseEnquiryForm({ courseName }: { courseName?: string 
           subject: courseName ? `Course Enquiry: ${courseName}` : 'Course Enquiry',
         }),
       });
-      if (!res.ok) throw new Error('Failed');
+      const json = await res.json();
+      if (!res.ok) {
+        setError(json?.error || `Error ${res.status}: Please try again.`);
+        return;
+      }
       setSubmitted(true);
       setForm({ name: '', email: '', phone: '', message: '' });
-    } catch {
-      setError('Something went wrong. Please try again.');
+    } catch (err) {
+      console.error('Enquiry form error:', err);
+      setError('Network error. Please check your connection and try again.');
     } finally {
       setSubmitting(false);
     }
