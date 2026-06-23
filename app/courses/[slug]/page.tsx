@@ -5479,59 +5479,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
       {/* ── Main content ── */}
       <section className="py-8 md:py-12">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-[230px_1fr_300px] gap-6 items-start">
-
-            {/* ── LEFT SIDEBAR ── */}
-            <aside className="hidden lg:block space-y-4 sticky top-[76px] self-start max-h-[calc(100vh-84px)] overflow-y-auto scrollbar-hide">
-
-              {/* Sections nav */}
-              <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Jump to Section</p>
-                <nav className="space-y-1">
-                  {[
-                    { label: 'Overview', anchor: '#overview', icon: '📖' },
-                    { label: 'Curriculum', anchor: '#curriculum', icon: '📋' },
-                    { label: 'Career Outcomes', anchor: '#career', icon: '💼' },
-                    { label: 'Fees & Admission', anchor: '#fees', icon: '💰' },
-                    { label: 'How to Apply', anchor: '#how-to-apply', icon: '📝' },
-                    { label: 'FAQs', anchor: '#faqs', icon: '❓' },
-                  ].map((s, i) => (
-                    <a key={i} href={s.anchor}
-                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-gray-600 hover:bg-[#f0f9f1] hover:text-[#15401E] transition-colors">
-                      <span>{s.icon}</span>
-                      {s.label}
-                    </a>
-                  ))}
-                </nav>
-              </div>
-
-              {/* Specialties */}
-              <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Specialties</p>
-                <div className="space-y-1">
-                  {[
-                    { label: 'Emergency Medicine', slug: 'fellowship-in-emergency-medicine', icon: '🚑' },
-                    { label: 'Critical Care', slug: 'fellowship-in-critical-care-medicine', icon: '🏥' },
-                    { label: 'Cardiology', slug: 'fellowship-in-interventional-cardiology', icon: '🫀' },
-                    { label: 'Diabetes', slug: 'fellowship-in-diabetes-mellitus', icon: '🩺' },
-                    { label: 'Gynecology', slug: 'fellowship-in-gynecology-obstetrics', icon: '🤰' },
-                    { label: 'Orthopedics', slug: 'fellowship-in-orthopedics', icon: '🦴' },
-                    { label: 'Neurosurgery', slug: 'fellowship-in-neurosurgery', icon: '🧠' },
-                    { label: 'Urology', slug: 'fellowship-in-urology', icon: '🔬' },
-                  ].map((sp, i) => (
-                    <Link key={i} href={`/courses/${sp.slug}`}
-                      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-colors ${slug === sp.slug ? 'bg-[#15401E] text-white' : 'text-gray-600 hover:bg-[#f0f9f1] hover:text-[#15401E]'}`}>
-                      <span>{sp.icon}</span>
-                      {sp.label}
-                    </Link>
-                  ))}
-                  <Link href="/courses"
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-[#15401E] hover:bg-[#f0f9f1] transition-colors mt-1 border border-[#15401E]/20">
-                    View All Programs →
-                  </Link>
-                </div>
-              </div>
-            </aside>
+          <div className="grid lg:grid-cols-[1fr_300px] gap-6 items-start">
 
             {/* ── CENTER MAIN CONTENT ── */}
             <div className="space-y-6">
