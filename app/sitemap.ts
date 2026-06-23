@@ -7,6 +7,7 @@ const staticRoutes = [
   "/about",
   "/contact",
   "/courses",
+  "/faq",
   "/apply",
   "/blog",
   "/blog/fellowship-vs-pg-diploma",

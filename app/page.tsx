@@ -7,10 +7,9 @@ import TrainingFacilities from "@/components/TrainingFacilities";
 import Faculty from "@/components/Faculty";
 import Testimonials from "@/components/Testimonials";
 import AccreditationSection from "@/components/AccreditationSection";
-import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyApplyCTA from "@/components/StickyApplyCTA";
-import { getFaculty, getTestimonials, getFaqs, getPrograms, getSettings } from "@/lib/cms";
+import { getFaculty, getTestimonials, getPrograms, getSettings } from "@/lib/cms";
 import { getProgramImage } from "@/lib/course-images";
 
 export const dynamic = 'force-dynamic';
@@ -41,10 +40,9 @@ function getInitials(name: string) {
 
 export default async function Home() {
   // Fetch all CMS data in parallel — each has its own fallback
-  const [cmsFaculty, cmsTestimonials, cmsFaqs, cmsPrograms, cmsSettings] = await Promise.all([
+  const [cmsFaculty, cmsTestimonials, cmsPrograms, cmsSettings] = await Promise.all([
     getFaculty().catch(() => []),
     getTestimonials().catch(() => []),
-    getFaqs().catch(() => []),
     getPrograms().catch(() => []),
     getSettings().catch(() => ({} as Record<string, any>)),
   ]);
@@ -77,9 +75,6 @@ export default async function Home() {
     initials: getInitials(t.author_name),
     color: AVATAR_COLORS[i % AVATAR_COLORS.length],
   }));
-
-  // ── FAQs ─────────────────────────────────────────────────────────────────────
-  const faqProps = cmsFaqs.map(f => ({ q: f.question, a: f.answer }));
 
   // ── Featured Programs ────────────────────────────────────────────────────────
   const publishedPrograms = cmsPrograms.filter(p => p.is_published);
@@ -191,7 +186,6 @@ export default async function Home() {
         badgeCaption={s.accreditation_badge_caption ? String(s.accreditation_badge_caption) : undefined}
         trustPoints={accrTrustPoints.length > 0 ? accrTrustPoints : undefined}
       />
-      <FAQ faqs={faqProps.length > 0 ? faqProps : undefined} />
       <Footer />
       <StickyApplyCTA />
     </div>
