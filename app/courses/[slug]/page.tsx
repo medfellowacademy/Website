@@ -10,7 +10,6 @@ import { notFound } from "next/navigation";
 // Slugs that have been removed and must always 404
 const REMOVED_SLUGS = new Set([
   "fellowship-in-cardiology",
-  "fellowship-in-clinical-cardiology",
 ]);
 
 export const dynamic = 'force-dynamic';

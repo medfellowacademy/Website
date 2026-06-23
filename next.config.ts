@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     return [
       { source: '/programs', destination: '/courses', permanent: true },
       { source: '/programs/:slug*', destination: '/courses/:slug*', permanent: true },
+      { source: '/courses/fellowship-in-cardiology', destination: '/courses', permanent: true },
     ];
   },
   reactCompiler: true,

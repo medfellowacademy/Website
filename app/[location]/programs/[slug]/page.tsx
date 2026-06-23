@@ -5333,7 +5333,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
   }
 
   // Removed programs — always 404
-  const REMOVED_SLUGS = new Set(["fellowship-in-cardiology", "fellowship-in-clinical-cardiology"]);
+  const REMOVED_SLUGS = new Set(["fellowship-in-cardiology"]);
   if (REMOVED_SLUGS.has(slug)) notFound();
 
   const program = programsData[slug];
