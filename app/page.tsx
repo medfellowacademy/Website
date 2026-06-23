@@ -78,7 +78,7 @@ export default async function Home() {
   }));
 
   // ── Featured Programs ────────────────────────────────────────────────────────
-  const publishedPrograms = cmsPrograms.filter(p => p.is_published);
+  const publishedPrograms = cmsPrograms.filter(p => p.is_published && p.slug !== 'fellowship-in-cardiology');
   const featuredProgramProps: FeaturedProgram[] = publishedPrograms.slice(0, 18).map(p => ({
     name: p.name,
     slug: p.slug,

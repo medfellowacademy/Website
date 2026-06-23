@@ -24,7 +24,7 @@ export default async function ProgramsPage() {
     const cmsPrograms = await getPrograms();
     if (cmsPrograms && cmsPrograms.length > 0) {
       programs = cmsPrograms
-        .filter((p) => p.is_published)
+        .filter((p) => p.is_published && p.slug !== 'fellowship-in-cardiology')
         .map((p) => ({
           name: p.name,
           slug: p.slug,
