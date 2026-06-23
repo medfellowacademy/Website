@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import CurriculumAccordion from "@/components/CurriculumAccordion";
+import CourseEnquiryForm from "@/components/CourseEnquiryForm";
 import { getProgramBySlug, getCurriculumModules } from "@/lib/cms";
 import { getProgramImage } from "@/lib/course-images";
 import { notFound } from "next/navigation";
@@ -5746,6 +5747,11 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                 >
                   Start Your Application →
                 </Link>
+              </div>
+
+              {/* Enquiry Form */}
+              <div className="py-6 md:py-8 border-b border-[#F3F4F6]">
+                <CourseEnquiryForm courseName={program.name} />
               </div>
 
               {/* FAQ */}
