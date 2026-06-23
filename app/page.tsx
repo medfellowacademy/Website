@@ -7,6 +7,7 @@ import TrainingFacilities from "@/components/TrainingFacilities";
 import Faculty from "@/components/Faculty";
 import Testimonials from "@/components/Testimonials";
 import AccreditationSection from "@/components/AccreditationSection";
+import HomeEnquiryForm from "@/components/HomeEnquiryForm";
 import Footer from "@/components/Footer";
 import StickyApplyCTA from "@/components/StickyApplyCTA";
 import { getFaculty, getTestimonials, getPrograms, getSettings } from "@/lib/cms";
@@ -186,6 +187,7 @@ export default async function Home() {
         badgeCaption={s.accreditation_badge_caption ? String(s.accreditation_badge_caption) : undefined}
         trustPoints={accrTrustPoints.length > 0 ? accrTrustPoints : undefined}
       />
+      <HomeEnquiryForm />
       <Footer />
       <StickyApplyCTA />
     </div>
