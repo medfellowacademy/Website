@@ -5,7 +5,7 @@ import { X, ArrowRight } from 'lucide-react';
 import { analytics } from '@/lib/analytics';
 
 const DEFAULT_MESSAGES = [
-  { text: 'June 2026 batch applications now open — only 14 seats remaining', label: 'june_2026_batch' },
+  { text: 'July 2026 batch applications now open — only 14 seats remaining', label: 'july_2026_batch' },
   { text: 'New: Fellowship in Neonatology — Dubai & Saudi Arabia now available', label: 'new_neonatology' },
   { text: '4× salary uplift reported by Emergency Medicine fellows in 2025', label: 'salary_uplift' },
 ];

@@ -16,7 +16,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isOpen, setIsOpen]   = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [enrollText, setEnrollText] = useState('Apply for June 2026 Batch');
+  const [enrollText, setEnrollText] = useState('Apply for July 2026 Batch');
   const [enrollTextDesktop, setEnrollTextDesktop] = useState('Enroll now');
   const pathname = usePathname();
 

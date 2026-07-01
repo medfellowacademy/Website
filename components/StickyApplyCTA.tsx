@@ -28,7 +28,7 @@ export default function StickyApplyCTA() {
         {/* Left: text */}
         <div className="min-w-0">
           <p className="text-[0.9375rem] font-semibold text-[#111827] leading-tight truncate">
-            June 2026 Batch — Only 14 seats remaining
+            July 2026 Batch — Only 14 seats remaining
           </p>
           <p className="text-[0.8125rem] text-[#6B7280] hidden sm:block">Secure your seat before applications close.</p>
         </div>
