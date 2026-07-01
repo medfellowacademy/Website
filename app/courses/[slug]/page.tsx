@@ -14,7 +14,7 @@ const REMOVED_SLUGS = new Set([
 
 export const dynamic = 'force-dynamic';
 
-// Program data
+// Course data
 const programsData: { [key: string]: any } = {
   "fellowship-in-emergency-medicine": {
     name: "Fellowship in Emergency Medicine",
@@ -184,7 +184,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MS / MD / DNB / Obstetrics & Gynecology qualification",
     description: "Comprehensive fellowship in cosmetic gynecology integrating aesthetic, functional, and sexual wellness care.",
-    overview: "This curriculum-focused fellowship in Cosmetic Gynecology builds competency across patient evaluation, non-surgical energy-based procedures, surgical cosmetic gynecology, urogynecologic functional corrections, perioperative care, complication prevention, and practice development. The program emphasizes evidence-based decision-making, ethical consent, hands-on clinical exposure, and medico-legal safety.",
+    overview: "This curriculum-focused fellowship in Cosmetic Gynecology builds competency across patient evaluation, non-surgical energy-based procedures, surgical cosmetic gynecology, urogynecologic functional corrections, perioperative care, complication prevention, and practice development. The course emphasizes evidence-based decision-making, ethical consent, hands-on clinical exposure, and medico-legal safety.",
     highlights: ["Aesthetic and functional cosmetic gynecology training", "Laser, RF, PRP, injectables, and device-based procedures", "Surgical cosmetic gynecology and urogynecology integration", "Hands-on case exposure with practice setup and business modules"],
     onlinePrice: 160000,
     month11_1: 195000,
@@ -574,7 +574,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MS/MD/DNB Obstetrics & Gynecology",
     description: "Advanced fellowship in fetal diagnosis, imaging, genetics, and intrauterine care pathways.",
-    overview: "Fellowship in Fetal Medicine is a 12-month advanced training program focused on fetal imaging, prenatal diagnosis, growth surveillance, genetics, invasive procedures, complex fetal pathology, and fetal therapy exposure. The curriculum is designed to build independent fetal medicine specialists with strong technical and counseling competence.",
+    overview: "Fellowship in Fetal Medicine is a 12-month advanced training course focused on fetal imaging, prenatal diagnosis, growth surveillance, genetics, invasive procedures, complex fetal pathology, and fetal therapy exposure. The curriculum is designed to build independent fetal medicine specialists with strong technical and counseling competence.",
     highlights: ["Comprehensive fetal imaging pathway", "Prenatal genetics and invasive diagnostics", "Advanced fetal surveillance and complex case review", "Fetal intervention exposure with ethics and counseling"],
     onlinePrice: 160000,
     month11_1: 210000,
@@ -683,7 +683,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "BDS / MDS / MBBS / MS / DNB",
     description: "Advanced competency-based training in diagnosis, surgical management, and rehabilitation of oral and maxillofacial conditions.",
-    overview: "The Fellowship in Maxillofacial and Oral Surgery is an advanced 1-year program designed for dental and medical professionals seeking expertise in oral and maxillofacial surgery. The curriculum integrates surgical foundations, trauma care, orthognathic planning, implantology, TMJ management, oral oncology, reconstructive techniques, and practice-oriented professional development.",
+    overview: "The Fellowship in Maxillofacial and Oral Surgery is an advanced 1-year course designed for dental and medical professionals seeking expertise in oral and maxillofacial surgery. The curriculum integrates surgical foundations, trauma care, orthognathic planning, implantology, TMJ management, oral oncology, reconstructive techniques, and practice-oriented professional development.",
     highlights: ["Comprehensive maxillofacial surgical training", "Trauma, orthognathic, and reconstructive focus", "Implantology, TMJ, and oral oncology pathways", "Advanced technology integration and practice management"],
     onlinePrice: 200000,
     month11_1: 230000,
@@ -827,7 +827,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "BDS / MDS / Equivalent dental qualification",
     description: "Comprehensive fellowship in implant dentistry and laser-assisted minimally invasive dental care.",
-    overview: "The Fellowship in Oral Implantology and Laser Dentistry is a clinically driven 1-year program designed to build advanced expertise in implant planning, surgical placement, prosthetic rehabilitation, and laser applications in dentistry. The curriculum combines theory, simulation, and hands-on clinical exposure with modern digital workflows.",
+    overview: "The Fellowship in Oral Implantology and Laser Dentistry is a clinically driven 1-year course designed to build advanced expertise in implant planning, surgical placement, prosthetic rehabilitation, and laser applications in dentistry. The curriculum combines theory, simulation, and hands-on clinical exposure with modern digital workflows.",
     highlights: ["Implant planning, placement, and restoration", "Laser physics and clinical laser applications", "CBCT-guided digital decision making", "Esthetic and functional rehabilitation"],
     curriculum: [
       {
@@ -928,7 +928,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MS / DNB / Equivalent medical qualification",
     description: "Master advanced urological care with clinical precision and surgical expertise through a comprehensive practice-oriented fellowship.",
-    overview: "The Fellowship in Urology is a comprehensive, practice-oriented program designed to equip medical professionals with advanced knowledge and clinical skills in the diagnosis, management, and surgical treatment of urological disorders. Urology focuses on diseases of the urinary tract in both males and females, along with the male reproductive system, covering conditions ranging from infections and stone disease to complex malignancies and reconstructive procedures. This fellowship integrates evidence-based learning, modern diagnostics, and minimally invasive surgical techniques, enabling participants to confidently manage both routine and complex urological cases in clinical and hospital settings.",
+    overview: "The Fellowship in Urology is a comprehensive, practice-oriented course designed to equip medical professionals with advanced knowledge and clinical skills in the diagnosis, management, and surgical treatment of urological disorders. Urology focuses on diseases of the urinary tract in both males and females, along with the male reproductive system, covering conditions ranging from infections and stone disease to complex malignancies and reconstructive procedures. This fellowship integrates evidence-based learning, modern diagnostics, and minimally invasive surgical techniques, enabling participants to confidently manage both routine and complex urological cases in clinical and hospital settings.",
     highlights: ["Comprehensive coverage of medical and surgical urology", "Training in minimally invasive, endoscopic, and laparoscopic techniques", "Exposure to uro-oncology and reconstructive urology", "Focus on clinical decision-making and patient-centered care", "Case-based discussions and real-world clinical scenarios", "Emphasis on modern technologies and evolving practices"],
     onlinePrice: 170000,
     month11_1: 190000,
@@ -1004,7 +1004,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
     description: "Advanced clinical training in mental health and behavioral sciences with evidence-based, empathetic psychiatric care.",
-    overview: "The Fellowship in Psychiatric Medicine is a comprehensive, clinically oriented one-year program designed to build advanced competencies in assessment, diagnosis, management, and holistic care of psychiatric disorders. The course integrates neurobiological understanding with psychosocial and therapeutic approaches, preparing clinicians for outpatient, inpatient, and emergency psychiatric settings.",
+    overview: "The Fellowship in Psychiatric Medicine is a comprehensive, clinically oriented one-year course designed to build advanced competencies in assessment, diagnosis, management, and holistic care of psychiatric disorders. The course integrates neurobiological understanding with psychosocial and therapeutic approaches, preparing clinicians for outpatient, inpatient, and emergency psychiatric settings.",
     highlights: ["Blended, structured 1-year fellowship", "Case-based real-world psychiatric training", "Emergency psychiatry and crisis intervention exposure", "Strong focus on communication, empathy, ethics, and medico-legal practice"],
     onlinePrice: 150000,
     month11_1: 170000,
@@ -1065,7 +1065,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MS / MCh / DNB / Equivalent medical qualification",
     description: "Advanced hybrid training in neurosurgical care with case-based learning, skill development, and OT exposure.",
-    overview: "The Fellowship in Neurosurgery is a one-year hybrid program designed to build advanced clinical and procedural competence in neurosurgical practice. The curriculum integrates applied neuroscience, emergency neurosurgery, neuro-oncology, neurovascular and spine care, critical care, and evolving minimally invasive technologies through structured case-based and skill-based training.",
+    overview: "The Fellowship in Neurosurgery is a one-year hybrid course designed to build advanced clinical and procedural competence in neurosurgical practice. The curriculum integrates applied neuroscience, emergency neurosurgery, neuro-oncology, neurovascular and spine care, critical care, and evolving minimally invasive technologies through structured case-based and skill-based training.",
     highlights: ["Hybrid learning with hospital-based exposure", "Neurotrauma and emergency neurosurgical protocols", "Neuro-oncology, neurovascular, and spine modules", "Critical care, advanced techniques, and research orientation"],
     onlinePrice: 220000,
     month11_1: 250000,
@@ -1171,8 +1171,8 @@ const programsData: { [key: string]: any } = {
     icon: "🧠",
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
-    description: "Hybrid one-year program in clinical neurology with case-based learning, OPD exposure, and diagnostic skill development.",
-    overview: "The Fellowship in Clinical Neurology is a 12-month hybrid program designed to strengthen clinical reasoning and diagnostic competency in neurology. It integrates structured case-based teaching, OPD-focused exposure, emergency neurology, neurodiagnostics, and supervised clinical postings to prepare participants for real-world neurological practice.",
+    description: "Hybrid one-year course in clinical neurology with case-based learning, OPD exposure, and diagnostic skill development.",
+    overview: "The Fellowship in Clinical Neurology is a 12-month hybrid course designed to strengthen clinical reasoning and diagnostic competency in neurology. It integrates structured case-based teaching, OPD-focused exposure, emergency neurology, neurodiagnostics, and supervised clinical postings to prepare participants for real-world neurological practice.",
     highlights: ["Localization-based neurological assessment", "Acute neurology and emergency protocols", "Stroke, epilepsy, neuroinflammatory, and neurodegenerative pathways", "Hands-on logbook-driven clinical training"],
     onlinePrice: 170000,
     month11_1: 190000,
@@ -1283,7 +1283,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MD Pediatrics / DNB Pediatrics / MD Medicine / DNB / Equivalent medical qualification",
     description: "Comprehensive fellowship in pediatric neurological disorders with strong emphasis on diagnosis, neurodiagnostics, and long-term management.",
-    overview: "The Fellowship in Pediatric Neurology is a clinically focused one-year program designed for pediatricians, neurologists, and practicing clinicians. It delivers structured training in pediatric neurological assessment, seizure care, neurodevelopmental and neuromuscular disorders, neurovascular and metabolic conditions, and diagnostic interpretation through case-based mentorship and multidisciplinary exposure.",
+    overview: "The Fellowship in Pediatric Neurology is a clinically focused one-year course designed for pediatricians, neurologists, and practicing clinicians. It delivers structured training in pediatric neurological assessment, seizure care, neurodevelopmental and neuromuscular disorders, neurovascular and metabolic conditions, and diagnostic interpretation through case-based mentorship and multidisciplinary exposure.",
     highlights: ["Comprehensive pediatric neurology disorder coverage", "Case-based learning with expert mentorship", "Neurodiagnostic training (EEG, imaging, electrophysiology)", "Multidisciplinary real-world pediatric neurological care"],
     onlinePrice: 180000,
     month11_1: 210000,
@@ -1336,7 +1336,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MS / MCh / DNB / Equivalent surgical qualification",
     description: "Advanced, clinically driven fellowship focused on surgical management of complex cardiac and thoracic conditions.",
-    overview: "The Fellowship in Cardiothoracic Surgery is a structured high-intensity program offering focused training in cardiac and thoracic surgical practice. It integrates operative exposure, perioperative critical care, minimally invasive approaches, and multidisciplinary collaboration to prepare participants for advanced tertiary-care and super-speciality surgical roles.",
+    overview: "The Fellowship in Cardiothoracic Surgery is a structured high-intensity course offering focused training in cardiac and thoracic surgical practice. It integrates operative exposure, perioperative critical care, minimally invasive approaches, and multidisciplinary collaboration to prepare participants for advanced tertiary-care and super-speciality surgical roles.",
     highlights: ["One-year blended fellowship (theory + clinical exposure)", "Hands-on operative and OT-based training", "Perioperative critical care and decision-making focus", "Exposure to minimally invasive, robotic, and hybrid procedures"],
     onlinePrice: 200000,
     month11_1: 240000,
@@ -1443,7 +1443,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS with MD/DNB in General Medicine or equivalent",
     description: "Advanced clinically intensive fellowship in diagnosis, staging, and systemic management of cancer.",
-    overview: "The Fellowship in Medical Oncology is an advanced program that builds deep expertise in contemporary oncology practice across solid tumors and hematological malignancies. It integrates chemotherapy, immunotherapy, targeted therapy, and precision medicine with multidisciplinary decision-making, supportive care, and evidence-based treatment planning for high-quality, patient-centered cancer care.",
+    overview: "The Fellowship in Medical Oncology is an advanced course that builds deep expertise in contemporary oncology practice across solid tumors and hematological malignancies. It integrates chemotherapy, immunotherapy, targeted therapy, and precision medicine with multidisciplinary decision-making, supportive care, and evidence-based treatment planning for high-quality, patient-centered cancer care.",
     highlights: ["Comprehensive systemic therapy training (chemo, immunotherapy, targeted)", "Precision oncology and individualized treatment planning", "Multidisciplinary tumor board exposure", "Oncologic emergencies, supportive care, and palliative integration"],
     onlinePrice: 180000,
     month11_1: 200000,
@@ -1497,7 +1497,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS with MD/DNB in General Medicine or equivalent",
     description: "Comprehensive clinical fellowship covering benign and malignant hematological disorders, diagnostics, and modern therapeutics.",
-    overview: "The Fellowship in Clinical Haematology is an advanced program designed to build expertise in diagnostic hematology, hemato-oncology, coagulation disorders, transfusion medicine, and transplantation principles. The training emphasizes evidence-based clinical decision making, laboratory integration, multidisciplinary care, and research-oriented practice.",
+    overview: "The Fellowship in Clinical Haematology is an advanced course designed to build expertise in diagnostic hematology, hemato-oncology, coagulation disorders, transfusion medicine, and transplantation principles. The training emphasizes evidence-based clinical decision making, laboratory integration, multidisciplinary care, and research-oriented practice.",
     highlights: ["Comprehensive benign and malignant hematology training", "Structured focus on diagnostics and laboratory interpretation", "Bone marrow procedures and transplant principles", "Modern therapies including targeted and immunotherapy with research exposure"],
     onlinePrice: 170000,
     month11_1: 200000,
@@ -1589,8 +1589,8 @@ const programsData: { [key: string]: any } = {
     icon: "🎗️",
     duration: "12 Months",
     eligibility: "MS / DNB / MD / Equivalent relevant qualification",
-    description: "Comprehensive clinically driven program in diagnosis, staging, and multidisciplinary management of head and neck cancers.",
-    overview: "The Fellowship in Head & Neck Oncology is an advanced clinical program focused on oncologic surgery, reconstruction, and integrated cancer care across oral cavity, pharyngeal, laryngeal, thyroid, salivary, and skull base malignancies. The fellowship combines hands-on case exposure, tumor board participation, and protocol-based decision making to deliver high-quality, patient-centric oncologic outcomes.",
+    description: "Comprehensive clinically driven course in diagnosis, staging, and multidisciplinary management of head and neck cancers.",
+    overview: "The Fellowship in Head & Neck Oncology is an advanced clinical course focused on oncologic surgery, reconstruction, and integrated cancer care across oral cavity, pharyngeal, laryngeal, thyroid, salivary, and skull base malignancies. The fellowship combines hands-on case exposure, tumor board participation, and protocol-based decision making to deliver high-quality, patient-centric oncologic outcomes.",
     highlights: ["Advanced head and neck oncologic surgery training", "Multidisciplinary exposure across surgery, radiation, and medical oncology", "Hands-on case-based learning with clinical decision frameworks", "Functional rehabilitation and survivorship-focused care"],
     onlinePrice: 180000,
     month11_1: 210000,
@@ -1659,7 +1659,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
     description: "Advanced clinically oriented fellowship in hair and scalp disorders integrating medical, aesthetic, and restoration approaches.",
-    overview: "The Fellowship in Trichology is a comprehensive program focused on diagnosis, management, and treatment of hair and scalp disorders. It combines trichological science, clinical dermatology, procedural interventions, and hair restoration techniques to build holistic, evidence-based practice capability.",
+    overview: "The Fellowship in Trichology is a comprehensive course focused on diagnosis, management, and treatment of hair and scalp disorders. It combines trichological science, clinical dermatology, procedural interventions, and hair restoration techniques to build holistic, evidence-based practice capability.",
     highlights: ["Integrated medical and procedural trichology training", "Hands-on exposure to PRP, microneedling, and hair restoration", "Diagnostic proficiency with trichoscopy and lab correlation", "Practice setup and real-world case management orientation"],
     onlinePrice: 170000,
     month11_1: 190000,
@@ -1868,7 +1868,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
     description: "Advanced clinically oriented fellowship in image-guided minimally invasive diagnostic and therapeutic procedures.",
-    overview: "The Fellowship in Interventional Radiology is an advanced, clinically oriented program designed to train doctors in image-guided minimally invasive diagnostic and therapeutic procedures. The program integrates vascular, non-vascular, and oncologic interventions using modalities such as fluoroscopy, CT, MRI, and ultrasound. With a strong emphasis on hands-on procedural training, clinical decision-making, and multidisciplinary care, this fellowship prepares participants to deliver safe, effective, and evidence-based interventional treatments across a wide spectrum of diseases.",
+    overview: "The Fellowship in Interventional Radiology is an advanced, clinically oriented course designed to train doctors in image-guided minimally invasive diagnostic and therapeutic procedures. The course integrates vascular, non-vascular, and oncologic interventions using modalities such as fluoroscopy, CT, MRI, and ultrasound. With a strong emphasis on hands-on procedural training, clinical decision-making, and multidisciplinary care, this fellowship prepares participants to deliver safe, effective, and evidence-based interventional treatments across a wide spectrum of diseases.",
     highlights: ["Comprehensive vascular, non-vascular, and oncologic interventions", "Hands-on procedural training with multimodality imaging guidance", "Strong focus on clinical decision-making and complication management", "Multidisciplinary evidence-based interventional care"],
     onlinePrice: 195000,
     month11_1: 230000,
@@ -2014,7 +2014,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / Equivalent Medical Qualification",
     description: "Advanced training in clinical dermatology covering medical, procedural, and aesthetic practice.",
-    overview: "Fellowship in Clinical Dermatology is a 100% flexible online/blended programme designed for busy practitioners (10–12 hrs/week). It follows a case-based clinical training approach covering medical and basic procedural dermatology, aligned with international curriculum frameworks.",
+    overview: "Fellowship in Clinical Dermatology is a 100% flexible online/blended course designed for busy practitioners (10–12 hrs/week). It follows a case-based clinical training approach covering medical and basic procedural dermatology, aligned with international curriculum frameworks.",
     highlights: ["100% Flexible Learning (Online / Blended)", "Case-Based Clinical Training", "Medical + Procedural Dermatology", "Dermoscopy Basics", "Infectious & Tropical Dermatology", "Aesthetic Dermatology Basics"],
     onlinePrice: 160000,
     month11_1: 185000,
@@ -2120,7 +2120,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS",
     description: "Clinically intensive training in comprehensive adult patient care, clinical reasoning, and evidence-based practice.",
-    overview: "The Fellowship in Internal Medicine by MedFellow is a clinically intensive program designed to build expertise in comprehensive adult patient care. It emphasizes system-based learning, clinical reasoning, evidence-based practice, and real-world case management across outpatient, inpatient, and critical care settings.",
+    overview: "The Fellowship in Internal Medicine by MedFellow is a clinically intensive course designed to build expertise in comprehensive adult patient care. It emphasizes system-based learning, clinical reasoning, evidence-based practice, and real-world case management across outpatient, inpatient, and critical care settings.",
     highlights: ["System-Based Learning", "Clinical Reasoning", "Case Management", "Critical Care Exposure", "Evidence-Based Practice", "Applied Skills"],
     onlinePrice: 175000,
     month11_1: 185000,
@@ -2376,7 +2376,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS/MD General Medicine",
     description: "Comprehensive training in cardiovascular disease diagnosis, management, emergencies, and modern cardiology advances.",
-    overview: "The Fellowship in Clinical Cardiology is a structured, clinically focused program that builds strong foundations in cardiovascular biology, bedside cardiology, diagnostics, pharmacology, rhythm disorders, heart failure, special populations, resuscitation, and emerging technologies in contemporary cardiac care.",
+    overview: "The Fellowship in Clinical Cardiology is a structured, clinically focused course that builds strong foundations in cardiovascular biology, bedside cardiology, diagnostics, pharmacology, rhythm disorders, heart failure, special populations, resuscitation, and emerging technologies in contemporary cardiac care.",
     highlights: ["ECG and Echo Mastery", "Rhythm and Conduction Disorders", "Heart Failure and Emergencies", "Resuscitation Protocols", "Special Population Cardiology", "AI and Wearable Cardiology"],
     onlinePrice: 160000,
     month11_1: 190000,
@@ -2542,7 +2542,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MD/DNB Medicine/Anesthesia",
     description: "Comprehensive critical care training covering ICU resuscitation, organ support, emergencies, procedures, and advanced case-based practice.",
-    overview: "The Fellowship in Critical Care Medicine is an intensive, multi-level program designed to build expertise in ICU-based diagnosis, monitoring, resuscitation, and multidisciplinary management of critically ill patients through structured modules, procedure training, and real-world case learning.",
+    overview: "The Fellowship in Critical Care Medicine is an intensive, multi-level course designed to build expertise in ICU-based diagnosis, monitoring, resuscitation, and multidisciplinary management of critically ill patients through structured modules, procedure training, and real-world case learning.",
     highlights: ["Resuscitation and ACLS/BLS", "ICU Monitoring and Organ Support", "Critical Care Procedures", "System-wise ICU Management", "Poisoning and Emergency Care", "Ethics and End-of-life Care"],
     onlinePrice: 150000,
     month11_1: 180000,
@@ -3056,7 +3056,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
     description: "One-year fellowship in rheumatic diseases with strong emphasis on clinical exposure, immunology, and musculoskeletal medicine.",
-    overview: "This 12-month Fellowship in Rheumatology is designed to train physicians in the diagnosis, management, and procedural skills required for rheumatic diseases. The program is structured in three phases: Foundations (Months 1-3), Core Clinical Rheumatology (Months 4-9), and Advanced Skills plus Research (Months 10-12). It combines outpatient-focused rheumatology exposure, immunology, musculoskeletal medicine, procedural training, and evidence-based academic development.",
+    overview: "This 12-month Fellowship in Rheumatology is designed to train physicians in the diagnosis, management, and procedural skills required for rheumatic diseases. The course is structured in three phases: Foundations (Months 1-3), Core Clinical Rheumatology (Months 4-9), and Advanced Skills plus Research (Months 10-12). It combines outpatient-focused rheumatology exposure, immunology, musculoskeletal medicine, procedural training, and evidence-based academic development.",
     highlights: ["Structured 1-year fellowship", "Strong clinical and outpatient exposure", "Immunology and musculoskeletal medicine", "Procedural rheumatology skills", "Research and professional development"],
     onlinePrice: 180000,
     month11_1: 200000,
@@ -3361,7 +3361,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MD Medicine/DNB",
     description: "Advanced training in endocrine physiology, complex hormonal disorders, and evidence-based endocrine disease management.",
-    overview: "The Fellowship in Endocrinology is a clinically focused program that develops expertise in hypothalamic-pituitary, thyroid, adrenal, calcium-bone, reproductive, and endocrine oncology disorders with integrated diagnostic and multidisciplinary management approaches.",
+    overview: "The Fellowship in Endocrinology is a clinically focused course that develops expertise in hypothalamic-pituitary, thyroid, adrenal, calcium-bone, reproductive, and endocrine oncology disorders with integrated diagnostic and multidisciplinary management approaches.",
     highlights: ["Pituitary and Thyroid Mastery", "Adrenal and Bone-Endocrine Disorders", "Reproductive Endocrinology", "Endocrine Oncology", "Advanced Diagnostics", "Medical and Surgical Management"],
     onlinePrice: 180000,
     month11_1: 210000,
@@ -3755,7 +3755,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MS/DNB General Surgery / Equivalent medical qualification",
     description: "Comprehensive training in core general surgery integrating theory, clinical exposure, and hands-on operative skills.",
-    overview: "This fellowship is designed to provide comprehensive training in core general surgery, combining theoretical knowledge, clinical exposure, and hands-on surgical skills. The program emphasises perioperative care, operative techniques, and independent surgical decision-making. Program structure: Duration 12 months, Mode Hybrid (Online + Clinical Training), Clinical Posting 1-3 months (modular), and Assessment through module-wise evaluation with final assessment.",
+    overview: "This fellowship is designed to provide comprehensive training in core general surgery, combining theoretical knowledge, clinical exposure, and hands-on surgical skills. The course emphasises perioperative care, operative techniques, and independent surgical decision-making. Course structure: Duration 12 months, Mode Hybrid (Online + Clinical Training), Clinical Posting 1-3 months (modular), and Assessment through module-wise evaluation with final assessment.",
     highlights: ["Hybrid model with modular clinical posting", "Broad-based general surgery curriculum", "Perioperative care and emergency decision-making", "Hands-on core procedure training"],
     onlinePrice: 200000,
     month11_1: 230000,
@@ -3836,7 +3836,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MS/DNB General Surgery",
     description: "One-year fellowship in minimal access and robotic surgery with modular skill progression and surgical exposure.",
-    overview: "Fellowship in Minimal Access & Robotic Surgery (FMARS) is a 12-month modular program for surgeons seeking structured progression from laparoscopy fundamentals to robotic surgery workflows, advanced laparoscopic procedures, perioperative care, and practice integration. The curriculum combines didactic learning, clinical exposure, surgical training, case discussions, and research-oriented development.",
+    overview: "Fellowship in Minimal Access & Robotic Surgery (FMARS) is a 12-month modular course for surgeons seeking structured progression from laparoscopy fundamentals to robotic surgery workflows, advanced laparoscopic procedures, perioperative care, and practice integration. The curriculum combines didactic learning, clinical exposure, surgical training, case discussions, and research-oriented development.",
     highlights: ["High-impact phase-wise curriculum", "Simulation and robotic console training", "Basic to advanced laparoscopic surgery", "Robotic transition and advanced procedures", "ERAS and practice setup"],
     onlinePrice: 200000,
     month11_1: 230000,
@@ -4220,7 +4220,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MD/DNB General Medicine",
     description: "Comprehensive fellowship covering clinical gastroenterology, hepatology, advanced endoscopy, and surgical GI foundations.",
-    overview: "The Fellowship in Gastroenterology is a clinically intensive program that develops expertise in GI diagnostics, hepatology, inflammatory and functional bowel disorders, GI oncology, advanced endoscopic interventions, pancreaticobiliary care, and academic research with integrated exposure to surgical gastroenterology.",
+    overview: "The Fellowship in Gastroenterology is a clinically intensive course that develops expertise in GI diagnostics, hepatology, inflammatory and functional bowel disorders, GI oncology, advanced endoscopic interventions, pancreaticobiliary care, and academic research with integrated exposure to surgical gastroenterology.",
     highlights: ["Diagnostic and Therapeutic Endoscopy", "Hepatology and Transplant Care", "IBD and Functional GI Disorders", "GI Oncology and Bleeding", "Advanced Endoscopic Procedures", "Surgical Gastroenterology Basics"],
     onlinePrice: 180000,
     month11_1: 195000,
@@ -4493,7 +4493,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MD/DNB Pediatrics",
     description: "Advanced fellowship focused on neonatal critical care, NICU emergency management, and evidence-based neonatal practice.",
-    overview: "The Fellowship in Neonatology is a clinically intensive program designed to build advanced proficiency in neonatal critical care, life-saving interventions, and independent NICU management. It emphasizes multidisciplinary, protocol-driven, and evidence-based practice with strong hands-on exposure to real-world neonatal emergencies.",
+    overview: "The Fellowship in Neonatology is a clinically intensive course designed to build advanced proficiency in neonatal critical care, life-saving interventions, and independent NICU management. It emphasizes multidisciplinary, protocol-driven, and evidence-based practice with strong hands-on exposure to real-world neonatal emergencies.",
     highlights: ["NICU-focused Practical Training", "Case-based and Protocol-driven Learning", "Real-world Neonatal Emergency Exposure", "Hands-on Clinical Skills and Procedures", "Guideline-aligned Neonatal Care", "Career Readiness for NICU and Hospital Settings"],
     programObjectives: [
       "Develop proficiency in advanced neonatal critical care",
@@ -4723,7 +4723,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MS/MD/DNB Ortho",
     description: "One-year structured fellowship in arthroscopy, sports medicine, and arthroplasty with phased progression and outcomes-focused training.",
-    overview: "Program Structure (12 Months): Phase 1 (Months 1-5): Arthroscopy and Sports Medicine. Phase 2 (Months 6-10): Arthroplasty (Joint Replacement). Phase 3 (Months 11-12): Integrated Practice, Revision, and Research.",
+    overview: "Course Structure (12 Months): Phase 1 (Months 1-5): Arthroscopy and Sports Medicine. Phase 2 (Months 6-10): Arthroplasty (Joint Replacement). Phase 3 (Months 11-12): Integrated Practice, Revision, and Research.",
     highlights: ["Comprehensive arthroscopy foundation with safety and technique focus", "Knee, shoulder, hip, ankle, and upper limb arthroscopy exposure", "Core and advanced arthroplasty concepts across knee, hip, and shoulder", "Complication management, rehabilitation outcomes, and research integration"],
     onlinePrice: 180000,
     month11_1: 210000,
@@ -4946,7 +4946,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
     description: "Comprehensive fellowship in 2D echocardiography focused on practical imaging and cardiac diagnosis.",
-    overview: "The Fellowship in 2D Echocardiography is a clinically oriented program designed to build strong competency in echocardiographic imaging, interpretation, and simulation-based application. The curriculum integrates foundational principles, diagnostic workflows, and hands-on simulation modules for accurate evaluation of cardiac structure and function.",
+    overview: "The Fellowship in 2D Echocardiography is a clinically oriented course designed to build strong competency in echocardiographic imaging, interpretation, and simulation-based application. The curriculum integrates foundational principles, diagnostic workflows, and hands-on simulation modules for accurate evaluation of cardiac structure and function.",
     highlights: ["2D and M-Mode Echocardiography", "Doppler and Transesophageal Echocardiography", "Systematic Echo Windows", "Cardiac Function and Valvular Assessment", "Simulation-based Training"],
     onlinePrice: 185000,
     month11_1: 220000,
@@ -5017,7 +5017,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MS/MD/DNB Ortho / Equivalent medical qualification",
     description: "Advanced one-year fellowship in diagnostic and therapeutic arthroscopy with sports medicine integration and hands-on skill development.",
-    overview: "The Fellowship in Arthroscopy is a comprehensive 12-month program focused on arthroscopic principles, knee and shoulder arthroscopy, hip and ankle arthroscopy, advanced sports medicine concepts, complications, and evidence-based clinical practice. The curriculum emphasizes safe surgical technique, structured clinical decision-making, and mandatory practical exposure through supervised cases, cadaveric skills, and OSATS-based assessment.",
+    overview: "The Fellowship in Arthroscopy is a comprehensive 12-month course focused on arthroscopic principles, knee and shoulder arthroscopy, hip and ankle arthroscopy, advanced sports medicine concepts, complications, and evidence-based clinical practice. The curriculum emphasizes safe surgical technique, structured clinical decision-making, and mandatory practical exposure through supervised cases, cadaveric skills, and OSATS-based assessment.",
     highlights: ["Foundations of arthroscopy and surgical safety", "Comprehensive knee, shoulder, hip, ankle, elbow, and wrist arthroscopy coverage", "Advanced sports medicine and revision-focused training", "Mandatory surgical exposure, logbook, viva, and OSATS evaluation"],
     onlinePrice: 180000,
     month11_1: 210000,
@@ -5258,7 +5258,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
     description: "Comprehensive fellowship focused on pediatric cardiac ultrasound for neonates, infants, and children.",
-    overview: "The Fellowship in Pediatric Echocardiography is a comprehensive, clinically oriented program designed to develop expertise in cardiac ultrasound for neonates, infants, and children. The program focuses on accurate diagnosis and functional assessment of congenital and acquired heart diseases using advanced echocardiographic modalities. This fellowship integrates core principles, advanced imaging techniques, and real-world clinical application, enabling practitioners to confidently perform and interpret pediatric echocardiograms across diverse clinical scenarios. By the end of the program, participants are trained to perform and interpret TTE and TEE, evaluate fetal echocardiography, assess pediatric hemodynamics with Doppler, diagnose congenital and acquired pediatric heart disease, and apply advanced imaging including 3D echocardiography.",
+    overview: "The Fellowship in Pediatric Echocardiography is a comprehensive, clinically oriented course designed to develop expertise in cardiac ultrasound for neonates, infants, and children. The course focuses on accurate diagnosis and functional assessment of congenital and acquired heart diseases using advanced echocardiographic modalities. This fellowship integrates core principles, advanced imaging techniques, and real-world clinical application, enabling practitioners to confidently perform and interpret pediatric echocardiograms across diverse clinical scenarios. By the end of the course, participants are trained to perform and interpret TTE and TEE, evaluate fetal echocardiography, assess pediatric hemodynamics with Doppler, diagnose congenital and acquired pediatric heart disease, and apply advanced imaging including 3D echocardiography.",
     highlights: ["Structured 12-month blended fellowship", "Clinical interpretation and decision-making", "TTE, TEE, fetal echo and Doppler imaging", "Case-based congenital heart disease focus", "Aligned with real-world pediatric cardiology practice"],
     learningOutcomes: [
       "Perform and interpret Transthoracic Echocardiography (TTE) in pediatric patients",
@@ -5299,7 +5299,7 @@ const programsData: { [key: string]: any } = {
     duration: "12 Months",
     eligibility: "MBBS / MD / DNB / MS or equivalent qualification",
     description: "Comprehensive 12-month advanced training in hormonal and metabolic disorders in children.",
-    overview: "The Fellowship in Pediatric Endocrinology is a comprehensive 12-month advanced training program designed for clinicians seeking specialisation in hormonal and metabolic disorders in children. This program provides in-depth clinical expertise in diagnosing and managing endocrine conditions, including growth disorders, pediatric diabetes, thyroid dysfunction, pubertal abnormalities, and metabolic bone diseases. It integrates evidence-based learning with case-oriented clinical exposure to develop proficiency in managing both common and complex pediatric endocrine conditions. With a strong emphasis on clinical decision-making, long-term patient management, and emerging treatment protocols, this fellowship prepares practitioners to deliver specialised, high-quality care in pediatric endocrinology. Paediatricians and clinicians with an interest in subspecialty practice are preferred.",
+    overview: "The Fellowship in Pediatric Endocrinology is a comprehensive 12-month advanced training course designed for clinicians seeking specialisation in hormonal and metabolic disorders in children. This course provides in-depth clinical expertise in diagnosing and managing endocrine conditions, including growth disorders, pediatric diabetes, thyroid dysfunction, pubertal abnormalities, and metabolic bone diseases. It integrates evidence-based learning with case-oriented clinical exposure to develop proficiency in managing both common and complex pediatric endocrine conditions. With a strong emphasis on clinical decision-making, long-term patient management, and emerging treatment protocols, this fellowship prepares practitioners to deliver specialised, high-quality care in pediatric endocrinology. Paediatricians and clinicians with an interest in subspecialty practice are preferred.",
     highlights: ["Structured 1-year comprehensive fellowship", "Clinical application with case-based decision-making", "Aligned with global endocrine care standards", "Management of chronic, lifestyle, and genetic endocrine conditions", "Designed for subspecialty pediatric practice"],
     onlinePrice: 160000,
     month11_1: 185000,
@@ -5383,10 +5383,10 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
         <Navbar />
         <div className="container-custom py-20 text-center">
           <div className="text-6xl mb-6">🔍</div>
-          <h1 className="text-3xl font-bold text-[#15401E] mb-4">Program Not Found</h1>
-          <p className="text-gray-500 mb-8">The program you&apos;re looking for doesn&apos;t exist.</p>
+          <h1 className="text-3xl font-bold text-[#15401E] mb-4">Course Not Found</h1>
+          <p className="text-gray-500 mb-8">The course you&apos;re looking for doesn&apos;t exist.</p>
           <Link href="/courses" className="inline-flex items-center gap-2 px-6 py-3 bg-[#15401E] text-white font-semibold rounded-xl hover:bg-[#0f2e15] transition-all">
-            ← View All Programs
+            ← View All Courses
           </Link>
         </div>
         <Footer />
@@ -5418,11 +5418,11 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           {/* Breadcrumb */}
           <Link href="/courses"
             className="self-start inline-flex items-center gap-1.5 text-white/50 hover:text-white mb-6 text-xs transition-colors">
-            ← All Programs
+            ← All Courses
           </Link>
 
           {/* Category label */}
-          <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">Fellowship Program</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">Fellowship Course</p>
 
           {/* Course name — center */}
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4 max-w-3xl" style={{ color: '#FF6B00' }}>
@@ -5485,7 +5485,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 
               {/* Overview */}
               <div id="overview" className="scroll-mt-6 py-6 md:py-8 border-b border-[#F3F4F6]">
-                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-4">About This Program</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-4">About This Course</h2>
                 <div className="section-prose">
                   <p className="leading-relaxed text-sm md:text-base">{program.overview}</p>
                 </div>
@@ -5546,7 +5546,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     {program.curriculum.length} Modules
                   </span>
                 </div>
-                <p className="text-gray-400 text-sm mb-6">{program.duration} program · Hybrid delivery</p>
+                <p className="text-gray-400 text-sm mb-6">{program.duration} course · Hybrid delivery</p>
                 <CurriculumAccordion curriculum={program.curriculum} />
               </div>
 
@@ -5593,7 +5593,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
               {/* Career Outcomes */}
               <div id="career" className="scroll-mt-6 py-6 md:py-8 border-b border-[#F3F4F6]">
                 <h2 className="text-xl md:text-2xl font-bold text-[#15401E] mb-2">Career Opportunities</h2>
-                <p className="text-gray-400 text-sm mb-5">Roles our fellows pursue after completing this program</p>
+                <p className="text-gray-400 text-sm mb-5">Roles our fellows pursue after completing this course</p>
                 <ol className="grid sm:grid-cols-2 gap-x-6">
                   {program.careerOpportunities.map((opp: string, i: number) => (
                     <li
@@ -5670,7 +5670,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     : [
                         { step: '01', title: 'Submit Application', desc: 'Fill out the online application form with your basic details and medical degree information.' },
                         { step: '02', title: 'Eligibility Review', desc: 'Our admissions team reviews your qualifications and contacts you within 48 hours.' },
-                        { step: '03', title: 'Counselling Call', desc: 'Speak with a program advisor to choose the right training mode and fee plan.' },
+                        { step: '03', title: 'Counselling Call', desc: 'Speak with a course advisor to choose the right training mode and fee plan.' },
                         { step: '04', title: 'Enroll & Begin', desc: 'Complete payment, receive your login credentials, and start your fellowship journey.' },
                       ]
                   ).map((item, i, arr) => (
@@ -5710,7 +5710,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     : [
                         { q: 'Can I study while working full-time?', a: 'Yes — the online modules are self-paced with recorded sessions. Live classes are held on weekends so you can continue working without interruption.' },
                         { q: 'Is the certificate recognised internationally?', a: 'Our fellowship certificates are issued by partner hospitals and accredited institutions, accepted across India, the Gulf, and other regions.' },
-                        { q: 'What happens if I need to pause the program?', a: 'We offer a pause facility for up to 3 months. Your access to recorded content remains active during the pause.' },
+                        { q: 'What happens if I need to pause the course?', a: 'We offer a pause facility for up to 3 months. Your access to recorded content remains active during the pause.' },
                         { q: 'Are EMI options available?', a: 'Yes, we offer 0% interest EMI for up to 12 months through our banking partners. You can also opt for bank education loans covering up to 80% of the fee.' },
                         { q: 'Do I get placement assistance?', a: 'All fellows get access to our placement cell, which includes job postings, resume workshops, and referrals to partner hospitals.' },
                       ]
@@ -5787,7 +5787,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 
               {/* Why choose */}
               <div className="bg-white rounded-lg p-5 border border-[#E5E7EB]" style={{ borderLeft: '4px solid #15401E' }}>
-                <h3 className="font-bold text-sm text-[#15401E] mb-4 uppercase tracking-wide">Why Choose This Program?</h3>
+                <h3 className="font-bold text-sm text-[#15401E] mb-4 uppercase tracking-wide">Why Choose This Course?</h3>
                 <ul className="space-y-3">
                   {[
                     'Expert faculty from premier institutions',
@@ -5871,7 +5871,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                 </div>
                 <Link href="/courses"
                   className="flex items-center justify-center gap-1.5 w-full mt-4 py-2.5 rounded-xl text-xs font-semibold text-[#15401E] border border-[#15401E]/20 hover:bg-[#15401E] hover:text-white transition-all">
-                  View All Programs →
+                  View All Courses →
                 </Link>
               </div>
 
@@ -5886,6 +5886,6 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 }
 
 export async function generateStaticParams() {
-  // Include all static slugs; CMS-only programs are handled at runtime via force-dynamic
+  // Include all static slugs; CMS-only courses are handled at runtime via force-dynamic
   return Object.keys(programsData).map((slug) => ({ slug }));
 }

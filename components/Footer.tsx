@@ -71,7 +71,7 @@ export default function Footer() {
               <span className="ml-1 text-[1.0625rem] font-medium" style={{ color: '#86EFAC' }}>Academy</span>
             </Link>
             <p className="text-[0.8125rem] mb-5 leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)', maxWidth: '260px' }}>
-              Empowering doctors with advanced fellowship programs for clinical excellence and career growth.
+              Empowering doctors with advanced fellowship courses for clinical excellence and career growth.
             </p>
 
             {/* Social icons */}

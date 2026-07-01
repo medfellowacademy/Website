@@ -44,7 +44,7 @@ export default function CourseEnquiryForm({ courseName }: { courseName?: string 
     <div className="border border-[#E5E7EB] rounded-xl overflow-hidden mt-2">
       {/* Header */}
       <div className="bg-[#15401E] px-4 py-3.5">
-        <p className="text-white font-semibold text-sm">Enquire About This Program</p>
+        <p className="text-white font-semibold text-sm">Enquire About This Course</p>
         <p className="text-[#a3c4a8] text-xs mt-0.5">Get a callback from our admissions team</p>
       </div>
 
@@ -119,7 +119,7 @@ export default function CourseEnquiryForm({ courseName }: { courseName?: string 
               onChange={handleChange}
               required
               rows={3}
-              placeholder="Any questions about this program?"
+              placeholder="Any questions about this course?"
               className="w-full px-3 py-2.5 text-sm border border-[#D1D5DB] rounded-lg bg-white text-[#111827] placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#15401E]/30 focus:border-[#15401E] transition resize-none"
             />
           </div>
