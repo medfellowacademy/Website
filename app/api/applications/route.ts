@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cmsClient } from '@/lib/cms';
+import { pushLeadToCrm } from '@/lib/crm';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -87,6 +88,16 @@ export async function POST(request: NextRequest) {
         console.error('Supabase error:', error);
         return NextResponse.json({ error: error.message }, { status: 500 });
       }
+
+      await pushLeadToCrm({
+        full_name,
+        email,
+        phone,
+        course_interested: program,
+        message: `Qualification: ${qualification}${experience ? `, Experience: ${experience}` : ''}`,
+        form_type: 'application',
+      });
+
       return NextResponse.json({ success: true, data });
     }
 
@@ -108,6 +119,15 @@ export async function POST(request: NextRequest) {
       console.error('Supabase error:', error);
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
+
+    await pushLeadToCrm({
+      full_name,
+      email,
+      phone,
+      course_interested: program_interest,
+      form_type: 'counselling',
+    });
+
     return NextResponse.json({ success: true, data });
 
   } catch (err) {

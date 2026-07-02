@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cmsClient } from '@/lib/cms';
+import { pushLeadToCrm } from '@/lib/crm';
 
 export const dynamic = 'force-dynamic';
 
@@ -21,6 +22,17 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error('Supabase error:', error);
       return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    if (phone) {
+      await pushLeadToCrm({
+        full_name: name,
+        email,
+        phone,
+        course_interested: subject || 'General Enquiry',
+        message,
+        form_type: 'contact',
+      });
     }
 
     return NextResponse.json({ success: true, data });
