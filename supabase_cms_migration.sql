@@ -118,7 +118,7 @@ INSERT INTO cms_site_settings (key, value, label, description, category) VALUES
 ('contact_whatsapp', '"+91 99850 44993"', 'WhatsApp', 'WhatsApp number', 'general'),
 ('hero_heading', '"Train Under India''s Top Specialists"', 'Hero Heading', 'Main hero title', 'hero'),
 ('hero_subheading', '"Fellowship programs designed for practicing doctors who want to specialise without leaving their jobs."', 'Hero Subheading', 'Hero subtitle', 'hero'),
-('announcement_text', '"June 2026 batch applications now open — only 14 seats remaining"', 'Announcement Text', 'Top bar text', 'hero'),
+('announcement_text', '"July 2026 batch applications now open — only 14 seats remaining"', 'Announcement Text', 'Top bar text', 'hero'),
 ('announcement_cta', '"Apply now"', 'Announcement CTA', 'Top bar button', 'hero'),
 ('stats_programs', '"60+"', 'Programs Count', 'Stats bar', 'stats'),
 ('stats_doctors', '"500+"', 'Doctors Trained', 'Stats bar', 'stats'),

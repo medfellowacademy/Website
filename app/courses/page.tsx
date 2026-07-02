@@ -47,10 +47,10 @@ export default async function ProgramsPage() {
       {/* Page header */}
       <section className="border-b border-[#E5E7EB] py-10 md:py-14">
         <div className="container-custom">
-          <span className="section-label">{programs.length} Programs</span>
-          <h1 className="section-title mt-2 mb-3">Fellowship Programs</h1>
+          <span className="section-label">{programs.length} Courses</span>
+          <h1 className="section-title mt-2 mb-3">Fellowship Courses</h1>
           <p className="section-subtitle">
-            Specialized fellowship programs across multiple medical disciplines — click any program to view curriculum and apply.
+            Specialized fellowship courses across multiple medical disciplines — click any course to view curriculum and apply.
           </p>
         </div>
       </section>

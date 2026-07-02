@@ -13,13 +13,13 @@ const DEFAULT_SETTINGS: CmsSetting[] = [
   { key: 'site_name',       value: 'MedFellow Academy',         label: 'Site Name',        description: 'Name shown in browser tab and emails', category: 'contact', updated_at: '' },
 
   // ── Announcement Bar ─────────────────────────────────────────────────────────
-  { key: 'announcement_text', value: 'June 2026 batch applications now open — only 14 seats remaining | New: Fellowship in Neonatology — Dubai & Saudi Arabia now available | 4× salary uplift reported by Emergency Medicine fellows in 2025', label: 'Announcement Bar Messages', description: 'Text in the top rotating banner. Separate multiple messages with | (pipe). Leave blank to hide banner.', category: 'announcement', updated_at: '' },
+  { key: 'announcement_text', value: 'July 2026 batch applications now open — only 14 seats remaining | New: Fellowship in Neonatology — Dubai & Saudi Arabia now available | 4× salary uplift reported by Emergency Medicine fellows in 2025', label: 'Announcement Bar Messages', description: 'Text in the top rotating banner. Separate multiple messages with | (pipe). Leave blank to hide banner.', category: 'announcement', updated_at: '' },
 
   // ── Hero / Homepage ───────────────────────────────────────────────────────────
   { key: 'hero_heading',      value: 'MedFellow Academy\nWhere Doctors Evolve', label: 'Hero Main Heading',    description: 'Main heading. Use \\n to split into two lines (line 1 is black, line 2 is green)', category: 'homepage', updated_at: '' },
   { key: 'hero_subheading',   value: '',                                         label: 'Hero Subheading',      description: 'Optional smaller text below the heading (leave blank to hide)', category: 'homepage', updated_at: '' },
   { key: 'hero_rating_text',  value: '4.9 · Trusted by 500+ doctors',            label: 'Hero Rating Pill',     description: 'Text shown in the star rating pill above the heading', category: 'homepage', updated_at: '' },
-  { key: 'apply_batch_text',  value: 'Apply for June 2026',                       label: 'Apply / Enroll Button Text', description: 'Text on the enroll CTA button in hero and navbar', category: 'homepage', updated_at: '' },
+  { key: 'apply_batch_text',  value: 'Apply for July 2026',                       label: 'Apply / Enroll Button Text', description: 'Text on the enroll CTA button in hero and navbar', category: 'homepage', updated_at: '' },
 
   // ── Stats Bar ────────────────────────────────────────────────────────────────
   { key: 'stat_specialties',    value: '60+',  label: 'Specialties (Hero)',          description: 'Shown in hero stats bar', category: 'stats', updated_at: '' },

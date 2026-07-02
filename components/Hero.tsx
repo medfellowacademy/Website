@@ -74,7 +74,7 @@ export default function Hero({
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#15401E] text-sm font-semibold rounded-md border border-[#C6DFC9] hover:border-[#15401E] transition-colors"
                 onClick={() => analytics.applyClick('hero_apply_now')}
               >
-                {enrollText || 'Enroll for June 2026'}
+                {enrollText || 'Enroll for July 2026'}
               </Link>
             </div>
 

@@ -162,7 +162,7 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
         <p className="mt-2 text-xs text-text-secondary">
           Showing {filtered.length === 0 ? 0 : startIdx + 1}–
           {Math.min(startIdx + COURSES_PER_PAGE, filtered.length)} of{" "}
-          {filtered.length} programs
+          {filtered.length} courses
         </p>
       </div>
 
@@ -232,7 +232,7 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
 
                 {/* Footer */}
                 <div className="mt-auto flex items-center justify-between pt-3 border-t border-[#F3F4F6]">
-                  <span className="text-xs text-[#15401E] font-medium">View Program</span>
+                  <span className="text-xs text-[#15401E] font-medium">View Course</span>
                   <ArrowRight className="w-4 h-4 text-[#15401E]" />
                 </div>
               </div>
@@ -243,7 +243,7 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
 
       {filtered.length === 0 && (
         <div className="mt-6 rounded-xl border border-dashed border-gray-300 bg-white p-6 text-center text-text-secondary">
-          No programs found for &quot;{searchQuery}&quot;.
+          No courses found for &quot;{searchQuery}&quot;.
         </div>
       )}
 
@@ -286,7 +286,7 @@ export default function ProgramsClient({ programs }: { programs: ProgramCard[] }
         </h3>
         <p className="text-[0.9rem] text-white/70 mb-6 max-w-xl mx-auto">
           Join hundreds of doctors who have advanced their careers through our
-          fellowship programs.
+          fellowship courses.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
