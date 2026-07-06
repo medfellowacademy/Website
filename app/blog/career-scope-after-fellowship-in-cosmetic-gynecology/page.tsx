@@ -2,8 +2,15 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
+import TopicClusterLinks from "@/components/TopicClusterLinks";
 import Link from "next/link";
 import Image from "next/image";
+
+const CLUSTER_LINKS = [
+  { label: "Best Fellowship in Cosmetic Gynecology (Guide)", href: "/best-fellowship-course-cosmetic-gynecology-guide", type: "guide" as const },
+  { label: "Cosmetic Gynecology Procedures Every Gynecologist Should Learn in 2026", href: "/blog/cosmetic-gynecology-procedures-every-gynecologist-should-learn", type: "blog" as const },
+  { label: "Career Scope After Fellowship in Cosmetic Gynecology", href: "/blog/career-scope-after-fellowship-in-cosmetic-gynecology", type: "blog" as const },
+];
 
 export const metadata: Metadata = {
   title: "Career Scope After Fellowship in Cosmetic Gynecology: Skills, Opportunities & Future Growth | MedFellow",
@@ -82,8 +89,9 @@ export default function BlogArticle() {
       <Navbar />
 
       <article className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
+        <div className="container-custom max-w-6xl">
+          <div className="grid lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-text-secondary mb-6">
               <Link href="/" className="hover:text-primary">Home</Link>
@@ -236,6 +244,16 @@ export default function BlogArticle() {
               <p className="text-text-secondary leading-relaxed mb-8">
                 These skills help doctors deliver safer, more confident, and patient-focused care.
               </p>
+
+              <div className="relative w-full h-56 md:h-72 rounded-xl overflow-hidden my-10">
+                <Image
+                  src="/courses/cosmetic-gynecology.jpg"
+                  alt="Career opportunities after a Cosmetic Gynecology fellowship"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 700px"
+                />
+              </div>
 
               <h2 className="text-3xl font-heading font-bold text-primary mt-12 mb-6">
                 Career Opportunities After an Aesthetic Gynecology Fellowship
@@ -401,14 +419,21 @@ export default function BlogArticle() {
               </div>
             </div>
           </div>
+
+          <div className="lg:col-span-1">
+            <TopicClusterLinks title="Cosmetic Gynecology Resources" links={CLUSTER_LINKS} />
+          </div>
+          </div>
         </div>
       </article>
 
-      {/* Related Articles */}
+      <FAQ faqs={FAQS} />
+
+      {/* Related Resources */}
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold text-primary mb-6">Related Articles</h2>
+            <h2 className="text-2xl font-heading font-bold text-primary mb-6">Related Resources</h2>
 
             <div className="grid md:grid-cols-2 gap-6">
               <Link href="/blog/cosmetic-gynecology-procedures-every-gynecologist-should-learn" className="card p-6 hover:shadow-lg transition-all group">
@@ -434,8 +459,6 @@ export default function BlogArticle() {
           </div>
         </div>
       </section>
-
-      <FAQ faqs={FAQS} />
 
       <Footer />
     </div>

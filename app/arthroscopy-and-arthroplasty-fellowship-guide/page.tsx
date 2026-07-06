@@ -4,7 +4,41 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
-import { Star } from "lucide-react";
+import TopicClusterLinks from "@/components/TopicClusterLinks";
+import {
+  Star,
+  BookOpen,
+  GraduationCap,
+  Award,
+  ListChecks,
+  Clock,
+  ClipboardList,
+  ShieldCheck,
+  Users,
+  Link2,
+  Briefcase,
+  Target,
+  ClipboardCheck,
+  Quote,
+} from "lucide-react";
+
+const CLUSTER_LINKS = [
+  { label: "Best Fellowship Course in Arthroscopy and Arthroplasty (Guide)", href: "/arthroscopy-and-arthroplasty-fellowship-guide", type: "guide" as const },
+  { label: "Arthroscopy vs Arthroplasty Fellowship: Which Should You Choose?", href: "/blog/arthroscopy-vs-arthroplasty-fellowship", type: "blog" as const },
+  { label: "Career Scope After Fellowship in Arthroscopy and Arthroplasty", href: "/blog/career-scope-after-fellowship-in-arthroscopy-and-arthroplasty", type: "blog" as const },
+  { label: "Arthroplasty Fellowship Eligibility, Syllabus, Duration & Admission Guide", href: "/blog/arthroplasty-fellowship-eligibility-syllabus-duration-admission", type: "blog" as const },
+];
+
+function SectionHeading({ icon: Icon, children }: { icon: React.ComponentType<{ className?: string }>; children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-3 mt-2 mb-4">
+      <span className="w-9 h-9 rounded-full bg-[#e8f2ea] text-[#15401E] flex items-center justify-center shrink-0">
+        <Icon className="w-[18px] h-[18px]" />
+      </span>
+      <h2 className="text-2xl md:text-3xl font-bold text-[#111827]">{children}</h2>
+    </div>
+  );
+}
 
 export const metadata: Metadata = {
   title: "Best Fellowship Course in Arthroscopy and Arthroplasty: Complete Guide for Orthopedic Surgeons | MedFellow",
@@ -276,12 +310,14 @@ export default function ArthroscopyArthroplastyGuidePage() {
         </div>
       </section>
 
-      <div className="container-custom max-w-4xl py-4">
+      <div className="container-custom max-w-6xl py-4">
+      <div className="grid lg:grid-cols-3 gap-10">
+      <div className="lg:col-span-2">
 
         {/* What Is Arthroscopy and Arthroplasty */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Orthopedic Subspecialization Pathway</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">What Is Arthroscopy and Arthroplasty?</h2>
+          <SectionHeading icon={BookOpen}>What Is Arthroscopy and Arthroplasty?</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-4">
             Arthroscopy and Arthroplasty are specialized branches of orthopedic practice focused on
             restoring mobility, reducing pain, and improving patient function through advanced treatment
@@ -302,7 +338,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* What Does Our Fellowship Cover */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Comprehensive Fellowship Learning</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">What Does Our Arthroscopy and Arthroplasty Fellowship Cover?</h2>
+          <SectionHeading icon={GraduationCap}>What Does Our Arthroscopy and Arthroplasty Fellowship Cover?</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-6">
             MedFellow Academy provides a comprehensive fellowship curriculum designed to support structured
             theoretical and clinical learning — phased across arthroscopy and sports medicine, arthroplasty
@@ -326,7 +362,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Why Advanced Training Matters */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Excellence Through Orthopedic Education</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Why Advanced Arthroscopy and Arthroplasty Training Matters</h2>
+          <SectionHeading icon={Award}>Why Advanced Arthroscopy and Arthroplasty Training Matters</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-4">
             Modern orthopedic practice increasingly requires physicians to understand sports injuries,
             degenerative joint conditions, minimally invasive techniques, and evolving treatment approaches.
@@ -346,7 +382,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* What You Will Learn */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Comprehensive Orthopedic Fellowship Curriculum</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">What You Will Learn During the Fellowship</h2>
+          <SectionHeading icon={ListChecks}>What You Will Learn During the Fellowship</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">
             The fellowship curriculum focuses on modern orthopedic concepts, minimally invasive approaches,
             and advanced joint management principles designed for contemporary orthopedic practice. Key
@@ -369,7 +405,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Flexible Learning */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Flexible Learning for Healthcare Professionals</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Continue Clinical Practice While Advancing Orthopedic Expertise</h2>
+          <SectionHeading icon={Clock}>Continue Clinical Practice While Advancing Orthopedic Expertise</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">
             The fellowship is designed for doctors balancing clinical responsibilities with continuing
             education requirements. Through flexible learning pathways, participants can continue patient
@@ -393,7 +429,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Preparation */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Clinical Preparation &amp; Readiness</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">How Do Orthopedic Surgeons Prepare for Advanced Fellowship Training?</h2>
+          <SectionHeading icon={ClipboardList}>How Do Orthopedic Surgeons Prepare for Advanced Fellowship Training?</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-4">
             Successful fellowship learning begins with understanding the foundational knowledge and
             practical concepts necessary for advanced orthopedic education. Doctors participating in
@@ -416,7 +452,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Build Confidence */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Trust Through Evidence-Based Orthopedic Learning</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Build Confidence in Modern Orthopedic Practice</h2>
+          <SectionHeading icon={ShieldCheck}>Build Confidence in Modern Orthopedic Practice</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-4">
             Advanced fellowship education helps doctors improve understanding of modern orthopedic concepts
             while strengthening clinical reasoning and patient-centered care approaches. As healthcare
@@ -437,7 +473,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Eligibility */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Eligibility &amp; Professional Growth</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Who Can Apply for the Fellowship in Arthroscopy and Arthroplasty?</h2>
+          <SectionHeading icon={Users}>Who Can Apply for the Fellowship in Arthroscopy and Arthroplasty?</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">This fellowship program is suitable for:</p>
           <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
             {ELIGIBILITY.map((e) => (
@@ -452,7 +488,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Related Fellowships */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Integrated Specialty Learning Pathways</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-5">Explore Related Fellowship Programs for Advanced Clinical Expertise</h2>
+          <SectionHeading icon={Link2}>Explore Related Fellowship Programs for Advanced Clinical Expertise</SectionHeading>
           <div className="grid sm:grid-cols-3 gap-3">
             {RELATED_FELLOWSHIPS.map((f) => (
               <Link
@@ -469,7 +505,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Career Opportunities */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Career Growth Through Orthopedic Excellence</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Career Opportunities After Arthroscopy and Arthroplasty Fellowship</h2>
+          <SectionHeading icon={Briefcase}>Career Opportunities After Arthroscopy and Arthroplasty Fellowship</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">
             Doctors completing an orthopedic fellowship often explore opportunities such as:
           </p>
@@ -486,7 +522,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Skills */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Advanced Clinical Skills Development</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Skills Doctors Can Strengthen Through Fellowship Education</h2>
+          <SectionHeading icon={Target}>Skills Doctors Can Strengthen Through Fellowship Education</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">Participants commonly improve understanding of:</p>
           <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
             {SKILLS.map((s) => (
@@ -501,7 +537,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* How to Apply */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Easy Enrollment Process for Doctors</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-5">How to Apply for the Fellowship in Arthroscopy and Arthroplasty</h2>
+          <SectionHeading icon={ClipboardCheck}>How to Apply for the Fellowship in Arthroscopy and Arthroplasty</SectionHeading>
           <div className="space-y-3 mb-5">
             {APPLY_STEPS.map((step, i) => (
               <div key={step} className="flex items-center gap-3">
@@ -527,7 +563,7 @@ export default function ArthroscopyArthroplastyGuidePage() {
         {/* Testimonials */}
         <section className="py-8">
           <span className="section-label">Doctor Success Stories</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-5">Testimonials from Doctors Who Chose Fellowship Training</h2>
+          <SectionHeading icon={Quote}>Testimonials from Doctors Who Chose Fellowship Training</SectionHeading>
           <div className="grid sm:grid-cols-3 gap-4">
             {TESTIMONIALS.map((t) => (
               <div key={t.name} className="card p-5">
@@ -543,6 +579,12 @@ export default function ArthroscopyArthroplastyGuidePage() {
             ))}
           </div>
         </section>
+      </div>
+
+      <div className="lg:col-span-1">
+        <TopicClusterLinks title="Arthroscopy & Arthroplasty Resources" links={CLUSTER_LINKS} />
+      </div>
+      </div>
       </div>
 
       <FAQ faqs={FAQS} />

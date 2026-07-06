@@ -2,8 +2,16 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
+import TopicClusterLinks from "@/components/TopicClusterLinks";
 import Link from "next/link";
 import Image from "next/image";
+
+const CLUSTER_LINKS = [
+  { label: "Best Fellowship Course in Arthroscopy and Arthroplasty (Guide)", href: "/arthroscopy-and-arthroplasty-fellowship-guide", type: "guide" as const },
+  { label: "Arthroscopy vs Arthroplasty Fellowship: Which Should You Choose?", href: "/blog/arthroscopy-vs-arthroplasty-fellowship", type: "blog" as const },
+  { label: "Career Scope After Fellowship in Arthroscopy and Arthroplasty", href: "/blog/career-scope-after-fellowship-in-arthroscopy-and-arthroplasty", type: "blog" as const },
+  { label: "Arthroplasty Fellowship Eligibility, Syllabus, Duration & Admission Guide", href: "/blog/arthroplasty-fellowship-eligibility-syllabus-duration-admission", type: "blog" as const },
+];
 
 export const metadata: Metadata = {
   title: "Career Scope After Fellowship in Arthroscopy and Arthroplasty: Jobs, Skills & Future Opportunities | MedFellow",
@@ -78,8 +86,9 @@ export default function BlogArticle() {
       <Navbar />
 
       <article className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
+        <div className="container-custom max-w-6xl">
+          <div className="grid lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-text-secondary mb-6">
               <Link href="/" className="hover:text-primary">Home</Link>
@@ -255,6 +264,16 @@ export default function BlogArticle() {
                 advanced subspecialty expertise.
               </p>
 
+              <div className="relative w-full h-56 md:h-72 rounded-xl overflow-hidden my-10">
+                <Image
+                  src="/courses/arthroscopy-arthroplasty.jpg"
+                  alt="Skills that support long-term orthopedic career success"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 700px"
+                />
+              </div>
+
               <h2 className="text-3xl font-heading font-bold text-primary mt-12 mb-6">
                 Skills That Support Long-Term Success
               </h2>
@@ -404,14 +423,21 @@ export default function BlogArticle() {
               </div>
             </div>
           </div>
+
+          <div className="lg:col-span-1">
+            <TopicClusterLinks title="Arthroscopy & Arthroplasty Resources" links={CLUSTER_LINKS} />
+          </div>
+          </div>
         </div>
       </article>
 
-      {/* Related Articles */}
+      <FAQ faqs={FAQS} />
+
+      {/* Related Resources */}
       <section className="section-padding bg-background">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl font-heading font-bold text-primary mb-6">Related Articles</h2>
+            <h2 className="text-2xl font-heading font-bold text-primary mb-6">Related Resources</h2>
 
             <div className="grid md:grid-cols-2 gap-6">
               <Link href="/blog/arthroscopy-vs-arthroplasty-fellowship" className="card p-6 hover:shadow-lg transition-all group">
@@ -437,8 +463,6 @@ export default function BlogArticle() {
           </div>
         </div>
       </section>
-
-      <FAQ faqs={FAQS} />
 
       <Footer />
     </div>

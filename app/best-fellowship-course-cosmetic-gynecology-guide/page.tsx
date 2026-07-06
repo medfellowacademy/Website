@@ -3,6 +3,38 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FAQ from "@/components/FAQ";
+import TopicClusterLinks from "@/components/TopicClusterLinks";
+import {
+  BookOpen,
+  GraduationCap,
+  Award,
+  ListChecks,
+  Clock,
+  ClipboardList,
+  ShieldCheck,
+  Users,
+  Link2,
+  Briefcase,
+  Target,
+  ClipboardCheck,
+} from "lucide-react";
+
+const CLUSTER_LINKS = [
+  { label: "Best Fellowship in Cosmetic Gynecology (Guide)", href: "/best-fellowship-course-cosmetic-gynecology-guide", type: "guide" as const },
+  { label: "Cosmetic Gynecology Procedures Every Gynecologist Should Learn in 2026", href: "/blog/cosmetic-gynecology-procedures-every-gynecologist-should-learn", type: "blog" as const },
+  { label: "Career Scope After Fellowship in Cosmetic Gynecology", href: "/blog/career-scope-after-fellowship-in-cosmetic-gynecology", type: "blog" as const },
+];
+
+function SectionHeading({ icon: Icon, children }: { icon: React.ComponentType<{ className?: string }>; children: React.ReactNode }) {
+  return (
+    <div className="flex items-center gap-3 mt-2 mb-4">
+      <span className="w-9 h-9 rounded-full bg-[#e8f2ea] text-[#15401E] flex items-center justify-center shrink-0">
+        <Icon className="w-[18px] h-[18px]" />
+      </span>
+      <h2 className="text-2xl md:text-3xl font-bold text-[#111827]">{children}</h2>
+    </div>
+  );
+}
 
 export const metadata: Metadata = {
   title: "Best Fellowship in Cosmetic Gynecology: Eligibility, Fees, Syllabus & Career Scope | MedFellow",
@@ -233,12 +265,14 @@ export default function CosmeticGynecologyGuidePage() {
         </div>
       </section>
 
-      <div className="container-custom max-w-4xl py-4">
+      <div className="container-custom max-w-6xl py-4">
+      <div className="grid lg:grid-cols-3 gap-10">
+      <div className="lg:col-span-2">
 
         {/* What Is Cosmetic Gynecology */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Understanding Modern Women&apos;s Wellness</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">What Is Cosmetic Gynecology?</h2>
+          <SectionHeading icon={BookOpen}>What Is Cosmetic Gynecology?</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-4">
             Cosmetic Gynecology is a specialized field within women&apos;s healthcare that focuses on
             aesthetic enhancement, functional restoration, and overall intimate wellness. It combines
@@ -256,7 +290,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* What Does Our Fellowship Cover */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Comprehensive Fellowship Learning</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">What Does Our Cosmetic Gynecology Fellowship Cover?</h2>
+          <SectionHeading icon={GraduationCap}>What Does Our Cosmetic Gynecology Fellowship Cover?</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-6">
             MedFellow Academy provides a comprehensive Cosmetic Gynecology Fellowship curriculum designed to
             deliver structured theoretical and procedural learning across 12 modules — from foundational
@@ -281,7 +315,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* Why Advanced Training Matters */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Excellence Through Women&apos;s Healthcare Education</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Why Advanced Cosmetic Gynecology Training Matters</h2>
+          <SectionHeading icon={Award}>Why Advanced Cosmetic Gynecology Training Matters</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-4">
             Modern healthcare increasingly requires physicians to understand aesthetic concerns, patient
             expectations, functional restoration principles, and evolving women&apos;s wellness approaches.
@@ -300,7 +334,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* What You Will Learn */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Comprehensive Cosmetic Gynecology Fellowship Curriculum</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">What You Will Learn During the Fellowship</h2>
+          <SectionHeading icon={ListChecks}>What You Will Learn During the Fellowship</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">
             The fellowship curriculum focuses on modern Cosmetic Gynecology concepts and advanced
             women&apos;s wellness principles. Key learning areas include:
@@ -323,7 +357,12 @@ export default function CosmeticGynecologyGuidePage() {
         {/* Flexible Learning */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Structured Academic Learning Journey</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-1">Your Fellowship Learning Roadmap</h2>
+          <div className="flex items-center gap-3 mt-2 mb-1">
+            <span className="w-9 h-9 rounded-full bg-[#e8f2ea] text-[#15401E] flex items-center justify-center shrink-0">
+              <Clock className="w-[18px] h-[18px]" />
+            </span>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#111827]">Your Fellowship Learning Roadmap</h2>
+          </div>
           <p className="text-[0.8125rem] text-text-secondary mb-6">Flexible Learning for Healthcare Professionals</p>
           <h3 className="text-xl font-bold text-[#111827] mb-4">Continue Clinical Practice While Advancing Cosmetic Gynecology Expertise</h3>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">
@@ -349,7 +388,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* Preparation */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Patient Preparation &amp; Clinical Readiness</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">How Do You Prepare for Cosmetic Gynecology Surgery?</h2>
+          <SectionHeading icon={ClipboardList}>How Do You Prepare for Cosmetic Gynecology Surgery?</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-4">
             Proper preparation plays an important role in achieving safe procedures and supporting better
             patient experiences. Cosmetic Gynecology involves individualized evaluation, and preparation may
@@ -372,7 +411,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* Build Confidence */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Trust Through Evidence-Based Women&apos;s Healthcare</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Build Confidence in Modern Cosmetic Gynecology Practice</h2>
+          <SectionHeading icon={ShieldCheck}>Build Confidence in Modern Cosmetic Gynecology Practice</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-4">
             Advanced fellowship education helps doctors strengthen their understanding of modern aesthetic
             and functional women&apos;s healthcare while improving patient communication and evidence-based
@@ -398,7 +437,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* Eligibility */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Eligibility &amp; Professional Growth</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Who Can Apply for the Fellowship in Cosmetic Gynecology?</h2>
+          <SectionHeading icon={Users}>Who Can Apply for the Fellowship in Cosmetic Gynecology?</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">This fellowship program is suitable for:</p>
           <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
             {ELIGIBILITY.map((e) => (
@@ -413,7 +452,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* Related Fellowships */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Integrated Specialty Learning Pathways</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-5">Explore Related Fellowship Programs for Advanced Clinical Expertise</h2>
+          <SectionHeading icon={Link2}>Explore Related Fellowship Programs for Advanced Clinical Expertise</SectionHeading>
           <div className="grid sm:grid-cols-3 gap-3">
             {RELATED_FELLOWSHIPS.map((f) => (
               <Link
@@ -430,7 +469,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* Career Opportunities */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Career Growth Through Women&apos;s Healthcare Excellence</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Career Opportunities After Cosmetic Gynecology Fellowship</h2>
+          <SectionHeading icon={Briefcase}>Career Opportunities After Cosmetic Gynecology Fellowship</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">
             Doctors completing a Cosmetic Gynecology Fellowship often explore opportunities such as:
           </p>
@@ -447,7 +486,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* Skills */}
         <section className="py-8 border-b border-[#F3F4F6]">
           <span className="section-label">Advanced Clinical Skills Development</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-4">Skills Doctors Can Strengthen Through Fellowship Education</h2>
+          <SectionHeading icon={Target}>Skills Doctors Can Strengthen Through Fellowship Education</SectionHeading>
           <p className="text-[0.9375rem] text-text-secondary leading-relaxed mb-5">Participants improve understanding of:</p>
           <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
             {SKILLS.map((s) => (
@@ -462,7 +501,7 @@ export default function CosmeticGynecologyGuidePage() {
         {/* How to Apply */}
         <section className="py-8">
           <span className="section-label">Easy Enrollment Process for Doctors</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mt-2 mb-5">How to Apply for the Fellowship in Cosmetic Gynecology</h2>
+          <SectionHeading icon={ClipboardCheck}>How to Apply for the Fellowship in Cosmetic Gynecology</SectionHeading>
           <div className="space-y-3 mb-5">
             {APPLY_STEPS.map((step, i) => (
               <div key={step} className="flex items-center gap-3">
@@ -483,6 +522,12 @@ export default function CosmeticGynecologyGuidePage() {
             Apply Now
           </Link>
         </section>
+      </div>
+
+      <div className="lg:col-span-1">
+        <TopicClusterLinks title="Cosmetic Gynecology Resources" links={CLUSTER_LINKS} />
+      </div>
+      </div>
       </div>
 
       <FAQ faqs={FAQS} />
