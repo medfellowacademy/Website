@@ -43,6 +43,33 @@ const posts = [
     date: "29 Jun 2026",
     image: "/courses/cosmetic-gynecology.jpg"
   },
+  {
+    slug: "arthroscopy-vs-arthroplasty-fellowship",
+    title: "Arthroscopy vs Arthroplasty Fellowship: Which Specialization Should Orthopedic Surgeons Choose?",
+    excerpt: "A comparison guide to help orthopedic surgeons choose between an arthroscopy fellowship and an arthroplasty fellowship course.",
+    category: "Career Planning",
+    readTime: "8 min read",
+    date: "29 Jun 2026",
+    image: "/courses/arthroscopy-arthroplasty.jpg"
+  },
+  {
+    slug: "career-scope-after-fellowship-in-arthroscopy-and-arthroplasty",
+    title: "Career Scope After Fellowship in Arthroscopy and Arthroplasty: Jobs, Skills & Future Opportunities",
+    excerpt: "Career opportunities, in-demand skills, and future growth potential after completing a fellowship in arthroscopy and arthroplasty.",
+    category: "Career Planning",
+    readTime: "7 min read",
+    date: "29 Jun 2026",
+    image: "/courses/arthroscopy-arthroplasty.jpg"
+  },
+  {
+    slug: "arthroplasty-fellowship-eligibility-syllabus-duration-admission",
+    title: "Arthroplasty Fellowship Eligibility, Syllabus, Duration & Admission Guide 2026",
+    excerpt: "Eligibility, curriculum, admission process, and required documents for the Fellowship in Arthroscopy and Arthroplasty.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "29 Jun 2026",
+    image: "/courses/arthroscopy-arthroplasty.jpg"
+  },
 ];
 
 const categories = Array.from(
