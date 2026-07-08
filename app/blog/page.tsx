@@ -105,8 +105,8 @@ export default function Blog() {
                 {posts.map((post) => (
                   <Link key={post.slug} href={`/blog/${post.slug}`} className="group">
                     <div className="card overflow-hidden hover:shadow-lg transition-all">
-                      <div className="flex gap-4">
-                        <div className="relative w-40 h-40 shrink-0 overflow-hidden">
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <div className="relative w-full h-48 sm:w-40 sm:h-40 shrink-0 overflow-hidden">
                           <Image
                             src={post.image}
                             alt={post.title}
@@ -114,7 +114,7 @@ export default function Blog() {
                             className="object-cover group-hover:scale-110 transition-transform duration-300"
                           />
                         </div>
-                        <div className="p-4 flex-1">
+                        <div className="p-4 sm:pl-0 flex-1">
                           <div className="flex items-center gap-3 mb-3">
                             <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold">
                               {post.category}
