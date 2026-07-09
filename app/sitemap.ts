@@ -79,6 +79,7 @@ const programSlugs = [
   "fellowship-in-pediatric-echocardiography",
   "fellowship-in-pediatric-endocrinology",
   "fellowship-in-pediatric-neurology",
+  "fellowship-in-pediatric-orthopedics",
   "fellowship-in-pediatrics",
   "fellowship-in-psychiatric-medicine",
   "fellowship-in-radiology",
