@@ -90,7 +90,7 @@ const PROGRAMS = [
   { value: 'maxillofacial-surgery', label: 'Fellowship in Maxillofacial Surgery' },
   { value: 'epidemiology', label: 'Fellowship in Epidemiology' },
   { value: 'sexology', label: 'Fellowship in Sexology' },
-  { value: 'sexology', label: 'Fellowship in Clinical Nutrition' },
+  { value: 'clinical-nutrition', label: 'Fellowship in Clinical Nutrition' },
 ];
 
 const PRACTICE_TYPES = [

@@ -70,6 +70,33 @@ const posts = [
     date: "29 Jun 2026",
     image: "/courses/arthroscopy-arthroplasty.jpg"
   },
+  {
+    slug: "how-to-choose-the-fellowship-course-in-fetal-medicine",
+    title: "How to Choose the Best Fellowship Course in Fetal Medicine: A Doctor's Guide",
+    excerpt: "Learn how to choose the best Fellowship Course in Fetal Medicine by comparing curriculum, faculty, flexibility, and career opportunities.",
+    category: "Fellowship Guides",
+    readTime: "6 min read",
+    date: "14 Jul 2026",
+    image: "/courses/fetal-medicine.jpg"
+  },
+  {
+    slug: "career-opportunities-after-fellowship-in-fetal-medicine",
+    title: "Career Opportunities After Fellowship in Fetal Medicine",
+    excerpt: "Discover the career pathways available after a Fellowship in Fetal Medicine, from hospital-based maternal-fetal care to academic and research roles.",
+    category: "Career Planning",
+    readTime: "7 min read",
+    date: "15 Jul 2026",
+    image: "/courses/fetal-medicine.jpg"
+  },
+  {
+    slug: "fetal-medicine-vs-maternal-fetal-medicine-differences",
+    title: "Fetal Medicine vs Maternal Fetal Medicine: What's the Difference?",
+    excerpt: "Learn the key differences in scope, training, patient care, and career pathways between Fetal Medicine and Maternal Fetal Medicine.",
+    category: "Clinical Insights",
+    readTime: "8 min read",
+    date: "15 Jul 2026",
+    image: "/courses/fetal-medicine.jpg"
+  },
 ];
 
 const categories = Array.from(
