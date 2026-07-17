@@ -22,6 +22,7 @@ import {
 const CLUSTER_LINKS = [
   { label: "Best Fellowship Course in Fetal Medicine (Guide)", href: "/courses/best-fellowship-course-in-fetal-medicine", type: "guide" as const },
   { label: "How to Choose the Best Fellowship Course in Fetal Medicine", href: "/blog/how-to-choose-the-fellowship-course-in-fetal-medicine", type: "blog" as const },
+  { label: "Fellowship Course Curriculum and Clinical Training in Fetal Medicine", href: "/blog/fetal-medicine-fellowship-curriculum-and-clinical-training", type: "blog" as const },
   { label: "Career Opportunities After Fellowship in Fetal Medicine", href: "/blog/career-opportunities-after-fellowship-in-fetal-medicine", type: "blog" as const },
   { label: "Fetal Medicine vs Maternal Fetal Medicine: Understanding the Differences", href: "/blog/fetal-medicine-vs-maternal-fetal-medicine-differences", type: "blog" as const },
 ];

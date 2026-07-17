@@ -80,6 +80,15 @@ const posts = [
     image: "/courses/fetal-medicine.jpg"
   },
   {
+    slug: "fetal-medicine-fellowship-curriculum-and-clinical-training",
+    title: "Fellowship Course Curriculum and Clinical Training in Fetal Medicine",
+    excerpt: "Explore the curriculum and clinical training offered in a Fellowship Course in Fetal Medicine, including case-based learning and faculty mentorship.",
+    category: "Clinical Skills",
+    readTime: "6 min read",
+    date: "17 Jul 2026",
+    image: "/courses/fetal-medicine.jpg"
+  },
+  {
     slug: "career-opportunities-after-fellowship-in-fetal-medicine",
     title: "Career Opportunities After Fellowship in Fetal Medicine",
     excerpt: "Discover the career pathways available after a Fellowship in Fetal Medicine, from hospital-based maternal-fetal care to academic and research roles.",

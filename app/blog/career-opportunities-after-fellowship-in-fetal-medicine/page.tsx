@@ -9,6 +9,7 @@ import Image from "next/image";
 const CLUSTER_LINKS = [
   { label: "Best Fellowship Course in Fetal Medicine (Guide)", href: "/courses/best-fellowship-course-in-fetal-medicine", type: "guide" as const },
   { label: "How to Choose the Best Fellowship Course in Fetal Medicine", href: "/blog/how-to-choose-the-fellowship-course-in-fetal-medicine", type: "blog" as const },
+  { label: "Fellowship Course Curriculum and Clinical Training in Fetal Medicine", href: "/blog/fetal-medicine-fellowship-curriculum-and-clinical-training", type: "blog" as const },
   { label: "Career Opportunities After Fellowship in Fetal Medicine", href: "/blog/career-opportunities-after-fellowship-in-fetal-medicine", type: "blog" as const },
   { label: "Fetal Medicine vs Maternal Fetal Medicine: Understanding the Differences", href: "/blog/fetal-medicine-vs-maternal-fetal-medicine-differences", type: "blog" as const },
 ];
@@ -414,6 +415,16 @@ export default function BlogArticle() {
                   How to Choose the Best Fellowship Course in Fetal Medicine
                 </h3>
                 <p className="text-sm text-text-secondary">Learn the key factors doctors should evaluate before selecting a fellowship...</p>
+              </Link>
+
+              <Link href="/blog/fetal-medicine-fellowship-curriculum-and-clinical-training" className="card p-6 hover:shadow-lg transition-all group">
+                <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-bold">
+                  Clinical Skills
+                </span>
+                <h3 className="text-lg font-heading font-bold text-primary mt-3 mb-2 group-hover:text-secondary transition-colors">
+                  Fellowship Course Curriculum and Clinical Training in Fetal Medicine
+                </h3>
+                <p className="text-sm text-text-secondary">Explore the curriculum, case-based learning, and faculty mentorship offered in the fellowship...</p>
               </Link>
 
               <Link href="/blog/fetal-medicine-vs-maternal-fetal-medicine-differences" className="card p-6 hover:shadow-lg transition-all group">

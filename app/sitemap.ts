@@ -18,6 +18,7 @@ const staticRoutes = [
   "/blog/arthroplasty-fellowship-eligibility-syllabus-duration-admission",
   "/arthroscopy-and-arthroplasty-fellowship-guide",
   "/blog/how-to-choose-the-fellowship-course-in-fetal-medicine",
+  "/blog/fetal-medicine-fellowship-curriculum-and-clinical-training",
   "/blog/career-opportunities-after-fellowship-in-fetal-medicine",
   "/blog/fetal-medicine-vs-maternal-fetal-medicine-differences",
   "/courses/best-fellowship-course-in-fetal-medicine",
