@@ -69,7 +69,7 @@ export default function ReproductiveMedicinePage() {
       </div>
 
       {/* Hero Section - Headline Only */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden min-h-[60vh] md:min-h-[75vh] lg:min-h-[90vh] flex items-center">
         {/* Full Background Image */}
         <div className="absolute inset-0">
           <img
@@ -80,14 +80,14 @@ export default function ReproductiveMedicinePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
         </div>
 
-        <div className="relative z-10 container-custom max-w-4xl mx-auto px-4 py-16 md:py-24 lg:py-28 text-center">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-3 md:mb-6 leading-tight text-white">
+        <div className="relative z-10 container-custom max-w-5xl mx-auto px-4 py-16 md:py-24 lg:py-28 text-center">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold mb-4 md:mb-8 leading-tight text-white">
             <span className="block">Fellowship Program in</span>
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">
               Reproductive Medicine
             </span>
           </h1>
-          <p className="text-sm md:text-lg lg:text-xl text-white/95 leading-relaxed font-light max-w-2xl mx-auto">
+          <p className="text-base md:text-xl lg:text-2xl text-white/95 leading-relaxed font-light max-w-3xl mx-auto">
             Master the science and practice of infertility management, IVF procedures, and assisted reproductive techniques with expert-led training.
           </p>
         </div>
