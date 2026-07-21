@@ -106,7 +106,7 @@ export default function ReproductiveMedicinePage() {
             <div className="bg-gradient-to-r from-primary via-secondary to-accent px-5 py-5 md:px-8 md:py-6 text-center text-white relative overflow-hidden">
               <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.1) 75%)', backgroundSize: '30px 30px' }}></div>
               <div className="relative z-10">
-                <h2 className="text-lg md:text-2xl font-heading font-extrabold mb-1.5">
+                <h2 className="text-lg md:text-2xl font-heading font-extrabold mb-1.5 text-white">
                   Book Your FREE Counselling Session
                 </h2>
                 <p className="text-xs md:text-sm text-white/95">
@@ -213,7 +213,7 @@ export default function ReproductiveMedicinePage() {
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
             <div className="bg-[#15401E] rounded-2xl md:rounded-3xl p-6 md:p-10 text-white shadow-2xl transform hover:scale-105 transition-transform">
               <div className="text-4xl md:text-6xl mb-4 md:mb-6">📈</div>
-              <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-4">Rising Global Demand</h3>
+              <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 text-white">Rising Global Demand</h3>
               <p className="text-white/90 text-sm md:text-lg leading-relaxed">
                 With infertility cases rising globally, fertility specialists are in high demand. This is your opportunity to enter a growing, rewarding field.
               </p>
@@ -593,7 +593,7 @@ export default function ReproductiveMedicinePage() {
       {/* Final CTA */}
       <section className="py-20 bg-[#15401E] text-white">
         <div className="container-custom max-w-4xl text-center">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-white">
             Start Your Journey in Reproductive Medicine Today
           </h2>
           <p className="text-xl text-white/90 mb-8">
