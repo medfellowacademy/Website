@@ -1,8 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import WhatsAppWidget from '@/components/WhatsAppWidget';
 
 export default function ReproductiveMedicinePage() {
   const [formData, setFormData] = useState({
@@ -60,9 +57,6 @@ export default function ReproductiveMedicinePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
-      <WhatsAppWidget />
-
       {/* Sticky Apply CTA - Mobile Only */}
       <div className={`fixed bottom-0 left-0 right-0 bg-gradient-to-r from-accent via-primary to-secondary text-white py-3 px-3 shadow-2xl z-40 md:hidden transform transition-transform duration-300 ${scrolled ? 'translate-y-0' : 'translate-y-20'}`}>
         <button
@@ -73,244 +67,156 @@ export default function ReproductiveMedicinePage() {
         </button>
       </div>
 
-      {/* Hero Section - Full Width Background Image */}
-      <section className="relative h-[70vh] md:h-[70vh] lg:h-[85vh] overflow-hidden">
-        {/* Full Background Image - Left to Right */}
+      {/* Hero Section - Headline + Embedded Booking Form */}
+      <section className="relative overflow-hidden">
+        {/* Full Background Image */}
         <div className="absolute inset-0">
-          <img 
-            src="/fertility-consultation.png" 
-            alt="Fertility Consultation - Doctor with Couple" 
+          <img
+            src="/fertility-consultation.png"
+            alt="Fertility Consultation - Doctor with Couple"
             className="w-full h-full object-cover transform scale-x-[-1]"
           />
-          {/* Gradient Overlay for better text contrast on left side */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
         </div>
 
-        {/* Content Overlay - Top Left Corner */}
-        <div className="absolute top-6 md:top-12 lg:top-16 left-4 md:left-12 lg:left-16 right-4 md:right-auto max-w-full md:max-w-xl lg:max-w-2xl">
-          {/* Main Heading */}
-          <h1 className="text-2xl md:text-5xl lg:text-6xl font-heading font-extrabold text-white mb-3 md:mb-6 leading-tight">
-            <span className="block">Fellowship in</span>
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">Reproductive Medicine</span>
-          </h1>
-          
-          {/* Subheading */}
-          <p className="text-sm md:text-lg lg:text-xl text-white/95 leading-relaxed font-light mb-4 md:mb-8">
-            Master the science and practice of infertility management, IVF procedures, and assisted reproductive techniques with expert-led training.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-2 md:gap-4">
-            <button
-              onClick={() => setShowForm(true)}
-              className="group px-5 md:px-8 py-3 md:py-4 bg-gradient-to-r from-accent via-yellow-400 to-accent text-primary font-extrabold rounded-full hover:shadow-2xl transition-all shadow-xl text-xs md:text-base lg:text-lg relative overflow-hidden transform hover:scale-105 w-full sm:w-auto"
-            >
-              <span className="relative z-10 flex items-center gap-2 justify-center">
-                <span className="text-base md:text-xl group-hover:animate-bounce">🚀</span>
-                Apply Now - Limited Seats!
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-accent to-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-            </button>
-            <a
-              href="tel:+919985044993"
-              className="px-5 md:px-8 py-3 md:py-4 bg-white/95 text-primary font-bold rounded-full hover:bg-white transition-all shadow-xl text-xs md:text-base lg:text-lg flex items-center gap-2 hover:scale-105 transform justify-center w-full sm:w-auto"
-            >
-              <span className="text-base md:text-xl">📞</span>
-              <span className="whitespace-nowrap">Call: +91-9985044993</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Lead Form Above Fold - Enhanced */}
-      <section className="py-8 md:py-16 relative overflow-hidden">
-        {/* Background Gradient */}
-        <div className="absolute inset-0 bg-[#fafafa]"></div>
-        <div className="absolute top-0 left-0 w-full h-full opacity-30">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-10 left-10 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="container-custom max-w-6xl relative z-10 px-4">
-          <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-            <div className="bg-gradient-to-r from-primary via-secondary to-accent p-6 md:p-8 text-center text-white relative overflow-hidden">
-              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.1) 75%)', backgroundSize: '30px 30px' }}></div>
-              <div className="relative z-10">
-                <div className="inline-block bg-white/20 backdrop-blur-sm px-4 md:px-6 py-2 rounded-full text-xs md:text-sm font-bold mb-3 md:mb-4">
-                  ⚡ LIMITED TIME OFFER
-                </div>
-                <h2 className="text-xl md:text-3xl lg:text-4xl font-heading font-extrabold mb-2 md:mb-3">
-                  📋 Book Your FREE Counseling Session
-                </h2>
-                <p className="text-sm md:text-lg text-white/95 max-w-2xl mx-auto">
-                  Get personalized guidance from our fertility training experts and kickstart your IVF specialization journey!
-                </p>
-              </div>
+        <div className="relative z-10 container-custom max-w-7xl mx-auto px-4 py-10 md:py-16 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left: Title + Subheading */}
+            <div className="text-white text-center lg:text-left">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-3 md:mb-6 leading-tight">
+                <span className="block">Fellowship Program in</span>
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">
+                  Reproductive Medicine
+                </span>
+              </h1>
+              <p className="text-sm md:text-lg lg:text-xl text-white/95 leading-relaxed font-light">
+                Master the science and practice of infertility management, IVF procedures, and assisted reproductive techniques with expert-led training.
+              </p>
             </div>
 
-            <div className="p-4 md:p-8 lg:p-10">
-              <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4 md:gap-6">
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 group-focus-within:text-primary transition-colors">
-                    👤 Full Name
-                  </label>
+            {/* Right: Embedded Booking Form */}
+            <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-gray-100 w-full">
+              <div className="bg-gradient-to-r from-primary via-secondary to-accent px-5 py-5 md:px-8 md:py-6 text-center text-white relative overflow-hidden">
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.1) 75%)', backgroundSize: '30px 30px' }}></div>
+                <div className="relative z-10">
+                  <h2 className="text-lg md:text-2xl font-heading font-extrabold mb-1.5">
+                    Book Your FREE Counselling Session
+                  </h2>
+                  <p className="text-xs md:text-sm text-white/95">
+                    Get personalized guidance from our fertility training experts
+                  </p>
+                </div>
+              </div>
+
+              <div className="p-4 md:p-6">
+                <form onSubmit={handleSubmit} className="space-y-3">
                   <input
                     type="text"
                     name="name"
-                    placeholder="Dr. John Doe"
+                    placeholder="Full Name *"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
                   />
-                </div>
-
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 group-focus-within:text-primary transition-colors">
-                    📧 Email Address
-                  </label>
                   <input
                     type="email"
                     name="email"
-                    placeholder="drjohn@example.com"
+                    placeholder="Email Address *"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
                   />
-                </div>
-
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 group-focus-within:text-primary transition-colors">
-                    📱 Phone Number (WhatsApp)
-                  </label>
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="+91-9985044993"
+                    placeholder="Phone Number (WhatsApp) *"
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
                   />
-                </div>
-
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 group-focus-within:text-primary transition-colors">
-                    🎓 Qualification
-                  </label>
                   <select
                     name="qualification"
                     value={formData.qualification}
                     onChange={handleChange}
                     required
-                    className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 bg-white"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 bg-white text-sm"
                   >
-                    <option value="">Select Your Qualification</option>
+                    <option value="">Select Your Qualification *</option>
                     <option value="MBBS">MBBS</option>
                     <option value="MD/MS OBGYN">MD/MS OBGYN</option>
                     <option value="General Practitioner">General Practitioner</option>
                     <option value="Other">Other</option>
                   </select>
-                </div>
-
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 group-focus-within:text-primary transition-colors">
-                    📍 Your City/Location
-                  </label>
                   <input
                     type="text"
                     name="location"
-                    placeholder="Mumbai, India"
+                    placeholder="Your City/Location *"
                     value={formData.location}
                     onChange={handleChange}
                     required
-                    className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
                   />
-                </div>
 
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2 group-focus-within:text-primary transition-colors">
-                    💬 Any Questions? (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    name="message"
-                    placeholder="Ask us anything..."
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300"
-                  />
-                </div>
-
-                <div className="md:col-span-2 mt-4">
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="group w-full bg-gradient-to-r from-accent via-primary to-secondary text-white font-extrabold py-5 rounded-2xl hover:shadow-2xl transition-all shadow-xl text-lg disabled:opacity-50 relative overflow-hidden transform hover:scale-[1.02]"
+                    className="group w-full bg-gradient-to-r from-accent via-primary to-secondary text-white font-extrabold py-4 rounded-2xl hover:shadow-2xl transition-all shadow-xl text-sm md:text-base disabled:opacity-50 relative overflow-hidden transform hover:scale-[1.02]"
                   >
-                    <span className="relative z-10 flex items-center justify-center gap-3">
+                    <span className="relative z-10 flex items-center justify-center gap-2">
                       {submitting ? (
-                        <>
-                          <span className="animate-spin">⏳</span>
-                          Submitting...
-                        </>
+                        <>Submitting...</>
                       ) : submitted ? (
-                        <>
-                          <span className="animate-bounce">✅</span>
-                          Submitted! We'll contact you soon.
-                        </>
+                        <>Submitted! We&apos;ll contact you soon.</>
                       ) : (
-                        <>
-                          <span className="text-2xl group-hover:animate-bounce">📞</span>
-                          Book FREE Counseling - Limited Slots!
-                          <span className="text-2xl group-hover:animate-bounce">📞</span>
-                        </>
+                        <>Book FREE Counselling - Limited Slots!</>
                       )}
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-secondary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </button>
-                  <p className="text-center text-sm text-gray-500 mt-4">
-                    🔒 Your information is 100% secure. No spam, guaranteed.
+                  <p className="text-center text-xs text-gray-500">
+                    Your information is 100% secure. No spam, guaranteed.
                   </p>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* About the Program - Enhanced */}
-      <section className="py-20 bg-gradient-to-br from-white via-primary/5 to-secondary/5 relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-gradient-to-br from-white via-primary/5 to-secondary/5 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl"></div>
-        
-        <div className="container-custom max-w-6xl relative z-10">
-          <div className="text-center mb-16">
-            <div className="inline-block bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full text-sm font-bold mb-6">
+
+        <div className="container-custom max-w-6xl relative z-10 px-4">
+          <div className="text-center mb-10 md:mb-16">
+            <div className="inline-block bg-gradient-to-r from-primary to-secondary text-white px-4 md:px-6 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-bold mb-4 md:mb-6">
               PROGRAM OVERVIEW
             </div>
-            <h2 className="text-4xl md:text-5xl font-heading font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-6">
-              🔬 About the Fellowship Program
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-heading font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent mb-4 md:mb-6">
+              About the Fellowship Program
             </h2>
-            <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
+            <p className="text-base md:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-medium">
               The <span className="text-primary font-bold">Fellowship in Reproductive Medicine</span> is designed for doctors who want to specialize in <span className="text-secondary font-bold">fertility care</span>, <span className="text-secondary font-bold">IVF</span>, and <span className="text-secondary font-bold">assisted reproduction</span>.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="bg-[#15401E] rounded-3xl p-10 text-white shadow-2xl transform hover:scale-105 transition-transform">
-              <div className="text-6xl mb-6">📈</div>
-              <h3 className="text-3xl font-bold mb-4">Rising Global Demand</h3>
-              <p className="text-white/90 text-lg leading-relaxed">
+
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+            <div className="bg-[#15401E] rounded-2xl md:rounded-3xl p-6 md:p-10 text-white shadow-2xl transform hover:scale-105 transition-transform">
+              <div className="text-4xl md:text-6xl mb-4 md:mb-6">📈</div>
+              <h3 className="text-xl md:text-3xl font-bold mb-3 md:mb-4">Rising Global Demand</h3>
+              <p className="text-white/90 text-sm md:text-lg leading-relaxed">
                 With infertility cases rising globally, fertility specialists are in high demand. This is your opportunity to enter a growing, rewarding field.
               </p>
             </div>
-            
-            <div className="bg-white rounded-3xl p-10 shadow-2xl border-2 border-primary/20 transform hover:scale-105 transition-transform">
-              <div className="text-6xl mb-6">🎯</div>
-              <h3 className="text-3xl font-bold text-primary mb-4">Complete Training</h3>
-              <p className="text-gray-700 text-lg leading-relaxed">
+
+            <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-2xl border-2 border-primary/20 transform hover:scale-105 transition-transform">
+              <div className="text-4xl md:text-6xl mb-4 md:mb-6">🎯</div>
+              <h3 className="text-xl md:text-3xl font-bold text-primary mb-3 md:mb-4">Complete Training</h3>
+              <p className="text-gray-700 text-sm md:text-lg leading-relaxed">
                 We equip you with <span className="font-bold text-secondary">practical skills</span>, <span className="font-bold text-secondary">clinical confidence</span>, and <span className="font-bold text-secondary">advanced knowledge</span> to excel in this high-demand specialty.
               </p>
             </div>
@@ -441,7 +347,7 @@ export default function ReproductiveMedicinePage() {
       <section className="py-16 bg-white">
         <div className="container-custom max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-12">
-            📚 What You Will Learn
+            What You Will Learn
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -487,7 +393,7 @@ export default function ReproductiveMedicinePage() {
       <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
         <div className="container-custom max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-12">
-            💡 Why Choose Us?
+            Why Choose Us?
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
             {[
@@ -513,7 +419,7 @@ export default function ReproductiveMedicinePage() {
       <section className="py-16 bg-white">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-12">
-            👩‍⚕️ Who Should Apply?
+            Who Should Apply?
           </h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -535,7 +441,7 @@ export default function ReproductiveMedicinePage() {
       <section className="py-16 bg-gradient-to-br from-secondary/10 to-primary/10">
         <div className="container-custom max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-12">
-            🚀 Career Opportunities
+            Career Opportunities
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
@@ -557,7 +463,7 @@ export default function ReproductiveMedicinePage() {
       <section className="py-16 bg-white">
         <div className="container-custom max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-4">
-            📊 Program Outcomes
+            Program Outcomes
           </h2>
           <p className="text-center text-text-secondary mb-12 text-lg">After completion, you will be able to:</p>
           <div className="space-y-4">
@@ -582,16 +488,19 @@ export default function ReproductiveMedicinePage() {
       <section className="py-16 bg-gray-50">
         <div className="container-custom max-w-5xl">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-12">
-            ⭐ What Our Fellows Say
+            What Our Fellows Say
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              { quote: 'This program helped me confidently step into IVF practice.', author: 'Dr. A. Sharma', role: 'MBBS, Fertility Consultant' },
-              { quote: 'Excellent hands-on exposure and mentorship.', author: 'Dr. R. Mehta', role: 'MD OBGYN, IVF Specialist' }
+              { quote: 'This program helped me confidently step into IVF practice. The hands-on lab exposure made all the difference.', author: 'Dr. A. Sharma', role: 'MBBS, Fertility Consultant' },
+              { quote: 'Excellent hands-on exposure and mentorship. I now handle complex infertility cases with much more confidence.', author: 'Dr. R. Mehta', role: 'MD OBGYN, IVF Specialist' },
+              { quote: 'The embryology and ART modules were incredibly detailed. It bridged the gap between theory and real clinical practice.', author: 'Dr. K. Nair', role: 'MS OBGYN, Reproductive Medicine Fellow' },
+              { quote: 'Flexible online sessions let me continue my practice while learning. The faculty mentorship was outstanding.', author: 'Dr. P. Verma', role: 'MBBS, General Practitioner' },
+              { quote: 'From ovarian stimulation protocols to embryo transfer, every module was clinically relevant and well-structured.', author: 'Dr. S. Iyer', role: 'MD OBGYN, IVF Consultant' },
+              { quote: 'This fellowship gave me the clinical confidence and credentials to start my own fertility clinic.', author: 'Dr. N. Reddy', role: 'MS OBGYN, Fertility Specialist' },
             ].map((testimonial, i) => (
               <div key={i} className="bg-white rounded-xl p-8 shadow-lg border-t-4 border-primary">
-                <div className="text-4xl text-primary mb-4">💬</div>
-                <p className="text-text-primary italic mb-6 text-lg">"{testimonial.quote}"</p>
+                <p className="text-text-primary italic mb-6 text-lg">&quot;{testimonial.quote}&quot;</p>
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-[#15401E] rounded-full flex items-center justify-center text-white font-bold">
                     {testimonial.author.split(' ')[1][0]}
@@ -611,7 +520,7 @@ export default function ReproductiveMedicinePage() {
       <section className="py-16 bg-white">
         <div className="container-custom max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-12">
-            ❓ Frequently Asked Questions
+            Frequently Asked Questions
           </h2>
           <div className="space-y-4">
             {[
@@ -632,7 +541,7 @@ export default function ReproductiveMedicinePage() {
       <section className="py-20 bg-[#15401E] text-white">
         <div className="container-custom max-w-4xl text-center">
           <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">
-            📣 Start Your Journey in Reproductive Medicine Today
+            Start Your Journey in Reproductive Medicine Today
           </h2>
           <p className="text-xl text-white/90 mb-8">
             Join one of the fastest-growing medical specialties and build a rewarding career in fertility care.
@@ -738,8 +647,6 @@ export default function ReproductiveMedicinePage() {
           </div>
         </div>
       )}
-
-      <Footer />
     </div>
   );
 }

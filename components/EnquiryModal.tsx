@@ -1,6 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { X, Send, CheckCircle2, MessageSquarePlus } from 'lucide-react';
+import { isBareLandingPage } from '@/lib/bare-landing-pages';
 
 const COURSES = [
   'Fellowship in Emergency Medicine',
@@ -38,6 +40,7 @@ const inputCls =
 const labelCls = 'block text-xs font-semibold text-[#374151] mb-1';
 
 export default function EnquiryModal() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -94,6 +97,8 @@ export default function EnquiryModal() {
       setForm({ name: '', phone: '', email: '', course: '' });
     }, 300);
   }
+
+  if (isBareLandingPage(pathname)) return null;
 
   return (
     <>

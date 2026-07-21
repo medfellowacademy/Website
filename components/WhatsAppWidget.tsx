@@ -1,8 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import { isBareLandingPage } from "@/lib/bare-landing-pages";
 
 export default function WhatsAppWidget() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [showWidget, setShowWidget] = useState(false);
 
@@ -44,6 +47,7 @@ export default function WhatsAppWidget() {
     setIsOpen(false);
   };
 
+  if (isBareLandingPage(pathname)) return null;
   if (!showWidget) return null;
 
   return (

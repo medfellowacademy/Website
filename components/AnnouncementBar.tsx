@@ -1,8 +1,10 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { X, ArrowRight } from 'lucide-react';
 import { analytics } from '@/lib/analytics';
+import { isBareLandingPage } from '@/lib/bare-landing-pages';
 
 const DEFAULT_MESSAGES = [
   { text: 'July 2026 batch applications now open — only 14 seats remaining', label: 'july_2026_batch' },
@@ -11,6 +13,7 @@ const DEFAULT_MESSAGES = [
 ];
 
 export default function AnnouncementBar() {
+  const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
   const [msgIndex, setMsgIndex]   = useState(0);
   const [messages, setMessages]   = useState(DEFAULT_MESSAGES);
@@ -36,6 +39,7 @@ export default function AnnouncementBar() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  if (isBareLandingPage(pathname)) return null;
   if (!isVisible) return null;
   const msg = messages[msgIndex] ?? messages[0];
 
