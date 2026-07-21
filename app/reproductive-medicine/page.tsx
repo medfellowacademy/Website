@@ -68,7 +68,7 @@ export default function ReproductiveMedicinePage() {
         </button>
       </div>
 
-      {/* Hero Section - Headline + Embedded Booking Form */}
+      {/* Hero Section - Headline Only */}
       <section className="relative overflow-hidden">
         {/* Full Background Image */}
         <div className="absolute inset-0">
@@ -80,108 +80,113 @@ export default function ReproductiveMedicinePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
         </div>
 
-        <div className="relative z-10 container-custom max-w-7xl mx-auto px-4 py-10 md:py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            {/* Left: Title + Subheading */}
-            <div className="text-white text-center lg:text-left">
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-3 md:mb-6 leading-tight">
-                <span className="block">Fellowship Program in</span>
-                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">
-                  Reproductive Medicine
-                </span>
-              </h1>
-              <p className="text-sm md:text-lg lg:text-xl text-white/95 leading-relaxed font-light">
-                Master the science and practice of infertility management, IVF procedures, and assisted reproductive techniques with expert-led training.
-              </p>
+        <div className="relative z-10 container-custom max-w-4xl mx-auto px-4 py-16 md:py-24 lg:py-28 text-center">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-3 md:mb-6 leading-tight text-white">
+            <span className="block">Fellowship Program in</span>
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">
+              Reproductive Medicine
+            </span>
+          </h1>
+          <p className="text-sm md:text-lg lg:text-xl text-white/95 leading-relaxed font-light max-w-2xl mx-auto">
+            Master the science and practice of infertility management, IVF procedures, and assisted reproductive techniques with expert-led training.
+          </p>
+        </div>
+      </section>
+
+      {/* Book Free Counselling Form - Below Hero */}
+      <section className="py-10 md:py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#fafafa]"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-30">
+          <div className="absolute top-10 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-10 left-10 w-80 h-80 bg-secondary/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container-custom max-w-2xl relative z-10 px-4">
+          <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
+            <div className="bg-gradient-to-r from-primary via-secondary to-accent px-5 py-5 md:px-8 md:py-6 text-center text-white relative overflow-hidden">
+              <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.1) 75%)', backgroundSize: '30px 30px' }}></div>
+              <div className="relative z-10">
+                <h2 className="text-lg md:text-2xl font-heading font-extrabold mb-1.5">
+                  Book Your FREE Counselling Session
+                </h2>
+                <p className="text-xs md:text-sm text-white/95">
+                  Get personalized guidance from our fertility training experts
+                </p>
+              </div>
             </div>
 
-            {/* Right: Embedded Booking Form */}
-            <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden border border-gray-100 w-full">
-              <div className="bg-gradient-to-r from-primary via-secondary to-accent px-5 py-5 md:px-8 md:py-6 text-center text-white relative overflow-hidden">
-                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,255,255,0.1) 75%)', backgroundSize: '30px 30px' }}></div>
-                <div className="relative z-10">
-                  <h2 className="text-lg md:text-2xl font-heading font-extrabold mb-1.5">
-                    Book Your FREE Counselling Session
-                  </h2>
-                  <p className="text-xs md:text-sm text-white/95">
-                    Get personalized guidance from our fertility training experts
-                  </p>
-                </div>
-              </div>
+            <div className="p-4 md:p-6">
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name *"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address *"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number (WhatsApp) *"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
+                />
+                <select
+                  name="qualification"
+                  value={formData.qualification}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 bg-white text-sm"
+                >
+                  <option value="">Select Your Qualification *</option>
+                  <option value="MBBS">MBBS</option>
+                  <option value="MD/MS OBGYN">MD/MS OBGYN</option>
+                  <option value="General Practitioner">General Practitioner</option>
+                  <option value="Other">Other</option>
+                </select>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Your City/Location *"
+                  value={formData.location}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
+                />
 
-              <div className="p-4 md:p-6">
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Full Name *"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address *"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number (WhatsApp) *"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
-                  />
-                  <select
-                    name="qualification"
-                    value={formData.qualification}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 bg-white text-sm"
-                  >
-                    <option value="">Select Your Qualification *</option>
-                    <option value="MBBS">MBBS</option>
-                    <option value="MD/MS OBGYN">MD/MS OBGYN</option>
-                    <option value="General Practitioner">General Practitioner</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  <input
-                    type="text"
-                    name="location"
-                    placeholder="Your City/Location *"
-                    value={formData.location}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
-                  />
-
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="group w-full bg-gradient-to-r from-accent via-primary to-secondary text-white font-extrabold py-4 rounded-2xl hover:shadow-2xl transition-all shadow-xl text-sm md:text-base disabled:opacity-50 relative overflow-hidden transform hover:scale-[1.02]"
-                  >
-                    <span className="relative z-10 flex items-center justify-center gap-2">
-                      {submitting ? (
-                        <>Submitting...</>
-                      ) : submitted ? (
-                        <>Submitted! We&apos;ll contact you soon.</>
-                      ) : (
-                        <>Book FREE Counselling - Limited Slots!</>
-                      )}
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-secondary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  </button>
-                  <p className="text-center text-xs text-gray-500">
-                    Your information is 100% secure. No spam, guaranteed.
-                  </p>
-                </form>
-              </div>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="group w-full bg-gradient-to-r from-accent via-primary to-secondary text-white font-extrabold py-4 rounded-2xl hover:shadow-2xl transition-all shadow-xl text-sm md:text-base disabled:opacity-50 relative overflow-hidden transform hover:scale-[1.02]"
+                >
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    {submitting ? (
+                      <>Submitting...</>
+                    ) : submitted ? (
+                      <>Submitted! We&apos;ll contact you soon.</>
+                    ) : (
+                      <>Book FREE Counselling - Limited Slots!</>
+                    )}
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-secondary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </button>
+                <p className="text-center text-xs text-gray-500">
+                  Your information is 100% secure. No spam, guaranteed.
+                </p>
+              </form>
             </div>
           </div>
         </div>
