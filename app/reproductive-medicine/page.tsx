@@ -496,17 +496,35 @@ export default function ReproductiveMedicinePage() {
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-4">
             Training Hospitals
           </h2>
-          <p className="text-center text-text-secondary mb-12 text-lg">
-            Gain real clinical exposure at our partnered training hospitals
+          <p className="text-center text-text-secondary mb-12 text-lg max-w-2xl mx-auto">
+            Fellows train hands-on at our partnered hospitals, gaining real patient exposure alongside experienced clinical teams
           </p>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { src: '/hospital-medicover.png', alt: 'Medicover Hospitals' },
-              { src: '/hospital-premier.jpg', alt: 'Premier Hospital - Trauma, Emergency, Critical Care' },
+              {
+                src: '/hospital-medicover.png',
+                alt: 'Medicover Hospitals',
+                description: 'Multi-specialty tertiary care network with dedicated fertility and reproductive medicine units.',
+                tags: ['Multi-Specialty', 'IVF & Fertility Care'],
+              },
+              {
+                src: '/hospital-premier.jpg',
+                alt: 'Premier Hospital - Trauma, Emergency, Critical Care',
+                description: 'Specialty hospital delivering high-acuity clinical exposure across trauma, emergency, and critical care.',
+                tags: ['Trauma', 'Emergency', 'Critical Care'],
+              },
             ].map((hospital) => (
-              <div key={hospital.src} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 flex items-center justify-center hover:shadow-xl transition-shadow">
-                <div className="relative w-full h-24">
+              <div key={hospital.src} className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col items-center text-center">
+                <div className="relative w-full h-20 md:h-24 mb-4 md:mb-5">
                   <Image src={hospital.src} alt={hospital.alt} fill className="object-contain" sizes="(max-width: 640px) 90vw, 400px" />
+                </div>
+                <p className="text-sm text-text-secondary leading-relaxed mb-4">{hospital.description}</p>
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {hospital.tags.map((tag) => (
+                    <span key={tag} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
