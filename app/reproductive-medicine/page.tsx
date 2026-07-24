@@ -81,9 +81,15 @@ export default function ReproductiveMedicinePage() {
         </div>
 
         <div className="relative z-10 container-custom max-w-5xl mx-auto px-4 py-16 md:py-24 lg:py-28 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold mb-4 md:mb-8 leading-tight text-white">
-            <span className="block">Fellowship Program in</span>
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">
+          <div className="relative w-40 h-14 md:w-52 md:h-20 mx-auto mb-5 md:mb-8">
+            <Image src="/logo.png" alt="MedFellow Academy" fill className="object-contain" sizes="220px" priority />
+          </div>
+          <p className="text-sm md:text-lg lg:text-xl font-semibold tracking-wide text-accent mb-3 md:mb-5">
+            Advance Your Career in Fertility &amp; IVF
+          </p>
+          <h1 className="font-heading font-extrabold mb-4 md:mb-8 leading-tight text-white">
+            <span className="block text-2xl md:text-4xl lg:text-5xl whitespace-nowrap">Fellowship Program in</span>
+            <span className="block text-4xl md:text-6xl lg:text-7xl mt-1 md:mt-2 bg-clip-text text-transparent bg-gradient-to-r from-accent via-yellow-400 to-accent">
               Reproductive Medicine
             </span>
           </h1>
