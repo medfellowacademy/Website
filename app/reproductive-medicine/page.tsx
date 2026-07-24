@@ -80,10 +80,12 @@ export default function ReproductiveMedicinePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
         </div>
 
+        {/* Logo - Top Right */}
+        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20 w-28 h-10 md:w-40 md:h-14 lg:w-48 lg:h-16">
+          <Image src="/logo.png" alt="MedFellow Academy" fill className="object-contain" sizes="192px" priority />
+        </div>
+
         <div className="relative z-10 container-custom max-w-5xl mx-auto px-4 py-16 md:py-24 lg:py-28 text-center">
-          <div className="relative w-40 h-14 md:w-52 md:h-20 mx-auto mb-5 md:mb-8">
-            <Image src="/logo.png" alt="MedFellow Academy" fill className="object-contain" sizes="220px" priority />
-          </div>
           <p className="text-sm md:text-lg lg:text-xl font-semibold tracking-wide text-accent mb-3 md:mb-5">
             Advance Your Career in Fertility &amp; IVF
           </p>
