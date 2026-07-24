@@ -68,8 +68,17 @@ export default function ReproductiveMedicinePage() {
         </button>
       </div>
 
+      {/* Minimal Logo Header */}
+      <header className="bg-white py-3 md:py-4 border-b border-gray-100">
+        <div className="container-custom max-w-6xl mx-auto px-4">
+          <div className="relative w-32 h-10 md:w-40 md:h-12">
+            <Image src="/logo.png" alt="MedFellow Academy" fill className="object-contain object-left" sizes="160px" priority />
+          </div>
+        </div>
+      </header>
+
       {/* Hero Section - Headline Only */}
-      <section className="relative overflow-hidden min-h-[60vh] md:min-h-[75vh] lg:min-h-[90vh] flex items-center">
+      <section className="relative overflow-hidden min-h-[55vh] md:min-h-[70vh] lg:min-h-[85vh] flex items-center">
         {/* Full Background Image */}
         <div className="absolute inset-0">
           <img
@@ -78,11 +87,6 @@ export default function ReproductiveMedicinePage() {
             className="w-full h-full object-cover transform scale-x-[-1]"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
-        </div>
-
-        {/* Logo - Top Left */}
-        <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20 w-28 h-10 md:w-40 md:h-14 lg:w-48 lg:h-16">
-          <Image src="/logo.png" alt="MedFellow Academy" fill className="object-contain" sizes="192px" priority />
         </div>
 
         <div className="relative z-10 container-custom max-w-5xl mx-auto px-4 py-16 md:py-24 lg:py-28 text-center">
