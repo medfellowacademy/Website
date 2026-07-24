@@ -80,8 +80,8 @@ export default function ReproductiveMedicinePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
         </div>
 
-        {/* Logo - Top Right */}
-        <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20 w-28 h-10 md:w-40 md:h-14 lg:w-48 lg:h-16">
+        {/* Logo - Top Left */}
+        <div className="absolute top-4 left-4 md:top-8 md:left-8 z-20 w-28 h-10 md:w-40 md:h-14 lg:w-48 lg:h-16">
           <Image src="/logo.png" alt="MedFellow Academy" fill className="object-contain" sizes="192px" priority />
         </div>
 
