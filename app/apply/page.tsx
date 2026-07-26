@@ -170,6 +170,14 @@ const DOC_SLOTS = [
   { key: 'photo',        label: 'Recent Photograph',                 accept: '.jpg,.jpeg,.png',      hint: 'JPG or PNG' },
 ];
 
+// The apply form's documents are uploaded to our own API route (not directly
+// to storage), so the combined request body must stay well under the
+// hosting platform's serverless function payload limit (~4.5MB on Vercel) —
+// otherwise the request is rejected upstream with a 413 before it reaches
+// our code.
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB per file
+const MAX_TOTAL_SIZE = 3.5 * 1024 * 1024; // 3.5MB combined across all documents
+
 export default function ApplyPage() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -479,7 +487,7 @@ export default function ApplyPage() {
                     <div className="space-y-8">
                       <div>
                         <p className="text-sm font-semibold text-primary mb-1">Document Upload</p>
-                        <p className="text-xs text-text-secondary mb-4">Upload clear copies of each document — PDF, JPG, or PNG, max 5MB each.</p>
+                        <p className="text-xs text-text-secondary mb-4">Upload clear copies of each document — PDF, JPG, or PNG, max 2MB each (3.5MB combined). Compress large scans/photos before uploading.</p>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {DOC_SLOTS.map(slot => (
                             <div key={slot.key}
@@ -489,8 +497,16 @@ export default function ApplyPage() {
                                 className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                                 onChange={e => {
                                   const file = e.target.files?.[0] || null;
-                                  if (file && file.size > 5 * 1024 * 1024) {
-                                    setError(`File "${file.name}" is too large. Maximum size is 5MB.`);
+                                  if (file && file.size > MAX_FILE_SIZE) {
+                                    setError(`File "${file.name}" is too large. Maximum size is 2MB per file.`);
+                                    e.target.value = '';
+                                    return;
+                                  }
+                                  const othersTotal = Object.entries(documents)
+                                    .filter(([k]) => k !== slot.key)
+                                    .reduce((sum, [, f]) => sum + (f?.size ?? 0), 0);
+                                  if (file && othersTotal + file.size > MAX_TOTAL_SIZE) {
+                                    setError(`Adding "${file.name}" would exceed the 3.5MB combined document limit. Please compress your files or remove another document first.`);
                                     e.target.value = '';
                                     return;
                                   }
