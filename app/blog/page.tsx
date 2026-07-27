@@ -106,6 +106,51 @@ const posts = [
     date: "15 Jul 2026",
     image: "/courses/fetal-medicine.jpg"
   },
+  {
+    slug: "how-to-choose-a-high-risk-pregnancy-fellowship",
+    title: "How to Choose a High-Risk Pregnancy Fellowship",
+    excerpt: "Learn how to choose the right High-Risk Pregnancy Fellowship by comparing curriculum, faculty, learning methodology, flexibility, and career goals.",
+    category: "Fellowship Guides",
+    readTime: "7 min read",
+    date: "27 Jul 2026",
+    image: "/courses/high-risk-pregnancy.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-medical-fellowship",
+    title: "Questions to Ask Before Joining a Medical Fellowship: A Complete Checklist for Doctors",
+    excerpt: "Discover the most important questions every doctor should ask about curriculum, faculty, certification, clinical training, fees, and career outcomes before enrolling.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "27 Jul 2026",
+    image: "/courses/high-risk-pregnancy.jpg"
+  },
+  {
+    slug: "online-vs-offline-high-risk-pregnancy-fellowship",
+    title: "Online vs Offline High-Risk Pregnancy Fellowship: Which One Is Better for Doctors?",
+    excerpt: "Compare Online vs Offline High-Risk Pregnancy Fellowship programs based on curriculum, clinical learning, flexibility, faculty interaction, and career benefits.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "27 Jul 2026",
+    image: "/courses/high-risk-pregnancy.jpg"
+  },
+  {
+    slug: "is-high-risk-pregnancy-fellowship-worth-it",
+    title: "Is a High-Risk Pregnancy Fellowship Worth It? Benefits, Career Scope & Clinical Value",
+    excerpt: "Discover the clinical benefits, career opportunities, and skill development a High-Risk Pregnancy Fellowship offers Obstetricians & Gynecologists.",
+    category: "Career Planning",
+    readTime: "8 min read",
+    date: "27 Jul 2026",
+    image: "/courses/high-risk-pregnancy.jpg"
+  },
+  {
+    slug: "high-risk-pregnancy-fellowship-after-md-obg",
+    title: "High-Risk Pregnancy Fellowship After MD OBG: Why It Matters for Your Career",
+    excerpt: "Explore why pursuing a High-Risk Pregnancy Fellowship after MD OBG can strengthen clinical expertise, improve maternal care, and expand career opportunities.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "27 Jul 2026",
+    image: "/courses/high-risk-pregnancy.jpg"
+  },
 ];
 
 const categories = Array.from(
