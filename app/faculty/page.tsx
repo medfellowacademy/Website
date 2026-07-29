@@ -62,7 +62,7 @@ export default async function FacultyPage() {
                     <img
                       src={member.photo}
                       alt={member.name}
-                      className="w-full h-full object-contain object-bottom group-hover:scale-[1.03] transition-transform duration-300"
+                      className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-300"
                     />
                     <span
                       className="absolute top-2.5 left-2.5 text-[10px] font-bold px-2 py-0.5 rounded-md text-white shadow"

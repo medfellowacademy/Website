@@ -60,15 +60,14 @@ export default async function FacultyDetailPage({ params }: { params: Promise<{ 
 
             {/* Photo column */}
             <div
-              className="relative flex items-end justify-center min-h-[320px] md:min-h-[480px]"
+              className="relative min-h-[320px] md:min-h-[480px]"
               style={{ background: member.accentLight }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={member.photo}
                 alt={member.name}
-                className="w-full h-full object-contain object-bottom"
-                style={{ maxHeight: '480px' }}
+                className="absolute inset-0 w-full h-full object-cover object-top"
               />
               {/* Specialty badge */}
               <span
@@ -177,7 +176,7 @@ export default async function FacultyDetailPage({ params }: { params: Promise<{ 
                     <img
                       src={m.photo}
                       alt={m.name}
-                      className="w-full h-full object-contain object-bottom group-hover:scale-[1.02] transition-transform duration-300"
+                      className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300"
                     />
                   </div>
                   <div className="p-3">
