@@ -2,6 +2,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 const PROGRAMS = [
   // Critical Care & Emergency
@@ -90,7 +91,7 @@ const PROGRAMS = [
   { value: 'maxillofacial-surgery', label: 'Fellowship in Maxillofacial Surgery' },
   { value: 'epidemiology', label: 'Fellowship in Epidemiology' },
   { value: 'sexology', label: 'Fellowship in Sexology' },
-  { value: 'Otorhinolaryngology (ENT)', label: 'Fellowship in Otorhinolaryngology (ENT)' },
+  { value: 'otorhinolaryngology-ent', label: 'Fellowship in Otorhinolaryngology (ENT)' },
   { value: 'clinical-nutrition', label: 'Fellowship in Clinical Nutrition' },
 ];
 
@@ -171,13 +172,10 @@ const DOC_SLOTS = [
   { key: 'photo',        label: 'Recent Photograph',                 accept: '.jpg,.jpeg,.png',      hint: 'JPG or PNG' },
 ];
 
-// The apply form's documents are uploaded to our own API route (not directly
-// to storage), so the combined request body must stay well under the
-// hosting platform's serverless function payload limit (~4.5MB on Vercel) —
-// otherwise the request is rejected upstream with a 413 before it reaches
-// our code.
-const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB per file
-const MAX_TOTAL_SIZE = 3.5 * 1024 * 1024; // 3.5MB combined across all documents
+// Documents upload directly from the browser to Supabase Storage (bypassing
+// our own API route entirely), so this only needs to guard against
+// unreasonably large files — not the hosting platform's request body limit.
+const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB per file
 
 export default function ApplyPage() {
   const [step, setStep] = useState(1);
@@ -211,29 +209,51 @@ export default function ApplyPage() {
     setSubmitting(true);
     setError('');
     try {
+      // Upload documents directly to Supabase Storage from the browser, so
+      // large files never pass through our own API route.
+      const folderId = crypto.randomUUID();
+      const documentPaths: string[] = [];
+      for (const [key, file] of Object.entries(documents)) {
+        if (!file) continue;
+        const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
+        const storagePath = `applications/${folderId}/${key}/${safeName}`;
+        const { error: uploadError } = await supabase.storage
+          .from('application-documents')
+          .upload(storagePath, file, { contentType: file.type, upsert: true });
+        if (uploadError) {
+          throw new Error(`Failed to upload ${safeName}: ${uploadError.message}`);
+        }
+        documentPaths.push(storagePath);
+      }
+
       const nameParts = formData.fullName.trim().split(' ');
       const first_name = nameParts[0] || '';
       const last_name = nameParts.slice(1).join(' ') || '';
-      const fd = new FormData();
-      fd.append('first_name', first_name);
-      fd.append('last_name', last_name);
-      fd.append('email', formData.email);
-      fd.append('phone', formData.phone);
-      fd.append('program', formData.program);
-      fd.append('qualification', formData.qualification);
-      fd.append('experience', formData.experience);
-      fd.append('message', JSON.stringify({
-        dob: formData.dob, gender: formData.gender,
-        regNumber: formData.regNumber, stateCouncil: formData.stateCouncil,
-        yearOfReg: formData.yearOfReg, practiceType: formData.practiceType,
-        hospitalName: formData.hospitalName, clinicName: formData.clinicName,
-        city: formData.city, modePreference: formData.modePreference,
-        reason: formData.reason,
-      }));
-      Object.entries(documents).forEach(([key, file]) => {
-        if (file) fd.append(`doc_${key}`, file);
+      const res = await fetch('/api/applications', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name,
+          last_name,
+          email: formData.email,
+          phone: formData.phone,
+          program: formData.program,
+          qualification: formData.qualification,
+          experience: formData.experience,
+          dob: formData.dob,
+          gender: formData.gender,
+          regNumber: formData.regNumber,
+          stateCouncil: formData.stateCouncil,
+          yearOfReg: formData.yearOfReg,
+          practiceType: formData.practiceType,
+          hospitalName: formData.hospitalName,
+          clinicName: formData.clinicName,
+          city: formData.city,
+          modePreference: formData.modePreference,
+          reason: formData.reason,
+          documents: documentPaths,
+        }),
       });
-      const res = await fetch('/api/applications', { method: 'POST', body: fd });
       const contentType = res.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
         throw new Error(`Server error: ${res.status} ${res.statusText}`);
@@ -488,7 +508,7 @@ export default function ApplyPage() {
                     <div className="space-y-8">
                       <div>
                         <p className="text-sm font-semibold text-primary mb-1">Document Upload</p>
-                        <p className="text-xs text-text-secondary mb-4">Upload clear copies of each document — PDF, JPG, or PNG, max 2MB each (3.5MB combined). Compress large scans/photos before uploading.</p>
+                        <p className="text-xs text-text-secondary mb-4">Upload clear copies of each document — PDF, JPG, or PNG, max 10MB each.</p>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {DOC_SLOTS.map(slot => (
                             <div key={slot.key}
@@ -499,15 +519,7 @@ export default function ApplyPage() {
                                 onChange={e => {
                                   const file = e.target.files?.[0] || null;
                                   if (file && file.size > MAX_FILE_SIZE) {
-                                    setError(`File "${file.name}" is too large. Maximum size is 2MB per file.`);
-                                    e.target.value = '';
-                                    return;
-                                  }
-                                  const othersTotal = Object.entries(documents)
-                                    .filter(([k]) => k !== slot.key)
-                                    .reduce((sum, [, f]) => sum + (f?.size ?? 0), 0);
-                                  if (file && othersTotal + file.size > MAX_TOTAL_SIZE) {
-                                    setError(`Adding "${file.name}" would exceed the 3.5MB combined document limit. Please compress your files or remove another document first.`);
+                                    setError(`File "${file.name}" is too large. Maximum size is 10MB per file.`);
                                     e.target.value = '';
                                     return;
                                   }
