@@ -16,6 +16,16 @@ export default function ReproductiveMedicinePage() {
   const [showForm, setShowForm] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const [headerFormData, setHeaderFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    qualification: ''
+  });
+  const [showHeaderForm, setShowHeaderForm] = useState(false);
+  const [headerSubmitting, setHeaderSubmitting] = useState(false);
+  const [headerSubmitted, setHeaderSubmitted] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 100);
     window.addEventListener('scroll', handleScroll);
@@ -56,6 +66,40 @@ export default function ReproductiveMedicinePage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleHeaderChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setHeaderFormData({ ...headerFormData, [e.target.name]: e.target.value });
+  };
+
+  const handleHeaderSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setHeaderSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: headerFormData.name,
+          email: headerFormData.email,
+          phone: headerFormData.phone,
+          subject: 'Fellowship in Reproductive Medicine - Apply Now',
+          message: `Qualification: ${headerFormData.qualification}`
+        })
+      });
+
+      if (response.ok) {
+        setHeaderSubmitted(true);
+        setHeaderFormData({ name: '', email: '', phone: '', qualification: '' });
+      } else {
+        alert('Failed to submit. Please try again.');
+      }
+    } catch (error) {
+      alert('Error submitting form. Please try again.');
+    } finally {
+      setHeaderSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Sticky Apply CTA - Mobile Only */}
@@ -70,10 +114,16 @@ export default function ReproductiveMedicinePage() {
 
       {/* Minimal Logo Header */}
       <header className="bg-white py-3 md:py-4 border-b border-gray-100">
-        <div className="container-custom max-w-6xl mx-auto px-4">
-          <div className="relative w-32 h-10 md:w-40 md:h-12">
+        <div className="container-custom max-w-6xl mx-auto px-4 flex items-center justify-between gap-3">
+          <div className="relative w-32 h-10 md:w-40 md:h-12 shrink-0">
             <Image src="/logo.png" alt="MedFellow Academy" fill className="object-contain object-left" sizes="160px" priority />
           </div>
+          <button
+            onClick={() => setShowHeaderForm(true)}
+            className="px-4 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-accent via-primary to-secondary text-white font-bold rounded-full shadow-md hover:shadow-lg transition-all transform hover:scale-105 text-xs md:text-sm shrink-0"
+          >
+            Apply Now
+          </button>
         </div>
       </header>
 
@@ -650,6 +700,69 @@ export default function ReproductiveMedicinePage() {
           </div>
         </div>
       </section>
+
+      {/* Header Apply Now Modal */}
+      {showHeaderForm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowHeaderForm(false)}>
+          <div className="bg-white rounded-xl md:rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+            <div className="p-4 md:p-6 lg:p-8">
+              <div className="flex items-center justify-between mb-4 md:mb-6">
+                <h3 className="text-lg md:text-2xl font-bold text-primary">Apply Now</h3>
+                <button onClick={() => setShowHeaderForm(false)} className="text-2xl md:text-3xl text-gray-400 hover:text-gray-600 w-10 h-10 flex items-center justify-center">×</button>
+              </div>
+              <form onSubmit={handleHeaderSubmit} className="space-y-3 md:space-y-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name *"
+                  value={headerFormData.name}
+                  onChange={handleHeaderChange}
+                  required
+                  className="w-full px-4 py-3 md:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address *"
+                  value={headerFormData.email}
+                  onChange={handleHeaderChange}
+                  required
+                  className="w-full px-4 py-3 md:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+                />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number *"
+                  value={headerFormData.phone}
+                  onChange={handleHeaderChange}
+                  required
+                  className="w-full px-4 py-3 md:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+                />
+                <select
+                  name="qualification"
+                  value={headerFormData.qualification}
+                  onChange={handleHeaderChange}
+                  required
+                  className="w-full px-4 py-3 md:py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent text-base"
+                >
+                  <option value="">Select Qualification *</option>
+                  <option value="MBBS">MBBS</option>
+                  <option value="MD/MS OBGYN">MD/MS OBGYN</option>
+                  <option value="General Practitioner">General Practitioner</option>
+                  <option value="Other">Other</option>
+                </select>
+                <button
+                  type="submit"
+                  disabled={headerSubmitting}
+                  className="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 md:py-5 rounded-xl hover:opacity-90 transition-all shadow-lg disabled:opacity-50 text-base md:text-lg"
+                >
+                  {headerSubmitting ? '⏳ Submitting...' : headerSubmitted ? '✅ Submitted Successfully!' : '🚀 Submit Application'}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Modal Form */}
       {showForm && (
