@@ -151,6 +151,51 @@ const posts = [
     date: "27 Jul 2026",
     image: "/courses/high-risk-pregnancy.jpg"
   },
+  {
+    slug: "how-to-choose-an-oral-implantology-laser-dentistry-fellowship-course",
+    title: "How to Choose an Oral Implantology & Laser Dentistry Fellowship",
+    excerpt: "Compare the best Fellowship Course in Oral Implantology & Laser Dentistry — eligibility, curriculum, career opportunities, fees, and flexible online learning.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-an-oral-implantology-laser-dentistry-fellowship",
+    title: "Questions to Ask Before Joining an Oral Implantology & Laser Dentistry Fellowship",
+    excerpt: "Discover the essential questions to ask before choosing the right Oral Implantology & Laser Dentistry fellowship program.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
+  {
+    slug: "online-vs-offline-oral-implantology-laser-dentistry-fellowship",
+    title: "Online vs Offline Oral Implantology & Laser Dentistry Fellowship: Which One Is Right for You?",
+    excerpt: "Compare online vs offline Oral Implantology & Laser Dentistry fellowships — curriculum, flexibility, clinical exposure, costs, and career value.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
+  {
+    slug: "is-an-oral-implantology-laser-dentistry-fellowship-worth-it",
+    title: "Is an Oral Implantology & Laser Dentistry Fellowship Worth It?",
+    excerpt: "Explore the benefits, career opportunities, skills, and how to choose the right Oral Implantology & Laser Dentistry fellowship program.",
+    category: "Career Planning",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
+  {
+    slug: "career-opportunities-after-an-oral-implantology-laser-dentistry-fellowship",
+    title: "Career Opportunities After an Oral Implantology & Laser Dentistry Fellowship",
+    excerpt: "Discover career opportunities after an Oral Implantology & Laser Dentistry fellowship — career paths, skills, and private practice growth.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "06 Aug 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
 ];
 
 const categories = Array.from(
