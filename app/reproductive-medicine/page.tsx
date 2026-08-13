@@ -90,6 +90,10 @@ export default function ReproductiveMedicinePage() {
       if (response.ok) {
         setHeaderSubmitted(true);
         setHeaderFormData({ name: '', email: '', phone: '', qualification: '' });
+        setTimeout(() => {
+          setShowHeaderForm(false);
+          setHeaderSubmitted(false);
+        }, 1500);
       } else {
         alert('Failed to submit. Please try again.');
       }
