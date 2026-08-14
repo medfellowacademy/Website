@@ -151,6 +151,60 @@ const posts = [
     date: "27 Jul 2026",
     image: "/courses/high-risk-pregnancy.jpg"
   },
+  {
+    slug: "how-to-choose-a-urology-fellowship",
+    title: "How to Choose the Right Urology Fellowship Course",
+    excerpt: "Learn how to choose the right Urology fellowship course. Compare curriculum, faculty, learning format, eligibility, and career opportunities before enrolling.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-urology-fellowship",
+    title: "15 Questions to Ask Before Joining a Urology Fellowship Course",
+    excerpt: "Discover the essential questions to ask before joining a Urology fellowship. Compare curriculum, faculty, learning format, career support, and eligibility.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "online-vs-offline-urology-fellowship",
+    title: "Online vs Offline Urology Fellowship Course: Which One Should You Choose?",
+    excerpt: "Compare online vs offline Urology fellowship courses. Learn about flexibility, curriculum, clinical exposure, costs, and how to choose the right program.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "career-opportunities-after-a-urology-fellowship",
+    title: "Career Opportunities After a Urology Fellowship",
+    excerpt: "Explore career opportunities after a Urology fellowship. Discover career pathways, in-demand skills, and how fellowship training supports long-term growth.",
+    category: "Career Planning",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "who-can-apply-for-a-urology-fellowship-eligibility-guide",
+    title: "Who Can Apply for a Urology Fellowship? A Complete Eligibility Guide",
+    excerpt: "Learn who can apply for a Urology fellowship, eligibility criteria, qualifications, career pathways, and how to choose the right program.",
+    category: "Fellowship Guides",
+    readTime: "7 min read",
+    date: "06 Aug 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "skills-you-will-learn-during-a-urology-fellowship",
+    title: "Skills You Will Learn During a Urology Fellowship Course",
+    excerpt: "Discover the essential skills you will learn during a Urology fellowship, from endourology and uro-oncology to patient care and clinical decision making.",
+    category: "Clinical Skills",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/urology.jpg"
+  },
 ];
 
 const categories = Array.from(
