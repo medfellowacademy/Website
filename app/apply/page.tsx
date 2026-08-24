@@ -395,7 +395,7 @@ export default function ApplyPage() {
                         <FL label="Medical Qualification *">
                           <select required className="field-input" value={formData.qualification} onChange={e => u('qualification', e.target.value)}>
                             <option value="">Select qualification</option>
-                            {['MBBS', 'MD', 'MS', 'DNB', 'Others'].map(q => <option key={q} value={q}>{q}</option>)}
+                            {['MBBS', 'MD', 'MS', 'DNB',  'BDS', 'MDS','Others'].map(q => <option key={q} value={q}>{q}</option>)}
                           </select>
                         </FL>
                         <FL label="Medical Council Registration Number *">
