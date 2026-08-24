@@ -40,7 +40,7 @@ const INTEREST_MAP = [
 
 const APPLICANTS = [
   { title: 'MBBS Doctors', text: 'Explore specialized pediatric fellowship opportunities relevant to your career goals.', icon: '🎓' },
-  { title: 'MD/DNB Pediatrics', text: 'Deepen your knowledge in a specific pediatric subspecialty.', icon: '👨‍⚕️' },
+  { title: 'MD/DNB Pediatrics', text: 'Deepen your knowledge in a specific pediatric subspeciality.', icon: '👨‍⚕️' },
   { title: 'Practicing Pediatricians', text: 'Upgrade your knowledge and develop focused expertise in your area of interest.', icon: '🩺' },
   { title: 'Other Eligible Medical Professionals', text: 'Eligibility may vary depending on the selected fellowship program.', icon: '👩‍⚕️' },
 ];
@@ -150,11 +150,11 @@ export default function PediatricSubspecialtyFellowshipPage() {
         </div>
       </section>
 
-      {/* Choose Your Pediatric Subspecialty */}
+      {/* Choose Your Pediatric Subspeciality */}
       <section className="py-14 md:py-20 bg-white">
         <div className="container-custom max-w-6xl px-4">
           <h2 className="text-2xl md:text-4xl font-heading font-extrabold text-center text-primary mb-3">
-            Choose Your Pediatric Subspecialty
+            Choose Your Pediatric Subspeciality
           </h2>
           <p className="text-center text-text-secondary max-w-2xl mx-auto mb-10 md:mb-14 text-base md:text-lg">
             Five focused fellowship programs — pick the one that matches your career interest.
@@ -264,7 +264,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
             </h2>
             <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
               The programs are designed for eligible doctors and medical professionals seeking advanced
-              knowledge in pediatric subspecialty areas.
+              knowledge in pediatric subspeciality areas.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
@@ -300,7 +300,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
           <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
             Our fellowship programs are designed around specialty-focused learning to help doctors
             understand important concepts, clinical cases, and current approaches within their selected
-            pediatric subspecialty.
+            pediatric subspeciality.
           </p>
           <p className="text-base md:text-lg text-gray-700 leading-relaxed">
             Build Knowledge That Supports Your Clinical Practice — learn according to your chosen specialty
