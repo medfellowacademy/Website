@@ -55,12 +55,13 @@ export default function PediatricSubspecialtyFellowshipPage() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const scrollToForm = (fellowship?: string) => {
+  const openModal = (fellowship?: string) => {
     if (fellowship) {
       setFormData((prev) => ({ ...prev, fellowship }));
     }
-    document.getElementById('program-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setShowModal(true);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -83,6 +84,12 @@ export default function PediatricSubspecialtyFellowshipPage() {
       if (response.ok) {
         setSubmitted(true);
         setFormData({ name: '', mobile: '', email: '', qualification: '', fellowship: '' });
+        if (showModal) {
+          setTimeout(() => {
+            setShowModal(false);
+            setSubmitted(false);
+          }, 1800);
+        }
       } else {
         alert('Failed to submit. Please try again.');
       }
@@ -102,7 +109,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
       {/* Sticky CTA - Mobile Only */}
       <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-accent via-primary to-secondary text-white py-3 px-3 shadow-2xl z-40 md:hidden">
         <button
-          onClick={() => scrollToForm()}
+          onClick={() => openModal()}
           className="w-full bg-white text-primary font-bold py-4 rounded-full hover:bg-accent hover:text-white transition-all transform active:scale-95 shadow-lg flex items-center justify-center gap-2 text-sm"
         >
           <span className="animate-pulse text-base">🚀</span> Get Free Counselling
@@ -116,7 +123,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
             <Image src="/logo.png" alt="MedFellow Academy" fill className="object-contain object-left" sizes="160px" priority />
           </div>
           <button
-            onClick={() => scrollToForm()}
+            onClick={() => openModal()}
             className="px-4 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-accent via-primary to-secondary text-white font-bold rounded-full shadow-md hover:shadow-lg transition-all transform hover:scale-105 text-xs md:text-sm shrink-0"
           >
             Apply Now
@@ -159,7 +166,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
                 <h3 className="text-lg font-bold text-primary mb-3">{p.name}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed mb-6 grow">{p.text}</p>
                 <button
-                  onClick={() => scrollToForm(p.name.replace('Fellowship in ', ''))}
+                  onClick={() => openModal(p.name.replace('Fellowship in ', ''))}
                   className="inline-flex items-center justify-center px-5 py-2.5 bg-[#15401E] text-white rounded-full font-semibold text-sm hover:bg-[#0f2e15] transition-colors self-start"
                 >
                   Get Program Details →
@@ -219,7 +226,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
             {INTEREST_MAP.map((row) => (
               <button
                 key={row.program}
-                onClick={() => scrollToForm(row.program)}
+                onClick={() => openModal(row.program)}
                 className="w-full text-left bg-gradient-to-br from-primary/5 to-secondary/5 hover:from-primary/10 hover:to-secondary/10 rounded-xl p-5 border border-primary/10 transition-colors group"
               >
                 <p className="text-primary font-bold text-lg mb-1 flex items-center gap-2">
@@ -236,7 +243,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
               Talk to our Academic Counselor and get guidance based on your qualification and career goals.
             </p>
             <button
-              onClick={() => scrollToForm()}
+              onClick={() => openModal()}
               className="inline-flex items-center justify-center px-8 py-3.5 bg-white text-primary rounded-full font-bold hover:bg-gray-100 transition-colors"
             >
               Talk to an Academic Counselor
@@ -272,7 +279,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
           <div className="text-center">
             <p className="font-semibold text-primary mb-4">Check Your Eligibility</p>
             <button
-              onClick={() => scrollToForm()}
+              onClick={() => openModal()}
               className="inline-flex items-center justify-center px-8 py-3.5 bg-[#15401E] text-white rounded-full font-bold hover:bg-[#0f2e15] transition-colors shadow-lg"
             >
               Check Eligibility & Details
@@ -318,13 +325,13 @@ export default function PediatricSubspecialtyFellowshipPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => scrollToForm()}
+              onClick={() => openModal()}
               className="px-8 py-4 bg-accent text-white font-bold rounded-full hover:bg-accent/90 transition-all shadow-2xl hover:scale-105"
             >
               Apply Now
             </button>
             <button
-              onClick={() => scrollToForm()}
+              onClick={() => openModal()}
               className="px-8 py-4 bg-white text-primary font-bold rounded-full hover:bg-gray-100 transition-all shadow-2xl hover:scale-105"
             >
               Get Program Details
@@ -471,6 +478,92 @@ export default function PediatricSubspecialtyFellowshipPage() {
           </p>
         </div>
       </section>
+
+      {/* Popup Enquiry Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowModal(false)}>
+          <div className="bg-white rounded-xl md:rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="p-4 md:p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg md:text-xl font-bold text-primary">Get Complete Program Information</h3>
+                <button onClick={() => setShowModal(false)} className="text-2xl md:text-3xl text-gray-400 hover:text-gray-600 w-9 h-9 flex items-center justify-center shrink-0">×</button>
+              </div>
+              <p className="text-sm text-text-secondary mb-5">
+                Fill out the form and our Academic Counselor will contact you with eligibility, curriculum,
+                fees, and admission details.
+              </p>
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Your Name *"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
+                />
+                <input
+                  type="tel"
+                  name="mobile"
+                  placeholder="Enter Mobile Number *"
+                  value={formData.mobile}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter Email *"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 text-sm"
+                />
+                <select
+                  name="qualification"
+                  value={formData.qualification}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all outline-none hover:border-gray-300 bg-white text-sm"
+                >
+                  <option value="">Select Qualification *</option>
+                  <option value="MBBS">MBBS</option>
+                  <option value="MD/DNB Pediatrics">MD/DNB Pediatrics</option>
+                  <option value="Practicing Pediatrician">Practicing Pediatrician</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-2">Choose Your Fellowship *</label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {['Pediatric Endocrinology', 'Pediatric Echocardiography', 'Pediatric Neurology', 'Pediatric Critical Care', 'Neonatology'].map((f) => (
+                      <button
+                        key={f}
+                        type="button"
+                        onClick={() => setFormData({ ...formData, fellowship: f })}
+                        className={`px-3 py-2.5 rounded-xl text-xs font-semibold border-2 transition-colors ${
+                          formData.fellowship === f
+                            ? 'bg-[#15401E] border-[#15401E] text-white'
+                            : 'bg-white border-gray-200 text-gray-700 hover:border-primary/40'
+                        }`}
+                      >
+                        {f}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-4 rounded-xl hover:opacity-90 transition-all shadow-lg disabled:opacity-50 text-sm md:text-base mt-1"
+                >
+                  {submitting ? '⏳ Submitting...' : submitted ? '✅ Submitted! We\'ll contact you shortly.' : '🚀 Get Fellowship Details'}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
