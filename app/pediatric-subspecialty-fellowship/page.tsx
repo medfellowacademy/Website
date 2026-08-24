@@ -105,7 +105,7 @@ export default function PediatricSubspecialtyFellowshipPage() {
           onClick={() => scrollToForm()}
           className="w-full bg-white text-primary font-bold py-4 rounded-full hover:bg-accent hover:text-white transition-all transform active:scale-95 shadow-lg flex items-center justify-center gap-2 text-sm"
         >
-          <span className="animate-pulse text-base">🚀</span> Get Program Details
+          <span className="animate-pulse text-base">🚀</span> Get Free Counselling
         </button>
       </div>
 
@@ -220,12 +220,12 @@ export default function PediatricSubspecialtyFellowshipPage() {
               <button
                 key={row.program}
                 onClick={() => scrollToForm(row.program)}
-                className="w-full text-left bg-gradient-to-br from-primary/5 to-secondary/5 hover:from-primary/10 hover:to-secondary/10 rounded-xl p-5 flex items-center justify-between gap-4 border border-primary/10 transition-colors group"
+                className="w-full text-left bg-gradient-to-br from-primary/5 to-secondary/5 hover:from-primary/10 hover:to-secondary/10 rounded-xl p-5 border border-primary/10 transition-colors group"
               >
-                <p className="font-medium text-text-primary">{row.interest}</p>
-                <span className="flex items-center gap-2 text-primary font-bold shrink-0 group-hover:translate-x-1 transition-transform">
-                  → {row.program}
-                </span>
+                <p className="text-primary font-bold text-lg mb-1 flex items-center gap-2">
+                  <span className="group-hover:translate-x-1 transition-transform">→</span> {row.program}
+                </p>
+                <p className="text-text-secondary text-sm">{row.interest}</p>
               </button>
             ))}
           </div>
