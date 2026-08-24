@@ -10,6 +10,7 @@ const PROGRAMS = [
   { value: 'critical-care', label: 'Fellowship in Critical Care' },
   { value: 'internal-medicine', label: 'Fellowship in Internal Medicine' },
   { value: 'family-medicine', label: 'Fellowship in Family Medicine' },
+  { value: 'Infectious Disease', label: 'Fellowship in Infectious Disease' },
   // Cardiology
   { value: 'clinical-cardiology', label: 'Fellowship in Clinical Cardiology' },
   { value: 'echocardiography', label: 'Fellowship in Echocardiography' },
