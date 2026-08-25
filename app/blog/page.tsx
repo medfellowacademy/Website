@@ -151,6 +151,51 @@ const posts = [
     date: "27 Jul 2026",
     image: "/courses/high-risk-pregnancy.jpg"
   },
+  {
+    slug: "how-to-choose-interventional-cardiology-fellowship",
+    title: "How to Choose an Interventional Cardiology Fellowship",
+    excerpt: "Compare curriculum, faculty, learning format, eligibility, and career opportunities before enrolling in an Interventional Cardiology fellowship.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-interventional-cardiology-fellowship",
+    title: "Questions to Ask Before Joining an Interventional Cardiology Fellowship",
+    excerpt: "Discover the essential questions to ask before choosing the right Interventional Cardiology fellowship program.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
+  {
+    slug: "online-vs-offline-interventional-cardiology-fellowship",
+    title: "Online vs Offline Interventional Cardiology Fellowship",
+    excerpt: "Compare online vs offline Interventional Cardiology fellowship courses across curriculum, flexibility, clinical exposure, and career value.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
+  {
+    slug: "is-interventional-cardiology-fellowship-worth-it",
+    title: "Is an Interventional Cardiology Fellowship Worth It?",
+    excerpt: "Explore the benefits, career opportunities, skills, and how to choose the right Interventional Cardiology fellowship program.",
+    category: "Career Planning",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
+  {
+    slug: "skills-you-learn-interventional-cardiology-fellowship",
+    title: "Skills You Learn During an Interventional Cardiology Fellowship",
+    excerpt: "Discover the essential clinical skills gained during an Interventional Cardiology fellowship, from coronary imaging to procedural decision making.",
+    category: "Clinical Skills",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
 ];
 
 const categories = Array.from(
