@@ -151,6 +151,51 @@ const posts = [
     date: "27 Jul 2026",
     image: "/courses/high-risk-pregnancy.jpg"
   },
+  {
+    slug: "how-to-choose-reproductive-medicine-fellowship",
+    title: "How to Choose a Reproductive Medicine Fellowship",
+    excerpt: "Compare curriculum, faculty, learning format, eligibility, and career opportunities before enrolling in a Reproductive Medicine fellowship.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-reproductive-medicine-fellowship",
+    title: "Questions to Ask Before Joining a Reproductive Medicine Fellowship",
+    excerpt: "Discover the essential questions to ask before choosing the right Reproductive Medicine fellowship program.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
+  {
+    slug: "online-vs-offline-reproductive-medicine-fellowship",
+    title: "Online vs Offline Reproductive Medicine Fellowship",
+    excerpt: "Compare online vs offline Reproductive Medicine fellowship courses across curriculum, flexibility, clinical exposure, and career value.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
+  {
+    slug: "career-opportunities-after-reproductive-medicine-fellowship",
+    title: "Career Opportunities After a Reproductive Medicine Fellowship",
+    excerpt: "Explore career pathways, in-demand skills, and how fellowship training supports long-term growth in reproductive medicine.",
+    category: "Career Planning",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
+  {
+    slug: "reproductive-medicine-fellowship-curriculum",
+    title: "Reproductive Medicine Fellowship Curriculum: What Will You Learn?",
+    excerpt: "Explore the curriculum and clinical training offered in a Reproductive Medicine fellowship, from IVF and ART to embryology and clinical practice.",
+    category: "Clinical Skills",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
 ];
 
 const categories = Array.from(
