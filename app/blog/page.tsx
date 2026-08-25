@@ -151,6 +151,51 @@ const posts = [
     date: "27 Jul 2026",
     image: "/courses/high-risk-pregnancy.jpg"
   },
+  {
+    slug: "how-to-choose-a-neurosurgery-fellowship",
+    title: "How to Choose a Neurosurgery Fellowship",
+    excerpt: "Compare curriculum, faculty, learning format, eligibility, and career opportunities before enrolling in a Neurosurgery fellowship.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
+  {
+    slug: "online-vs-offline-neurosurgery-fellowship",
+    title: "Online vs Offline Neurosurgery Fellowship",
+    excerpt: "Compare online vs offline Neurosurgery fellowship courses across curriculum, flexibility, clinical exposure, and career value.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
+  {
+    slug: "career-opportunities-after-a-neurosurgery-fellowship",
+    title: "Career Opportunities After a Neurosurgery Fellowship",
+    excerpt: "Explore career pathways, in-demand skills, and how fellowship training supports long-term growth in neurosurgery.",
+    category: "Career Planning",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
+  {
+    slug: "skills-you-learn-during-a-neurosurgery-fellowship",
+    title: "Skills You Learn During a Neurosurgery Fellowship",
+    excerpt: "Discover the essential clinical skills gained during a Neurosurgery fellowship, from case assessment to procedural decision making.",
+    category: "Clinical Skills",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
+  {
+    slug: "neurosurgery-fellowship-curriculum",
+    title: "Neurosurgery Fellowship Curriculum: What Will You Learn?",
+    excerpt: "Explore the curriculum and clinical training offered in a Neurosurgery fellowship, from applied neuroscience to neuro-oncology and spine care.",
+    category: "Clinical Skills",
+    readTime: "8 min read",
+    date: "06 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
 ];
 
 const categories = Array.from(
