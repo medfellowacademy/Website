@@ -132,17 +132,15 @@ export default function PediatricSubspecialtyFellowshipPage() {
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden py-16 md:py-24">
+      <section className="relative overflow-hidden min-h-[50vh] md:min-h-[60vh] flex items-center py-16 md:py-24">
         <div className="absolute inset-0">
           <img
             src="/courses/pediatrics.jpg"
             alt="Pediatric Fellowship Programs - Doctor with Child Patient"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f2e15]/95 via-[#15401E]/90 to-[#1c5228]/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/35"></div>
         </div>
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/5 rounded-full blur-3xl"></div>
 
         <div className="relative z-10 container-custom max-w-4xl mx-auto px-4 text-center">
           <p className="text-sm md:text-base font-bold tracking-widest text-accent mb-4 uppercase">
