@@ -95,6 +95,7 @@ const PROGRAMS = [
   { value: 'sexology', label: 'Fellowship in Sexology' },
   { value: 'otorhinolaryngology-ent', label: 'Fellowship in Otorhinolaryngology (ENT)' },
   { value: 'clinical-nutrition', label: 'Fellowship in Clinical Nutrition' },
+  { value: 'Bariatric Endoscopy', label: 'Fellowship in Bariatric Endoscopy' },
 ];
 
 const PRACTICE_TYPES = [
