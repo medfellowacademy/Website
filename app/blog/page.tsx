@@ -241,6 +241,51 @@ const posts = [
     date: "15 Aug 2026",
     image: "/courses/reproductive-medicine.jpg"
   },
+  {
+    slug: "how-to-choose-a-neurosurgery-fellowship",
+    title: "How to Choose a Neurosurgery Fellowship",
+    excerpt: "Compare curriculum, faculty, clinical exposure, fees, certification, learning format and career relevance — plus whether a neurosurgery fellowship is worth it.",
+    category: "Fellowship Guides",
+    readTime: "10 min read",
+    date: "24 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
+  {
+    slug: "online-vs-offline-neurosurgery-fellowship",
+    title: "Online vs Offline Neurosurgery Fellowship",
+    excerpt: "Compare curriculum, clinical exposure, hands-on training, flexibility, cost and career goals between online and offline neurosurgery fellowships.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "25 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
+  {
+    slug: "career-opportunities-after-a-neurosurgery-fellowship",
+    title: "Career Opportunities After a Neurosurgery Fellowship",
+    excerpt: "Potential career pathways across subspecialty practice, hospitals, academic medicine, research, teaching and further training.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "25 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
+  {
+    slug: "skills-you-learn-during-a-neurosurgery-fellowship",
+    title: "Skills You Learn During a Neurosurgery Fellowship",
+    excerpt: "From clinical decision-making and neuroimaging to surgical planning, neurotrauma, perioperative care, research and multidisciplinary teamwork.",
+    category: "Clinical Skills",
+    readTime: "11 min read",
+    date: "26 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
+  {
+    slug: "neurosurgery-fellowship-curriculum",
+    title: "Neurosurgery Fellowship Curriculum: What Will You Learn?",
+    excerpt: "The major subjects covered in neurosurgery fellowship training — neuroanatomy, neuroimaging, neurotrauma, spine, cerebrovascular, neuro-oncology, perioperative care and research.",
+    category: "Clinical Skills",
+    readTime: "12 min read",
+    date: "26 Aug 2026",
+    image: "/courses/neurosurgery.jpg"
+  },
 ];
 
 const categories = Array.from(
