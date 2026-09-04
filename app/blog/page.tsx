@@ -286,6 +286,60 @@ const posts = [
     date: "26 Aug 2026",
     image: "/courses/neurosurgery.jpg"
   },
+  {
+    slug: "how-to-choose-a-cardiothoracic-surgery-fellowship",
+    title: "How to Choose a Cardiothoracic Surgery Fellowship",
+    excerpt: "Compare curriculum, clinical exposure, faculty, eligibility, fees, format, and career opportunities before enrolling in a cardiothoracic surgery fellowship.",
+    category: "Fellowship Guides",
+    readTime: "10 min read",
+    date: "03 Sep 2026",
+    image: "/courses/cardiothoracic.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-cardiothoracic-surgery-fellowship",
+    title: "Questions to Ask Before Joining a Cardiothoracic Surgery Fellowship",
+    excerpt: "A checklist covering eligibility, curriculum, faculty, clinical exposure, assessments, certification, fees, and career relevance before you enrol.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "03 Sep 2026",
+    image: "/courses/cardiothoracic.jpg"
+  },
+  {
+    slug: "online-vs-offline-cardiothoracic-surgery-fellowship",
+    title: "Online vs Offline Cardiothoracic Surgery Fellowship",
+    excerpt: "Compare curriculum, clinical exposure, hands-on training, flexibility, fees and career fit between online, offline, and hybrid formats.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "03 Sep 2026",
+    image: "/courses/cardiothoracic.jpg"
+  },
+  {
+    slug: "is-a-cardiothoracic-surgery-fellowship-worth-it",
+    title: "Is a Cardiothoracic Surgery Fellowship Worth It?",
+    excerpt: "Whether a cardiothoracic surgery fellowship is worth it based on skills, clinical exposure, career goals, cost, flexibility and training value.",
+    category: "Career Planning",
+    readTime: "12 min read",
+    date: "03 Sep 2026",
+    image: "/courses/cardiothoracic.jpg"
+  },
+  {
+    slug: "career-opportunities-after-a-cardiothoracic-surgery-fellowship",
+    title: "Career Opportunities After a Cardiothoracic Surgery Fellowship",
+    excerpt: "Realistic career pathways across hospital-based teams, academic medicine, research, teaching, and further advanced surgical training.",
+    category: "Career Planning",
+    readTime: "11 min read",
+    date: "03 Sep 2026",
+    image: "/courses/cardiothoracic.jpg"
+  },
+  {
+    slug: "skills-you-learn-during-a-cardiothoracic-surgery-fellowship",
+    title: "Skills You Learn During a Cardiothoracic Surgery Fellowship",
+    excerpt: "From clinical assessment and diagnostic interpretation to surgical planning, perioperative and critical care, research, and case-based learning.",
+    category: "Clinical Skills",
+    readTime: "12 min read",
+    date: "03 Sep 2026",
+    image: "/courses/cardiothoracic.jpg"
+  },
 ];
 
 const categories = Array.from(
