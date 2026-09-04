@@ -151,6 +151,51 @@ const posts = [
     date: "27 Jul 2026",
     image: "/courses/high-risk-pregnancy.jpg"
   },
+  {
+    slug: "how-to-choose-interventional-cardiology-fellowship",
+    title: "How to Choose an Interventional Cardiology Fellowship",
+    excerpt: "Compare eligibility, curriculum, faculty, clinical exposure, flexibility, fees, and career support before choosing an Interventional Cardiology Fellowship.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "15 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-interventional-cardiology-fellowship",
+    title: "Questions to Ask Before Joining an Interventional Cardiology Fellowship",
+    excerpt: "A pre-enrollment checklist covering eligibility, curriculum, clinical exposure, faculty, fees, certification, and career support.",
+    category: "Fellowship Guides",
+    readTime: "10 min read",
+    date: "15 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
+  {
+    slug: "online-vs-offline-interventional-cardiology-fellowship",
+    title: "Online vs Offline Interventional Cardiology Fellowship",
+    excerpt: "Compare curriculum, clinical exposure, flexibility, faculty support, cost, and career value between online and offline learning formats.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "15 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
+  {
+    slug: "is-interventional-cardiology-fellowship-worth-it",
+    title: "Is an Interventional Cardiology Fellowship Worth It?",
+    excerpt: "Explore the benefits, skills, career opportunities, clinical exposure, costs, eligibility, and limitations before deciding.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "15 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
+  {
+    slug: "skills-you-learn-interventional-cardiology-fellowship",
+    title: "Skills You Learn During an Interventional Cardiology Fellowship",
+    excerpt: "From coronary angiography and PCI principles to imaging, physiology, complication management, patient assessment, and case-based reasoning.",
+    category: "Clinical Skills",
+    readTime: "11 min read",
+    date: "15 Aug 2026",
+    image: "/courses/interventional-cardiology.jpg"
+  },
 ];
 
 const categories = Array.from(
