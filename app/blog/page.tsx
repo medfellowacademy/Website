@@ -340,6 +340,51 @@ const posts = [
     date: "03 Sep 2026",
     image: "/courses/cardiothoracic.jpg"
   },
+  {
+    slug: "how-to-choose-a-dermatology-fellowship",
+    title: "How to Choose a Dermatology Fellowship Course",
+    excerpt: "Compare curriculum, clinical exposure, faculty, learning format, fees, certification and career goals before enrolling in a dermatology fellowship.",
+    category: "Fellowship Guides",
+    readTime: "12 min read",
+    date: "03 Sep 2026",
+    image: "/courses/dermatology.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-dermatology-fellowship",
+    title: "Questions to Ask Before Joining a Dermatology Fellowship",
+    excerpt: "What to ask about eligibility, curriculum, clinical exposure, procedures, faculty, assessment, certification, and fees before enrolling.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "03 Sep 2026",
+    image: "/courses/dermatology.jpg"
+  },
+  {
+    slug: "online-vs-offline-dermatology-fellowship",
+    title: "Online vs Offline Dermatology Fellowship",
+    excerpt: "Compare online, offline and hybrid dermatology fellowships for flexibility, clinical exposure, case learning, hands-on procedures and cost.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "03 Sep 2026",
+    image: "/courses/dermatology.jpg"
+  },
+  {
+    slug: "skills-you-learn-during-a-dermatology-fellowship",
+    title: "Skills You Learn During a Dermatology Fellowship",
+    excerpt: "From skin examination and dermoscopy to diagnosis, inflammatory and infectious dermatology, lasers, aesthetics, and patient management.",
+    category: "Clinical Skills",
+    readTime: "13 min read",
+    date: "03 Sep 2026",
+    image: "/courses/dermatology.jpg"
+  },
+  {
+    slug: "is-a-dermatology-fellowship-worth-it",
+    title: "Is a Dermatology Fellowship Worth It?",
+    excerpt: "Whether a dermatology fellowship is worth it based on skills, clinical exposure, career goals, cost, flexibility and training value.",
+    category: "Career Planning",
+    readTime: "12 min read",
+    date: "03 Sep 2026",
+    image: "/courses/dermatology.jpg"
+  },
 ];
 
 const categories = Array.from(
