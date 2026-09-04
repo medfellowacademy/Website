@@ -196,6 +196,51 @@ const posts = [
     date: "15 Aug 2026",
     image: "/courses/interventional-cardiology.jpg"
   },
+  {
+    slug: "how-to-choose-reproductive-medicine-fellowship",
+    title: "How to Choose a Reproductive Medicine Fellowship",
+    excerpt: "Compare curriculum, clinical exposure, faculty, practical training, learning format, eligibility, certification, and fees before choosing a fellowship.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "15 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-reproductive-medicine-fellowship",
+    title: "Questions to Ask Before Joining a Reproductive Medicine Fellowship",
+    excerpt: "A pre-enrollment checklist covering curriculum, clinical exposure, faculty, IVF and embryology training, fees, certification, and career support.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "15 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
+  {
+    slug: "online-vs-offline-reproductive-medicine-fellowship",
+    title: "Online vs Offline Reproductive Medicine Fellowship",
+    excerpt: "Compare clinical exposure, flexibility, curriculum, practical training, fees, and certification between online and offline formats.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "15 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
+  {
+    slug: "career-opportunities-after-reproductive-medicine-fellowship",
+    title: "Career Opportunities After a Reproductive Medicine Fellowship",
+    excerpt: "Potential career pathways across fertility clinics, IVF centres, hospitals, private practice, academic medicine, and research.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "15 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
+  {
+    slug: "reproductive-medicine-fellowship-curriculum",
+    title: "Reproductive Medicine Fellowship Curriculum: What Will You Learn?",
+    excerpt: "The major subjects covered in reproductive medicine fellowship training — from reproductive physiology to ART, embryology, fertility preservation, genetics, and evidence-based practice.",
+    category: "Clinical Skills",
+    readTime: "12 min read",
+    date: "15 Aug 2026",
+    image: "/courses/reproductive-medicine.jpg"
+  },
 ];
 
 const categories = Array.from(
