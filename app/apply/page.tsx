@@ -75,6 +75,7 @@ const PROGRAMS = [
   { value: 'interventional-neuro-radiology', label: 'Fellowship in Interventional Neuroradiology' },
   { value: 'musculoskeletal-ultrasound', label: 'Fellowship in Musculoskeletal Ultrasound' },
   { value: 'vascular-ultrasound', label: 'Fellowship in Vascular Ultrasound' },
+  { value: 'Breast Imaging', label: 'Fellowship in Breast Imaging' },
   { value: 'usg', label: 'Fellowship in USG' },
   // Pain & Anaesthesia
   { value: 'pain-management', label: 'Fellowship in Pain Management' },
