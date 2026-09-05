@@ -515,6 +515,86 @@ export async function deleteCustomPage(id: string) {
   if (error) throw error;
 }
 
+// ─── Blog Posts ───────────────────────────────────────────────────────────────
+
+export interface CmsBlogFaq {
+  question: string;
+  answer: string;
+}
+
+export interface CmsBlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  cover_image: string;
+  read_time: string;
+  content_markdown: string;
+  faqs: CmsBlogFaq[];
+  meta_title: string;
+  meta_description: string;
+  is_published: boolean;
+  published_at: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export async function getBlogPosts(publishedOnly = false) {
+  let q = cmsClient.from('cms_blog_posts').select('*').order('published_at', { ascending: false });
+  if (publishedOnly) q = q.eq('is_published', true);
+  const { data, error } = await q;
+  if (error) throw error;
+  return data as CmsBlogPost[];
+}
+
+export async function getBlogPost(slug: string) {
+  const { data, error } = await cmsClient
+    .from('cms_blog_posts')
+    .select('*')
+    .eq('slug', slug)
+    .eq('is_published', true)
+    .single();
+  if (error) return null;
+  return data as CmsBlogPost;
+}
+
+export async function getBlogPostById(id: string) {
+  const { data, error } = await cmsClient
+    .from('cms_blog_posts')
+    .select('*')
+    .eq('id', id)
+    .single();
+  if (error) throw error;
+  return data as CmsBlogPost;
+}
+
+export async function createBlogPost(input: Partial<CmsBlogPost>) {
+  const { data, error } = await cmsClient
+    .from('cms_blog_posts')
+    .insert({ ...input, updated_at: new Date().toISOString() })
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsBlogPost;
+}
+
+export async function updateBlogPost(id: string, input: Partial<CmsBlogPost>) {
+  const { data, error } = await cmsClient
+    .from('cms_blog_posts')
+    .update({ ...input, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsBlogPost;
+}
+
+export async function deleteBlogPost(id: string) {
+  const { error } = await cmsClient.from('cms_blog_posts').delete().eq('id', id);
+  if (error) throw error;
+}
+
 // ─── Stats (for dashboard) ────────────────────────────────────────────────────
 
 export async function getCmsStats() {

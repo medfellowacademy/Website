@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getBlogPosts } from "@/lib/cms";
 
 const SITE_URL = "https://www.medfellowacademy.com";
 
@@ -133,12 +134,14 @@ const programSlugs = [
   "fellowship-in-urology",
 ] as const;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const cmsBlogPosts = await getBlogPosts(true).catch(() => []);
 
   const urls = [
     ...staticRoutes.map((route) => `${SITE_URL}${route}`),
     ...programSlugs.map((slug) => `${SITE_URL}/courses/${slug}`),
+    ...cmsBlogPosts.map((post) => `${SITE_URL}/blog/${post.slug}`),
     `${SITE_URL}/dubai/programs`,
     ...countryProgramSlugs.map((slug) => `${SITE_URL}/dubai/programs/${slug}`),
     `${SITE_URL}/saudi-arabia/programs`,

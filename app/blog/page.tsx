@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from 'next/image';
+import { getBlogPosts } from "@/lib/cms";
 
 export const metadata: Metadata = {
   title: "Blog | Medical Fellowship Insights & Career Advice | MedFellow Academy",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-const posts = [
+const staticPosts = [
   {
     slug: "cosmetic-gynecology-procedures-every-gynecologist-should-learn",
     title: "Cosmetic Gynecology Procedures Every Gynecologist Should Learn in 2026",
@@ -387,11 +388,27 @@ const posts = [
   },
 ];
 
-const categories = Array.from(
-  posts.reduce((map, post) => map.set(post.category, (map.get(post.category) ?? 0) + 1), new Map<string, number>())
-).map(([name, count]) => ({ name, count }));
+export default async function Blog() {
+  const cmsPosts = await getBlogPosts(true).catch(() => []);
+  const posts = [
+    ...staticPosts,
+    ...cmsPosts.map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      excerpt: p.excerpt,
+      category: p.category || "Fellowship Guides",
+      readTime: p.read_time || "",
+      date: new Date(p.published_at || p.created_at).toLocaleDateString("en-GB", {
+        day: "2-digit", month: "short", year: "numeric",
+      }),
+      image: p.cover_image || "/og-image.png",
+    })),
+  ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-export default function Blog() {
+  const categories = Array.from(
+    posts.reduce((map, post) => map.set(post.category, (map.get(post.category) ?? 0) + 1), new Map<string, number>())
+  ).map(([name, count]) => ({ name, count }));
+
   return (
     <div className="min-h-screen">
       <Navbar />
