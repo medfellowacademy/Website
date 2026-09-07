@@ -10,6 +10,7 @@ const staticRoutes = [
   "/courses",
   "/faq",
   "/apply",
+  "/verify",
   "/blog",
   "/blog/cosmetic-gynecology-procedures-every-gynecologist-should-learn",
   "/blog/career-scope-after-fellowship-in-cosmetic-gynecology",

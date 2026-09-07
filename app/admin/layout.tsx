@@ -4,7 +4,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import {
   LayoutDashboard, BookOpen, Users, MessageSquare,
   Settings, LogOut, Globe, ChevronRight, Menu, HelpCircle,
-  ClipboardList, Inbox, MapPin, FileText, Newspaper
+  ClipboardList, Inbox, MapPin, FileText, Newspaper, GraduationCap
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -19,6 +19,7 @@ const NAV = [
   { href: '/admin/countries',     label: 'Country Pages', icon: MapPin },
   { href: '/admin/pages',         label: 'Custom Pages',  icon: FileText },
   { href: '/admin/blog',          label: 'Blog',          icon: Newspaper },
+  { href: '/admin/students',      label: 'Verifications', icon: GraduationCap },
   { href: '/admin/settings',      label: 'Site Settings', icon: Settings },
 ];
 

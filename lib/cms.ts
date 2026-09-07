@@ -595,6 +595,85 @@ export async function deleteBlogPost(id: string) {
   if (error) throw error;
 }
 
+// ─── Students / Fellow Verification ───────────────────────────────────────────
+
+export interface CmsStudent {
+  id: string;
+  enrollment_no: string;
+  full_name: string;
+  photo_url: string;
+  program: string;
+  batch: string;
+  start_date: string;
+  end_date: string;
+  status: string;
+  mode: string;
+  certificate_no: string;
+  grade: string;
+  issued_on: string;
+  remarks: string;
+  is_active: boolean;
+  created_at: string;
+  updated_at: string;
+}
+
+export async function getStudents() {
+  const { data, error } = await cmsClient
+    .from('cms_students')
+    .select('*')
+    .order('updated_at', { ascending: false });
+  if (error) throw error;
+  return data as CmsStudent[];
+}
+
+export async function getStudentById(id: string) {
+  const { data, error } = await cmsClient
+    .from('cms_students')
+    .select('*')
+    .eq('id', id)
+    .single();
+  if (error) throw error;
+  return data as CmsStudent;
+}
+
+/** Public lookup for the /verify page — only returns active records. */
+export async function getVerifiedStudent(enrollmentNo: string) {
+  const { data, error } = await cmsClient
+    .from('cms_students')
+    .select('*')
+    .ilike('enrollment_no', enrollmentNo.trim())
+    .eq('is_active', true)
+    .maybeSingle();
+  if (error) return null;
+  return (data as CmsStudent) ?? null;
+}
+
+export async function createStudent(input: Partial<CmsStudent>) {
+  const { data, error } = await cmsClient
+    .from('cms_students')
+    .insert({ ...input, updated_at: new Date().toISOString() })
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsStudent;
+}
+
+export async function updateStudent(id: string, input: Partial<CmsStudent>) {
+  const { data, error } = await cmsClient
+    .from('cms_students')
+    .update({ ...input, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsStudent;
+}
+
+export async function deleteStudent(id: string) {
+  const { error } = await cmsClient.from('cms_students').delete().eq('id', id);
+  if (error) throw error;
+}
+
 // ─── Stats (for dashboard) ────────────────────────────────────────────────────
 
 export async function getCmsStats() {
