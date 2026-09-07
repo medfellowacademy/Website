@@ -208,10 +208,30 @@ function NotFoundCard({ query }: { query: string }) {
 }
 
 const STEPS = [
-  { n: "1", title: "Enter the number", text: "Type the fellow's enrollment or registration number." },
-  { n: "2", title: "We check our records", text: "The number is matched against the MedFellow Academy register." },
+  { n: "1", title: "Enter the number", text: "Type the fellow's enrollment or registration number into the field above." },
+  { n: "2", title: "We check our records", text: "The number is matched against the official MedFellow Academy register." },
   { n: "3", title: "See the official status", text: "Program, batch, and certification status are shown instantly." },
 ];
+
+function AccreditationPanel() {
+  return (
+    <div className="flex flex-col sm:flex-row items-center gap-5 rounded-2xl border border-[#E5E7EB] bg-white p-6 text-center sm:text-left shadow-[0_1px_2px_rgba(0,0,0,0.04)]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/accreditations/ACTD.png"
+        alt="ACTD — American Council of Training and Development"
+        className="h-16 w-16 rounded-lg border border-[#E5E7EB] p-1.5 shrink-0"
+      />
+      <div>
+        <p className="font-bold text-[#15401E]">Internationally accredited by ACTD</p>
+        <p className="text-[0.875rem] text-[#6B7280] mt-1 leading-relaxed">
+          Every MedFellow Academy fellowship certificate is issued under the American Council of Training and
+          Development and is recognised across 40+ countries.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 /* ──────────────────────────────  page  ─────────────────────────────────── */
 
@@ -229,14 +249,16 @@ export default async function VerifyPage({
     return (
       <div className="min-h-screen bg-[#EEF3EF]">
         <Navbar />
-        <main className="container-custom max-w-3xl py-10 md:py-14">
-          <a
-            href="/verify"
-            className="inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold text-[#15401E] hover:underline mb-5"
-          >
-            <ArrowLeft className="w-4 h-4" /> Verify another credential
-          </a>
-          <CredentialCard student={student} />
+        <main className="container-custom">
+          <div className="max-w-3xl mx-auto py-10 md:py-14">
+            <a
+              href="/verify"
+              className="inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold text-[#15401E] hover:underline mb-5"
+            >
+              <ArrowLeft className="w-4 h-4" /> Verify another credential
+            </a>
+            <CredentialCard student={student} />
+          </div>
         </main>
         <Footer />
       </div>
@@ -263,111 +285,93 @@ export default async function VerifyPage({
         />
         <ShieldCheck
           strokeWidth={1}
-          className="hidden md:block absolute right-10 top-1/2 -translate-y-1/2 w-72 h-72 text-white/[0.04]"
+          className="hidden md:block absolute right-[6%] top-1/2 -translate-y-1/2 w-64 h-64 text-white/[0.04]"
         />
 
-        <div className="relative container-custom max-w-2xl py-14 md:py-[4.5rem] text-center">
-          <span className="inline-flex items-center bg-white rounded-xl px-4 py-2.5 shadow-sm">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="MedFellow Academy" className="h-7 w-auto" />
-          </span>
+        <div className="relative container-custom">
+          <div className="max-w-2xl mx-auto py-14 md:py-[4.5rem] text-center">
+            <span className="inline-flex items-center bg-white rounded-xl px-4 py-2.5 shadow-sm">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt="MedFellow Academy" className="h-7 w-auto" />
+            </span>
 
-          <h1 className="text-3xl md:text-[2.5rem] font-heading font-bold text-white mt-6 leading-[1.15]">
-            Verify a MedFellow Fellow
-          </h1>
-          <p className="text-[0.95rem] md:text-base text-white/75 mt-3 max-w-lg mx-auto">
-            Enter a fellow&apos;s enrollment or registration number to confirm their program, batch, and
-            certification status.
-          </p>
+            <h1 className="text-3xl md:text-[2.5rem] font-heading font-bold text-white mt-6 leading-[1.15]">
+              Verify a MedFellow Fellow
+            </h1>
+            <p className="text-[0.95rem] md:text-base text-white/75 mt-3 max-w-lg mx-auto">
+              Enter a fellow&apos;s enrollment or registration number to confirm their program, batch, and
+              certification status.
+            </p>
 
-          <div className="mt-6 inline-flex items-center gap-2.5 text-white/70 text-[0.8125rem]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/accreditations/ACTD.png"
-              alt="ACTD"
-              className="h-8 w-8 rounded-md bg-white p-0.5"
-            />
-            <span>Accredited by ACTD · Certificates recognised in 40+ countries</span>
+            <div className="mt-6 inline-flex items-center gap-2.5 text-white/70 text-[0.8125rem]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/accreditations/ACTD.png" alt="ACTD" className="h-8 w-8 rounded-md bg-white p-0.5" />
+              <span>Accredited by ACTD · Certificates recognised in 40+ countries</span>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Search card — overlaps the hero */}
-      <section className="relative container-custom max-w-2xl -mt-10 md:-mt-12 z-10">
-        <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-[0_20px_50px_-20px_rgba(21,64,30,0.25)] p-6 md:p-7">
-          <label htmlFor="enrollment" className="block text-[0.8125rem] font-semibold text-[#374151] mb-2">
-            Enrollment / Registration number
-          </label>
-          <form method="get" className="flex flex-col sm:flex-row gap-3">
-            <div className="relative flex-1">
-              <Search className="w-4 h-4 text-[#9CA3AF] absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                id="enrollment"
-                type="text"
-                name="enrollment"
-                defaultValue={query}
-                required
-                autoComplete="off"
-                placeholder="e.g. MFA-2026-01234"
-                className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D1D5DB] bg-white text-[0.95rem] font-mono tracking-wide focus:outline-none focus:ring-2 focus:ring-[#15401E]/15 focus:border-[#15401E]"
-              />
-            </div>
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#15401E] text-white rounded-xl font-semibold text-[0.9375rem] hover:bg-[#0f2e15] transition-colors shrink-0"
-            >
-              Verify <ArrowRight className="w-4 h-4" />
-            </button>
-          </form>
-          <p className="text-[0.8125rem] text-[#9CA3AF] mt-2.5">
-            The number is printed on the fellow&apos;s offer letter and certificate.
-          </p>
+      <section className="relative z-10 container-custom">
+        <div className="max-w-2xl mx-auto -mt-10 md:-mt-12">
+          <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-[0_20px_50px_-20px_rgba(21,64,30,0.25)] p-6 md:p-7">
+            <label htmlFor="enrollment" className="block text-[0.8125rem] font-semibold text-[#374151] mb-2">
+              Enrollment / Registration number
+            </label>
+            <form method="get" className="flex flex-col sm:flex-row gap-3">
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 text-[#9CA3AF] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  id="enrollment"
+                  type="text"
+                  name="enrollment"
+                  defaultValue={query}
+                  required
+                  autoComplete="off"
+                  placeholder="e.g. MFA-2026-01234"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-[#D1D5DB] bg-white text-[0.95rem] font-mono tracking-wide focus:outline-none focus:ring-2 focus:ring-[#15401E]/15 focus:border-[#15401E]"
+                />
+              </div>
+              <button
+                type="submit"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#15401E] text-white rounded-xl font-semibold text-[0.9375rem] hover:bg-[#0f2e15] transition-colors shrink-0"
+              >
+                Verify <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+            <p className="text-[0.8125rem] text-[#9CA3AF] mt-2.5">
+              The number is printed on the fellow&apos;s offer letter and certificate.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Not found */}
-      {query && (
-        <section className="container-custom max-w-2xl mt-6">
-          <NotFoundCard query={query} />
-        </section>
-      )}
-
-      {/* How it works — only on the clean landing */}
-      {!query && (
-        <section className="container-custom max-w-3xl py-14 md:py-16">
-          <h2 className="text-center text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#15401E]">
-            How verification works
-          </h2>
-          <div className="grid sm:grid-cols-3 gap-4 mt-6">
-            {STEPS.map((s) => (
-              <div key={s.n} className="bg-white rounded-xl border border-[#F1F1F1] p-5">
-                <span className="w-8 h-8 rounded-full bg-[#e8f2ea] text-[#15401E] font-bold text-sm flex items-center justify-center">
-                  {s.n}
-                </span>
-                <h3 className="text-[0.9375rem] font-bold text-[#111827] mt-3">{s.title}</h3>
-                <p className="text-[0.8125rem] text-[#6B7280] leading-relaxed mt-1">{s.text}</p>
+      {/* Everything below the search card */}
+      <section className="container-custom">
+        <div className="max-w-2xl mx-auto pt-8 md:pt-10 pb-16 space-y-12">
+          {query ? (
+            <NotFoundCard query={query} />
+          ) : (
+            <div>
+              <h2 className="text-center text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-[#15401E]">
+                How verification works
+              </h2>
+              <div className="grid sm:grid-cols-3 gap-4 mt-5">
+                {STEPS.map((s) => (
+                  <div key={s.n} className="bg-white rounded-xl border border-[#F1F1F1] p-5">
+                    <span className="w-8 h-8 rounded-full bg-[#e8f2ea] text-[#15401E] font-bold text-sm flex items-center justify-center">
+                      {s.n}
+                    </span>
+                    <h3 className="text-[0.9375rem] font-bold text-[#111827] mt-3">{s.title}</h3>
+                    <p className="text-[0.8125rem] text-[#6B7280] leading-relaxed mt-1">{s.text}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </section>
-      )}
+            </div>
+          )}
 
-      {/* Accreditation strip */}
-      <section className="bg-[#15401E]">
-        <div className="container-custom max-w-4xl py-10 flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/accreditations/ACTD.png"
-            alt="ACTD — American Council of Training and Development"
-            className="h-16 w-16 rounded-lg bg-white p-1.5 shrink-0"
-          />
-          <div>
-            <p className="text-white font-semibold">Internationally accredited by ACTD</p>
-            <p className="text-white/60 text-[0.875rem] mt-1 max-w-xl">
-              Every MedFellow Academy fellowship certificate is issued under the American Council of Training and
-              Development and recognised across 40+ countries.
-            </p>
-          </div>
+          <AccreditationPanel />
         </div>
       </section>
 
