@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
       { source: '/courses/fellowship-in-cardiology', destination: '/courses', permanent: true },
     ];
   },
+  async rewrites() {
+    return [
+      // Clean, printable credential URL: /verify/MFA-2026-01234
+      { source: '/verify/:enrollment', destination: '/verify?enrollment=:enrollment' },
+    ];
+  },
   reactCompiler: true,
   images: {
     remotePatterns: [

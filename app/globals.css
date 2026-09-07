@@ -309,3 +309,23 @@ input::placeholder, textarea::placeholder { color: #9CA3AF; }
   border: 1px solid #FDE68A;
   white-space: nowrap;
 }
+
+/* ── /verify — print / save-as-PDF ────────────────────────────── */
+@media print {
+  body * { visibility: hidden !important; }
+  .verify-print, .verify-print * { visibility: visible !important; }
+  .verify-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .verify-print .verify-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5cb !important;
+  }
+  .no-print, .fixed { display: none !important; }
+  @page { margin: 14mm; }
+}

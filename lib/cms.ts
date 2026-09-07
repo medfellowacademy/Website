@@ -612,9 +612,33 @@ export interface CmsStudent {
   grade: string;
   issued_on: string;
   remarks: string;
+  date_of_birth: string;
+  verification_ref: string;
   is_active: boolean;
   created_at: string;
   updated_at: string;
+}
+
+export type LookupStatus = 'active' | 'inactive' | 'notfound';
+
+/** Canonical form of an enrollment number: upper-case, runs of non-alphanumerics → single dash. */
+export function normalizeEnrollment(raw: string): string {
+  return (raw || '')
+    .trim()
+    .toUpperCase()
+    .replace(/[^A-Z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/** Loose key for fuzzy matching — alphanumerics only, lower-case. */
+function looseKey(raw: string): string {
+  return (raw || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function genVerificationRef(): string {
+  let s = '';
+  for (let i = 0; i < 6; i++) s += Math.floor(Math.random() * 36).toString(36).toUpperCase();
+  return `VRF-${s}`;
 }
 
 export async function getStudents() {
@@ -636,22 +660,88 @@ export async function getStudentById(id: string) {
   return data as CmsStudent;
 }
 
-/** Public lookup for the /verify page — only returns active records. */
+/**
+ * Public lookup for the /verify page. Tolerant of spacing/dashes/case, and
+ * distinguishes "no such number" from "record exists but not active".
+ */
+export async function lookupStudentRecord(rawEnrollment: string): Promise<{ status: LookupStatus; student: CmsStudent | null }> {
+  const normalized = normalizeEnrollment(rawEnrollment);
+  if (!normalized) return { status: 'notfound', student: null };
+
+  // Fast path: canonical match.
+  let match: CmsStudent | null = null;
+  const exact = await cmsClient.from('cms_students').select('*').ilike('enrollment_no', normalized).maybeSingle();
+  if (exact.data) match = exact.data as CmsStudent;
+
+  // Fallback: fuzzy compare against every record (table is small).
+  if (!match) {
+    const all = await cmsClient.from('cms_students').select('*');
+    if (!all.error && all.data) {
+      const key = looseKey(rawEnrollment);
+      match = (all.data as CmsStudent[]).find((s) => looseKey(s.enrollment_no) === key) ?? null;
+    }
+  }
+
+  if (!match) return { status: 'notfound', student: null };
+  return { status: match.is_active ? 'active' : 'inactive', student: match };
+}
+
+/** Back-compat: active record only, or null. */
 export async function getVerifiedStudent(enrollmentNo: string) {
-  const { data, error } = await cmsClient
-    .from('cms_students')
-    .select('*')
-    .ilike('enrollment_no', enrollmentNo.trim())
-    .eq('is_active', true)
-    .maybeSingle();
-  if (error) return null;
-  return (data as CmsStudent) ?? null;
+  const { status, student } = await lookupStudentRecord(enrollmentNo);
+  return status === 'active' ? student : null;
+}
+
+/** Fire-and-forget audit row for every /verify search. */
+export async function logVerification(enrollmentNo: string, matched: boolean, studentId?: string | null) {
+  try {
+    await cmsClient.from('cms_verification_logs').insert({
+      enrollment_no: normalizeEnrollment(enrollmentNo).slice(0, 120),
+      matched,
+      student_id: studentId ?? null,
+    });
+  } catch {
+    /* logging must never break the page */
+  }
+}
+
+/** Map of student_id → number of successful verifications (for the admin list). */
+export async function getVerificationCounts(): Promise<Record<string, number>> {
+  try {
+    const { data } = await cmsClient.from('cms_verification_logs').select('student_id').eq('matched', true);
+    const counts: Record<string, number> = {};
+    for (const row of (data as { student_id: string | null }[]) ?? []) {
+      if (row.student_id) counts[row.student_id] = (counts[row.student_id] ?? 0) + 1;
+    }
+    return counts;
+  } catch {
+    return {};
+  }
 }
 
 export async function createStudent(input: Partial<CmsStudent>) {
+  const payload: Partial<CmsStudent> = { ...input, updated_at: new Date().toISOString() };
+
+  // Auto-generate an enrollment number when the admin leaves it blank.
+  if (!payload.enrollment_no || !payload.enrollment_no.trim()) {
+    const year = new Date().getFullYear();
+    const { count } = await cmsClient
+      .from('cms_students')
+      .select('id', { count: 'exact', head: true })
+      .ilike('enrollment_no', `MFA-${year}-%`);
+    const seq = String((count ?? 0) + 1).padStart(5, '0');
+    payload.enrollment_no = `MFA-${year}-${seq}`;
+  } else {
+    payload.enrollment_no = normalizeEnrollment(payload.enrollment_no);
+  }
+
+  if (!payload.verification_ref || !payload.verification_ref.trim()) {
+    payload.verification_ref = genVerificationRef();
+  }
+
   const { data, error } = await cmsClient
     .from('cms_students')
-    .insert({ ...input, updated_at: new Date().toISOString() })
+    .insert(payload)
     .select()
     .single();
   if (error) throw error;
@@ -659,9 +749,13 @@ export async function createStudent(input: Partial<CmsStudent>) {
 }
 
 export async function updateStudent(id: string, input: Partial<CmsStudent>) {
+  const patch: Partial<CmsStudent> = { ...input, updated_at: new Date().toISOString() };
+  if (typeof patch.enrollment_no === 'string' && patch.enrollment_no.trim()) {
+    patch.enrollment_no = normalizeEnrollment(patch.enrollment_no);
+  }
   const { data, error } = await cmsClient
     .from('cms_students')
-    .update({ ...input, updated_at: new Date().toISOString() })
+    .update(patch)
     .eq('id', id)
     .select()
     .single();

@@ -17,13 +17,15 @@ export interface StudentFormData {
   grade: string;
   issued_on: string;
   remarks: string;
+  date_of_birth: string;
   is_active: boolean;
+  verification_ref?: string;
 }
 
 const BLANK: StudentFormData = {
   enrollment_no: '', full_name: '', photo_url: '', program: '', batch: '',
   start_date: '', end_date: '', status: 'Enrolled', mode: '', certificate_no: '',
-  grade: '', issued_on: '', remarks: '', is_active: true,
+  grade: '', issued_on: '', remarks: '', date_of_birth: '', is_active: true,
 };
 
 const STATUS_OPTIONS = ['Enrolled', 'In Progress', 'Completed', 'Certified', 'Withdrawn'];
@@ -43,13 +45,14 @@ export default function StudentForm({ initial, recordId, isNew }: { initial?: Pa
   function set<K extends keyof StudentFormData>(k: K, v: StudentFormData[K]) { setForm(f => ({ ...f, [k]: v })); }
 
   async function handleSave() {
-    if (!form.enrollment_no.trim() || !form.full_name.trim()) {
-      showToast('Enrollment number and full name are required');
+    if (!form.full_name.trim()) {
+      showToast('Full name is required');
       return;
     }
     setSaving(true);
     try {
-      const payload = { ...form, enrollment_no: form.enrollment_no.trim() };
+      const { verification_ref: _ref, ...rest } = form;
+      const payload = { ...rest, enrollment_no: form.enrollment_no.trim() };
       const url = isNew ? '/api/admin/students' : `/api/admin/students/${recordId}`;
       const method = isNew ? 'POST' : 'PUT';
       const res = await fetch(url, {
@@ -99,14 +102,28 @@ export default function StudentForm({ initial, recordId, isNew }: { initial?: Pa
         <h2 className="text-base font-bold text-gray-800 pb-3 border-b border-gray-100">🎓 Fellow Details</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className={labelCls}>Enrollment / Registration No. *</label>
+            <label className={labelCls}>Enrollment / Registration No.</label>
             <input value={form.enrollment_no} onChange={e => set('enrollment_no', e.target.value)} placeholder="MFA-2026-01234" className={inputCls + ' font-mono'} />
-            <p className="text-xs text-gray-400 mt-1">This is the number fellows type on /verify.</p>
+            <p className="text-xs text-gray-400 mt-1">The number fellows type on /verify. Leave blank to auto-generate <code className="bg-gray-100 px-1 rounded">MFA-YYYY-NNNNN</code>.</p>
           </div>
           <div>
             <label className={labelCls}>Full Name *</label>
             <input value={form.full_name} onChange={e => set('full_name', e.target.value)} placeholder="Dr. Anita Sharma" className={inputCls} />
           </div>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className={labelCls}>Date of Birth <span className="text-gray-400 font-normal">(optional 2nd check)</span></label>
+            <input type="date" value={form.date_of_birth} onChange={e => set('date_of_birth', e.target.value)} className={inputCls} />
+            <p className="text-xs text-gray-400 mt-1">If set, visitors must also enter this DOB before the full record is shown.</p>
+          </div>
+          {!isNew && form.verification_ref && (
+            <div>
+              <label className={labelCls}>Verification Reference</label>
+              <input value={form.verification_ref} readOnly className={inputCls + ' font-mono bg-gray-50 text-gray-500'} />
+              <p className="text-xs text-gray-400 mt-1">Auto-generated. Shown on the verification result.</p>
+            </div>
+          )}
         </div>
         <div>
           <label className={labelCls}>Photo <span className="text-gray-400 font-normal">(path or URL)</span></label>

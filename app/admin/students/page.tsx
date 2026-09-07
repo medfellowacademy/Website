@@ -1,7 +1,46 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { Plus, GraduationCap, Edit, Trash2, Eye, EyeOff, ExternalLink } from 'lucide-react';
+import { Plus, GraduationCap, Edit, Trash2, Eye, EyeOff, ExternalLink, Upload, Download } from 'lucide-react';
+
+const CSV_COLUMNS = [
+  'enrollment_no', 'full_name', 'photo_url', 'program', 'batch', 'start_date', 'end_date',
+  'status', 'mode', 'certificate_no', 'grade', 'issued_on', 'remarks', 'date_of_birth', 'is_active',
+] as const;
+
+/** Minimal RFC-4180-ish CSV parser (handles quoted fields, commas, escaped quotes, CRLF). */
+function parseCsv(text: string): Record<string, string>[] {
+  const rows: string[][] = [];
+  let field = '';
+  let row: string[] = [];
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"') {
+        if (text[i + 1] === '"') { field += '"'; i++; }
+        else inQuotes = false;
+      } else field += c;
+    } else if (c === '"') {
+      inQuotes = true;
+    } else if (c === ',') {
+      row.push(field); field = '';
+    } else if (c === '\n' || c === '\r') {
+      if (c === '\r' && text[i + 1] === '\n') i++;
+      row.push(field); field = '';
+      if (row.some((v) => v.trim() !== '')) rows.push(row);
+      row = [];
+    } else field += c;
+  }
+  if (field !== '' || row.length) { row.push(field); if (row.some((v) => v.trim() !== '')) rows.push(row); }
+  if (rows.length < 2) return [];
+  const header = rows[0].map((h) => h.trim().toLowerCase().replace(/\s+/g, '_'));
+  return rows.slice(1).map((r) => {
+    const obj: Record<string, string> = {};
+    header.forEach((h, idx) => { obj[h] = (r[idx] ?? '').trim(); });
+    return obj;
+  });
+}
 
 interface StudentRow {
   id: string;
@@ -19,8 +58,52 @@ export default function StudentsAdminPage() {
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState('');
   const [toast, setToast] = useState('');
+  const [importing, setImporting] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
 
-  function showToast(msg: string) { setToast(msg); setTimeout(() => setToast(''), 3000); }
+  function showToast(msg: string) { setToast(msg); setTimeout(() => setToast(''), 4000); }
+
+  function downloadTemplate() {
+    const csv = CSV_COLUMNS.join(',') + '\n' +
+      'MFA-2026-01234,Dr. Anita Sharma,,Fellowship in Dermatology,August 2026,01 Aug 2026,31 Jul 2027,Certified,Hybrid,CERT-2027-01234,Distinction,15 Aug 2027,,1990-05-12,true\n';
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'medfellow-verifications-template.csv';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  async function handleImport(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = '';
+    if (!file) return;
+    const rows = parseCsv(await file.text());
+    if (!rows.length) { showToast('No rows found in that CSV'); return; }
+    if (!confirm(`Import ${rows.length} record(s)? Existing enrollment numbers will error and be skipped.`)) return;
+
+    setImporting(true);
+    let ok = 0; let failed = 0;
+    for (const r of rows) {
+      const payload: Record<string, unknown> = {};
+      for (const col of CSV_COLUMNS) {
+        if (col === 'is_active') payload[col] = !/^(false|0|no|hidden)$/i.test(r[col] ?? '');
+        else payload[col] = r[col] ?? '';
+      }
+      if (!String(payload.full_name || '').trim()) { failed++; continue; }
+      try {
+        const res = await fetch('/api/admin/students', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) ok++; else failed++;
+      } catch { failed++; }
+    }
+    setImporting(false);
+    showToast(`Imported ${ok} record(s)${failed ? `, ${failed} skipped/failed` : ''}`);
+    load();
+  }
 
   async function load() {
     setLoading(true);
@@ -74,13 +157,31 @@ export default function StudentsAdminPage() {
           <h1 className="text-2xl font-bold text-gray-900">Fellow Verifications</h1>
           <p className="text-gray-400 text-sm mt-0.5">Records looked up on the public <code className="bg-gray-100 px-1 rounded">/verify</code> page by enrollment number</p>
         </div>
-        <Link
-          href="/admin/students/new"
-          className="flex items-center gap-2 px-4 py-2.5 bg-[#15401E] text-white rounded-xl text-sm font-semibold hover:bg-[#0f2e15] transition-all"
-        >
-          <Plus className="w-4 h-4" />
-          Add Record
-        </Link>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={downloadTemplate}
+            className="flex items-center gap-2 px-3 py-2.5 border border-gray-200 text-gray-600 rounded-xl text-sm font-semibold hover:bg-gray-50 transition-all"
+            title="Download a blank CSV template"
+          >
+            <Download className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => fileRef.current?.click()}
+            disabled={importing}
+            className="flex items-center gap-2 px-4 py-2.5 border border-gray-200 text-gray-700 rounded-xl text-sm font-semibold hover:bg-gray-50 transition-all disabled:opacity-60"
+          >
+            <Upload className="w-4 h-4" />
+            {importing ? 'Importing…' : 'Import CSV'}
+          </button>
+          <input ref={fileRef} type="file" accept=".csv,text/csv" hidden onChange={handleImport} />
+          <Link
+            href="/admin/students/new"
+            className="flex items-center gap-2 px-4 py-2.5 bg-[#15401E] text-white rounded-xl text-sm font-semibold hover:bg-[#0f2e15] transition-all"
+          >
+            <Plus className="w-4 h-4" />
+            Add Record
+          </Link>
+        </div>
       </div>
 
       <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-sm text-blue-800">
