@@ -64,6 +64,26 @@ export const FACULTY_DATA: FacultyMember[] = [
     accentColor: '#0F766E',
     accentLight: '#CCFBF1',
   },
+  {
+    name: 'Dr. Malika Sharma',
+    title: 'Faculty – Dermatology & Aesthetic Medicine',
+    credentials: 'MBBS, MD, DNB (Dermatology, Venereology & Leprosy)',
+    experience: 'Specialist in Dermatology, Venereology & Leprosy',
+    specialty: 'Dermatology',
+    bio: 'Dermatologist with expertise across clinical dermatology, venereology and aesthetic practice. She trains fellows in the Fellowship in Dermatology and the Fellowship in Cosmetic & Aesthetic Medicine, covering the diagnosis and management of skin disease, procedural dermatology and cosmetic techniques.',
+    quote: '',
+    specialties: ['Clinical Dermatology', 'Aesthetic Medicine', 'Venereology'],
+    studentRating: 4.9,
+    fellowsTrained: '100+',
+    highlights: [
+      'MD, DNB — Dermatology, Venereology & Leprosy',
+      'Faculty for Fellowship in Dermatology',
+      'Faculty for Fellowship in Cosmetic & Aesthetic Medicine',
+    ],
+    photo: '/faculty/dr-malika-sharma.jpg',
+    accentColor: '#9D174D',
+    accentLight: '#FCE7F3',
+  },
 ];
 
 export function toFacultySlug(name: string): string {
