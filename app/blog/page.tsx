@@ -485,6 +485,96 @@ const staticPosts = [
     date: "10 Sep 2026",
     image: "/courses/oral-implantology.jpg"
   },
+  {
+    slug: "how-to-choose-a-maxillofacial-oral-surgery-fellowship-course",
+    title: "How to Choose a Maxillofacial & Oral Surgery Fellowship",
+    excerpt: "Define career goals, review the curriculum, evaluate faculty, check the learning format, case-based teaching and certification.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/maxillofacial.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-maxillofacial-oral-surgery-fellowship",
+    title: "Questions to Ask Before Joining a Maxillofacial & Oral Surgery Fellowship",
+    excerpt: "Curriculum, faculty, flexibility, clinical exposure, certification, cost and career value — what to ask before you enrol.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/maxillofacial.jpg"
+  },
+  {
+    slug: "online-vs-offline-maxillofacial-oral-surgery-fellowship-course",
+    title: "Online vs Offline Maxillofacial & Oral Surgery Fellowship",
+    excerpt: "Compare online, offline and hybrid maxillofacial and oral surgery fellowship formats for working specialists.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "10 Sep 2026",
+    image: "/courses/maxillofacial.jpg"
+  },
+  {
+    slug: "is-maxillofacial-oral-surgery-fellowship-worth-it",
+    title: "Is a Maxillofacial & Oral Surgery Fellowship Worth It?",
+    excerpt: "The benefits, how it improves clinical practice, career impact, fellowship vs workshops, and when to wait.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/maxillofacial.jpg"
+  },
+  {
+    slug: "maxillofacial-oral-surgery-fellowship-after-md-obg",
+    title: "Can BDS Doctors Pursue a Fellowship in Maxillofacial & Oral Surgery?",
+    excerpt: "The standard BDS to MDS pathway, where a fellowship fits, and what to check before applying.",
+    category: "Fellowship Guides",
+    readTime: "7 min read",
+    date: "10 Sep 2026",
+    image: "/courses/maxillofacial.jpg"
+  },
+  {
+    slug: "how-to-choose-a-head-neck-oncology-fellowship",
+    title: "How to Choose a Head & Neck Oncology Fellowship",
+    excerpt: "A framework for comparing curriculum depth, faculty, clinical and surgical exposure, tumor boards, reconstruction, format, eligibility and fees.",
+    category: "Fellowship Guides",
+    readTime: "11 min read",
+    date: "10 Sep 2026",
+    image: "/courses/head-neck-oncology.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-head-neck-oncology-fellowship",
+    title: "Questions to Ask Before Joining a Head & Neck Oncology Fellowship",
+    excerpt: "Eligibility, curriculum, clinical and surgical exposure, tumor boards, reconstruction, assessment, certification, fees and red flags.",
+    category: "Fellowship Guides",
+    readTime: "10 min read",
+    date: "10 Sep 2026",
+    image: "/courses/head-neck-oncology.jpg"
+  },
+  {
+    slug: "online-vs-offline-head-neck-oncology-fellowship",
+    title: "Online vs Offline Head & Neck Oncology Fellowship",
+    excerpt: "Academic learning, case discussions, tumor board and hospital exposure, surgical observation, and the exposure-vs-competency distinction.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/head-neck-oncology.jpg"
+  },
+  {
+    slug: "skills-you-learn-during-a-head-neck-oncology-fellowship",
+    title: "Skills You Learn During a Head & Neck Oncology Fellowship",
+    excerpt: "Clinical assessment, staging, surgical reasoning, reconstruction awareness, multidisciplinary care, research and communication.",
+    category: "Clinical Skills",
+    readTime: "10 min read",
+    date: "10 Sep 2026",
+    image: "/courses/head-neck-oncology.jpg"
+  },
+  {
+    slug: "career-opportunities-after-a-head-neck-oncology-fellowship",
+    title: "Career Opportunities After a Head & Neck Oncology Fellowship",
+    excerpt: "Surgical oncology teams, multidisciplinary cancer care, reconstructive and functional care, academic medicine, research and further training.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/head-neck-oncology.jpg"
+  },
 ];
 
 export default async function Blog() {
