@@ -386,6 +386,105 @@ const staticPosts = [
     date: "03 Sep 2026",
     image: "/courses/dermatology.jpg"
   },
+  {
+    slug: "how-to-choose-a-urology-fellowship",
+    title: "How to Choose a Urology Fellowship",
+    excerpt: "Compare curriculum, faculty, learning format, case-based teaching, eligibility and career support before enrolling in a urology fellowship.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-urology-fellowship",
+    title: "Questions to Ask Before Joining a Urology Fellowship",
+    excerpt: "The key questions to ask before enrolling in a urology fellowship — curriculum, faculty, flexibility, eligibility, support and career value.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "online-vs-offline-urology-fellowship",
+    title: "Online vs Offline Urology Fellowship",
+    excerpt: "Compare online, offline and hybrid urology fellowship formats — structure, faculty interaction, clinical exposure and flexibility.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "10 Sep 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "career-opportunities-after-a-urology-fellowship",
+    title: "Career Opportunities After a Urology Fellowship",
+    excerpt: "Consultant roles, endourology and uro-oncology teams, academics, research and specialty urology practice after fellowship training.",
+    category: "Career Planning",
+    readTime: "8 min read",
+    date: "10 Sep 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "who-can-apply-for-a-urology-fellowship-eligibility-guide",
+    title: "Who Can Apply for a Urology Fellowship? A Complete Eligibility Guide",
+    excerpt: "Typical qualifications, who benefits most, required documents and what to check before applying for a urology fellowship.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "10 Sep 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "skills-you-will-learn-during-a-urology-fellowship",
+    title: "Skills You Will Learn During a Urology Fellowship",
+    excerpt: "Assessment, diagnostics, endourology, uro-oncology, counselling and case-based reasoning developed in a urology fellowship.",
+    category: "Clinical Skills",
+    readTime: "10 min read",
+    date: "10 Sep 2026",
+    image: "/courses/urology.jpg"
+  },
+  {
+    slug: "how-to-choose-an-oral-implantology-laser-dentistry-fellowship",
+    title: "How to Choose an Oral Implantology & Laser Dentistry Fellowship",
+    excerpt: "How to evaluate an oral implantology and laser dentistry fellowship — eligibility, curriculum, faculty, format, certification and career fit.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-an-oral-implantology-laser-dentistry-fellowship",
+    title: "Questions to Ask Before Joining an Oral Implantology & Laser Dentistry Fellowship",
+    excerpt: "Eight questions every dentist should ask about eligibility, curriculum, faculty, flexibility, certification and support.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "10 Sep 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
+  {
+    slug: "online-vs-offline-oral-implantology-laser-dentistry-fellowship",
+    title: "Online vs Offline Oral Implantology Fellowship",
+    excerpt: "Compare online vs offline oral implantology and laser dentistry fellowships — curriculum, flexibility, clinical exposure, cost and career value.",
+    category: "Fellowship Guides",
+    readTime: "8 min read",
+    date: "10 Sep 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
+  {
+    slug: "is-an-oral-implantology-laser-dentistry-fellowship-worth-it",
+    title: "Is an Oral Implantology & Laser Dentistry Fellowship Worth It?",
+    excerpt: "The benefits, the skills you build, career impact, fellowship vs workshops, and who benefits most.",
+    category: "Career Planning",
+    readTime: "10 min read",
+    date: "10 Sep 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
+  {
+    slug: "career-opportunities-after-an-oral-implantology-laser-dentistry-fellowship",
+    title: "Career Opportunities After an Oral Implantology & Laser Dentistry Fellowship",
+    excerpt: "Private practice, implant-focused clinics, multispecialty and hospital dentistry, academics and research after fellowship training.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "10 Sep 2026",
+    image: "/courses/oral-implantology.jpg"
+  },
 ];
 
 export default async function Blog() {
