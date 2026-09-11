@@ -575,6 +575,96 @@ const staticPosts = [
     date: "10 Sep 2026",
     image: "/courses/head-neck-oncology.jpg"
   },
+  {
+    slug: "how-to-choose-a-spine-surgery-fellowship",
+    title: "How to Choose a Spine Surgery Fellowship",
+    excerpt: "Career goals, curriculum coverage, faculty, clinical exposure, learning format, eligibility, assessment and certification.",
+    category: "Fellowship Guides",
+    readTime: "10 min read",
+    date: "11 Sep 2026",
+    image: "/courses/spine-surgery.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-spine-surgery-fellowship",
+    title: "Questions to Ask Before Joining a Spine Surgery Fellowship",
+    excerpt: "Goals, eligibility, curriculum, faculty, clinical and surgical exposure, format, assessment and certification.",
+    category: "Fellowship Guides",
+    readTime: "10 min read",
+    date: "11 Sep 2026",
+    image: "/courses/spine-surgery.jpg"
+  },
+  {
+    slug: "online-vs-offline-spine-surgery-fellowship",
+    title: "Online vs Offline Spine Surgery Fellowship",
+    excerpt: "Flexibility, hospital exposure, case discussions, surgical observation, and the exposure-vs-competency distinction.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "11 Sep 2026",
+    image: "/courses/spine-surgery.jpg"
+  },
+  {
+    slug: "is-a-spine-surgery-fellowship-worth-it",
+    title: "Is a Spine Surgery Fellowship Worth It?",
+    excerpt: "Benefits, skills, career impact, full-time vs flexible learning, and what to compare before enrolling.",
+    category: "Career Planning",
+    readTime: "9 min read",
+    date: "11 Sep 2026",
+    image: "/courses/spine-surgery.jpg"
+  },
+  {
+    slug: "skills-you-learn-during-a-spine-surgery-fellowship",
+    title: "Skills You Learn During a Spine Surgery Fellowship",
+    excerpt: "Assessment, imaging interpretation, surgical planning, degenerative and trauma management, deformity, minimally invasive concepts, and postoperative care.",
+    category: "Clinical Skills",
+    readTime: "10 min read",
+    date: "11 Sep 2026",
+    image: "/courses/spine-surgery.jpg"
+  },
+  {
+    slug: "how-to-choose-a-general-surgery-fellowship",
+    title: "How to Choose a General Surgery Fellowship",
+    excerpt: "Career goals, curriculum breadth, faculty, clinical exposure, duration, fees and certification.",
+    category: "Fellowship Guides",
+    readTime: "10 min read",
+    date: "11 Sep 2026",
+    image: "/courses/general-surgery.jpg"
+  },
+  {
+    slug: "questions-to-ask-before-joining-a-general-surgery-fellowship",
+    title: "Questions to Ask Before Joining a General Surgery Fellowship",
+    excerpt: "Eligibility, curriculum, faculty, clinical exposure, schedule, assessment, certification and cost.",
+    category: "Fellowship Guides",
+    readTime: "10 min read",
+    date: "11 Sep 2026",
+    image: "/courses/general-surgery.jpg"
+  },
+  {
+    slug: "online-vs-offline-general-surgery-fellowship",
+    title: "Online vs Offline General Surgery Fellowship",
+    excerpt: "Flexibility, hospital exposure, case discussions, practical learning, and what to check before choosing.",
+    category: "Fellowship Guides",
+    readTime: "9 min read",
+    date: "11 Sep 2026",
+    image: "/courses/general-surgery.jpg"
+  },
+  {
+    slug: "is-a-general-surgery-fellowship-worth-it",
+    title: "Is a General Surgery Fellowship Worth It?",
+    excerpt: "Benefits, skills, the exposure-vs-competency distinction, career impact, and what to compare before enrolling.",
+    category: "Career Planning",
+    readTime: "10 min read",
+    date: "11 Sep 2026",
+    image: "/courses/general-surgery.jpg"
+  },
+  {
+    slug: "skills-you-learn-during-a-general-surgery-fellowship",
+    title: "Skills You Learn During a General Surgery Fellowship",
+    excerpt: "Clinical assessment, emergency management, laparoscopic and hernia skills, perioperative care, critical care, and procedural skills.",
+    category: "Clinical Skills",
+    readTime: "10 min read",
+    date: "11 Sep 2026",
+    image: "/courses/general-surgery.jpg"
+  },
 ];
 
 export default async function Blog() {
