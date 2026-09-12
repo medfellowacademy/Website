@@ -172,22 +172,43 @@ const programSlugs = [
   "fellowship-in-urology",
 ] as const;
 
+// Last time the static/program pages (not CMS-driven) had a content push.
+// Bump this when a batch of static pages is meaningfully edited — do NOT
+// replace it with `new Date()` computed per-request, or every static URL
+// falsely reports "modified today" on every crawl, which wastes the one
+// freshness signal lastModified gives search engines.
+const STATIC_LAST_MODIFIED = new Date("2026-09-11");
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
   const cmsBlogPosts = await getBlogPosts(true).catch(() => []);
 
-  const urls = [
+  const staticUrls = [
     ...staticRoutes.map((route) => `${SITE_URL}${route}`),
     ...programSlugs.map((slug) => `${SITE_URL}/courses/${slug}`),
-    ...cmsBlogPosts.map((post) => `${SITE_URL}/blog/${post.slug}`),
     `${SITE_URL}/dubai/programs`,
     ...countryProgramSlugs.map((slug) => `${SITE_URL}/dubai/programs/${slug}`),
     `${SITE_URL}/saudi-arabia/programs`,
     ...countryProgramSlugs.map((slug) => `${SITE_URL}/saudi-arabia/programs/${slug}`),
   ];
 
-  return [...new Set(urls)].map((url) => ({
+  const staticEntries = [...new Set(staticUrls)].map((url) => ({
     url,
-    lastModified: now,
+    lastModified: STATIC_LAST_MODIFIED,
   }));
+
+  // CMS blog posts carry their own real update time, so each one reports its
+  // actual freshness instead of a blanket "now".
+  const cmsSlugsSeen = new Set<string>();
+  const cmsEntries = cmsBlogPosts
+    .filter((post) => {
+      if (cmsSlugsSeen.has(post.slug)) return false;
+      cmsSlugsSeen.add(post.slug);
+      return true;
+    })
+    .map((post) => ({
+      url: `${SITE_URL}/blog/${post.slug}`,
+      lastModified: new Date(post.updated_at || post.published_at || post.created_at),
+    }));
+
+  return [...staticEntries, ...cmsEntries];
 }
