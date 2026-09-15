@@ -484,6 +484,7 @@ export default function ApplyPage() {
                           {[
                             { value: 'online_handson', label: 'Online + Hands-on Training', desc: 'In-depth clinical exposure with practical sessions' },
                             { value: 'online_only', label: 'Online Only', desc: 'Flexible digital learning from anywhere' },
+                            { value: 'offline_only', label: 'Offline Only', desc: 'In-depth clinical exposure with practical sessions' },
                           ].map(m => (
                             <button type="button" key={m.value} onClick={() => u('modePreference', m.value)}
                               className={`flex items-start gap-3 p-4 rounded-xl border text-left transition-all
