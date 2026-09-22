@@ -102,6 +102,7 @@ export async function sendEmiApprovedNotice(app: {
   emi_monthly_amount: number | null;
   emi_start_date: string;
   emi_processing_fee: number | null;
+  emi_registration_amount: number | null;
   emi_notes: string;
 }) {
   const fmt = (n: number | null) => (n == null ? '—' : `₹${n.toLocaleString('en-IN')}`);
@@ -111,6 +112,7 @@ export async function sendEmiApprovedNotice(app: {
      <p>Good news — your EMI application${app.program ? ` for <strong>${app.program}</strong>` : ''} has been
      reviewed and approved. Here are your plan details:</p>
      <table style="width:100%; border-collapse: collapse; margin: 16px 0;">
+       ${app.emi_registration_amount != null ? `<tr><td style="padding:8px 0; border-bottom:1px solid #F1F1F1; color:#6B7280;">Registration amount (upfront)</td><td style="padding:8px 0; border-bottom:1px solid #F1F1F1; text-align:right; font-weight:600;">${fmt(app.emi_registration_amount)}</td></tr>` : ''}
        <tr><td style="padding:8px 0; border-bottom:1px solid #F1F1F1; color:#6B7280;">Tenure</td><td style="padding:8px 0; border-bottom:1px solid #F1F1F1; text-align:right; font-weight:600;">${app.emi_months ?? '—'} months</td></tr>
        <tr><td style="padding:8px 0; border-bottom:1px solid #F1F1F1; color:#6B7280;">Monthly amount</td><td style="padding:8px 0; border-bottom:1px solid #F1F1F1; text-align:right; font-weight:600;">${fmt(app.emi_monthly_amount)}</td></tr>
        <tr><td style="padding:8px 0; border-bottom:1px solid #F1F1F1; color:#6B7280;">Start date</td><td style="padding:8px 0; border-bottom:1px solid #F1F1F1; text-align:right; font-weight:600;">${app.emi_start_date || '—'}</td></tr>

@@ -10,9 +10,9 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const {
-      full_name = '', email = '', phone = '', program = '', city = '',
+      full_name = '', email = '', phone = '', program = '', city = '', country = '',
       qualification = '', employment_type = '', monthly_income = '',
-      course_fee, notes = '',
+      course_fee, preferred_emi_months = '', notes = '',
     } = body;
 
     if (!full_name || !email || !phone) {
@@ -20,9 +20,10 @@ export async function POST(request: NextRequest) {
     }
 
     const application = await createEmiApplication({
-      full_name, email, phone, program, city, qualification,
+      full_name, email, phone, program, city, country, qualification,
       employment_type, monthly_income,
       course_fee: course_fee ? Number(course_fee) : null,
+      preferred_emi_months,
       notes,
     });
 

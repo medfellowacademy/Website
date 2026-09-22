@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EmiApplicationForm from "./_form";
+import { getPrograms } from "@/lib/cms";
 import { FileEdit, Search, MailCheck, ShieldCheck } from "lucide-react";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Apply for an EMI Plan | MedFellow Academy",
@@ -17,7 +20,10 @@ const STEPS = [
   { icon: MailCheck, title: "You hear back", text: "An email and SMS with the outcome — and your exact EMI plan if approved." },
 ];
 
-export default function EmiApplicationPage() {
+export default async function EmiApplicationPage() {
+  const programs = await getPrograms().catch(() => []);
+  const programOptions = [...new Set(programs.filter((p) => p.is_published).map((p) => p.name))].sort();
+
   return (
     <div className="min-h-screen bg-[#F7FAF8]">
       <Navbar />
@@ -52,7 +58,7 @@ export default function EmiApplicationPage() {
       <section className="relative z-10 container-custom">
         <div className="max-w-2xl mx-auto -mt-8 md:-mt-10">
           <div className="bg-white rounded-2xl border border-[#E5E7EB] shadow-[0_20px_50px_-20px_rgba(21,64,30,0.25)] p-6 md:p-8">
-            <EmiApplicationForm />
+            <EmiApplicationForm programOptions={programOptions} />
           </div>
         </div>
       </section>

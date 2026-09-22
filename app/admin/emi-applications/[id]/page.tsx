@@ -1,7 +1,7 @@
 'use client';
-import { useEffect, useState, use } from 'react';
+import { useEffect, useMemo, useState, use } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, CheckCircle2, XCircle, Mail, MessageSquare } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, XCircle, Mail, MessageSquare, Calculator } from 'lucide-react';
 
 interface EmiApplication {
   id: string;
@@ -10,10 +10,12 @@ interface EmiApplication {
   phone: string;
   program: string;
   city: string;
+  country: string;
   qualification: string;
   employment_type: string;
   monthly_income: string;
   course_fee: number | null;
+  preferred_emi_months: string;
   notes: string;
   status: 'pending_review' | 'approved' | 'not_eligible';
   review_notes: string;
@@ -23,6 +25,7 @@ interface EmiApplication {
   emi_monthly_amount: number | null;
   emi_start_date: string;
   emi_processing_fee: number | null;
+  emi_registration_amount: number | null;
   emi_notes: string;
   notifications: { channel: 'email' | 'sms'; event: string; sent_at: string; ok: boolean }[];
   created_at: string;
@@ -49,8 +52,10 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
   const [toast, setToast] = useState('');
   const [saving, setSaving] = useState(false);
 
+  const [emiRegistration, setEmiRegistration] = useState('');
   const [emiMonths, setEmiMonths] = useState('');
   const [emiMonthly, setEmiMonthly] = useState('');
+  const [monthlyTouched, setMonthlyTouched] = useState(false);
   const [emiStart, setEmiStart] = useState('');
   const [emiFee, setEmiFee] = useState('');
   const [emiNotes, setEmiNotes] = useState('');
@@ -65,6 +70,26 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
       .finally(() => setLoading(false));
   }
   useEffect(load, [id]);
+
+  // Once both a registration amount and a tenure are entered, divide the
+  // remainder (course fee − registration amount) across the months and
+  // suggest it as the monthly amount — but never overwrite a value the
+  // admin has typed in by hand.
+  const suggestedMonthly = useMemo(() => {
+    const fee = data?.course_fee;
+    const registration = Number(emiRegistration);
+    const months = parseInt(emiMonths, 10);
+    if (!fee || !months || registration < 0 || Number.isNaN(registration)) return null;
+    const remaining = fee - registration;
+    if (remaining <= 0) return 0;
+    return Math.round(remaining / months);
+  }, [data?.course_fee, emiRegistration, emiMonths]);
+
+  useEffect(() => {
+    if (suggestedMonthly != null && !monthlyTouched) {
+      setEmiMonthly(String(suggestedMonthly));
+    }
+  }, [suggestedMonthly, monthlyTouched]);
 
   function showToast(msg: string) { setToast(msg); setTimeout(() => setToast(''), 4000); }
 
@@ -81,6 +106,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
         body: JSON.stringify({
           emi_months: emiMonths, emi_monthly_amount: emiMonthly,
           emi_start_date: emiStart, emi_processing_fee: emiFee || null,
+          emi_registration_amount: emiRegistration || null,
           emi_notes: emiNotes,
         }),
       });
@@ -144,11 +170,13 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
 
         <dl className="mt-4 grid sm:grid-cols-2 rounded-xl border border-gray-100 overflow-hidden">
           <DetailRow label="Program" value={data.program} />
+          <DetailRow label="Country" value={data.country} />
           <DetailRow label="City" value={data.city} />
           <DetailRow label="Qualification" value={data.qualification} />
           <DetailRow label="Employment Type" value={data.employment_type} />
           <DetailRow label="Monthly Income" value={data.monthly_income} />
           <DetailRow label="Course Fee" value={data.course_fee ? `₹${data.course_fee.toLocaleString('en-IN')}` : null} />
+          <DetailRow label="Preferred EMI Tenure" value={data.preferred_emi_months} />
           <DetailRow label="Submitted" value={new Date(data.created_at).toLocaleString('en-GB')} />
         </dl>
         {data.notes && (
@@ -166,6 +194,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
           </h2>
           {data.status === 'approved' ? (
             <dl className="grid sm:grid-cols-2 rounded-xl border border-gray-100 overflow-hidden">
+              <DetailRow label="Registration Amount" value={data.emi_registration_amount != null ? `₹${data.emi_registration_amount.toLocaleString('en-IN')}` : null} />
               <DetailRow label="Tenure" value={data.emi_months ? `${data.emi_months} months` : null} />
               <DetailRow label="Monthly Amount" value={data.emi_monthly_amount ? `₹${data.emi_monthly_amount.toLocaleString('en-IN')}` : null} />
               <DetailRow label="Start Date" value={data.emi_start_date} />
@@ -195,6 +224,12 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
               Mark Eligible &amp; Set EMI Plan
             </h2>
             <p className="text-xs text-gray-400 -mt-2">Submitting this marks the application eligible and emails/texts the applicant this exact plan.</p>
+
+            <div>
+              <label className={labelCls}>Registration Amount (₹) <span className="text-gray-400 font-normal">— upfront, paid before EMIs start</span></label>
+              <input type="number" min="0" value={emiRegistration} onChange={(e) => setEmiRegistration(e.target.value)} placeholder="0" className={inputCls} />
+            </div>
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className={labelCls}>Tenure (months) *</label>
@@ -202,9 +237,36 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
               </div>
               <div>
                 <label className={labelCls}>Monthly Amount (₹) *</label>
-                <input type="number" min="0" value={emiMonthly} onChange={(e) => setEmiMonthly(e.target.value)} placeholder="15000" className={inputCls} />
+                <input
+                  type="number" min="0" value={emiMonthly}
+                  onChange={(e) => { setEmiMonthly(e.target.value); setMonthlyTouched(true); }}
+                  placeholder="15000"
+                  className={inputCls}
+                />
               </div>
             </div>
+
+            {suggestedMonthly != null && (
+              <div className="flex items-center justify-between gap-3 bg-[#F7FAF8] border border-[#e8f2ea] rounded-xl px-4 py-2.5">
+                <p className="text-xs text-[#15401E] flex items-center gap-2">
+                  <Calculator className="w-3.5 h-3.5 shrink-0" />
+                  (₹{data.course_fee?.toLocaleString('en-IN')} fee − ₹{(Number(emiRegistration) || 0).toLocaleString('en-IN')} registration) ÷ {emiMonths} months = <strong>₹{suggestedMonthly.toLocaleString('en-IN')}/month</strong>
+                </p>
+                {monthlyTouched && String(suggestedMonthly) !== emiMonthly && (
+                  <button
+                    type="button"
+                    onClick={() => { setEmiMonthly(String(suggestedMonthly)); setMonthlyTouched(false); }}
+                    className="text-xs font-semibold text-[#15401E] hover:underline shrink-0"
+                  >
+                    Use this
+                  </button>
+                )}
+              </div>
+            )}
+            {!data.course_fee && (
+              <p className="text-xs text-amber-600">The applicant didn&apos;t provide a course fee, so the monthly amount can&apos;t be auto-calculated — enter it manually.</p>
+            )}
+
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className={labelCls}>Start Date</label>

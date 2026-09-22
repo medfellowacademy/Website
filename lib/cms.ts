@@ -792,10 +792,12 @@ export interface CmsEmiApplication {
   phone: string;
   program: string;
   city: string;
+  country: string;
   qualification: string;
   employment_type: string;
   monthly_income: string;
   course_fee: number | null;
+  preferred_emi_months: string;
   notes: string;
   status: 'pending_review' | 'approved' | 'not_eligible';
   review_notes: string;
@@ -805,6 +807,7 @@ export interface CmsEmiApplication {
   emi_monthly_amount: number | null;
   emi_start_date: string;
   emi_processing_fee: number | null;
+  emi_registration_amount: number | null;
   emi_notes: string;
   notifications: { channel: 'email' | 'sms'; event: string; sent_at: string; ok: boolean }[];
   created_at: string;

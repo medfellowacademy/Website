@@ -20,10 +20,12 @@ CREATE TABLE IF NOT EXISTS cms_emi_applications (
   phone text NOT NULL,
   program text DEFAULT '',
   city text DEFAULT '',
+  country text DEFAULT '',
   qualification text DEFAULT '',
   employment_type text DEFAULT '',
   monthly_income text DEFAULT '',
   course_fee numeric DEFAULT NULL,
+  preferred_emi_months text DEFAULT '',
   notes text DEFAULT '',
 
   -- Review outcome (admin-driven; nothing here is auto-computed)
@@ -37,6 +39,7 @@ CREATE TABLE IF NOT EXISTS cms_emi_applications (
   emi_monthly_amount numeric,
   emi_start_date text DEFAULT '',
   emi_processing_fee numeric,
+  emi_registration_amount numeric,
   emi_notes text DEFAULT '',
 
   -- Notification audit trail — e.g. [{"channel":"email","event":"received","sent_at":"...","ok":true}]
@@ -47,6 +50,11 @@ CREATE TABLE IF NOT EXISTS cms_emi_applications (
 );
 
 CREATE INDEX IF NOT EXISTS cms_emi_applications_status_idx ON cms_emi_applications (status, created_at DESC);
+
+-- Safe to re-run if the table already existed before these columns were added.
+ALTER TABLE cms_emi_applications ADD COLUMN IF NOT EXISTS country text DEFAULT '';
+ALTER TABLE cms_emi_applications ADD COLUMN IF NOT EXISTS preferred_emi_months text DEFAULT '';
+ALTER TABLE cms_emi_applications ADD COLUMN IF NOT EXISTS emi_registration_amount numeric;
 
 SELECT 'cms_emi_applications ready' as status,
        (SELECT COUNT(*) FROM cms_emi_applications) as applications;

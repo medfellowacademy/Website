@@ -12,7 +12,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     const body = await request.json();
     const {
       emi_months, emi_monthly_amount, emi_start_date = '',
-      emi_processing_fee, emi_notes = '', reviewed_by = 'Admin',
+      emi_processing_fee, emi_registration_amount, emi_notes = '', reviewed_by = 'Admin',
     } = body;
 
     if (!emi_months || !emi_monthly_amount) {
@@ -25,6 +25,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
       emi_monthly_amount: Number(emi_monthly_amount),
       emi_start_date,
       emi_processing_fee: emi_processing_fee ? Number(emi_processing_fee) : null,
+      emi_registration_amount: emi_registration_amount ? Number(emi_registration_amount) : null,
       emi_notes,
       reviewed_by,
       reviewed_at: new Date().toISOString(),
