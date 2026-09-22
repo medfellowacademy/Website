@@ -782,3 +782,88 @@ export async function getCmsStats() {
     testimonials: { total: testimonials.count ?? 0, published: testimonials.data?.filter((t) => t.is_published).length ?? 0 },
   };
 }
+
+// ─── EMI / Fee Installment Applications ────────────────────────────────────
+
+export interface CmsEmiApplication {
+  id: string;
+  full_name: string;
+  email: string;
+  phone: string;
+  program: string;
+  city: string;
+  qualification: string;
+  employment_type: string;
+  monthly_income: string;
+  course_fee: number | null;
+  notes: string;
+  status: 'pending_review' | 'approved' | 'not_eligible';
+  review_notes: string;
+  reviewed_by: string;
+  reviewed_at: string | null;
+  emi_months: number | null;
+  emi_monthly_amount: number | null;
+  emi_start_date: string;
+  emi_processing_fee: number | null;
+  emi_notes: string;
+  notifications: { channel: 'email' | 'sms'; event: string; sent_at: string; ok: boolean }[];
+  created_at: string;
+  updated_at: string;
+}
+
+export async function getEmiApplications() {
+  const { data, error } = await cmsClient
+    .from('cms_emi_applications')
+    .select('*')
+    .order('created_at', { ascending: false });
+  if (error) throw error;
+  return data as CmsEmiApplication[];
+}
+
+export async function getEmiApplicationById(id: string) {
+  const { data, error } = await cmsClient
+    .from('cms_emi_applications')
+    .select('*')
+    .eq('id', id)
+    .single();
+  if (error) throw error;
+  return data as CmsEmiApplication;
+}
+
+export async function createEmiApplication(input: Partial<CmsEmiApplication>) {
+  const { data, error } = await cmsClient
+    .from('cms_emi_applications')
+    .insert({ ...input, status: 'pending_review', updated_at: new Date().toISOString() })
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsEmiApplication;
+}
+
+export async function updateEmiApplication(id: string, input: Partial<CmsEmiApplication>) {
+  const { data, error } = await cmsClient
+    .from('cms_emi_applications')
+    .update({ ...input, updated_at: new Date().toISOString() })
+    .eq('id', id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as CmsEmiApplication;
+}
+
+/** Append one entry to the notifications audit trail without clobbering existing ones. */
+export async function logEmiNotification(
+  id: string,
+  entry: { channel: 'email' | 'sms'; event: string; ok: boolean },
+) {
+  try {
+    const current = await getEmiApplicationById(id);
+    const notifications = [
+      ...(current.notifications ?? []),
+      { ...entry, sent_at: new Date().toISOString() },
+    ];
+    await cmsClient.from('cms_emi_applications').update({ notifications }).eq('id', id);
+  } catch {
+    /* audit log must never break the request */
+  }
+}
