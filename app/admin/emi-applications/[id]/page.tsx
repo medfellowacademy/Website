@@ -1,7 +1,8 @@
 'use client';
 import { useEffect, useMemo, useState, use } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, CheckCircle2, XCircle, Mail, MessageSquare, Calculator } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, XCircle, Mail, MessageSquare, Calculator, CalendarDays } from 'lucide-react';
+import { buildEmiSchedule } from '@/lib/emiSchedule';
 
 interface EmiApplication {
   id: string;
@@ -90,6 +91,18 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
       setEmiMonthly(String(suggestedMonthly));
     }
   }, [suggestedMonthly, monthlyTouched]);
+
+  const schedule = useMemo(() => {
+    const months = parseInt(emiMonths, 10);
+    const monthly = Number(emiMonthly);
+    if (!emiStart || !months || !monthly) return [];
+    return buildEmiSchedule(emiStart, months, monthly);
+  }, [emiStart, emiMonths, emiMonthly]);
+
+  const decidedSchedule = useMemo(() => {
+    if (!data || data.status !== 'approved' || !data.emi_start_date || !data.emi_months || !data.emi_monthly_amount) return [];
+    return buildEmiSchedule(data.emi_start_date, data.emi_months, data.emi_monthly_amount);
+  }, [data]);
 
   function showToast(msg: string) { setToast(msg); setTimeout(() => setToast(''), 4000); }
 
@@ -197,12 +210,29 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
               <DetailRow label="Registration Amount" value={data.emi_registration_amount != null ? `₹${data.emi_registration_amount.toLocaleString('en-IN')}` : null} />
               <DetailRow label="Tenure" value={data.emi_months ? `${data.emi_months} months` : null} />
               <DetailRow label="Monthly Amount" value={data.emi_monthly_amount ? `₹${data.emi_monthly_amount.toLocaleString('en-IN')}` : null} />
-              <DetailRow label="Start Date" value={data.emi_start_date} />
+              <DetailRow label="First Due Date" value={data.emi_start_date} />
               <DetailRow label="Processing Fee" value={data.emi_processing_fee ? `₹${data.emi_processing_fee.toLocaleString('en-IN')}` : null} />
               {data.emi_notes && <DetailRow label="Notes to Applicant" value={data.emi_notes} />}
             </dl>
           ) : (
             <p className="text-sm text-gray-700">{data.review_notes || 'No reason provided.'}</p>
+          )}
+
+          {decidedSchedule.length > 0 && (
+            <div className="mt-4 bg-[#F7FAF8] border border-[#e8f2ea] rounded-xl overflow-hidden">
+              <div className="px-4 py-2.5 flex items-center gap-2 border-b border-[#e8f2ea]">
+                <CalendarDays className="w-3.5 h-3.5 text-[#15401E]" />
+                <p className="text-xs font-semibold text-[#15401E]">Payment schedule (also sent to the applicant as a PDF)</p>
+              </div>
+              <div className="max-h-48 overflow-y-auto divide-y divide-[#e8f2ea]">
+                {decidedSchedule.map((inst) => (
+                  <div key={inst.index} className="px-4 py-2 flex items-center justify-between text-sm">
+                    <span className="text-gray-500">#{inst.index} · {inst.label}</span>
+                    <span className="font-semibold text-gray-900">₹{inst.amount.toLocaleString('en-IN')}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
           <p className="text-xs text-gray-400 mt-3">Reviewed by {data.reviewed_by || 'Admin'} on {data.reviewed_at ? new Date(data.reviewed_at).toLocaleString('en-GB') : '—'}</p>
 
@@ -269,14 +299,32 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className={labelCls}>Start Date</label>
-                <input value={emiStart} onChange={(e) => setEmiStart(e.target.value)} placeholder="01 Nov 2026" className={inputCls} />
+                <label className={labelCls}>First Due Date</label>
+                <input type="date" value={emiStart} onChange={(e) => setEmiStart(e.target.value)} className={inputCls} />
               </div>
               <div>
                 <label className={labelCls}>Processing Fee (₹)</label>
                 <input type="number" min="0" value={emiFee} onChange={(e) => setEmiFee(e.target.value)} placeholder="0" className={inputCls} />
               </div>
             </div>
+
+            {schedule.length > 0 && (
+              <div className="bg-[#F7FAF8] border border-[#e8f2ea] rounded-xl overflow-hidden">
+                <div className="px-4 py-2.5 flex items-center gap-2 border-b border-[#e8f2ea]">
+                  <CalendarDays className="w-3.5 h-3.5 text-[#15401E]" />
+                  <p className="text-xs font-semibold text-[#15401E]">Payment schedule preview — sent as a PDF with the approval email</p>
+                </div>
+                <div className="max-h-48 overflow-y-auto divide-y divide-[#e8f2ea]">
+                  {schedule.map((inst) => (
+                    <div key={inst.index} className="px-4 py-2 flex items-center justify-between text-sm">
+                      <span className="text-gray-500">#{inst.index} · {inst.label}</span>
+                      <span className="font-semibold text-gray-900">₹{inst.amount.toLocaleString('en-IN')}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <div>
               <label className={labelCls}>Note to Applicant <span className="text-gray-400 font-normal">(optional)</span></label>
               <textarea value={emiNotes} onChange={(e) => setEmiNotes(e.target.value)} rows={2} className={inputCls + ' resize-y'} placeholder="Any additional instructions for the applicant…" />

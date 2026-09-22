@@ -7,6 +7,7 @@
 
 import { Resend } from 'resend';
 import twilio from 'twilio';
+import { generateEmiPlanPdf } from './emiPdf';
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const emailFrom = process.env.EMI_NOTIFY_FROM_EMAIL || 'MedFellow Academy <onboarding@resend.dev>';
@@ -24,13 +25,22 @@ export interface NotifyResult {
   error?: string;
 }
 
-export async function sendEmail(to: string, subject: string, html: string): Promise<NotifyResult> {
+export interface EmailAttachment {
+  filename: string;
+  content: Buffer;
+  contentType?: string;
+}
+
+export async function sendEmail(to: string, subject: string, html: string, attachments?: EmailAttachment[]): Promise<NotifyResult> {
   if (!resend) {
     console.warn('RESEND_API_KEY not configured — skipping email:', subject);
     return { ok: false, skipped: true };
   }
   try {
-    const { error } = await resend.emails.send({ from: emailFrom, to, subject, html });
+    const { error } = await resend.emails.send({
+      from: emailFrom, to, subject, html,
+      attachments: attachments?.map((a) => ({ filename: a.filename, content: a.content, contentType: a.contentType })),
+    });
     if (error) {
       console.error('Resend send error:', error);
       return { ok: false, error: error.message };
@@ -59,7 +69,6 @@ export async function sendSms(to: string, body: string): Promise<NotifyResult> {
 // ─── EMI-specific message templates ────────────────────────────────────────
 
 const BRAND_GREEN = '#15401E';
-const LOGO_URL = 'https://www.medfellowacademy.com/logo.png';
 const SITE_URL = 'https://www.medfellowacademy.com';
 
 function emailShell(title: string, bodyHtml: string): string {
@@ -68,8 +77,8 @@ function emailShell(title: string, bodyHtml: string): string {
     <div style="max-width: 560px; margin: 0 auto;">
 
       <!-- Header -->
-      <div style="background:${BRAND_GREEN}; padding: 28px 32px; border-radius: 12px 12px 0 0; text-align:center;">
-        <img src="${LOGO_URL}" alt="MedFellow Academy" height="36" style="height:36px; width:auto; display:inline-block;" />
+      <div style="background:${BRAND_GREEN}; padding: 26px 32px; border-radius: 12px 12px 0 0; text-align:center;">
+        <span style="font-size: 20px; font-weight: 700; color: #ffffff; letter-spacing: -0.01em;">Med<span style="color:#8FD19E;">Fellow</span> Academy</span>
       </div>
 
       <!-- Body card -->
@@ -123,6 +132,13 @@ export async function sendEmiReceivedNotice(app: { full_name: string; email: str
   return { emailResult, smsResult };
 }
 
+function formatDateDisplay(isoOrText: string): string {
+  if (!isoOrText) return '—';
+  const d = new Date(isoOrText);
+  if (Number.isNaN(d.getTime())) return isoOrText; // old free-text entries, pre-datepicker
+  return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+}
+
 export async function sendEmiApprovedNotice(app: {
   full_name: string;
   email: string;
@@ -150,16 +166,21 @@ export async function sendEmiApprovedNotice(app: {
        ${app.emi_registration_amount != null ? row('Registration amount (upfront)', fmt(app.emi_registration_amount)) : ''}
        ${row('Tenure', `${app.emi_months ?? '—'} months`)}
        ${row('Monthly amount', fmt(app.emi_monthly_amount))}
-       ${row('Start date', app.emi_start_date || '—')}
+       ${row('First due date', formatDateDisplay(app.emi_start_date))}
        ${row('Processing fee', fmt(app.emi_processing_fee), true)}
      </table>
      ${app.emi_notes ? `<p style="background:#FFFBEB; border:1px solid #FDE68A; border-radius:8px; padding:12px 16px; margin: 0 0 20px; font-size:13.5px;">${app.emi_notes}</p>` : ''}
+     <p style="margin:0 0 14px;">We've attached a PDF with your full plan and month-by-month payment schedule for your records.</p>
      <p style="margin:0;">Our admissions team will reach out shortly to confirm the next steps.</p>
      ${closingLine()}`,
   );
-  const sms = `MedFellow Academy: Good news ${app.full_name}! Your EMI plan is approved — ${app.emi_months ?? '—'} months at ${fmt(app.emi_monthly_amount)}/month, starting ${app.emi_start_date || 'soon'}. Check your email for full details.`;
+  const sms = `MedFellow Academy: Good news ${app.full_name}! Your EMI plan is approved — ${app.emi_months ?? '—'} months at ${fmt(app.emi_monthly_amount)}/month, starting ${formatDateDisplay(app.emi_start_date)}. Check your email for full details.`;
+
+  const pdf = await generateEmiPlanPdf(app);
+  const attachments = pdf ? [{ filename: `EMI-Plan-${app.full_name.replace(/\s+/g, '-')}.pdf`, content: pdf, contentType: 'application/pdf' }] : undefined;
+
   const [emailResult, smsResult] = await Promise.all([
-    sendEmail(app.email, 'Your EMI plan is approved — MedFellow Academy', html),
+    sendEmail(app.email, 'Your EMI plan is approved — MedFellow Academy', html, attachments),
     sendSms(app.phone, sms),
   ]);
   return { emailResult, smsResult };
