@@ -41,7 +41,7 @@ export default async function EmiApplicationPage() {
         <div className="relative container-custom">
           <div className="max-w-2xl mx-auto py-14 md:py-16 text-center">
             <span className="inline-flex items-center gap-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-white/80 bg-white/10 border border-white/15 px-3 py-1.5 rounded-full">
-              <ShieldCheck className="w-3.5 h-3.5" /> Fee Installment Plan
+              <ShieldCheck className="w-3.5 h-3.5" /> Check Your Loan Eligibility
             </span>
             <h1 className="text-3xl md:text-[2.5rem] font-heading font-bold text-white mt-5 leading-[1.15]">
               Apply for an EMI Plan
