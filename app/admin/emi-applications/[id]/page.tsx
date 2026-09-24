@@ -262,18 +262,18 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
 
             <div>
               <label className={labelCls}>Registration Amount ({sym}) <span className="text-gray-400 font-normal">— upfront, paid before EMIs start</span></label>
-              <input type="number" min="0" value={emiRegistration} onChange={(e) => setEmiRegistration(e.target.value)} placeholder="0" className={inputCls} />
+              <input type="number" min="0" onWheel={(e) => e.currentTarget.blur()} value={emiRegistration} onChange={(e) => setEmiRegistration(e.target.value)} placeholder="0" className={inputCls} />
             </div>
 
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className={labelCls}>Tenure (months) *</label>
-                <input type="number" min="1" value={emiMonths} onChange={(e) => setEmiMonths(e.target.value)} placeholder="6" className={inputCls} />
+                <input type="number" min="1" onWheel={(e) => e.currentTarget.blur()} value={emiMonths} onChange={(e) => setEmiMonths(e.target.value)} placeholder="6" className={inputCls} />
               </div>
               <div>
                 <label className={labelCls}>Monthly Amount ({sym}) *</label>
                 <input
-                  type="number" min="0" value={emiMonthly}
+                  type="number" min="0" onWheel={(e) => e.currentTarget.blur()} value={emiMonthly}
                   onChange={(e) => { setEmiMonthly(e.target.value); setMonthlyTouched(true); }}
                   placeholder="15000"
                   className={inputCls}
@@ -309,7 +309,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
               </div>
               <div>
                 <label className={labelCls}>Processing Fee ({sym})</label>
-                <input type="number" min="0" value={emiFee} onChange={(e) => setEmiFee(e.target.value)} placeholder="0" className={inputCls} />
+                <input type="number" min="0" onWheel={(e) => e.currentTarget.blur()} value={emiFee} onChange={(e) => setEmiFee(e.target.value)} placeholder="0" className={inputCls} />
               </div>
             </div>
 

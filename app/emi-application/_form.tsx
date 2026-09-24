@@ -228,7 +228,7 @@ export default function EmiApplicationForm({ programOptions }: { programOptions:
         <div className="grid sm:grid-cols-2 gap-4 mt-4">
           <div>
             <label className={labelCls}>Course Fee ({symbol})</label>
-            <input type="number" min="0" value={form.course_fee} onChange={(e) => set('course_fee', e.target.value)} placeholder={form.currency === 'USD' ? '1,700' : '1,40,000'} className={inputCls} />
+            <input type="number" min="0" onWheel={(e) => e.currentTarget.blur()} value={form.course_fee} onChange={(e) => set('course_fee', e.target.value)} placeholder={form.currency === 'USD' ? '1,700' : '1,40,000'} className={inputCls} />
           </div>
           <div>
             <label className={labelCls}>Preferred EMI Tenure</label>
