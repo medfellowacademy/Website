@@ -11,7 +11,7 @@ const EMPLOYMENT_OPTIONS = ['', 'Salaried', 'Self-employed / Private practice', 
 
 const COUNTRY_OPTIONS = ['', 'India', 'United Arab Emirates', 'Saudi Arabia', 'Qatar', 'Oman', 'Kuwait', 'Bahrain', 'Other'];
 
-const EMI_TENURE_OPTIONS = ['', '3 months', '6 months', '9 months', '12 months', '18 months', '24 months', 'Not sure — let the team advise'];
+const EMI_TENURE_OPTIONS = ['', '2 months', '3 months', '4 months', '5 months', '6 months'];
 
 const OTHER = 'Other (please specify)';
 
