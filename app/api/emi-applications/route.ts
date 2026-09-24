@@ -12,8 +12,9 @@ export async function POST(request: NextRequest) {
     const {
       full_name = '', email = '', phone = '', program = '', city = '', country = '',
       qualification = '', employment_type = '', monthly_income = '',
-      course_fee, preferred_emi_months = '', notes = '',
+      course_fee, preferred_emi_months = '', notes = '', currency = 'INR',
     } = body;
+    const isUsd = currency === 'USD';
 
     if (!full_name || !email || !phone) {
       return NextResponse.json({ error: 'Name, email and phone are required' }, { status: 400 });
@@ -25,6 +26,8 @@ export async function POST(request: NextRequest) {
       course_fee: course_fee ? Number(course_fee) : null,
       preferred_emi_months,
       notes,
+      // Only sent for USD so INR applications keep working before the currency column migration is run.
+      ...(isUsd ? { currency: 'USD' } : {}),
     });
 
     // Best-effort side effects — never block the applicant's success response.
@@ -36,7 +39,7 @@ export async function POST(request: NextRequest) {
     await pushLeadToCrm({
       full_name, email, phone,
       course_interested: program,
-      message: `EMI application${course_fee ? ` — course fee ₹${course_fee}` : ''}`,
+      message: `EMI application${course_fee ? ` — course fee ${isUsd ? '$' : '₹'}${course_fee}` : ''}`,
       form_type: 'application',
     });
 

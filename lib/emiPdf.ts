@@ -21,12 +21,14 @@ export interface EmiPlanPdfInput {
   emi_processing_fee: number | null;
   emi_registration_amount: number | null;
   emi_notes: string;
+  currency?: string;
 }
-
-const fmt = (n: number | null) => (n == null ? '—' : `Rs. ${n.toLocaleString('en-IN')}`);
 
 export async function generateEmiPlanPdf(app: EmiPlanPdfInput): Promise<Buffer | null> {
   try {
+    const usd = app.currency === 'USD';
+    const money = (n: number) => `${usd ? 'USD ' : 'Rs. '}${n.toLocaleString(usd ? 'en-US' : 'en-IN')}`;
+    const fmt = (n: number | null) => (n == null ? '—' : money(n));
     const doc = new PDFDocument({ size: 'A4', margin: 50 });
     const chunks: Buffer[] = [];
     doc.on('data', (c) => chunks.push(c));
@@ -100,7 +102,7 @@ export async function generateEmiPlanPdf(app: EmiPlanPdfInput): Promise<Buffer |
         }
         doc.text(String(inst.index), colX.no + 6, y, { width: 40 });
         doc.text(inst.label, colX.date, y, { width: 200 });
-        doc.text(`Rs. ${inst.amount.toLocaleString('en-IN')}`, colX.amount, y, { width: 140, align: 'right' });
+        doc.text(money(inst.amount), colX.amount, y, { width: 140, align: 'right' });
         y += 18;
         doc.moveTo(50, y - 4).lineTo(545, y - 4).strokeColor('#F1F1F1').lineWidth(0.5).stroke();
       }

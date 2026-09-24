@@ -798,6 +798,7 @@ export interface CmsEmiApplication {
   monthly_income: string;
   course_fee: number | null;
   preferred_emi_months: string;
+  currency: string;
   notes: string;
   status: 'pending_review' | 'approved' | 'not_eligible';
   review_notes: string;

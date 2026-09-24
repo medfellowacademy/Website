@@ -17,6 +17,7 @@ interface EmiApplication {
   monthly_income: string;
   course_fee: number | null;
   preferred_emi_months: string;
+  currency?: string;
   notes: string;
   status: 'pending_review' | 'approved' | 'not_eligible';
   review_notes: string;
@@ -104,6 +105,9 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
     return buildEmiSchedule(data.emi_start_date, data.emi_months, data.emi_monthly_amount);
   }, [data]);
 
+  const sym = data?.currency === 'USD' ? '$' : '₹';
+  const money = (n: number) => `${sym}${n.toLocaleString(data?.currency === 'USD' ? 'en-US' : 'en-IN')}`;
+
   function showToast(msg: string) { setToast(msg); setTimeout(() => setToast(''), 4000); }
 
   async function handleApprove() {
@@ -188,7 +192,8 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
           <DetailRow label="Qualification" value={data.qualification} />
           <DetailRow label="Employment Type" value={data.employment_type} />
           <DetailRow label="Monthly Income" value={data.monthly_income} />
-          <DetailRow label="Course Fee" value={data.course_fee ? `₹${data.course_fee.toLocaleString('en-IN')}` : null} />
+          <DetailRow label="Course Fee" value={data.course_fee ? money(data.course_fee) : null} />
+          <DetailRow label="Currency" value={data.currency === 'USD' ? 'USD ($)' : 'INR (₹)'} />
           <DetailRow label="Preferred EMI Tenure" value={data.preferred_emi_months} />
           <DetailRow label="Submitted" value={new Date(data.created_at).toLocaleString('en-GB')} />
         </dl>
@@ -207,11 +212,11 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
           </h2>
           {data.status === 'approved' ? (
             <dl className="grid sm:grid-cols-2 rounded-xl border border-gray-100 overflow-hidden">
-              <DetailRow label="Registration Amount" value={data.emi_registration_amount != null ? `₹${data.emi_registration_amount.toLocaleString('en-IN')}` : null} />
+              <DetailRow label="Registration Amount" value={data.emi_registration_amount != null ? money(data.emi_registration_amount) : null} />
               <DetailRow label="Tenure" value={data.emi_months ? `${data.emi_months} months` : null} />
-              <DetailRow label="Monthly Amount" value={data.emi_monthly_amount ? `₹${data.emi_monthly_amount.toLocaleString('en-IN')}` : null} />
+              <DetailRow label="Monthly Amount" value={data.emi_monthly_amount ? money(data.emi_monthly_amount) : null} />
               <DetailRow label="First Due Date" value={data.emi_start_date} />
-              <DetailRow label="Processing Fee" value={data.emi_processing_fee ? `₹${data.emi_processing_fee.toLocaleString('en-IN')}` : null} />
+              <DetailRow label="Processing Fee" value={data.emi_processing_fee ? money(data.emi_processing_fee) : null} />
               {data.emi_notes && <DetailRow label="Notes to Applicant" value={data.emi_notes} />}
             </dl>
           ) : (
@@ -228,7 +233,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
                 {decidedSchedule.map((inst) => (
                   <div key={inst.index} className="px-4 py-2 flex items-center justify-between text-sm">
                     <span className="text-gray-500">#{inst.index} · {inst.label}</span>
-                    <span className="font-semibold text-gray-900">₹{inst.amount.toLocaleString('en-IN')}</span>
+                    <span className="font-semibold text-gray-900">{money(inst.amount)}</span>
                   </div>
                 ))}
               </div>
@@ -256,7 +261,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
             <p className="text-xs text-gray-400 -mt-2">Submitting this marks the application eligible and emails/texts the applicant this exact plan.</p>
 
             <div>
-              <label className={labelCls}>Registration Amount (₹) <span className="text-gray-400 font-normal">— upfront, paid before EMIs start</span></label>
+              <label className={labelCls}>Registration Amount ({sym}) <span className="text-gray-400 font-normal">— upfront, paid before EMIs start</span></label>
               <input type="number" min="0" value={emiRegistration} onChange={(e) => setEmiRegistration(e.target.value)} placeholder="0" className={inputCls} />
             </div>
 
@@ -266,7 +271,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
                 <input type="number" min="1" value={emiMonths} onChange={(e) => setEmiMonths(e.target.value)} placeholder="6" className={inputCls} />
               </div>
               <div>
-                <label className={labelCls}>Monthly Amount (₹) *</label>
+                <label className={labelCls}>Monthly Amount ({sym}) *</label>
                 <input
                   type="number" min="0" value={emiMonthly}
                   onChange={(e) => { setEmiMonthly(e.target.value); setMonthlyTouched(true); }}
@@ -280,7 +285,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
               <div className="flex items-center justify-between gap-3 bg-[#F7FAF8] border border-[#e8f2ea] rounded-xl px-4 py-2.5">
                 <p className="text-xs text-[#15401E] flex items-center gap-2">
                   <Calculator className="w-3.5 h-3.5 shrink-0" />
-                  (₹{data.course_fee?.toLocaleString('en-IN')} fee − ₹{(Number(emiRegistration) || 0).toLocaleString('en-IN')} registration) ÷ {emiMonths} months = <strong>₹{suggestedMonthly.toLocaleString('en-IN')}/month</strong>
+                  ({money(data.course_fee ?? 0)} fee − {money(Number(emiRegistration) || 0)} registration) ÷ {emiMonths} months = <strong>{money(suggestedMonthly)}/month</strong>
                 </p>
                 {monthlyTouched && String(suggestedMonthly) !== emiMonthly && (
                   <button
@@ -303,7 +308,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
                 <input type="date" value={emiStart} onChange={(e) => setEmiStart(e.target.value)} className={inputCls} />
               </div>
               <div>
-                <label className={labelCls}>Processing Fee (₹)</label>
+                <label className={labelCls}>Processing Fee ({sym})</label>
                 <input type="number" min="0" value={emiFee} onChange={(e) => setEmiFee(e.target.value)} placeholder="0" className={inputCls} />
               </div>
             </div>
@@ -318,7 +323,7 @@ export default function EmiApplicationDetail({ params }: { params: Promise<{ id:
                   {schedule.map((inst) => (
                     <div key={inst.index} className="px-4 py-2 flex items-center justify-between text-sm">
                       <span className="text-gray-500">#{inst.index} · {inst.label}</span>
-                      <span className="font-semibold text-gray-900">₹{inst.amount.toLocaleString('en-IN')}</span>
+                      <span className="font-semibold text-gray-900">{money(inst.amount)}</span>
                     </div>
                   ))}
                 </div>

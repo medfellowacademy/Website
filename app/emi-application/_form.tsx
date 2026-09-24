@@ -29,6 +29,7 @@ interface FormState {
   monthly_income: string;
   course_fee: string;
   preferred_emi_months: string;
+  currency: 'INR' | 'USD';
   notes: string;
   consent: boolean;
 }
@@ -36,7 +37,7 @@ interface FormState {
 const BLANK: FormState = {
   full_name: '', email: '', phone: '', program: '', program_other: '', city: '', country: '', country_other: '',
   qualification: '', employment_type: '', monthly_income: '', course_fee: '', preferred_emi_months: '',
-  notes: '', consent: false,
+  currency: 'INR', notes: '', consent: false,
 };
 
 function SectionLabel({ icon: Icon, children }: { icon: React.ComponentType<{ className?: string }>; children: React.ReactNode }) {
@@ -59,6 +60,8 @@ export default function EmiApplicationForm({ programOptions }: { programOptions:
   function set<K extends keyof FormState>(k: K, v: FormState[K]) {
     setForm((f) => ({ ...f, [k]: v }));
   }
+
+  const symbol = form.currency === 'USD' ? '$' : '₹';
 
   const estimatedMonthly = useMemo(() => {
     const fee = Number(form.course_fee);
@@ -193,6 +196,23 @@ export default function EmiApplicationForm({ programOptions }: { programOptions:
       <div className="pt-6 border-t border-[#F1F1F1]">
         <SectionLabel icon={Wallet}>Financial Details</SectionLabel>
         <p className="text-[0.75rem] text-[#9CA3AF] -mt-2 mb-4">Helps our team assess an installment plan that works for you.</p>
+        <div className="mb-4">
+          <label className={labelCls}>Currency</label>
+          <div className="inline-flex rounded-xl border border-[#D1D5DB] overflow-hidden">
+            {(['INR', 'USD'] as const).map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => set('currency', c)}
+                className={`px-5 py-2 text-sm font-semibold transition-colors ${
+                  form.currency === c ? 'bg-[#15401E] text-white' : 'bg-white text-[#374151] hover:bg-[#F7FAF8]'
+                }`}
+              >
+                {c === 'INR' ? '₹ INR' : '$ USD'}
+              </button>
+            ))}
+          </div>
+        </div>
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
             <label className={labelCls}>Employment Type</label>
@@ -201,14 +221,14 @@ export default function EmiApplicationForm({ programOptions }: { programOptions:
             </select>
           </div>
           <div>
-            <label className={labelCls}>Approximate Monthly Income</label>
-            <input value={form.monthly_income} onChange={(e) => set('monthly_income', e.target.value)} placeholder="₹50,000" className={inputCls} />
+            <label className={labelCls}>Approximate Monthly Income ({form.currency})</label>
+            <input value={form.monthly_income} onChange={(e) => set('monthly_income', e.target.value)} placeholder={form.currency === 'USD' ? '$2,000' : '₹50,000'} className={inputCls} />
           </div>
         </div>
         <div className="grid sm:grid-cols-2 gap-4 mt-4">
           <div>
-            <label className={labelCls}>Course Fee (₹)</label>
-            <input type="number" min="0" value={form.course_fee} onChange={(e) => set('course_fee', e.target.value)} placeholder="1,40,000" className={inputCls} />
+            <label className={labelCls}>Course Fee ({symbol})</label>
+            <input type="number" min="0" value={form.course_fee} onChange={(e) => set('course_fee', e.target.value)} placeholder={form.currency === 'USD' ? '1,700' : '1,40,000'} className={inputCls} />
           </div>
           <div>
             <label className={labelCls}>Preferred EMI Tenure</label>
@@ -219,7 +239,7 @@ export default function EmiApplicationForm({ programOptions }: { programOptions:
         </div>
         {estimatedMonthly != null && (
           <p className="text-[0.8125rem] text-[#15401E] bg-[#F7FAF8] border border-[#e8f2ea] rounded-lg px-3.5 py-2.5 mt-3">
-            Rough estimate: <strong>₹{estimatedMonthly.toLocaleString('en-IN')}/month</strong> for {form.preferred_emi_months}.
+            Rough estimate: <strong>{symbol}{estimatedMonthly.toLocaleString(form.currency === 'USD' ? 'en-US' : 'en-IN')}/month</strong> for {form.preferred_emi_months}.
             This is only a guide — your admin-approved plan may differ (e.g. after a registration amount).
           </p>
         )}

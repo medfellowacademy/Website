@@ -55,6 +55,7 @@ CREATE INDEX IF NOT EXISTS cms_emi_applications_status_idx ON cms_emi_applicatio
 ALTER TABLE cms_emi_applications ADD COLUMN IF NOT EXISTS country text DEFAULT '';
 ALTER TABLE cms_emi_applications ADD COLUMN IF NOT EXISTS preferred_emi_months text DEFAULT '';
 ALTER TABLE cms_emi_applications ADD COLUMN IF NOT EXISTS emi_registration_amount numeric;
+ALTER TABLE cms_emi_applications ADD COLUMN IF NOT EXISTS currency text DEFAULT 'INR';
 
 SELECT 'cms_emi_applications ready' as status,
        (SELECT COUNT(*) FROM cms_emi_applications) as applications;

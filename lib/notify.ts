@@ -150,8 +150,10 @@ export async function sendEmiApprovedNotice(app: {
   emi_processing_fee: number | null;
   emi_registration_amount: number | null;
   emi_notes: string;
+  currency?: string;
 }) {
-  const fmt = (n: number | null) => (n == null ? '—' : `₹${n.toLocaleString('en-IN')}`);
+  const usd = app.currency === 'USD';
+  const fmt = (n: number | null) => (n == null ? '—' : `${usd ? '$' : '₹'}${n.toLocaleString(usd ? 'en-US' : 'en-IN')}`);
   const row = (label: string, value: string, last = false) => `
     <tr>
       <td style="padding:11px 0; ${last ? '' : 'border-bottom:1px solid #EFEFEF;'} color:#6B7280; font-size:13.5px;">${label}</td>
