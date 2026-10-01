@@ -67,6 +67,7 @@ const PROGRAMS = [
   { value: 'pediatric-neurology', label: 'Fellowship in Pediatric Neurology' },
   { value: 'paediatric-echocardiography', label: 'Fellowship in Paediatric Echocardiography' },
   { value: 'pediatric-orthopedics', label: 'Fellowship in Pediatric Orthopedics' },
+  { value: 'pediatrics Emergency', label: 'Fellowship in Pediatrics Emergency' },
   // Neurology
   { value: 'neurology', label: 'Fellowship in Neurology' },
   // Radiology & Imaging
