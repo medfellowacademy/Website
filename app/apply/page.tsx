@@ -175,6 +175,7 @@ const DOC_SLOTS = [
   { key: 'degree',       label: 'MBBS / PG Degree Certificate',     accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
   { key: 'registration', label: 'Medical Registration Certificate',  accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
   { key: 'govtId',       label: 'Govt ID Proof (Aadhar / Passport)', accept: '.pdf,.jpg,.jpeg,.png', hint: 'PDF or Image' },
+  { key: 'cv',           label: 'CV / Resume',                       accept: '.pdf,.doc,.docx',      hint: 'PDF or Word' },
   { key: 'photo',        label: 'Recent Photograph',                 accept: '.jpg,.jpeg,.png',      hint: 'JPG or PNG' },
 ];
 
@@ -192,7 +193,7 @@ export default function ApplyPage() {
     program: '', modePreference: '', reason: '',
   });
   const [documents, setDocuments] = useState<Record<string, File | null>>({
-    degree: null, registration: null, govtId: null, photo: null,
+    degree: null, registration: null, govtId: null, cv: null, photo: null,
   });
   const [declarations, setDeclarations] = useState<boolean[]>(new Array(DECLARATIONS.length).fill(false));
   const [termsOpen, setTermsOpen] = useState(false);
@@ -515,7 +516,7 @@ export default function ApplyPage() {
                     <div className="space-y-8">
                       <div>
                         <p className="text-sm font-semibold text-primary mb-1">Document Upload</p>
-                        <p className="text-xs text-text-secondary mb-4">Upload clear copies of each document — PDF, JPG, or PNG, max 10MB each.</p>
+                        <p className="text-xs text-text-secondary mb-4">Upload clear copies of each document — PDF, JPG, or PNG (CV can also be Word), max 10MB each.</p>
                         <div className="grid sm:grid-cols-2 gap-3">
                           {DOC_SLOTS.map(slot => (
                             <div key={slot.key}
