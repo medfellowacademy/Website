@@ -87,6 +87,7 @@ const PROGRAMS = [
   { value: 'nephrology', label: 'Fellowship in Nephrology' },
   { value: 'urology', label: 'Fellowship in Urology' },
   { value: 'endourology', label: 'Fellowship in Endourology' },
+   { value: 'Urogynecology', label: 'Fellowship in Urogynecology' },
   // Other Specialties
   { value: 'pulmonary-medicine', label: 'Fellowship in Pulmonary Medicine' },
   { value: 'rheumatology', label: 'Fellowship in Rheumatology' },
