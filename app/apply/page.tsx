@@ -100,6 +100,7 @@ const PROGRAMS = [
   { value: 'otorhinolaryngology-ent', label: 'Fellowship in Otorhinolaryngology (ENT)' },
   { value: 'clinical-nutrition', label: 'Fellowship in Clinical Nutrition' },
   { value: 'Bariatric Endoscopy', label: 'Fellowship in Bariatric Endoscopy' },
+  { value: 'Hospital Management', label: 'Fellowship in Hospital Management' },
 ];
 
 const PRACTICE_TYPES = [
