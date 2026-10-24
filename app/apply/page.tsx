@@ -91,6 +91,7 @@ const PROGRAMS = [
   // Other Specialties
   { value: 'pulmonary-medicine', label: 'Fellowship in Pulmonary Medicine' },
   { value: 'rheumatology', label: 'Fellowship in Rheumatology' },
+   { value: 'Advanced Certificate in Rheumatology', label: 'Advanced Certificate in Rheumatology' },
   { value: 'psychiatry', label: 'Fellowship in Psychiatry' },
   { value: 'ophthalmology', label: 'Fellowship in Ophthalmology' },
   { value: 'oral-implantology-laser-dentistry', label: 'Fellowship in Oral Implantology and Laser Dentistry' },
