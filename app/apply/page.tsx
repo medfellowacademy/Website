@@ -18,6 +18,7 @@ const PROGRAMS = [
   { value: 'interventional-cardiology', label: 'Fellowship in Interventional Cardiology' },
   { value: 'pediatric-cardiology', label: 'Fellowship in Pediatric Cardiology' },
   { value: 'cardiothoracic-vascular-surgery', label: 'Fellowship in Cardiothoracic and Vascular Surgery' },
+   { value: 'Cardiac Imaging', label: 'Fellowship in Cardiac Imaging' },
   // Obstetrics & Gynecology
   { value: 'obstetrics-gynecology', label: 'Fellowship in Obstetrics & Gynecology' },
   { value: 'high-risk-pregnancy', label: 'Fellowship in High Risk Pregnancy' },
@@ -68,6 +69,7 @@ const PROGRAMS = [
   { value: 'paediatric-echocardiography', label: 'Fellowship in Paediatric Echocardiography' },
   { value: 'pediatric-orthopedics', label: 'Fellowship in Pediatric Orthopedics' },
   { value: 'pediatrics Emergency', label: 'Fellowship in Pediatrics Emergency' },
+  { value: 'pediatrics', label: 'Fellowship in Pediatrics Critical Care Medicine' },
   // Neurology
   { value: 'neurology', label: 'Fellowship in Neurology' },
   // Radiology & Imaging
