@@ -7,7 +7,7 @@ import { analytics } from '@/lib/analytics';
 import { isBareLandingPage } from '@/lib/bare-landing-pages';
 
 const DEFAULT_MESSAGES = [
-  { text: 'July 2026 batch applications now open — only 14 seats remaining', label: 'july_2026_batch' },
+  { text: 'November 2026 batch applications now open — only 14 seats remaining', label: 'November_2026_batch' },
   { text: 'New: Fellowship in Neonatology — Dubai & Saudi Arabia now available', label: 'new_neonatology' },
   { text: '4× salary uplift reported by Emergency Medicine fellows in 2025', label: 'salary_uplift' },
 ];
