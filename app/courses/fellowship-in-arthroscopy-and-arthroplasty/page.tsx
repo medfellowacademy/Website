@@ -719,7 +719,7 @@ export default function ArthroscopyArthroplastyPage() {
                   <p className="text-white/65 text-sm mt-1">2026 intake — rolling admissions open</p>
                 </div>
                 <div className="px-6 py-5 border-b border-gray-100">
-                  <div className="text-3xl font-extrabold text-[#15401E]">₹1,80,000</div>
+                  <div className="text-3xl font-extrabold text-[#15401E]">₹1,90,000</div>
                   <div className="text-xs text-gray-400 mt-1">Starting price · fully online</div>
                 </div>
                 <div className="px-6 py-4 space-y-3 border-b border-gray-100 text-sm">
@@ -761,8 +761,8 @@ export default function ArthroscopyArthroplastyPage() {
                 </div>
                 <div className="divide-y divide-gray-50">
                   {[
-                    { label: 'Fully Online', price: '₹1,80,000', tag: null },
-                    { label: '11 Online + 1 Clinical', price: '₹2,10,000', tag: 'Popular' },
+                    { label: 'Fully Online', price: '₹1,90,000', tag: null },
+                    { label: '11 Online + 1 Clinical', price: '₹2,75,000', tag: 'Popular' },
 
                   ].map((row, i) => (
                     <div key={i} className="flex items-center justify-between px-5 py-3 hover:bg-gray-50 transition-colors">
