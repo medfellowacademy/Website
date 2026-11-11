@@ -17,9 +17,11 @@ interface AccreditationProps {
   ctaText?: string;
   badgeCaption?: string;
   trustPoints?: { title: string; desc: string }[];
+  /** When set, the CTA opens this action (e.g. a landing-page enquiry form) instead of linking to /apply. */
+  onCtaClick?: () => void;
 }
 
-export default function AccreditationSection({ heading, body, ctaText, badgeCaption, trustPoints }: AccreditationProps = {}) {
+export default function AccreditationSection({ heading, body, ctaText, badgeCaption, trustPoints, onCtaClick }: AccreditationProps = {}) {
   const displayPoints = (trustPoints && trustPoints.length > 0) ? trustPoints : DEFAULT_TRUST_POINTS;
   return (
     <section className="section-padding bg-[#15401E] overflow-hidden">
@@ -93,14 +95,26 @@ export default function AccreditationSection({ heading, body, ctaText, badgeCapt
             </div>
 
             <div className="mt-6">
-              <Link
-                href="/apply"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-[0.875rem] font-semibold transition-opacity hover:opacity-90"
-                style={{ background: '#F0C040', color: '#1A1400' }}
-              >
-                <Award className="w-4 h-4" />
-                {ctaText || 'Enroll & get accredited'}
-              </Link>
+              {onCtaClick ? (
+                <button
+                  type="button"
+                  onClick={onCtaClick}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-[0.875rem] font-semibold transition-opacity hover:opacity-90"
+                  style={{ background: '#F0C040', color: '#1A1400' }}
+                >
+                  <Award className="w-4 h-4" />
+                  {ctaText || 'Enroll & get accredited'}
+                </button>
+              ) : (
+                <Link
+                  href="/apply"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-[0.875rem] font-semibold transition-opacity hover:opacity-90"
+                  style={{ background: '#F0C040', color: '#1A1400' }}
+                >
+                  <Award className="w-4 h-4" />
+                  {ctaText || 'Enroll & get accredited'}
+                </Link>
+              )}
             </div>
           </div>
 

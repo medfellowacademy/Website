@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import AccreditationSection from '@/components/AccreditationSection';
 
 const FELLOWSHIPS = ['Fellowship in Gastroenterology', 'Fellowship in GI Endoscopy', 'Interested in Both'];
 
@@ -393,6 +394,76 @@ export default function GastroenterologyGiEndoscopyFellowshipPage() {
         </div>
       </section>
 
+      {/* Meet Your Faculty */}
+      <section className="py-14 md:py-20 bg-white">
+        <div className="container-custom max-w-6xl px-4">
+          <div className="text-center mb-10 md:mb-12">
+            <div className="inline-block bg-gradient-to-r from-primary to-secondary text-white px-5 py-1.5 rounded-full text-xs md:text-sm font-bold mb-5">
+              MEET YOUR FACULTY
+            </div>
+            <h2 className="text-2xl md:text-4xl font-heading font-extrabold text-primary">
+              Learn From a Practising Gastroenterologist
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-[minmax(0,340px)_1fr] gap-8 lg:gap-12 items-center bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-5 md:p-10">
+            <div className="relative w-full max-w-[300px] md:max-w-none mx-auto aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-gray-100">
+              <Image
+                src="/faculty/dr-jagadeesh-chittuluri.jpg"
+                alt="Dr. Jagadeesh Chittuluri, Gastroenterologist and Hepatologist"
+                fill
+                sizes="(max-width: 768px) 300px, 340px"
+                className="object-cover object-top"
+              />
+              <span className="absolute top-3 left-3 bg-white/95 text-primary text-xs font-bold px-3 py-1 rounded-full shadow">
+                Gastroenterology
+              </span>
+            </div>
+
+            <div>
+              <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-primary">Dr. Jagadeesh Chittuluri</h3>
+              <p className="text-base md:text-lg font-semibold text-secondary mt-1">
+                Gastroenterologist &amp; Hepatologist | Interventional Endoscopist
+              </p>
+              <p className="text-sm text-gray-600 mt-1">MBBS, MD (General Medicine), DM (Gastroenterology)</p>
+
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed mt-5">
+                Dr. Jagadeesh Chittuluri is a skilled Consultant Gastroenterologist and Hepatologist specializing in
+                interventional endoscopy and the management of complex GI motility disorders. He is recognized for his
+                precision in advanced endoscopic procedures and his early adoption of AI-assisted endoscopy to improve
+                diagnostic accuracy. His practice focuses on comprehensive, evidence-based management of digestive and
+                liver diseases using the latest technology-driven approaches.
+              </p>
+
+              <p className="text-xs font-bold tracking-wider text-gray-500 uppercase mt-6 mb-2">Specialties</p>
+              <div className="flex flex-wrap gap-2">
+                {['Interventional Endoscopy', 'GI Motility Disorders', 'Hepatology', 'AI-Assisted Endoscopy'].map((sp) => (
+                  <span key={sp} className="bg-white border border-primary/15 text-primary text-xs md:text-sm font-semibold px-3 py-1.5 rounded-full">
+                    {sp}
+                  </span>
+                ))}
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-3 mt-6">
+                {['DM Gastroenterology & Hepatology', 'Interventional Endoscopist', 'AI-Assisted Endoscopy Expert'].map((h) => (
+                  <div key={h} className="flex items-start gap-2 bg-white rounded-xl p-3 shadow-sm">
+                    <span className="w-6 h-6 bg-[#15401E] rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0">✓</span>
+                    <span className="text-xs md:text-sm font-medium text-text-primary leading-snug">{h}</span>
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => openModal()}
+                className="mt-7 inline-flex items-center justify-center px-7 py-3.5 bg-[#15401E] text-white rounded-full font-bold hover:bg-[#0f2e15] transition-colors shadow-lg"
+              >
+                Learn From Dr. Jagadeesh – Get Course Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 5. Why Choose MedFellow */}
       <section className="py-14 md:py-20 bg-white">
         <div className="container-custom max-w-6xl px-4">
@@ -416,6 +487,19 @@ export default function GastroenterologyGiEndoscopyFellowshipPage() {
           </div>
         </div>
       </section>
+
+      {/* International accreditation (ACTD) */}
+      <AccreditationSection
+        body="MedFellow Academy Courses are internationally accredited by the American Council of Training and Development — your gateway to a globally recognised fellowship certificate."
+        badgeCaption="American Council of Training and Development — Recognized in 60+ countries"
+        trustPoints={[
+          { title: '60+ countries', desc: 'Certificates accepted globally' },
+          { title: 'Quality assured', desc: 'Rigorous curriculum by ACTD' },
+          { title: 'Career validated', desc: 'Recognised by top hospitals' },
+          { title: 'Annually audited', desc: 'Highest international standards' },
+        ]}
+        onCtaClick={() => openModal()}
+      />
 
       {/* 6. Who Can Apply */}
       <section className="py-14 md:py-20 bg-gradient-to-br from-secondary/10 to-primary/10">
