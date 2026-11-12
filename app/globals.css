@@ -329,3 +329,20 @@ input::placeholder, textarea::placeholder { color: #9CA3AF; }
   .no-print, .fixed { display: none !important; }
   @page { margin: 14mm; }
 }
+
+/* ── Application form — print / save-as-PDF ───────────────────── */
+@media print {
+  body:has(.application-print) * { visibility: hidden !important; }
+  body:has(.application-print) .application-print,
+  body:has(.application-print) .application-print * { visibility: visible !important; }
+  body:has(.application-print) .application-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    page: application-form;
+  }
+  @page application-form { size: A4; margin: 12mm; }
+}
