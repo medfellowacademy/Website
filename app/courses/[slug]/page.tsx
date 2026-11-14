@@ -4943,7 +4943,7 @@ const programsData: { [key: string]: any } = {
   "fellowship-in-2d-echocardiography": {
     name: "Fellowship in 2D Echocardiography",
     icon: "🫀",
-    duration: "12 Months",
+    duration: "6 Months",
     eligibility: "MBBS / MD / DNB / Equivalent medical qualification",
     description: "Comprehensive fellowship in 2D echocardiography focused on practical imaging and cardiac diagnosis.",
     overview: "The Fellowship in 2D Echocardiography is a clinically oriented course designed to build strong competency in echocardiographic imaging, interpretation, and simulation-based application. The curriculum integrates foundational principles, diagnostic workflows, and hands-on simulation modules for accurate evaluation of cardiac structure and function.",
@@ -5394,6 +5394,10 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
     );
   }
 
+  // Fee labels follow the course length: 12 months → "11 Online + 1", 6 months → "5 Online + 1"
+  const parsedMonths = parseInt(String(program.duration ?? ''), 10);
+  const feeMonths = Number.isFinite(parsedMonths) && parsedMonths > 1 ? parsedMonths : 12;
+
   const programBgImage = getProgramImage(slug);
 
   return (
@@ -5621,7 +5625,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     <div className="flex justify-between items-center p-4 bg-gray-50 rounded-xl">
                       <div>
                         <div className="font-semibold text-gray-800 text-sm">Fully Online</div>
-                        <div className="text-xs text-gray-400">12 months · all live sessions recorded</div>
+                        <div className="text-xs text-gray-400">{feeMonths} months · all live sessions recorded</div>
                       </div>
                       <div className="text-lg font-bold text-[#15401E]">
                         ₹{program.onlinePrice.toLocaleString('en-IN')}
@@ -5634,7 +5638,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                         Most Popular
                       </span>
                       <div>
-                        <div className="font-semibold text-[#15401E] text-sm">11 Online + 1 Clinical Month</div>
+                        <div className="font-semibold text-[#15401E] text-sm">{feeMonths - 1} Online + 1 Clinical Month</div>
                         <div className="text-xs text-gray-400">Online learning + hospital attachment</div>
                       </div>
                       <div className="text-lg font-bold text-[#15401E]">
